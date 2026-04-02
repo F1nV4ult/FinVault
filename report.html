@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Report - FinVault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .report-main {
+            position: relative;
+            z-index: 10;
+            padding: 8rem 4rem 4rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .pdf-section {
+            flex: 2;
+            height: 900px; /* Reduced vertical length for a better rectangular profile */
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .stats-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .stats-table-container {
+            flex: 1;
+            background: rgba(1, 10, 1, 0.9);
+            border: 2px solid var(--accent-green);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.15) inset;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .stats-table-container h2 {
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--accent-green);
+        }
+
+        .stats-table th, .stats-table td {
+            text-align: left;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        .stats-table th {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .stats-table td {
+            font-weight: bold;
+        }
+
+        .stats-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .top-bar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding-bottom: 0.5rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--accent-green);
+        }
+
+        .company-header {
+            min-height: 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-white);
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .company-industry {
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+            margin: 0;
+        }
+
+        /* Scanline effect for table */
+        .stats-table-container::after {
+            content: " ";
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 2;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo" style="color: white; text-decoration: none;">FinVault</a>
+        <nav class="nav-links">
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="about.html" class="nav-link">About us</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="secondary-canvas-container" class="bg-canvas"></div>
+        
+        <div class="report-main">
+            <div class="top-bar">
+                <a href="#" id="back-to-repo" class="back-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Repository
+                </a>
+            </div>
+
+            <div class="content-grid">
+                <div class="pdf-section">
+                    <!-- PDF Viewer will be loaded here via JS -->
+                    <iframe id="pdf-viewer" class="pdf-viewer" src="" type="application/pdf"></iframe>
+                </div>
+
+                <div class="stats-section">
+                    <div class="company-header">
+                        <h1 id="company-name" class="company-title">Company Name</h1>
+                        <p id="company-industry" class="company-industry">Industry Name</p>
+                    </div>
+
+                <div class="stats-table-container">
+                    <h2>FINANCIAL RATIOS</h2>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Ratio</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stats-body">
+                            <tr>
+                                <td>Current</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Acid test</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Operating cash flow</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Liabilities to Equity</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Debt to Equity</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Debt to assets</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Interest coverage</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Inventory turnover</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Receivables turnover</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Payables turnover</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Total asset turnover</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Operating margin</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Net profit margin</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Return on assets</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Return on equity</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const company = urlParams.get('company');
+            const pdfViewer = document.getElementById('pdf-viewer');
+            const companyDisplayName = document.getElementById('company-name');
+            const companyIndustry = document.getElementById('company-industry');
+            const tbody = document.getElementById('stats-body');
+
+            if (company) {
+                const companyData = {
+                    'exxonmobil': {
+                        name: 'ExxonMobil',
+                        industry: 'Integrated Oil & Gas',
+                        pdf: 'assets/reports/exxonmobil.pdf',
+                        stats: ['1.15', '0.76', '0.72', '0.68', '0.16', '0.406', '69.4x', '7.4x', '7.3x', '3.0x', '0.72', '12.6%', '8.7%', '6.4%', '10.7%']
+                    },
+                    'iberdrola': {
+                        name: 'Iberdrola',
+                        industry: 'Integrated Utilities & Renewable Energy',
+                        pdf: 'assets/reports/iberdrola.pdf',
+                        stats: ['0.87', '0.69', '0.41', '1.53', '0.84', '0.61', '2.45x', '15.4x', '3.8x', '-', '0.28x', '36.2%', '14.3%', '3.9%', '9.9%']
+                    },
+                    'lockheedmartin': {
+                        name: 'Lockheed Martin',
+                        industry: 'Aerospace & Defense',
+                        pdf: 'assets/reports/lockheedmartin.pdf',
+                        stats: []
+                    },
+                    'northropgrumman': {
+                        name: 'Northrop Grumman',
+                        industry: 'Aerospace & Defense',
+                        pdf: 'assets/reports/northropgrumman.pdf',
+                        stats: []
+                    },
+                    'rtx': {
+                        name: 'RTX Corp',
+                        industry: 'Aerospace & Defense',
+                        pdf: 'assets/reports/rtx.pdf',
+                        stats: []
+                    },
+                    'l3harris': {
+                        name: 'L3Harris',
+                        industry: 'Aerospace & Defense',
+                        pdf: 'assets/reports/l3harris.pdf',
+                        stats: []
+                    }
+                };
+
+                const data = companyData[company.toLowerCase()];
+                if (data) {
+                    pdfViewer.src = data.pdf;
+                    companyDisplayName.textContent = data.name;
+                    companyIndustry.textContent = data.industry;
+                    document.title = `${data.name} Report - FinVault`;
+
+                    // Populate stats if they exist
+                    if (data.stats && data.stats.length > 0) {
+                        const rows = tbody.querySelectorAll('tr');
+                        rows.forEach((row, i) => {
+                            if (data.stats[i]) {
+                                const valCell = row.querySelectorAll('td')[1];
+                                valCell.textContent = data.stats[i];
+                            }
+                        });
+                    }
+                } else {
+                    companyDisplayName.textContent = 'Company Not Found';
+                }
+            }
+
+            // Back button dynamic behavior
+            const backBtn = document.getElementById('back-to-repo');
+            if (backBtn) {
+                const fromPage = urlParams.get('from');
+                const referrer = document.referrer;
+                
+                if (fromPage) {
+                    backBtn.href = fromPage;
+                } else if (referrer && (referrer.includes('reports.html') || referrer.includes('energy.html') || referrer.includes('industrials.html'))) {
+                    backBtn.href = referrer;
+                } else {
+                    backBtn.href = 'reports.html'; // Default fallback
+                }
+            }
+        });
+    </script>
+</body>
+</html>
