@@ -589,3 +589,123 @@ body {
     color: var(--accent-green);
     transform: translateY(-5px);
 }
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .hero-cta {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        margin-top: 15vh;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .segments-heading {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .cards-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .cards-carousel {
+        gap: 2rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+    }
+
+    .info-split-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .split-container {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .section-heading {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .value-writeup {
+        font-size: 1.1rem;
+        padding-right: 0;
+        max-width: 100%;
+    }
+
+    .terminal-container {
+        padding: 1.5rem;
+        min-height: 300px;
+    }
+
+    .term-line {
+        font-size: 0.9rem;
+    }
+
+    .disclaimer-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .footer-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .footer-title {
+        font-size: 1.8rem;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .footer-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.8rem 2rem;
+    }
+
+    .repository-section {
+        padding: 7rem 1.5rem 3rem 1.5rem;
+    }
+
+    .repo-title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .company-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .company-card {
+        padding: 2rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+}
