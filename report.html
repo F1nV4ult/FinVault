@@ -6,7 +6,22 @@
     <title>Company Report - FinVault</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
+        /* Mobile Switcher */
+        .mobile-pdf-container {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .pdf-section {
+                display: none !important;
+            }
+            .mobile-pdf-container {
+                display: block !important;
+            }
+        }
+
         .report-main {
             position: relative;
             z-index: 10;
@@ -211,28 +226,34 @@
     <main>
         <div id="secondary-canvas-container" class="bg-canvas"></div>
         
-        <div class="report-main">
-            <div class="top-bar">
-                <a href="#" id="back-to-repo" class="back-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                    Back to Repository
-                </a>
+    <div class="report-main">
+        <div class="top-bar">
+            <a href="#" id="back-to-repo" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Repository
+            </a>
+        </div>
+
+        <div class="content-grid">
+            <div id="desktop-pdf-viewer" class="pdf-section">
+                <!-- PDF Viewer will be loaded here via JS -->
+                <iframe id="pdf-viewer" class="pdf-viewer" src="" type="application/pdf"></iframe>
             </div>
 
-            <div class="content-grid">
-                <div class="pdf-section">
-                    <!-- PDF Viewer will be loaded here via JS -->
-                    <iframe id="pdf-viewer" class="pdf-viewer" src="" type="application/pdf"></iframe>
-                </div>
+            <!-- NEW: Mobile Swipe PDF Viewer -->
+            <div id="mobile-pdf-viewer" class="mobile-pdf-container">
+                <div id="pdf-pages"></div>
+                <div class="swipe-hint">← Swipe for more pages →</div>
+            </div>
 
-                <div class="stats-section">
-                    <div class="company-header">
-                        <h1 id="company-name" class="company-title">Company Name</h1>
-                        <p id="company-industry" class="company-industry">Industry Name</p>
-                    </div>
+            <div class="stats-section">
+                <div class="company-header">
+                    <h1 id="company-name" class="company-title">Company Name</h1>
+                    <p id="company-industry" class="company-industry">Industry Name</p>
+                </div>
 
                 <div class="stats-table-container">
                     <h2>FINANCIAL RATIOS</h2>
@@ -370,7 +391,6 @@
                     companyIndustry.textContent = data.industry;
                     document.title = `${data.name} Report - FinVault`;
 
-                    // Populate stats if they exist
                     if (data.stats && data.stats.length > 0) {
                         const rows = tbody.querySelectorAll('tr');
                         rows.forEach((row, i) => {
@@ -378,6 +398,39 @@
                                 const valCell = row.querySelectorAll('td')[1];
                                 valCell.textContent = data.stats[i];
                             }
+                        });
+                    }
+
+                    // Mobile PDF Swipe Loader
+                    if (window.innerWidth <= 1024 && data.pdf) {
+                        const pdfPagesContainer = document.getElementById('pdf-pages');
+                        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+                        
+                        pdfjsLib.getDocument(data.pdf).promise.then(pdf => {
+                            // Render pages sequentially for better order
+                            async function renderPages() {
+                                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                                    const page = await pdf.getPage(pageNum);
+                                    const viewport = page.getViewport({ scale: 1.5 });
+                                    const wrapper = document.createElement('div');
+                                    wrapper.className = 'pdf-page-wrapper';
+                                    
+                                    const canvas = document.createElement('canvas');
+                                    canvas.className = 'pdf-page-canvas';
+                                    const context = canvas.getContext('2d');
+                                    canvas.height = viewport.height;
+                                    canvas.width = viewport.width;
+                                    
+                                    wrapper.appendChild(canvas);
+                                    pdfPagesContainer.appendChild(wrapper);
+                                    
+                                    await page.render({ canvasContext: context, viewport: viewport }).promise;
+                                }
+                            }
+                            renderPages();
+                        }).catch(err => {
+                            console.error('PDF Load Error:', err);
+                            pdfPagesContainer.innerHTML = '<p style="color: white; padding: 2rem;">Unable to load preview. Please use a desktop for full report.</p>';
                         });
                     }
                 } else {
