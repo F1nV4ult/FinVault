@@ -329,6 +329,13 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Live TradingView Stock Chart Section -->
+        <div id="stock-chart-section" class="stock-chart-section" style="display: none;">
+            <div class="tradingview-widget-container" id="tv-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+            </div>
+        </div>
     </div>
 </main>
 
@@ -349,36 +356,42 @@
                         name: 'ExxonMobil',
                         industry: 'Integrated Oil & Gas',
                         pdf: 'assets/reports/exxonmobil.pdf',
+                        ticker: 'NYSE:XOM',
                         stats: ['1.15', '0.76', '0.72', '0.68', '0.16', '0.406', '69.4x', '7.4x', '7.3x', '3.0x', '0.72', '12.6%', '8.7%', '6.4%', '10.7%']
                     },
                     'iberdrola': {
                         name: 'Iberdrola',
                         industry: 'Integrated Utilities & Renewable Energy',
                         pdf: 'assets/reports/iberdrola.pdf',
+                        ticker: 'BME:IBE',
                         stats: ['0.87', '0.69', '0.41', '1.53', '0.84', '0.61', '2.45x', '15.4x', '3.8x', '-', '0.28x', '36.2%', '14.3%', '3.9%', '9.9%']
                     },
                     'lockheedmartin': {
                         name: 'Lockheed Martin',
                         industry: 'Aerospace & Defense',
                         pdf: 'assets/reports/lockheedmartin.pdf',
+                        ticker: 'NYSE:LMT',
                         stats: ['1.09', '0.76', '0.37', '7.9', '3.41', '2.0', '6.92x', '21.3x', '19.2x', '23.04x', '1.31x', '10.3%', '6.7%', '8.9%', '76.2%']
                     },
                     'northropgrumman': {
                         name: 'Northrop Grumman',
                         industry: 'Aerospace & Defense',
                         pdf: 'assets/reports/northropgrumman.pdf',
+                        ticker: 'NYSE:NOC',
                         stats: []
                     },
                     'rtx': {
                         name: 'RTX Corp',
                         industry: 'Aerospace & Defense',
                         pdf: 'assets/reports/rtx.pdf',
+                        ticker: 'NYSE:RTX',
                         stats: ['1.03', '0.80', '0.18', '1.55', '0.45', '0.61', '5.32x', '6.6x', '6.9x', '4.9x', '0.54x', '10.5%', '7.6%', '4.1%', '10.6%']
                     },
                     'l3harris': {
                         name: 'L3Harris',
                         industry: 'Aerospace & Defense',
                         pdf: 'assets/reports/l3harris.pdf',
+                        ticker: 'NYSE:LHX',
                         stats: ['1.19', '0.98', '0.43', '1.10', '0.51', '0.52', '3.54x', '12.9x', '17.6x', '7.3x', '0.53x', '9.7%', '7.3%', '3.9%', '8.2%']
                     }
                 };
@@ -431,6 +444,42 @@
                             console.error('PDF Load Error:', err);
                             pdfPagesContainer.innerHTML = '<p style="color: white; padding: 2rem;">Unable to load preview. Please use a desktop for full report.</p>';
                         });
+                    }
+
+                    // TradingView Widget Injection
+                    if (data.ticker) {
+                        const chartSection = document.getElementById('stock-chart-section');
+                        const widgetContainer = document.getElementById('tv-widget-container');
+                        chartSection.style.display = 'block';
+                        
+                        const script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+                        script.async = true;
+                        
+                        script.innerHTML = JSON.stringify({
+                            "autosize": true,
+                            "symbol": data.ticker,
+                            "interval": "W",
+                            "timezone": "Etc/UTC",
+                            "theme": "dark",
+                            "style": "3", // Area chart
+                            "locale": "en",
+                            "enable_publishing": false,
+                            "backgroundColor": "rgba(0, 0, 0, 0.8)",
+                            "gridColor": "rgba(57, 255, 20, 0.05)",
+                            "hide_top_toolbar": true,
+                            "hide_legend": true,
+                            "save_image": false,
+                            "container_id": "tradingview_widget",
+                            "linewidth": 2,
+                            "linecolor": "rgba(57, 255, 20, 1)", // Neon green
+                            "topColor": "rgba(57, 255, 20, 0.2)",
+                            "bottomColor": "rgba(57, 255, 20, 0)",
+                            "range": "12M" // 52 weeks
+                        });
+                        
+                        widgetContainer.appendChild(script);
                     }
                 } else {
                     companyDisplayName.textContent = 'Company Not Found';
