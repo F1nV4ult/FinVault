@@ -336,6 +336,30 @@
                 <div class="tradingview-widget-container__widget"></div>
             </div>
         </div>
+        
+        <!-- NEW: Dynamic Multiples Section -->
+        <div id="multiples-section" class="multiples-container" style="display: none;">
+            <h2 class="multiples-title">MULTIPLES</h2>
+            <div class="multiples-grid">
+                <div class="multiple-card">
+                    <span class="multiple-label">Trailing P/E</span>
+                    <span class="multiple-value" id="val-trailing-pe">--</span>
+                </div>
+                <div class="multiple-card">
+                    <span class="multiple-label">Leading P/E</span>
+                    <span class="multiple-value" id="val-leading-pe">--</span>
+                </div>
+                <div class="multiple-card">
+                    <span class="multiple-label">Price/FCF</span>
+                    <span class="multiple-value" id="val-price-fcf">--</span>
+                </div>
+                <div class="multiple-card">
+                    <span class="multiple-label">Dividend Yield</span>
+                    <span class="multiple-value" id="val-div-yield">--</span>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </main>
 
@@ -357,6 +381,12 @@
                         industry: 'Integrated Oil & Gas',
                         pdf: 'assets/reports/exxonmobil.pdf',
                         ticker: 'NYSE:XOM',
+                        fundamentals: {
+                            trailingEPS: 6.70,
+                            forwardEPS: 6.82,
+                            fcfPerShare: 5.74, // Back-calculated from 28x Price/FCF given current market base price
+                            dividendYield: '2.64%'
+                        },
                         stats: ['1.15', '0.76', '0.72', '0.68', '0.16', '0.406', '69.4x', '7.4x', '7.3x', '3.0x', '0.72', '12.6%', '8.7%', '6.4%', '10.7%']
                     },
                     'iberdrola': {
@@ -475,6 +505,58 @@
                         });
                         
                         widgetContainer.appendChild(script);
+                    }
+                    
+                    // Live Multiples Calculation
+                    if (data.fundamentals && data.ticker) {
+                        const multiplesSection = document.getElementById('multiples-section');
+                        multiplesSection.style.display = 'block';
+                        
+                        document.getElementById('val-div-yield').textContent = data.fundamentals.dividendYield;
+                        
+                        const symbolOnly = data.ticker.split(':')[1];
+                        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbolOnly}`;
+                        
+                        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+                            .then(response => {
+                                if (response.ok) return response.json();
+                                throw new Error('Network response was not ok.');
+                            })
+                            .then(proxyData => {
+                                const yfData = JSON.parse(proxyData.contents);
+                                const currentPrice = yfData.chart.result[0].meta.regularMarketPrice;
+                                
+                                if (currentPrice) {
+                                    const tPe = (currentPrice / data.fundamentals.trailingEPS).toFixed(1);
+                                    const fPe = (currentPrice / data.fundamentals.forwardEPS).toFixed(1);
+                                    const pFcf = (currentPrice / data.fundamentals.fcfPerShare).toFixed(1);
+                                    
+                                    document.getElementById('val-trailing-pe').textContent = `${tPe}x`;
+                                    document.getElementById('val-leading-pe').textContent = `${fPe}x`;
+                                    document.getElementById('val-price-fcf').textContent = `${pFcf}x`;
+                                    
+                                    // Make values glow briefly when loaded
+                                    const valueElements = [
+                                        document.getElementById('val-trailing-pe'),
+                                        document.getElementById('val-leading-pe'),
+                                        document.getElementById('val-price-fcf')
+                                    ];
+                                    
+                                    valueElements.forEach(el => {
+                                        el.style.color = '#fff';
+                                        setTimeout(() => {
+                                            el.style.transition = 'color 0.8s ease';
+                                            el.style.color = 'var(--accent-green)';
+                                        }, 100);
+                                    });
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Failed to fetch live price for multiples:', error);
+                                document.getElementById('val-trailing-pe').textContent = 'Error';
+                                document.getElementById('val-leading-pe').textContent = 'Error';
+                                document.getElementById('val-price-fcf').textContent = 'Error';
+                            });
                     }
                 } else {
                     companyDisplayName.textContent = 'Company Not Found';
