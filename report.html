@@ -394,6 +394,12 @@
                         industry: 'Integrated Utilities & Renewable Energy',
                         pdf: 'assets/reports/iberdrola.pdf',
                         ticker: 'BME:IBE',
+                        fundamentals: {
+                            trailingEPS: 0.931,
+                            forwardEPS: 1.015,
+                            fcfPerShare: 0.627, // Calculated from 32.3x Price/FCF targeting base price ~20.25
+                            dividendYield: '3.5%'
+                        },
                         stats: ['0.87', '0.69', '0.41', '1.53', '0.84', '0.61', '2.45x', '15.4x', '3.8x', '-', '0.28x', '36.2%', '14.3%', '3.9%', '9.9%']
                     },
                     'lockheedmartin': {
@@ -514,48 +520,66 @@
                         
                         document.getElementById('val-div-yield').textContent = data.fundamentals.dividendYield;
                         
-                        const symbolOnly = data.ticker.split(':')[1];
-                        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbolOnly}`;
+                        let symbolOnly = data.ticker.split(':')[1];
+                        
+                        // Mapping for Yahoo Finance symbols
+                        const symbolMap = {
+                            'IBE': 'IBE.MC'
+                        };
+                        const yahooSymbol = symbolMap[symbolOnly] || symbolOnly;
+                        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${yahooSymbol}`;
                         
                         fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
                             .then(response => {
                                 if (response.ok) return response.json();
-                                throw new Error('Network response was not ok.');
+                                throw new Error('Proxy error or connection issue.');
                             })
                             .then(proxyData => {
-                                const yfData = JSON.parse(proxyData.contents);
-                                const currentPrice = yfData.chart.result[0].meta.regularMarketPrice;
-                                
-                                if (currentPrice) {
-                                    const tPe = (currentPrice / data.fundamentals.trailingEPS).toFixed(1);
-                                    const fPe = (currentPrice / data.fundamentals.forwardEPS).toFixed(1);
-                                    const pFcf = (currentPrice / data.fundamentals.fcfPerShare).toFixed(1);
+                                try {
+                                    const yfData = JSON.parse(proxyData.contents);
+                                    if (!yfData.chart || !yfData.chart.result || !yfData.chart.result[0]) {
+                                        throw new Error('Malformed Yahoo Finance data.');
+                                    }
                                     
-                                    document.getElementById('val-trailing-pe').textContent = `${tPe}x`;
-                                    document.getElementById('val-leading-pe').textContent = `${fPe}x`;
-                                    document.getElementById('val-price-fcf').textContent = `${pFcf}x`;
+                                    const meta = yfData.chart.result[0].meta;
+                                    const currentPrice = meta.regularMarketPrice;
                                     
-                                    // Make values glow briefly when loaded
-                                    const valueElements = [
-                                        document.getElementById('val-trailing-pe'),
-                                        document.getElementById('val-leading-pe'),
-                                        document.getElementById('val-price-fcf')
-                                    ];
-                                    
-                                    valueElements.forEach(el => {
-                                        el.style.color = '#fff';
-                                        setTimeout(() => {
-                                            el.style.transition = 'color 0.8s ease';
-                                            el.style.color = 'var(--accent-green)';
-                                        }, 100);
-                                    });
+                                    if (currentPrice) {
+                                        const tPe = (currentPrice / data.fundamentals.trailingEPS).toFixed(1);
+                                        const fPe = (currentPrice / data.fundamentals.forwardEPS).toFixed(1);
+                                        const pFcf = (currentPrice / data.fundamentals.fcfPerShare).toFixed(1);
+                                        
+                                        document.getElementById('val-trailing-pe').textContent = `${tPe}x`;
+                                        document.getElementById('val-leading-pe').textContent = `${fPe}x`;
+                                        document.getElementById('val-price-fcf').textContent = `${pFcf}x`;
+                                        
+                                        // Glow animation
+                                        const valueElements = [
+                                            document.getElementById('val-trailing-pe'),
+                                            document.getElementById('val-leading-pe'),
+                                            document.getElementById('val-price-fcf')
+                                        ];
+                                        
+                                        valueElements.forEach(el => {
+                                            el.style.color = '#fff';
+                                            setTimeout(() => {
+                                                el.style.transition = 'color 0.8s ease';
+                                                el.style.color = 'var(--accent-green)';
+                                            }, 100);
+                                        });
+                                    } else {
+                                        throw new Error('Price not found in data.');
+                                    }
+                                } catch (parseError) {
+                                    console.error('Parse Error:', parseError);
+                                    throw parseError;
                                 }
                             })
                             .catch(error => {
                                 console.error('Failed to fetch live price for multiples:', error);
-                                document.getElementById('val-trailing-pe').textContent = 'Error';
-                                document.getElementById('val-leading-pe').textContent = 'Error';
-                                document.getElementById('val-price-fcf').textContent = 'Error';
+                                document.getElementById('val-trailing-pe').textContent = 'N/A';
+                                document.getElementById('val-leading-pe').textContent = 'N/A';
+                                document.getElementById('val-price-fcf').textContent = 'N/A';
                             });
                     }
                 } else {
