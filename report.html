@@ -554,15 +554,45 @@
                     if (data.fundamentals && data.ticker) {
                         const multiplesSection = document.getElementById('multiples-section');
                         multiplesSection.style.display = 'block';
-                        
                         document.getElementById('val-div-yield').textContent = data.fundamentals.dividendYield;
-                        
-                        const symbolOnly = data.ticker.split(':')[1];
+
+                        const ticker = data.ticker.split(':')[1];
                         const symbolMap = { 'IBE': 'IBE.MC' };
-                        const yahooSymbol = symbolMap[symbolOnly] || symbolOnly;
+                        const yahooSymbol = symbolMap[ticker] || ticker;
                         const targetUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yahooSymbol}`;
-                        
-                        // Robust Fetch with Fallbacks
+                        const cacheKey = `finvault_cache_${ticker}`;
+
+                        // UI Rendering Helper
+                        const updateMultiplesUI = (price, isCached = false) => {
+                            const trailingPE = (price / data.fundamentals.trailingEPS).toFixed(1);
+                            const leadingPE = (price / data.fundamentals.forwardEPS).toFixed(1);
+                            const priceFCF = (price / data.fundamentals.fcfPerShare).toFixed(1);
+
+                            document.getElementById('val-trailing-pe').textContent = trailingPE + 'x';
+                            document.getElementById('val-leading-pe').textContent = leadingPE + 'x';
+                            document.getElementById('val-price-fcf').textContent = priceFCF + 'x';
+
+                            if (!isCached) {
+                                document.querySelectorAll('.val-unit').forEach(el => {
+                                    el.style.color = '#fff';
+                                    el.style.textShadow = '0 0 20px rgba(57, 255, 20, 0.4)';
+                                    setTimeout(() => {
+                                        el.style.transition = 'color 0.8s ease, text-shadow 0.8s ease';
+                                        el.style.color = 'var(--accent-green)';
+                                        el.style.textShadow = 'none';
+                                    }, 100);
+                                });
+                            }
+                        };
+
+                        // 1. Instant Load from Cache
+                        const cachedData = JSON.parse(localStorage.getItem(cacheKey));
+                        if (cachedData && cachedData.price) {
+                            console.log(`Instant load from cache for ${ticker}`);
+                            updateMultiplesUI(cachedData.price, true);
+                        }
+
+                        // 2. Fetch with Fallback & Stale-Check
                         const fetchWithFallback = async (url) => {
                             const cacheBuster = `?t=${Date.now()}`;
                             const proxies = [
@@ -572,63 +602,40 @@
 
                             for (const proxyUrl of proxies) {
                                 try {
-                                    console.log(`Attempting fetch via: ${proxyUrl.split('?')[0]}`);
                                     const response = await fetch(proxyUrl);
                                     if (!response.ok) continue;
-                                    
-                                    const data = await response.json();
-                                    // allorigins wraps result in .contents string, cors.lol returns raw json
-                                    const rawJson = data.contents ? JSON.parse(data.contents) : data;
-                                    
-                                    if (rawJson.chart?.result?.[0]) {
-                                        console.log("Financial data successfully retrieved.");
-                                        return rawJson;
-                                    }
-                                } catch (e) {
-                                    console.warn(`Proxy failed: ${proxyUrl.split('?')[0]}`, e);
-                                }
+                                    const resData = await response.json();
+                                    const rawJson = resData.contents ? JSON.parse(resData.contents) : resData;
+                                    if (rawJson.chart?.result?.[0]) return rawJson;
+                                } catch (e) { console.warn(`Proxy failed: ${proxyUrl.split('?')[0]}`); }
                             }
                             throw new Error("All proxies failed.");
                         };
 
-                        fetchWithFallback(targetUrl)
-                            .then(yfData => {
-                                const meta = yfData.chart.result[0].meta;
-                                const currentPrice = meta.regularMarketPrice;
-                                
-                                if (currentPrice && data.fundamentals) {
-                                    const trailingPE = (currentPrice / data.fundamentals.trailingEPS).toFixed(1);
-                                    const leadingPE = (currentPrice / data.fundamentals.forwardEPS).toFixed(1);
-                                    const priceFCF = (currentPrice / data.fundamentals.fcfPerShare).toFixed(1);
+                        // Only fetch if no cache or cache older than 15 mins
+                        const shouldFetch = !cachedData || (Date.now() - cachedData.timestamp > 15 * 60 * 1000);
 
-                                    document.getElementById('val-trailing-pe').textContent = trailingPE + 'x';
-                                    document.getElementById('val-leading-pe').textContent = leadingPE + 'x';
-                                    document.getElementById('val-price-fcf').textContent = priceFCF + 'x';
-                                    
-                                    // Smooth color transition animation
-                                    const valueElements = [
-                                        document.getElementById('val-trailing-pe'),
-                                        document.getElementById('val-leading-pe'),
-                                        document.getElementById('val-price-fcf')
-                                    ];
-                                    
-                                    valueElements.forEach(el => {
-                                        el.style.color = '#fff';
-                                        el.style.textShadow = '0 0 20px rgba(57, 255, 20, 0.4)';
-                                        setTimeout(() => {
-                                            el.style.transition = 'color 0.8s ease, text-shadow 0.8s ease';
-                                            el.style.color = 'var(--accent-green)';
-                                            el.style.textShadow = 'none';
-                                        }, 100);
-                                    });
-                                }
-                            })
-                            .catch(err => {
-                                console.error("Final Multiples Error:", err);
-                                document.getElementById('val-trailing-pe').textContent = 'N/A';
-                                document.getElementById('val-leading-pe').textContent = 'N/A';
-                                document.getElementById('val-price-fcf').textContent = 'N/A';
-                            });
+                        if (shouldFetch) {
+                            fetchWithFallback(targetUrl)
+                                .then(yfData => {
+                                    const currentPrice = yfData.chart.result[0].meta.regularMarketPrice;
+                                    if (currentPrice) {
+                                        updateMultiplesUI(currentPrice);
+                                        localStorage.setItem(cacheKey, JSON.stringify({
+                                            price: currentPrice,
+                                            timestamp: Date.now()
+                                        }));
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error("Fetch failed:", err);
+                                    if (!cachedData) {
+                                        ['val-trailing-pe', 'val-leading-pe', 'val-price-fcf'].forEach(id => 
+                                            document.getElementById(id).textContent = 'N/A'
+                                        );
+                                    }
+                                });
+                        }
                     }
                 } else {
                     companyDisplayName.textContent = 'Company Not Found';
