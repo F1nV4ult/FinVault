@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Report - FinVault</title>
+    <title>Company Report - NovaSect</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -216,7 +216,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="index.html" class="logo" style="color: white; text-decoration: none;">FinVault</a>
+        <a href="index.html" class="logo" style="color: white; text-decoration: none;">NovaSect</a>
         <nav class="nav-links">
             <a href="reports.html" class="nav-link">Reports</a>
             <a href="about.html" class="nav-link">About us</a>
@@ -474,7 +474,7 @@
                     pdfViewer.src = data.pdf;
                     companyDisplayName.textContent = data.name;
                     companyIndustry.textContent = data.industry;
-                    document.title = `${data.name} Report - FinVault`;
+                    document.title = `${data.name} Report - NovaSect`;
 
                     if (data.stats && data.stats.length > 0) {
                         const rows = tbody.querySelectorAll('tr');
@@ -560,7 +560,7 @@
                         const symbolMap = { 'IBE': 'IBE.MC' };
                         const yahooSymbol = symbolMap[ticker] || ticker;
                         const targetUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yahooSymbol}`;
-                        const cacheKey = `finvault_cache_${ticker}`;
+                        const cacheKey = `novasect_cache_${ticker}`;
 
                         // UI Rendering Helper
                         const updateMultiplesUI = (price, isCached = false) => {
