@@ -564,6 +564,7 @@
 
                         // UI Rendering Helper
                         const updateMultiplesUI = (price, isCached = false) => {
+                            if (!price || !data.fundamentals) return;
                             const trailingPE = (price / data.fundamentals.trailingEPS).toFixed(1);
                             const leadingPE = (price / data.fundamentals.forwardEPS).toFixed(1);
                             const priceFCF = (price / data.fundamentals.fcfPerShare).toFixed(1);
@@ -592,43 +593,47 @@
                             updateMultiplesUI(cachedData.price, true);
                         }
 
-                        // 2. Fetch with Fallback & Stale-Check
-                        const fetchWithFallback = async (url) => {
-                            const cacheBuster = `?t=${Date.now()}`;
+                        // 2. Optimized Fetch Logic
+                        const fetchPrice = async (url) => {
+                            const cacheBuster = `&t=${Date.now()}`;
                             const proxies = [
-                                `https://api.cors.lol/?url=${encodeURIComponent(url + cacheBuster)}`,
-                                `https://api.allorigins.win/get?url=${encodeURIComponent(url + cacheBuster)}`
+                                `https://api.allorigins.win/raw?url=${encodeURIComponent(url + cacheBuster)}`,
+                                `https://api.cors.lol/?url=${encodeURIComponent(url + cacheBuster)}`
                             ];
 
                             for (const proxyUrl of proxies) {
                                 try {
                                     const response = await fetch(proxyUrl);
                                     if (!response.ok) continue;
-                                    const resData = await response.json();
-                                    const rawJson = resData.contents ? JSON.parse(resData.contents) : resData;
-                                    if (rawJson.chart?.result?.[0]) return rawJson;
-                                } catch (e) { console.warn(`Proxy failed: ${proxyUrl.split('?')[0]}`); }
+                                    const rawJson = await response.json();
+                                    
+                                    if (rawJson.chart?.result?.[0]) {
+                                        const meta = rawJson.chart.result[0].meta;
+                                        // Fallback to previousClose if regularMarketPrice is missing (market closed)
+                                        return meta.regularMarketPrice || meta.previousClose;
+                                    }
+                                } catch (e) { console.warn(`Proxy fail: ${proxyUrl.split('?')[0]}`); }
                             }
                             throw new Error("All proxies failed.");
                         };
 
-                        // Only fetch if no cache or cache older than 15 mins
-                        const shouldFetch = !cachedData || (Date.now() - cachedData.timestamp > 15 * 60 * 1000);
+                        // Fetch if no cache or cache older than 1 hour
+                        const isStale = !cachedData || (Date.now() - cachedData.timestamp > 60 * 60 * 1000);
 
-                        if (shouldFetch) {
-                            fetchWithFallback(targetUrl)
-                                .then(yfData => {
-                                    const currentPrice = yfData.chart.result[0].meta.regularMarketPrice;
-                                    if (currentPrice) {
-                                        updateMultiplesUI(currentPrice);
+                        if (isStale) {
+                            fetchPrice(targetUrl)
+                                .then(price => {
+                                    if (price) {
+                                        updateMultiplesUI(price);
                                         localStorage.setItem(cacheKey, JSON.stringify({
-                                            price: currentPrice,
+                                            price: price,
                                             timestamp: Date.now()
                                         }));
+                                        console.log(`Cache updated for ${ticker}: ${price}`);
                                     }
                                 })
                                 .catch(err => {
-                                    console.error("Fetch failed:", err);
+                                    console.error("Live update failed:", err);
                                     if (!cachedData) {
                                         ['val-trailing-pe', 'val-leading-pe', 'val-price-fcf'].forEach(id => 
                                             document.getElementById(id).textContent = 'N/A'
