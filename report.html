@@ -595,7 +595,7 @@
 
                         // 2. Optimized Fetch Logic
                         const fetchPrice = async (url) => {
-                            const cacheBuster = `&t=${Date.now()}`;
+                            const cacheBuster = `?t=${Date.now()}`;
                             const proxies = [
                                 `https://api.allorigins.win/raw?url=${encodeURIComponent(url + cacheBuster)}`,
                                 `https://api.cors.lol/?url=${encodeURIComponent(url + cacheBuster)}`
