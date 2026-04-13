@@ -612,7 +612,26 @@ body {
     padding: 2rem;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    position: relative; /* Added to support absolute positioned children */
 }
+
+.top-bar-note {
+    color: var(--accent-green);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .top-bar-note {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+
 
 .multiples-title {
     color: var(--text-white);
@@ -661,6 +680,72 @@ body {
     font-size: 1.8rem;
     font-weight: 700;
     font-family: monospace;
+}
+
+
+/* About Section */
+.about-section {
+    position: relative;
+    padding: 10rem 4rem 4rem 4rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-black);
+    overflow: hidden;
+}
+
+.about-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 6rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.about-image-box {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px dashed rgba(57, 255, 20, 0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1) inset, 0 0 15px rgba(57, 255, 20, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.about-image-box:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.2) inset, 0 0 20px rgba(57, 255, 20, 0.2);
+}
+
+.cutout-placeholder {
+    color: rgba(57, 255, 20, 0.6);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.cutout-placeholder svg {
+    margin-bottom: 1rem;
+    color: rgba(57, 255, 20, 0.6);
+}
+
+.about-text-box {
+    flex: 1;
+    min-width: 300px;
+    background-color: #010a01; /* Matching terminal */
+    border: 2px solid var(--accent-green);
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.15) inset, 0 0 15px rgba(57, 255, 20, 0.2);
 }
 
 /* Mobile Optimization */
@@ -778,6 +863,25 @@ body {
 
     .term-line {
         font-size: 0.9rem;
+    }
+
+    .about-section {
+        padding: 8rem 1.5rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .about-image-box {
+        width: 100%;
+        max-width: 400px;
+        height: 320px;
+    }
+
+    .about-text-box {
+        padding: 1.5rem;
     }
 
     .disclaimer-section {
