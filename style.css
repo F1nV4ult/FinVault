@@ -1010,13 +1010,19 @@ body {
     width: 150vw;
     height: 150vh;
     background-image: 
-        linear-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(57, 255, 20, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(57, 255, 20, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 255, 20, 0.25) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
     -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
     mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+    animation: moveMosaic 3s linear infinite;
+}
+
+@keyframes moveMosaic {
+    0% { background-position: 0px 0px; }
+    100% { background-position: 40px 0px; }
 }
 
 .founder-container {
