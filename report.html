@@ -596,7 +596,7 @@
                         };
                         const yahooSymbol = symbolMap[ticker] || ticker;
                         const targetUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yahooSymbol}`;
-                        const cacheKey = `novasect_cache_${ticker}`;
+                        const cacheKey = `novasect_cache_${yahooSymbol}`;
 
                         // UI Rendering Helper
                         const updateMultiplesUI = (price, isCached = false) => {
