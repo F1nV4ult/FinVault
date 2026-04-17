@@ -85,7 +85,7 @@ body {
     font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 5px;
-    margin-top: 20vh;
+    margin-top: 0;
     /* Position below the center mural */
     color: rgba(255, 255, 255, 0.9);
     text-shadow:
@@ -765,7 +765,7 @@ body {
     .hero-cta {
         font-size: 2.2rem;
         letter-spacing: 2px;
-        margin-top: 15vh;
+        margin-top: 0;
         text-align: center;
         padding: 0 1rem;
     }
