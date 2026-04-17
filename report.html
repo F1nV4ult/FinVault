@@ -590,7 +590,10 @@
                         document.getElementById('val-div-yield').textContent = data.fundamentals.dividendYield;
 
                         const ticker = data.ticker.split(':')[1];
-                        const symbolMap = { 'IBE': 'IBE.MC' };
+                        const symbolMap = { 
+                            'IBE': 'IBE.MC',
+                            'RHM': 'RHM.DE'
+                        };
                         const yahooSymbol = symbolMap[ticker] || ticker;
                         const targetUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yahooSymbol}`;
                         const cacheKey = `novasect_cache_${ticker}`;
