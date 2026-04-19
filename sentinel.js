@@ -244,8 +244,7 @@ function updateModal() {
         ? `Regression analysis confirms that for IG firms like ${activeModalCompany.ticker}, yield volatility is primarily dictated by the **Treasury Base**. Credit spread remains ultra-stable at ${activeModalCompany.baseSpread}bps, functioning as a fixed-income anchor.`
         : `Credit-intensive profiling identifies ${activeModalCompany.ticker} as highly sensitive to **Spread Widening**. The "Sentinel Beta" of ${activeModalCompany.marketBeta}x outweighs risk-free rate moves, making the Credit Spread the dominant driver of total yield volatility.`;
     
-    const perspectiveElem = document.querySelector('#focus-modal p.text-gray-300');
-    if (perspectiveElem) perspectiveElem.innerHTML = perspective;
+    document.getElementById('modal-perspective').innerHTML = perspective;
 
     if (waterfallChart) {
         renderWaterfall(activeModalCompany);
