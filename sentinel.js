@@ -93,17 +93,17 @@ function renderGrid() {
                 </div>
                 <div>
                     <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest block mb-1">Risk Lvl</span>
-                    <span class="text-sm font-bold \${getRiskColor(currentSpread)}" id="risk-\${company.ticker}">\${getRiskLevel(currentSpread)}</span>
+                    <span class="text-sm font-bold ${getRiskColor(currentSpread)}" id="risk-${company.ticker}">${getRiskLevel(currentSpread)}</span>
                 </div>
             </div>
 
             <div class="mt-auto pt-4 border-t border-gray-900">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Beta Sensitivity</span>
-                    <span class="text-[9px] text-gray-400 font-mono">\${company.yield}% Yield</span>
+                    <span class="text-[9px] text-gray-400 font-mono">${company.yield}% Yield</span>
                 </div>
                 <div class="h-12 w-full">
-                    <canvas id="sparkline-\${company.ticker}"></canvas>
+                    <canvas id="sparkline-${company.ticker}"></canvas>
                 </div>
             </div>
         `;
