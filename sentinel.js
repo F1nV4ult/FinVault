@@ -287,17 +287,33 @@ function renderWaterfall(company) {
         },
         options: {
             indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: { display: false }
             },
             scales: {
                 x: {
                     grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                    ticks: { color: 'rgba(255, 255, 255, 0.5)', font: { family: 'JetBrains Mono' } }
+                    ticks: { 
+                        color: 'rgba(255, 255, 255, 0.5)', 
+                        font: { 
+                            family: 'JetBrains Mono',
+                            size: window.innerWidth < 640 ? 8 : 10
+                        },
+                        maxTicksLimit: window.innerWidth < 640 ? 5 : 8
+                    }
                 },
                 y: {
                     grid: { display: false },
-                    ticks: { color: 'white', font: { family: 'JetBrains Mono', weight: 'bold' } }
+                    ticks: { 
+                        color: 'white', 
+                        font: { 
+                            family: 'JetBrains Mono', 
+                            weight: 'bold',
+                            size: window.innerWidth < 640 ? 9 : 11
+                        } 
+                    }
                 }
             }
         }
