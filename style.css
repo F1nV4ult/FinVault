@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --primary-black: #000000;
     --accent-green: #39FF14;
     --text-white: #FFFFFF;
@@ -1067,13 +1067,49 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    animation: meshFloating 8s ease-in-out infinite;
+    /* animation: meshFloating removed as requested */
     filter: drop-shadow(0 0 20px rgba(57, 255, 20, 0.4));
 }
 
 @keyframes meshFloating {
     0%, 100% { transform: translateY(0) rotateY(-10deg); }
-    50% { transform: translateY(-30px) rotateY(10deg); }
+    50% { transform: translateY(-5px) rotateY(-5deg); } /* Minimal subtle drift instead of floating */
+}
+
+.matrix-bits-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.sentinel-promo-section:hover .matrix-bits-container {
+    opacity: 0.4;
+}
+
+.matrix-bits-container::before {
+    content: "01001011 10101100 11100101 10010101 01010110 11010101 10101010 01101101 11010110 10101010 11100101 10010101 01010110 11010101 10101010 01101101";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    color: var(--accent-green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    word-break: break-all;
+    animation: matrixRain 15s linear infinite;
+    mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+}
+
+@keyframes matrixRain {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
 }
 
 .promo-overlay {
