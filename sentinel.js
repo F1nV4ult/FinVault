@@ -54,6 +54,11 @@ function setupEventListeners() {
         updateAllCards();
         if (activeModalCompany) updateModal();
     });
+
+    const searchInput = document.getElementById('company-search');
+    searchInput.addEventListener('input', (e) => {
+        renderGrid(e.target.value);
+    });
 }
 
 function calculateCurrentSpread(company) {
@@ -73,14 +78,30 @@ function calculateYield(spreadBps) {
     return (TREASURY_10Y + (spreadBps / 100)).toFixed(2);
 }
 
-function renderGrid() {
+function renderGrid(filterText = '') {
     const grid = document.getElementById('dashboard-grid');
     grid.innerHTML = '';
 
-    COMPANIES.forEach((company, index) => {
+    const searchTerm = filterText.toLowerCase().trim();
+    const filteredCompanies = COMPANIES.filter(c => 
+        c.name.toLowerCase().includes(searchTerm) || 
+        c.ticker.toLowerCase().includes(searchTerm)
+    );
+
+    if (filteredCompanies.length === 0) {
+        grid.innerHTML = `
+            <div class="col-span-full py-20 flex flex-col items-center justify-center opacity-50 border border-dashed border-gray-800 rounded-xl">
+                <div class="text-neon-green font-mono mb-2 text-lg">> NO SEARCH RESULTS FOUND</div>
+                <div class="text-[10px] text-gray-600 uppercase tracking-widest">Attempt alternate ticker or company name</div>
+            </div>
+        `;
+        return;
+    }
+
+    filteredCompanies.forEach((company, index) => {
         const currentSpread = calculateCurrentSpread(company);
         const card = document.createElement('div');
-        card.className = 'bg-card-bg neon-border rounded-lg p-5 cursor-pointer flex flex-col transition-all group';
+        card.className = 'bg-card-bg neon-border rounded-lg p-5 cursor-pointer flex flex-col transition-all group animate-in fade-in slide-in-from-bottom-2 duration-300';
         card.id = `card-${company.ticker}`;
         card.setAttribute('onclick', `openModal('${company.ticker}')`);
         
