@@ -89,7 +89,10 @@
                 <input type="range" id="beta-slider" min="0" max="3" step="0.1" value="1" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-neon-green">
                 <div class="flex justify-between mt-2 text-[10px] font-mono opacity-50">
                     <span>MIN (0.0x)</span>
-                    <span>NEUTRAL (1.0x)</span>
+                    <div class="text-center">
+                        <span class="text-white opacity-80">TREASURY 10Y: 4.25%</span><br>
+                        <span>NEUTRAL (1.0x)</span>
+                    </div>
                     <span>MAX (3.0x)</span>
                 </div>
             </div>
@@ -123,16 +126,20 @@
                     
                     <div class="space-y-4 mb-8">
                         <div class="flex justify-between items-end border-b border-gray-800 pb-2">
-                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Current Yield</span>
-                            <span id="modal-yield" class="text-2xl font-mono text-white">-- %</span>
+                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Base Treasury (10Y)</span>
+                            <span class="text-xl font-mono text-white">4.25%</span>
                         </div>
                         <div class="flex justify-between items-end border-b border-gray-800 pb-2">
-                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Current Spread</span>
-                            <span id="modal-spread" class="text-2xl font-mono text-neon-green">-- bps</span>
+                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Credit Spread</span>
+                            <span id="modal-spread" class="text-xl font-mono text-neon-green">-- bps</span>
                         </div>
-                        <div class="flex justify-between items-end border-b border-gray-800 pb-2">
-                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Simulated Spread</span>
-                            <span id="modal-sim-spread" class="text-2xl font-mono text-white glow-text">-- bps</span>
+                        <div class="flex justify-between items-end border-b border-gray-800 pb-2 bg-neon-green/5 p-2 rounded">
+                            <span class="text-neon-green text-xs uppercase tracking-widest font-black">Implied Total Yield</span>
+                            <span id="modal-yield" class="text-2xl font-mono text-white glow-text">-- %</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-gray-800 pb-2 opacity-50">
+                            <span class="text-gray-400 text-[10px] uppercase tracking-widest">Simulated Spread Shock</span>
+                            <span id="modal-sim-spread" class="text-lg font-mono text-white">-- bps</span>
                         </div>
                     </div>
 

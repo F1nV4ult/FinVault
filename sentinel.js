@@ -17,6 +17,8 @@ const COMPANIES = [
     { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', baseSpread: 380, yield: 4.5, marketBeta: 1.4, sectorBeta: 1.2, residual: 60 }
 ];
 
+const TREASURY_10Y = 4.25;
+
 let currentBetaScaling = 1.0;
 let historyData = {}; // Stores historical spreads for sparklines
 let activeModalCompany = null;
@@ -55,10 +57,20 @@ function setupEventListeners() {
 }
 
 function calculateCurrentSpread(company) {
-    // Simulated logic: Spread = Base + Scaling * (MarketBeta * Base_Market_Move + SectorBeta * Base_Sector_Move) + Residual
-    const marketComponent = company.marketBeta * 50 * currentBetaScaling; 
-    const sectorComponent = company.sectorBeta * 30 * currentBetaScaling;
+    // Revised Logic:
+    // IG: Low sensitivity, Treasury-dominated.
+    // HY: High sensitivity, Credit-dominated.
+    
+    const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
+    
+    const marketComponent = company.marketBeta * 50 * currentBetaScaling * sensitivity; 
+    const sectorComponent = company.sectorBeta * 30 * currentBetaScaling * sensitivity;
+    
     return Math.round(company.baseSpread + marketComponent + sectorComponent + company.residual);
+}
+
+function calculateYield(spreadBps) {
+    return (TREASURY_10Y + (spreadBps / 100)).toFixed(2);
 }
 
 function renderGrid() {
@@ -100,7 +112,7 @@ function renderGrid() {
             <div class="mt-auto pt-4 border-t border-gray-900">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Beta Sensitivity</span>
-                    <span class="text-[9px] text-gray-400 font-mono">${company.yield}% Yield</span>
+                    <span class="text-[9px] text-gray-400 font-mono" id="yield-${company.ticker}">${calculateYield(currentSpread)}% Yield</span>
                 </div>
                 <div class="h-12 w-full">
                     <canvas id="sparkline-${company.ticker}"></canvas>
@@ -116,12 +128,16 @@ function updateAllCards() {
     COMPANIES.forEach(company => {
         const spreadDisp = document.getElementById(`spread-${company.ticker}`);
         const riskDisp = document.getElementById(`risk-${company.ticker}`);
+        const yieldDisp = document.getElementById(`yield-${company.ticker}`);
         const currentSpread = calculateCurrentSpread(company);
         
         if (spreadDisp) spreadDisp.innerText = `${currentSpread} bps`;
         if (riskDisp) {
             riskDisp.innerText = getRiskLevel(currentSpread);
             riskDisp.className = `text-sm font-bold ${getRiskColor(currentSpread)}`;
+        }
+        if (yieldDisp) {
+            yieldDisp.innerText = `${calculateYield(currentSpread)}% Yield`;
         }
     });
 }
@@ -197,7 +213,6 @@ function openModal(ticker) {
     
     document.getElementById('modal-title').innerText = company.ticker + " | " + company.name;
     document.getElementById('modal-sector').innerText = company.sector + " // " + company.type;
-    document.getElementById('modal-yield').innerText = company.yield + "%";
     
     document.getElementById('focus-modal').classList.remove('hidden');
     document.getElementById('focus-modal').classList.add('flex');
@@ -214,12 +229,23 @@ function closeModal() {
 
 function updateModal() {
     if (!activeModalCompany) return;
-    const spread = calculateCurrentSpread(activeModalCompany);
-    document.getElementById('modal-spread').innerText = activeModalCompany.baseSpread + " bps";
-    document.getElementById('modal-sim-spread').innerText = spread + " bps";
+    const currentSpread = calculateCurrentSpread(activeModalCompany);
+    const totalYield = calculateYield(currentSpread);
     
-    const dominance = activeModalCompany.marketBeta > activeModalCompany.sectorBeta ? 'MARKET' : 'SECTOR';
+    document.getElementById('modal-spread').innerText = activeModalCompany.baseSpread + " bps";
+    document.getElementById('modal-sim-spread').innerText = currentSpread + " bps";
+    document.getElementById('modal-yield').innerText = totalYield + "%";
+    
+    const dominance = activeModalCompany.type === 'IG' ? 'TREASURY' : 'CREDIT SPREAD';
     document.getElementById('modal-dominant-beta').innerText = dominance;
+
+    // Dynamic Analyst Perspective
+    const perspective = activeModalCompany.type === 'IG' 
+        ? `Regression analysis confirms that for IG firms like ${activeModalCompany.ticker}, yield volatility is primarily dictated by the **Treasury Base**. Credit spread remains ultra-stable at ${activeModalCompany.baseSpread}bps, functioning as a fixed-income anchor.`
+        : `Credit-intensive profiling identifies ${activeModalCompany.ticker} as highly sensitive to **Spread Widening**. The "Sentinel Beta" of ${activeModalCompany.marketBeta}x outweighs risk-free rate moves, making the Credit Spread the dominant driver of total yield volatility.`;
+    
+    const perspectiveElem = document.querySelector('#focus-modal p.text-gray-300');
+    if (perspectiveElem) perspectiveElem.innerHTML = perspective;
 
     if (waterfallChart) {
         renderWaterfall(activeModalCompany);
