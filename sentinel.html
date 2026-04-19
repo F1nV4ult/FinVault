@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel | Beta-Analysis & Credit Monitor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-green': '#39FF14',
+                        'terminal-bg': '#010a01',
+                        'card-bg': 'rgba(0, 0, 0, 0.8)',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .terminal-scanline {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+        .neon-border {
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.1) inset;
+        }
+        .neon-border:hover {
+            border-color: #39FF14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3) inset, 0 0 15px rgba(57, 255, 20, 0.2);
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #39FF14;
+            cursor: pointer;
+            box-shadow: 0 0 10px #39FF14;
+        }
+        .modal-blur {
+            backdrop-filter: blur(10px);
+        }
+        @media (max-width: 640px) {
+            h1.text-4xl { font-size: 2rem !important; }
+            .stress-panel-labels { flex-direction: column; align-items: center; gap: 4px; }
+            .nav-link { font-size: 10px; padding: 4px 8px; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-montserrat overflow-x-hidden min-h-screen">
+    <div class="terminal-scanline fixed inset-0 opacity-30"></div>
+
+    <header class="header">
+        <a href="index.html" class="logo text-white no-underline">NovaSect</a>
+        <nav class="nav-links">
+            <a href="reports.html" class="nav-link">FinVault</a>
+            <a href="about.html" class="nav-link">About us</a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 pt-32 px-4 pb-20 max-w-7xl mx-auto">
+        <!-- Dashboard Header -->
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tighter glow-text uppercase mb-2">Sentinel</h1>
+                <p class="text-neon-green font-mono text-sm tracking-widest uppercase opacity-80">> BETA-ANALYSIS & CREDIT MONITOR (Alpha)</p>
+            </div>
+            
+            <!-- Global Stress Test -->
+            <div class="w-full md:w-80 p-4 bg-terminal-bg neon-border rounded-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-mono text-neon-green tracking-widest">STRESS TEST: <span id="beta-value">1.0</span>x</span>
+                    <button id="shock-btn" class="text-[10px] px-2 py-1 bg-red-900 border border-red-500 text-red-100 hover:bg-red-600 transition-colors rounded uppercase font-bold">SHOCK</button>
+                </div>
+                <input type="range" id="beta-slider" min="0" max="3" step="0.1" value="1" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-neon-green">
+                <div class="flex justify-between mt-2 text-[10px] font-mono opacity-50 stress-panel-labels text-center">
+                    <span>MIN (0.0x)</span>
+                    <div>
+                        <span class="text-white opacity-90 font-bold">TREASURY 10Y: 4.25%</span><br>
+                        <span>NEUTRAL (1.0x)</span>
+                    </div>
+                    <span>MAX (3.0x)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Interface -->
+        <div class="mb-8 max-w-md">
+            <div class="relative flex items-center bg-terminal-bg neon-border rounded p-3 group">
+                <span class="text-neon-green font-mono mr-3 opacity-60 ml-2">></span>
+                <input type="text" id="company-search" placeholder="SEARCH TICKER OR NAME..." class="bg-transparent border-none outline-none text-white font-mono text-xs w-full placeholder:text-gray-700 uppercase tracking-widest">
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div id="dashboard-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Cards will be injected by JavaScript -->
+            <div class="col-span-full py-20 flex flex-col items-center justify-center opacity-50">
+                <div class="animate-pulse mb-4 text-neon-green">> INITIALIZING DATA STREAM...</div>
+                <div class="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-full h-full bg-neon-green origin-left animate-[loading_2s_ease-in-out_infinite]"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Focused View Modal -->
+    <div id="focus-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 modal-blur" onclick="closeModal()"></div>
+        <div class="relative w-full max-w-4xl bg-terminal-bg neon-border rounded-xl p-6 md:p-8 animate-in fade-in zoom-in duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-[110] p-2 bg-black/50 rounded-full text-gray-400 hover:text-neon-green border border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h2 id="modal-title" class="text-3xl font-black uppercase tracking-tight mb-2">-- Ticker --</h2>
+                    <p id="modal-sector" class="text-neon-green font-mono text-xs mb-6 tracking-widest uppercase opacity-70">-- Sector --</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-end border-b border-gray-800 pb-2">
+                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Base Treasury (10Y)</span>
+                            <span class="text-xl font-mono text-white">4.25%</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-gray-800 pb-2">
+                            <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Credit Spread</span>
+                            <span id="modal-spread" class="text-xl font-mono text-neon-green">-- bps</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-gray-800 pb-2 bg-neon-green/5 p-2 rounded">
+                            <span class="text-neon-green text-xs uppercase tracking-widest font-black">Implied Total Yield</span>
+                            <span id="modal-yield" class="text-2xl font-mono text-white glow-text">-- %</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-gray-800 pb-2 opacity-50">
+                            <span class="text-gray-400 text-[10px] uppercase tracking-widest">Simulated Spread Shock</span>
+                            <span id="modal-sim-spread" class="text-lg font-mono text-white">-- bps</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-black/40 rounded border border-gray-800">
+                        <h4 class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-3">Analyst Perspective</h4>
+                        <div class="mb-4 text-xs font-mono">
+                            <span class="text-gray-500 uppercase tracking-widest">Dominant Driver:</span>
+                            <span id="modal-dominant-beta" class="text-neon-green font-bold ml-2">--</span>
+                        </div>
+                        <p id="modal-perspective" class="text-sm leading-relaxed text-gray-300">-- Analysis Loading --</p>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full">
+                    <h3 class="text-xs font-mono text-neon-green mb-4 uppercase tracking-[0.3em]">> Regression Attribution Waterfall</h3>
+                    <div class="flex-grow flex items-center justify-center p-4">
+                        <canvas id="waterfall-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="sentinel.js"></script>
+
+    <style>
+        @keyframes loading {
+            0% { transform: scaleX(0); }
+            50% { transform: scaleX(1); }
+            100% { transform: scaleX(0); transform-origin: right; }
+        }
+    </style>
+</body>
+</html>

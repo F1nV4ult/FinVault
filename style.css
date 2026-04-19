@@ -1031,74 +1031,126 @@ body {
 }
 
 /* Coming Soon Construction Section */
-.coming-soon-section {
+/* Sentinel Promo Section */
+.sentinel-promo-section {
     position: relative;
-    background-color: #010a01;
+    background-color: #000000;
     overflow: hidden;
-    padding: 6rem 2rem;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9);
+    padding: 10rem 2rem;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-top: 1px solid rgba(57, 255, 20, 0.1);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.1);
 }
 
-.construction-tape {
+.mesh-robot-container {
     position: absolute;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+    perspective: 1000px;
+}
+
+.mesh-robot-asset {
     width: 100%;
-    height: 30px;
-    background: repeating-linear-gradient(
-        -45deg,
-        #090909,
-        #090909 20px,
-        var(--accent-green) 20px,
-        var(--accent-green) 40px
-    );
-    background-size: 56.57px 56.57px;
-    z-index: 5;
-    animation: scrollTape 2s linear infinite;
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+    height: 100%;
+    background-image: url('sentinel_prime_mesh_asset_1776583258739.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: meshFloating 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(57, 255, 20, 0.4));
 }
 
-.top-tape {
-    top: 0;
-    border-bottom: 2px solid rgba(57, 255, 20, 0.8);
+@keyframes meshFloating {
+    0%, 100% { transform: translateY(0) rotateY(-10deg); }
+    50% { transform: translateY(-30px) rotateY(10deg); }
 }
 
-.bottom-tape {
-    bottom: 0;
-    border-top: 2px solid rgba(57, 255, 20, 0.8);
-    animation-direction: reverse;
+.promo-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, #000 80%);
+    z-index: 2;
+    pointer-events: none;
 }
 
-@keyframes scrollTape {
-    0% { background-position: 0 0; }
-    100% { background-position: 56.57px 0; }
-}
-
-.coming-soon-content {
-    text-align: center;
+.sentinel-promo-content {
     position: relative;
     z-index: 10;
+    text-align: center;
+    max-width: 900px;
 }
 
-.coming-soon-text {
+.promo-tag {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.promo-hdr {
     font-family: var(--font-display);
     font-weight: 900;
-    font-size: 4rem;
-    color: var(--accent-green);
-    letter-spacing: 12px;
+    font-size: 8rem;
+    color: #fff;
+    letter-spacing: 20px;
     margin: 0;
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 30px rgba(57, 255, 20, 0.4);
-    animation: pulseText 1.5s ease-in-out infinite alternate;
+    line-height: 1;
+    text-shadow: 
+        0 0 10px rgba(57, 255, 20, 0.8),
+        0 0 30px rgba(57, 255, 20, 0.4),
+        0 0 60px rgba(57, 255, 20, 0.2);
+    animation: hdrGlow 4s ease-in-out infinite alternate;
 }
 
-@keyframes pulseText {
-    0% { opacity: 0.6; text-shadow: 0 0 5px rgba(57, 255, 20, 0.4), 0 0 15px rgba(57, 255, 20, 0.2); }
-    100% { opacity: 1; text-shadow: 0 0 15px rgba(57, 255, 20, 0.9), 0 0 40px rgba(57, 255, 20, 0.6); }
+@keyframes hdrGlow {
+    from { text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 30px rgba(57, 255, 20, 0.4); }
+    to { text-shadow: 0 0 20px rgba(57, 255, 20, 1), 0 0 50px rgba(57, 255, 20, 0.7), 0 0 80px rgba(57, 255, 20, 0.4); }
+}
+
+.promo-desc {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 2rem auto 0;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.sentinel-promo-section:hover .mesh-robot-asset {
+    animation-duration: 4s;
+    filter: drop-shadow(0 0 40px rgba(57, 255, 20, 0.8));
+    opacity: 1;
+}
+
+.sentinel-promo-section:hover .promo-hdr {
+    color: var(--accent-green);
 }
 
 @media (max-width: 768px) {
-    .coming-soon-text {
-        font-size: 2.5rem;
-        letter-spacing: 6px;
+    .promo-hdr {
+        font-size: 3.5rem;
+        letter-spacing: 8px;
     }
-}
+    .promo-desc {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    .mesh-robot-container {
+        width: 350px;
+        height: 350px;
+    }
+}
