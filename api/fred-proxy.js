@@ -1,6 +1,6 @@
-/**
  * FRED Proxy - Vercel Serverless Function
  * Resolves CORS and secures the FRED_API_KEY
+ * Telemetry v1.1 - Activated: 2026-04-20
  */
 export default async function handler(req, res) {
     const { series_id } = req.query;
