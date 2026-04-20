@@ -472,7 +472,6 @@ function renderWaterfall(company) {
                 borderColor: '#39FF14',
                 borderWidth: 1
             }]
-            }]
         },
         options: {
             indexAxis: 'y',
