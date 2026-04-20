@@ -424,10 +424,15 @@ async function refreshFocus() {
 async function throttleBackground() {
     const now = Date.now();
     for (const c of COMPANIES) {
-        // If ticker is not active modal and hasn't been updated in 60s
-        if ((!activeModalCompany || activeModalCompany.ticker !== c.ticker) && (now - c.lastUpdated > SLOW_REFRESH_MS)) {
-            await updateCardData(c.ticker);
-            c.lastUpdated = now;
+        try {
+            // If ticker is not active modal and hasn't been updated in 60s
+            if ((!activeModalCompany || activeModalCompany.ticker !== c.ticker) && (now - c.lastUpdated > SLOW_REFRESH_MS)) {
+                await updateCardData(c.ticker);
+                c.lastUpdated = now;
+            }
+        } catch (err) {
+            console.error(`Sentinel Engine Handled localized error for ${c.ticker}:`, err);
+            continue; // Ensure fleet update continues
         }
     }
 }
