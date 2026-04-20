@@ -20,6 +20,7 @@ const COMPANIES = [
 
 const TREASURY_10Y = 4.25;
 const BUND_10Y = 2.45;
+const GILT_10Y = 4.15;
 
 const SOVEREIGN_SPREADS = {
     'US': 0,
@@ -27,7 +28,7 @@ const SOVEREIGN_SPREADS = {
     'NO': 45,
     'ES': 80,
     'IT': 145,
-    'UK': 15
+    'UK': 0
 };
 
 const SENIORITY_MULTIPLIERS = {
@@ -120,6 +121,7 @@ function calculateCurrentSpread(company, isInstrumentMod = false) {
 }
 
 function getBaseRate(company) {
+    if (company.country === 'UK') return GILT_10Y;
     return company.region === 'EU' ? BUND_10Y : TREASURY_10Y;
 }
 
@@ -343,7 +345,10 @@ function updateModal() {
     const normalizedSpread = calculateCurrentSpread(activeModalCompany, false);
     const totalYield = calculateYield(activeModalCompany, instrumentSpread);
     
-    document.getElementById('modal-benchmark-label').innerText = activeModalCompany.region === 'EU' ? 'Base Bund (10Y)' : 'Base Treasury (10Y)';
+    let benchmarkName = 'Base Treasury (10Y)';
+    if (activeModalCompany.country === 'UK') benchmarkName = 'Base Gilt (10Y)';
+    else if (activeModalCompany.region === 'EU') benchmarkName = 'Base Bund (10Y)';
+    document.getElementById('modal-benchmark-label').innerText = benchmarkName;
     document.getElementById('modal-benchmark-val').innerText = getBaseRate(activeModalCompany).toFixed(2) + "%";
     
     document.getElementById('modal-spread').innerText = instrumentSpread + " bps";
