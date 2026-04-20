@@ -72,8 +72,13 @@
     <header class="header">
         <a href="index.html" class="logo text-white no-underline">NovaSect</a>
         <nav class="nav-links">
-            <a href="sentinel.html" class="nav-link" style="color: var(--accent-green);">Sentinel</a>
-            <a href="reports.html" class="nav-link">FinVault</a>
+            <div class="nav-dropdown">
+                <span class="dropdown-trigger nav-link" style="color: var(--accent-green);">Tools</span>
+                <div class="dropdown-menu">
+                    <a href="sentinel.html" class="dropdown-item" style="color: var(--accent-green);">Sentinel</a>
+                    <a href="reports.html" class="dropdown-item">FinVault</a>
+                </div>
+            </div>
             <a href="about.html" class="nav-link">About us</a>
         </nav>
     </header>
@@ -111,7 +116,7 @@
                 <!-- Credit Beta Shock -->
                 <div class="mb-2">
                     <div class="flex justify-between mb-1">
-                        <span class="text-[9px] text-gray-500 uppercase font-bold">Credit Beta Multiplier</span>
+                        <span class="text-[9px] text-gray-400 uppercase font-bold">Credit Beta Multiplier</span>
                         <span id="beta-value" class="text-[9px] text-neon-green font-mono">1.0x</span>
                     </div>
                     <input type="range" id="beta-slider" min="0.5" max="3" step="0.1" value="1" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-neon-green">

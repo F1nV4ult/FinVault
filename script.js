@@ -4,7 +4,36 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardTilt();
     initSearchFilter();
     initDollarBackground();
+    initDropdowns();
 });
+
+function initDropdowns() {
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    // Toggle on click for mobile/touch
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        
+        trigger.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other dropdowns
+                dropdowns.forEach(other => {
+                    if (other !== dropdown) other.classList.remove('active');
+                });
+                
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', () => {
+        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+    });
+}
 
 function initSearchFilter() {
     const searchInput = document.getElementById('company-search');
