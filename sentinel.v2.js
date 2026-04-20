@@ -123,6 +123,7 @@ async function fetchSovereignAnchors() {
 
     for (const [type, seriesId] of Object.entries(FRED_SERIES)) {
         try {
+            const response = await fetch(`/api/fred-proxy?series_id=${seriesId}`);
             const data = await response.json();
             if (!response.ok) {
                 lastErr = data.error || response.status;
