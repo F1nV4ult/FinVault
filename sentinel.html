@@ -89,20 +89,34 @@
                 <p class="text-neon-green font-mono text-sm tracking-widest uppercase opacity-80">> BETA-ANALYSIS & CREDIT MONITOR (Alpha)</p>
             </div>
             
-            <!-- Global Stress Test -->
+            <!-- Global Stress Test (Hierarchical) -->
             <div class="w-full md:w-80 p-4 bg-terminal-bg neon-border rounded-lg">
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-xs font-mono text-neon-green tracking-widest">STRESS TEST: <span id="beta-value">1.0</span>x</span>
-                    <button id="shock-btn" class="text-[10px] px-2 py-1 bg-red-900 border border-red-500 text-red-100 hover:bg-red-600 transition-colors rounded uppercase font-bold">SHOCK</button>
+                    <span class="text-[10px] font-mono text-neon-green tracking-widest uppercase">Stress Controls</span>
+                    <button id="black-swan-btn" class="text-[9px] px-2 py-1 bg-red-900 border border-red-500 text-red-100 hover:bg-red-500 transition-all rounded uppercase font-black tracking-tighter shadow-lg shadow-red-900/20">Systemic Shock</button>
                 </div>
-                <input type="range" id="beta-slider" min="0" max="3" step="0.1" value="1" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-neon-green">
-                <div class="flex justify-between mt-2 text-[10px] font-mono opacity-50 stress-panel-labels text-center">
-                    <span>MIN (0.0x)</span>
-                    <div>
-                        <span class="text-white opacity-90 font-bold">TREASURY 10Y: 4.25%</span><br>
-                        <span>NEUTRAL (1.0x)</span>
+                
+                <!-- Global Rate Shock -->
+                <div class="mb-4">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-[9px] text-gray-500 uppercase font-bold">Global Rate Shock</span>
+                        <span id="rate-value" class="text-[9px] text-neon-green font-mono">+0 bps</span>
                     </div>
-                    <span>MAX (3.0x)</span>
+                    <input type="range" id="rate-slider" min="0" max="500" step="5" value="0" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-neon-green">
+                </div>
+
+                <!-- Credit Beta Shock -->
+                <div class="mb-2">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-[9px] text-gray-500 uppercase font-bold">Credit Beta Multiplier</span>
+                        <span id="beta-value" class="text-[9px] text-neon-green font-mono">1.0x</span>
+                    </div>
+                    <input type="range" id="beta-slider" min="0.5" max="3" step="0.1" value="1" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-neon-green">
+                </div>
+
+                <div class="flex justify-between mt-3 text-[8px] font-mono opacity-40 uppercase tracking-tighter">
+                    <span>Low Sensitivity</span>
+                    <span>High Sensitivity</span>
                 </div>
             </div>
         </div>
@@ -115,14 +129,41 @@
             </div>
         </div>
 
-        <!-- Dashboard Grid -->
-        <div id="dashboard-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Cards will be injected by JavaScript -->
-            <div class="col-span-full py-20 flex flex-col items-center justify-center opacity-50">
-                <div class="animate-pulse mb-4 text-neon-green">> INITIALIZING DATA STREAM...</div>
-                <div class="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
-                    <div class="w-full h-full bg-neon-green origin-left animate-[loading_2s_ease-in-out_infinite]"></div>
+        <!-- Sector Alpha: Energy & Utilities -->
+        <div class="mb-12">
+            <div class="flex justify-between items-end mb-4 px-1">
+                <div>
+                    <h2 class="text-xl font-black tracking-tighter text-white uppercase italic">Sector Alpha <span class="text-[10px] text-gray-500 not-italic ml-2 opacity-50 font-mono tracking-widest">// ENERGY & UTILITIES</span></h2>
                 </div>
+                <div class="w-48 h-0.5 bg-gray-900 rounded-full overflow-hidden relative">
+                    <div id="alpha-progress" class="absolute inset-y-0 left-0 w-0 bg-neon-green shadow-[0_0_10px_#39FF14] transition-all duration-[5000ms] ease-linear"></div>
+                </div>
+            </div>
+            <div id="sector-alpha-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Alpha cards injected here -->
+            </div>
+        </div>
+
+        <!-- Sector Beta: Industrials -->
+        <div class="mb-12">
+            <div class="flex justify-between items-end mb-4 px-1">
+                <div>
+                    <h2 class="text-xl font-black tracking-tighter text-white uppercase italic">Sector Beta <span class="text-[10px] text-gray-500 not-italic ml-2 opacity-50 font-mono tracking-widest">// INDUSTRIALS & AEROSPACE</span></h2>
+                </div>
+                <div class="w-48 h-0.5 bg-gray-900 rounded-full overflow-hidden relative">
+                    <div id="beta-progress" class="absolute inset-y-0 left-0 w-0 bg-neon-green shadow-[0_0_10px_#39FF14] transition-all duration-[5000ms] ease-linear"></div>
+                </div>
+            </div>
+            <div id="sector-beta-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Beta cards injected here -->
+            </div>
+        </div>
+
+        <!-- Initializing State (Hidden by default or replaced) -->
+        <div id="initial-loader" class="hidden col-span-full py-20 flex flex-col items-center justify-center opacity-50">
+            <div class="animate-pulse mb-4 text-neon-green">> INITIALIZING DATA STREAM...</div>
+            <div class="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
+                <div class="w-full h-full bg-neon-green origin-left animate-[loading_2s_ease-in-out_infinite]"></div>
             </div>
         </div>
     </main>

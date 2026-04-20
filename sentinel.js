@@ -1,84 +1,148 @@
 /**
- * SENTINEL - Beta-Analysis & Credit Monitor Logic
+ * SENTINEL - High-Scale Logic Engine (Re-engineered)
+ * Sectored Batching | Focus Prioritization | Async Math Core
  */
 
 const COMPANIES = [
-    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', region: 'US', country: 'US', baseSpread: 125, yield: 3.2, marketBeta: 0.8, sectorBeta: 1.1, residual: 0 },
-    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', region: 'EU', country: 'UK', baseSpread: 140, yield: 3.5, marketBeta: 0.9, sectorBeta: 1.2, residual: 0 },
-    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', region: 'US', country: 'US', baseSpread: 130, yield: 3.8, marketBeta: 0.7, sectorBeta: 1.0, residual: 0 },
-    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', region: 'EU', country: 'ES', baseSpread: 110, yield: 2.9, marketBeta: 0.5, sectorBeta: 0.8, residual: 0 },
-    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', region: 'EU', country: 'NO', baseSpread: 155, yield: 4.1, marketBeta: 1.1, sectorBeta: 1.4, residual: 0 },
-    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', region: 'US', country: 'US', baseSpread: 360, yield: 5.2, marketBeta: 1.3, sectorBeta: 1.6, residual: 0 },
-    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 145, yield: 2.4, marketBeta: 0.6, sectorBeta: 0.4, residual: 0 },
-    { ticker: 'LDO.MI', name: 'Leonardo SpA', sector: 'Industrials', type: 'IG', region: 'EU', country: 'IT', baseSpread: 185, yield: 3.4, marketBeta: 0.8, sectorBeta: 0.9, residual: 0 },
-    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 135, yield: 2.2, marketBeta: 0.6, sectorBeta: 0.5, residual: 0 },
-    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 165, yield: 2.8, marketBeta: 0.8, sectorBeta: 0.6, residual: 0 },
-    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 140, yield: 2.1, marketBeta: 0.5, sectorBeta: 0.4, residual: 0 },
-    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 175, yield: 3.1, marketBeta: 0.9, sectorBeta: 0.7, residual: 0 },
-    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', baseSpread: 380, yield: 4.5, marketBeta: 1.4, sectorBeta: 1.2, residual: 0 }
+    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', region: 'US', country: 'US', baseSpread: 125, yield: 3.2, marketBeta: 0.8, sectorBeta: 1.1, residual: 0, lastUpdated: 0 },
+    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', region: 'EU', country: 'UK', baseSpread: 140, yield: 3.5, marketBeta: 0.9, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
+    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', region: 'US', country: 'US', baseSpread: 130, yield: 3.8, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
+    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', region: 'EU', country: 'ES', baseSpread: 110, yield: 2.9, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
+    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', region: 'EU', country: 'NO', baseSpread: 155, yield: 4.1, marketBeta: 1.1, sectorBeta: 1.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', region: 'US', country: 'US', baseSpread: 360, yield: 5.2, marketBeta: 1.3, sectorBeta: 1.6, residual: 0, lastUpdated: 0 },
+    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 145, yield: 2.4, marketBeta: 0.6, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'LDO.MI', name: 'Leonardo SpA', sector: 'Industrials', type: 'IG', region: 'EU', country: 'IT', baseSpread: 185, yield: 3.4, marketBeta: 0.8, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 135, yield: 2.2, marketBeta: 0.6, sectorBeta: 0.5, residual: 0, lastUpdated: 0 },
+    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 165, yield: 2.8, marketBeta: 0.8, sectorBeta: 0.6, residual: 0, lastUpdated: 0 },
+    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 140, yield: 2.1, marketBeta: 0.5, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 175, yield: 3.1, marketBeta: 0.9, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
+    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', baseSpread: 380, yield: 4.5, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 }
 ];
 
+// Configuration
 const TREASURY_10Y = 4.25;
 const BUND_10Y = 2.45;
 const GILT_10Y = 4.15;
+const BATCH_SIZE = 5;
+const SLOW_REFRESH_MS = 60000;
+const FAST_REFRESH_MS = 5000;
 
-const SOVEREIGN_SPREADS = {
-    'US': 0,
-    'DE': 0,
-    'NO': 45,
-    'ES': 80,
-    'IT': 145,
-    'UK': 0
-};
+const SOVEREIGN_SPREADS = { 'US': 0, 'DE': 0, 'NO': 45, 'ES': 80, 'IT': 145, 'UK': 0 };
+const SENIORITY_MULTIPLIERS = { 'Secured': 0.85, 'Unsecured': 1.0, 'Subordinated': 1.5 };
 
-const SENIORITY_MULTIPLIERS = {
-    'Secured': 0.85,
-    'Unsecured': 1.0,
-    'Subordinated': 1.5
-};
-
+// Global State
 let currentBetaScaling = 1.0;
-let historyData = {}; // Stores historical spreads for sparklines
+let currentRateShock = 0; // in bps
+let currentSovereignShock = 0; // in bps
 let activeModalCompany = null;
 let waterfallChart = null;
-
 let selectedSeniority = 'Unsecured';
 let selectedTenure = 10;
-let isContagionActive = false;
+let currentSectorActive = 'Alpha'; 
 
-// Initialize history
-COMPANIES.forEach(c => {
-    historyData[c.ticker] = Array.from({length: 12}, () => c.baseSpread + (Math.random() * 20 - 10));
-});
+/**
+ * Helper: Identify Benchmark
+ */
+function getBenchmark(company) {
+    if (company.country === 'UK') return 'Gilt';
+    return company.region === 'EU' ? 'Bund' : 'UST';
+}
 
+/**
+ * simulated Web Worker Math Core
+ */
+const CreditEngine = {
+    async calculateCurrentSpread(company, isInstrumentMod = false) {
+        return new Promise(resolve => {
+            const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
+            const stressMultiplier = currentBetaScaling - 1.0;
+            
+            // Per requirement: Scale sum of market + sector beta
+            const systematicBeta = (company.marketBeta + company.sectorBeta);
+            const marketComp = company.marketBeta * 50 * stressMultiplier * sensitivity; 
+            const sectorComp = company.sectorBeta * 30 * stressMultiplier * sensitivity;
+            
+            // Per requirement: Residual scales proportionally with systematic
+            const residualComp = company.residual * stressMultiplier;
+            
+            // Tranche Sensitivity: 2.0x for Subordinated on the aggregated delta
+            const isSubordinated = (isInstrumentMod && selectedSeniority === 'Subordinated');
+            const subMultiplier = isSubordinated ? 2.0 : 1.0;
+
+            const aggregatedDelta = Math.round((marketComp + sectorComp + residualComp) * subMultiplier);
+            const totalSpread = Math.round(company.baseSpread + aggregatedDelta);
+            
+            const tenureMult = isInstrumentMod ? (1 + (selectedTenure - 10) * 0.03) : 1.0;
+            const seniorityMult = (isInstrumentMod && !isSubordinated) ? SENIORITY_MULTIPLIERS[selectedSeniority] : 1.0;
+
+            resolve(Math.round(totalSpread * seniorityMult * tenureMult));
+        });
+    },
+
+    getBaseRate(company) {
+        let base = company.country === 'UK' ? GILT_10Y : (company.region === 'EU' ? BUND_10Y : TREASURY_10Y);
+        return base + (currentRateShock / 100);
+    },
+
+    calculateYield(company, spreadBps) {
+        const baseRate = this.getBaseRate(company);
+        const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock;
+        return (baseRate + (sovSpread / 100) + (spreadBps / 100)).toFixed(2);
+    }
+};
+
+/**
+ * Initialization
+ */
 function init() {
     renderGrid();
     setupEventListeners();
-    startPolling();
+    startHighScaleEngine();
 }
 
 function setupEventListeners() {
-    const slider = document.getElementById('beta-slider');
-    const betaValueDisp = document.getElementById('beta-value');
-    const shockBtn = document.getElementById('shock-btn');
-
-    slider.addEventListener('input', (e) => {
+    // Credit Beta Slider
+    document.getElementById('beta-slider').addEventListener('input', (e) => {
         currentBetaScaling = parseFloat(e.target.value);
-        betaValueDisp.innerText = currentBetaScaling.toFixed(1);
-        updateAllCards();
-        if (activeModalCompany) updateModal();
+        document.getElementById('beta-value').innerText = `${currentBetaScaling.toFixed(1)}x`;
+        triggerGlobalRefresh();
     });
 
-    shockBtn.addEventListener('click', () => {
-        slider.value = 2.5;
+    // Global Rate Slider
+    document.getElementById('rate-slider').addEventListener('input', (e) => {
+        currentRateShock = parseInt(e.target.value);
+        document.getElementById('rate-value').innerText = `+${currentRateShock} bps`;
+        triggerGlobalRefresh();
+    });
+
+    // Black Swan Trigger
+    document.getElementById('black-swan-btn').addEventListener('click', function() {
+        const betaSlider = document.getElementById('beta-slider');
+        const rateSlider = document.getElementById('rate-slider');
+        
         currentBetaScaling = 2.5;
-        betaValueDisp.innerText = "2.5";
-        updateAllCards();
-        if (activeModalCompany) updateModal();
+        currentRateShock = 100;
+        currentSovereignShock = 50;
+
+        betaSlider.value = 2.5;
+        rateSlider.value = 100;
+        
+        document.getElementById('beta-value').innerText = "2.5x";
+        document.getElementById('rate-value').innerText = "+100 bps";
+
+        // Global UI Alert
+        document.querySelector('header h1').classList.add('systemic-glitch');
+        document.body.classList.add('contagion-alert');
+        
+        setTimeout(() => {
+            document.querySelector('header h1').classList.remove('systemic-glitch');
+            // Keep body alert active until reset (or just for a while)
+        }, 3000);
+
+        triggerGlobalRefresh();
     });
 
-    const searchInput = document.getElementById('company-search');
-    searchInput.addEventListener('input', (e) => {
+    document.getElementById('company-search').addEventListener('input', (e) => {
         renderGrid(e.target.value);
     });
 
@@ -92,191 +156,224 @@ function setupEventListeners() {
     }
 }
 
-function setSeniority(level) {
-    selectedSeniority = level;
-    document.querySelectorAll('.seniority-btn').forEach(btn => {
-        btn.classList.remove('border-neon-green/50', 'bg-neon-green/10', 'text-neon-green');
-        btn.classList.add('border-white/10');
-    });
-    const activeBtn = document.getElementById(`btn-${level}`);
-    activeBtn.classList.remove('border-white/10');
-    activeBtn.classList.add('border-neon-green/50', 'bg-neon-green/10', 'text-neon-green');
-    updateModal();
-}
-
-function calculateCurrentSpread(company, isInstrumentMod = false) {
-    const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
-    const stressFactor = currentBetaScaling - 1.0;
-    
-    // Normalization logic vs Instrument Logic
-    const seniorityMult = isInstrumentMod ? SENIORITY_MULTIPLIERS[selectedSeniority] : 1.0;
-    const tenureMult = isInstrumentMod ? (1 + (selectedTenure - 10) * 0.03) : 1.0;
-
-    const marketComponent = company.marketBeta * 50 * stressFactor * sensitivity; 
-    const sectorComponent = company.sectorBeta * 30 * stressFactor * sensitivity;
-    
-    let totalSpread = Math.round(company.baseSpread + marketComponent + sectorComponent + company.residual);
-    
-    return Math.round(totalSpread * seniorityMult * tenureMult);
-}
-
-function getBaseRate(company) {
-    if (company.country === 'UK') return GILT_10Y;
-    return company.region === 'EU' ? BUND_10Y : TREASURY_10Y;
-}
-
-function calculateYield(company, spreadBps) {
-    const baseRate = getBaseRate(company);
-    const sovSpread = SOVEREIGN_SPREADS[company.country] || 0;
-    return (baseRate + (sovSpread / 100) + (spreadBps / 100)).toFixed(2);
-}
-
-function scanForContagion() {
-    let active = false;
-    COMPANIES.forEach(c => {
-        // Calculate spread for Subordinated version of all companies to check triggers
-        const subSpread = calculateCurrentSpread(c, true); 
-        // Force mock subordinated context for the scanner
-        const mockSubMultiplier = SENIORITY_MULTIPLIERS['Subordinated'];
-        const actualBaseSpread = calculateCurrentSpread(c, false);
-        if (actualBaseSpread * mockSubMultiplier > 1000) active = true;
-    });
-
-    isContagionActive = active;
-    const dashboard = document.getElementById('dashboard-grid');
-    if (active) {
-        document.body.classList.add('contagion-alert');
-    } else {
-        document.body.classList.remove('contagion-alert');
-    }
-}
-
+/**
+ * Grid Rendering (Sectored)
+ */
 function renderGrid(filterText = '') {
-    const grid = document.getElementById('dashboard-grid');
-    grid.innerHTML = '';
-    
-    scanForContagion();
+    const alphaGrid = document.getElementById('sector-alpha-grid');
+    const betaGrid = document.getElementById('sector-beta-grid');
+    alphaGrid.innerHTML = '';
+    betaGrid.innerHTML = '';
 
     const searchTerm = filterText.toLowerCase().trim();
-    const filteredCompanies = COMPANIES.filter(c => 
-        c.name.toLowerCase().includes(searchTerm) || 
-        c.ticker.toLowerCase().includes(searchTerm)
-    );
+    const filtered = COMPANIES.filter(c => c.name.toLowerCase().includes(searchTerm) || c.ticker.toLowerCase().includes(searchTerm));
 
-    if (filteredCompanies.length === 0) {
-        grid.innerHTML = `
-            <div class="col-span-full py-20 flex flex-col items-center justify-center opacity-50 border border-dashed border-gray-800 rounded-xl">
-                <div class="text-neon-green font-mono mb-2 text-lg">> NO SEARCH RESULTS FOUND</div>
-                <div class="text-[10px] text-gray-600 uppercase tracking-widest">Attempt alternate ticker or company name</div>
+    filtered.forEach(company => {
+        const isAlpha = (company.sector === 'Energy' || company.sector === 'Utilities');
+        const container = isAlpha ? alphaGrid : betaGrid;
+        
+        const card = createCard(company);
+        container.appendChild(card);
+        updateCardData(company.ticker);
+    });
+}
+
+function createCard(company) {
+    const card = document.createElement('div');
+    card.className = 'bg-card-bg neon-border rounded-lg p-5 cursor-pointer flex flex-col transition-all group animate-in fade-in duration-300';
+    card.id = `card-${company.ticker}`;
+    card.setAttribute('onclick', `openModal('${company.ticker}')`);
+    card.innerHTML = `
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h3 class="font-black text-xl tracking-tight">${company.ticker}</h3>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest">${company.name}</p>
             </div>
-        `;
-        return;
+            <div class="text-right">
+                <span class="text-[10px] bg-neon-green/10 text-neon-green px-2 py-0.5 rounded border border-neon-green/20 font-mono tracking-tighter">${company.type}</span>
+                <p class="text-[10px] text-gray-600 mt-1 font-mono uppercase tracking-widest update-time">00:00:00</p>
+                <div class="mt-1">
+                    <span class="text-[8px] bg-amber-500/10 text-amber-500 px-1 rounded border border-amber-500/20 font-mono hidden benchmark-badge">--</span>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest block mb-1">Spread</span>
+                <span class="text-lg font-mono text-neon-green glow-text spread-val">-- bps</span>
+            </div>
+            <div>
+                <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest block mb-1">Risk Lvl</span>
+                <span class="text-sm font-bold risk-val">--</span>
+            </div>
+        </div>
+        
+        <!-- Mini Risk Graph (Green Final Spread Bar) -->
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-1">
+                <span class="text-[8px] text-gray-600 uppercase tracking-widest">Risk Exposure</span>
+                <span class="text-[8px] text-neon-green font-mono percentage-val">0%</span>
+            </div>
+            <div class="h-1.5 w-full bg-gray-900/50 rounded-full overflow-hidden border border-white/5">
+                <div class="h-full bg-gradient-to-r from-neon-green/40 to-neon-green shadow-[0_0_8px_#39FF14] transition-all duration-1000 ease-out risk-bar-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
+            <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Yield Stack</span>
+            <span class="text-[9px] text-gray-400 font-mono yield-val">--% Yield</span>
+        </div>
+    `;
+    return card;
+}
+
+async function updateCardData(ticker) {
+    const company = COMPANIES.find(c => c.ticker === ticker);
+    const card = document.getElementById(`card-${ticker}`);
+    if (!card) return;
+
+    const spread = await CreditEngine.calculateCurrentSpread(company);
+    const yieldVal = CreditEngine.calculateYield(company, spread);
+    const delta = spread - company.baseSpread;
+
+    card.querySelector('.spread-val').innerText = `${spread} bps`;
+    card.querySelector('.yield-val').innerText = `${yieldVal}% Yield`;
+    card.querySelector('.risk-val').innerText = getRiskLevel(spread);
+    card.querySelector('.risk-val').className = `text-sm font-bold ${getRiskColor(spread)}`;
+    card.querySelector('.update-time').innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+
+    // Benchmark Badge
+    const benchmarkBadge = card.querySelector('.benchmark-badge');
+    if (benchmarkBadge) {
+        if (delta !== 0) {
+            benchmarkBadge.innerText = `+${delta} bps (v. ${getBenchmark(company)})`;
+            benchmarkBadge.classList.remove('hidden');
+        } else {
+            benchmarkBadge.classList.add('hidden');
+        }
     }
 
-    filteredCompanies.forEach((company, index) => {
-        const currentSpread = calculateCurrentSpread(company);
-        const card = document.createElement('div');
-        card.className = 'bg-card-bg neon-border rounded-lg p-5 cursor-pointer flex flex-col transition-all group animate-in fade-in slide-in-from-bottom-2 duration-300';
-        card.id = `card-${company.ticker}`;
-        card.setAttribute('onclick', `openModal('${company.ticker}')`);
-        
-        card.innerHTML = `
-            <div class="flex justify-between items-start mb-4">
-                <div>
-                    <h3 class="font-black text-xl tracking-tight">${company.ticker}</h3>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">${company.name}</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-[10px] bg-neon-green/10 text-neon-green px-2 py-0.5 rounded border border-neon-green/20 font-mono tracking-tighter">
-                        ${company.type}
-                    </span>
-                    <p class="text-[10px] text-gray-600 mt-1 font-mono uppercase tracking-widest">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'})}</p>
-                </div>
-            </div>
+    // Validation Logic (Critical Risk)
+    if (delta > 250) {
+        card.classList.add('critical-risk');
+    } else {
+        card.classList.remove('critical-risk');
+    }
 
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <div>
-                    <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest block mb-1">Spread</span>
-                    <span class="text-lg font-mono text-neon-green glow-text" id="spread-${company.ticker}">${currentSpread} bps</span>
-                </div>
-                <div>
-                    <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest block mb-1">Risk Lvl</span>
-                    <span class="text-sm font-bold ${getRiskColor(currentSpread)}" id="risk-${company.ticker}">${getRiskLevel(currentSpread)}</span>
-                </div>
-            </div>
-
-            <div class="mt-auto pt-4 border-t border-gray-900">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Sentinel G-Spread / Yield Stack</span>
-                    <span class="text-[9px] text-gray-400 font-mono" id="yield-${company.ticker}">${calculateYield(company, currentSpread)}% Yield</span>
-                </div>
-                <div class="h-12 w-full">
-                    <canvas id="sparkline-${company.ticker}"></canvas>
-                </div>
-            </div>
-        `;
-        grid.appendChild(card);
-        setTimeout(() => initSparkline(company.ticker), 0);
-    });
-}
-
-function updateAllCards() {
-    COMPANIES.forEach(company => {
-        const spreadDisp = document.getElementById(`spread-${company.ticker}`);
-        const riskDisp = document.getElementById(`risk-${company.ticker}`);
-        const yieldDisp = document.getElementById(`yield-${company.ticker}`);
-        const currentSpread = calculateCurrentSpread(company);
-        
-        if (spreadDisp) spreadDisp.innerText = `${currentSpread} bps`;
-        if (riskDisp) {
-            riskDisp.innerText = getRiskLevel(currentSpread);
-            riskDisp.className = `text-sm font-bold ${getRiskColor(currentSpread)}`;
-        }
-        if (yieldDisp) {
-            yieldDisp.innerText = `${calculateYield(company, currentSpread)}% Yield`;
-        }
-    });
-}
-
-function initSparkline(ticker) {
-    const ctx = document.getElementById(`sparkline-${ticker}`).getContext('2d');
-    const company = COMPANIES.find(c => c.ticker === ticker);
-    const baseRate = getBaseRate(company);
+    // Update Mini Risk Bar (Max scale 1000 bps)
+    const riskPercentage = Math.min(Math.round((spread / 1000) * 100), 100);
+    const barFill = card.querySelector('.risk-bar-fill');
+    const percentDisp = card.querySelector('.percentage-val');
     
-    const yieldHistory = historyData[ticker].map(s => baseRate + s / 100);
-    const treasuryHistory = Array(12).fill(baseRate);
+    if (barFill) barFill.style.width = `${riskPercentage}%`;
+    if (percentDisp) percentDisp.innerText = `${riskPercentage}%`;
+}
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: Array(12).fill(''),
-            datasets: [
-                {
-                    data: yieldHistory,
-                    borderColor: '#39FF14',
-                    borderWidth: 1.5,
-                    pointRadius: 0,
-                    fill: false,
-                    tension: 0.4
-                },
-                {
-                    data: treasuryHistory,
-                    borderColor: 'rgba(255, 255, 255, 0.3)',
-                    borderWidth: 1,
-                    borderDash: [2, 4],
-                    pointRadius: 0,
-                    fill: false,
-                    tension: 0
-                }
-            ]
-        },
-        options: {
-            plugins: { legend: { display: false }, tooltip: { enabled: false } },
-            scales: { x: { display: false }, y: { display: false } },
-            responsive: true,
-            maintainAspectRatio: false
+/**
+ * High-Scale Engine (Dual-Frequency)
+ */
+function startHighScaleEngine() {
+    // 1. Alternating Sector Batches (Every 5s)
+    setInterval(cycleSectorBatch, FAST_REFRESH_MS);
+
+    // 2. Focus Priority (Every 5s)
+    setInterval(refreshFocus, FAST_REFRESH_MS);
+
+    // 3. Background Throttling (Continuous background check)
+    setInterval(throttleBackground, 1000); 
+}
+
+let sectorAlphaPointer = 0;
+let sectorBetaPointer = 0;
+
+async function cycleSectorBatch() {
+    const activeProgress = document.getElementById(`${currentSectorActive.toLowerCase()}-progress`);
+    const otherProgress = document.getElementById(`${currentSectorActive === 'Alpha' ? 'beta' : 'alpha'}-progress`);
+
+    // UI Progress Bar Reset/Start
+    if (activeProgress) {
+        activeProgress.style.transition = 'none';
+        activeProgress.style.width = '0%';
+        setTimeout(() => {
+            activeProgress.style.transition = 'width 5000ms linear';
+            activeProgress.style.width = '100%';
+        }, 50);
+    }
+    if (otherProgress) otherProgress.style.width = '0%';
+
+    // Batch Update
+    const sectorTags = currentSectorActive === 'Alpha' ? ['Energy', 'Utilities'] : ['Industrials'];
+    const sectorFleet = COMPANIES.filter(c => sectorTags.includes(c.sector));
+    
+    // Rotate pointer to get next batch
+    let pointer = currentSectorActive === 'Alpha' ? sectorAlphaPointer : sectorBetaPointer;
+    const batch = [];
+    for (let i = 0; i < BATCH_SIZE; i++) {
+        batch.push(sectorFleet[(pointer + i) % sectorFleet.length]);
+    }
+
+    // Apply Update
+    for (const c of batch) {
+        if (!c) continue;
+        c.residual += (Math.random() * 4 - 2);
+        await updateCardData(c.ticker);
+        c.lastUpdated = Date.now();
+        
+        // Brief visual pulse on the card itself
+        const card = document.getElementById(`card-${c.ticker}`);
+        if (card) {
+            card.classList.add('border-neon-green/40');
+            setTimeout(() => card.classList.remove('border-neon-green/40'), 1000);
         }
-    });
+    }
+
+    // Update pointer for next time
+    if (currentSectorActive === 'Alpha') sectorAlphaPointer = (sectorAlphaPointer + BATCH_SIZE) % sectorFleet.length;
+    else sectorBetaPointer = (sectorBetaPointer + BATCH_SIZE) % sectorFleet.length;
+
+    // Toggle sector
+    currentSectorActive = currentSectorActive === 'Alpha' ? 'Beta' : 'Alpha';
+    scanForContagion();
+}
+
+async function refreshFocus() {
+    if (activeModalCompany) {
+        activeModalCompany.residual += (Math.random() * 2 - 1);
+        await updateCardData(activeModalCompany.ticker);
+        updateModal();
+        activeModalCompany.lastUpdated = Date.now();
+    }
+}
+
+async function throttleBackground() {
+    const now = Date.now();
+    for (const c of COMPANIES) {
+        // If ticker is not active modal and hasn't been updated in 60s
+        if ((!activeModalCompany || activeModalCompany.ticker !== c.ticker) && (now - c.lastUpdated > SLOW_REFRESH_MS)) {
+            await updateCardData(c.ticker);
+            c.lastUpdated = now;
+        }
+    }
+}
+
+function triggerGlobalRefresh() {
+    COMPANIES.forEach(c => updateCardData(c.ticker));
+    if (activeModalCompany) updateModal();
+    scanForContagion();
+}
+
+/**
+ * Risks & Modals (Standard logic retained/optimized)
+ */
+async function scanForContagion() {
+    let active = false;
+    for (const c of COMPANIES) {
+        const actualBaseSpread = await CreditEngine.calculateCurrentSpread(c, false);
+        if (actualBaseSpread * SENIORITY_MULTIPLIERS['Subordinated'] > 1000) active = true;
+    }
+
+    if (active) document.body.classList.add('contagion-alert');
+    else document.body.classList.remove('contagion-alert');
 }
 
 function getRiskLevel(spread) {
@@ -293,44 +390,14 @@ function getRiskColor(spread) {
     return 'text-red-500 glow-text';
 }
 
-// Polling Simulator (Round-Robin)
-let pollIndex = 0;
-function startPolling() {
-    setInterval(() => {
-        const company = COMPANIES[pollIndex];
-        const card = document.getElementById(`card-${company.ticker}`);
-        if (card) {
-            // Visual feedback of update
-            card.classList.add('border-white/50');
-            setTimeout(() => card.classList.remove('border-white/50'), 1000);
-            
-            // Update timestamp
-            const timeDisp = card.querySelector('p.text-gray-600');
-            if (timeDisp) {
-                timeDisp.innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-            }
-
-            // Random flux
-            company.residual += (Math.random() * 4 - 2);
-            updateAllCards();
-        }
-        pollIndex = (pollIndex + 1) % COMPANIES.length;
-    }, 3000);
-}
-
-// Modal Logic
 function openModal(ticker) {
     const company = COMPANIES.find(c => c.ticker === ticker);
     activeModalCompany = company;
-    
     document.getElementById('modal-title').innerText = company.ticker + " | " + company.name;
     document.getElementById('modal-sector').innerText = company.sector + " // " + company.type;
-    
     document.getElementById('focus-modal').classList.remove('hidden');
     document.getElementById('focus-modal').classList.add('flex');
-    
     updateModal();
-    renderWaterfall(company);
 }
 
 function closeModal() {
@@ -339,118 +406,110 @@ function closeModal() {
     activeModalCompany = null;
 }
 
-function updateModal() {
+async function updateModal() {
     if (!activeModalCompany) return;
-    const instrumentSpread = calculateCurrentSpread(activeModalCompany, true);
-    const normalizedSpread = calculateCurrentSpread(activeModalCompany, false);
-    const totalYield = calculateYield(activeModalCompany, instrumentSpread);
+    const instrumentSpread = await CreditEngine.calculateCurrentSpread(activeModalCompany, true);
+    const totalYield = CreditEngine.calculateYield(activeModalCompany, instrumentSpread);
+    const delta = instrumentSpread - activeModalCompany.baseSpread;
     
-    let benchmarkName = 'Base Treasury (10Y)';
-    if (activeModalCompany.country === 'UK') benchmarkName = 'Base Gilt (10Y)';
-    else if (activeModalCompany.region === 'EU') benchmarkName = 'Base Bund (10Y)';
-    document.getElementById('modal-benchmark-label').innerText = benchmarkName;
-    document.getElementById('modal-benchmark-val').innerText = getBaseRate(activeModalCompany).toFixed(2) + "%";
-    
+    const benchmark = getBenchmark(activeModalCompany);
+    document.getElementById('modal-benchmark-label').innerText = `Base ${benchmark} (10Y)`;
+    document.getElementById('modal-benchmark-val').innerText = CreditEngine.getBaseRate(activeModalCompany).toFixed(2) + "%";
     document.getElementById('modal-spread').innerText = instrumentSpread + " bps";
     document.getElementById('modal-yield').innerText = totalYield + "%";
     
-    const normDiff = instrumentSpread - normalizedSpread;
-    document.getElementById('modal-norm-diff').innerText = (normDiff > 0 ? "+" : "") + normDiff + " bps";
-    
-    const dominance = activeModalCompany.type === 'IG' ? 'TREASURY' : 'CREDIT SPREAD';
-    document.getElementById('modal-dominant-beta').innerText = dominance;
+    // Requirement: Simulated [Benchmark] Spread Delta
+    const deltaLabel = document.getElementById('modal-norm-diff');
+    deltaLabel.innerText = (delta > 0 ? "+" : "") + delta + " bps";
+    document.getElementById('modal-dominant-beta').innerText = `SIMULATED ${benchmark.toUpperCase()} SPREAD DELTA`;
 
-    // Dynamic Analyst Perspective
+    // Critical Risk Validation on Modal
+    const modalContent = document.querySelector('#focus-modal > div');
+    if (delta > 250) {
+        modalContent.classList.add('critical-risk');
+    } else {
+        modalContent.classList.remove('critical-risk');
+    }
+
+    // Perspective logic
     let perspective = activeModalCompany.type === 'IG' 
-        ? `Regression analysis confirms that for IG firms like ${activeModalCompany.ticker}, yield volatility is primarily dictated by the **Treasury Base**.`
-        : `Credit-intensive profiling identifies ${activeModalCompany.ticker} as highly sensitive to **Spread Widening**.`;
+        ? `Regression analysis for ${activeModalCompany.ticker} confirms yield volatility is primarily ${benchmark}-driven.`
+        : `Credit-intensive profiling identifies ${activeModalCompany.ticker} as highly sensitive to Spread Widening.`;
 
-    if (selectedSeniority === 'Subordinated') {
-        perspective += ` <br><span class="text-orange-400 font-bold">STRUCTURAL SUBORDINATION ALERT:</span> Recovery expectations are significantly impaired in this tranche, justifying the ${SENIORITY_MULTIPLIERS['Subordinated']}x risk multiplier.`;
-    }
-
-    if (selectedTenure < 3) {
-        perspective += ` <br><span class="text-yellow-400 font-bold">LIQUIDITY OVERLAY:</span> Short-dated tenure shifts risk focus to immediate rollover and cash-flow liquidity.`;
-    } else if (selectedTenure > 15) {
-        perspective += ` <br><span class="text-neon-green font-bold">DURATION SENSITIVITY:</span> Back-ended maturity introduces significant interest rate beta (convexity risk).`;
-    }
+    if (selectedSeniority === 'Subordinated') perspective += ` <br><span class="text-orange-400 font-bold">SUBORDINATION ALERT:</span> tranche risk increased per recovery expectations.`;
+    if (selectedTenure > 15) perspective += ` <br><span class="text-neon-green font-bold">DURATION SENSITIVITY:</span>convexity risk significantly elevated at ${selectedTenure}Y.`;
     
     document.getElementById('modal-perspective').innerHTML = perspective;
-
-    if (waterfallChart) {
-        renderWaterfall(activeModalCompany);
-    }
+    renderWaterfall(activeModalCompany);
 }
 
+// Waterfall rendering (retained/stable)
 function renderWaterfall(company) {
     const ctx = document.getElementById('waterfall-chart').getContext('2d');
-    
     const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
     const stressFactor = currentBetaScaling - 1.0;
+    const isSubordinated = selectedSeniority === 'Subordinated';
+    const subMultiplier = isSubordinated ? 2.0 : 1.0;
+
+    // Decompositions with 2x aggregated sensitivity for Subordinated
+    const marketComp = Math.round(company.marketBeta * 50 * stressFactor * sensitivity * subMultiplier);
+    const sectorComp = Math.round(company.sectorBeta * 30 * stressFactor * sensitivity * subMultiplier);
+    const residual = Math.round(company.residual * stressFactor * subMultiplier);
     
-    // Core decomposition
-    const marketComp = Math.round(company.marketBeta * 50 * stressFactor * sensitivity);
-    const sectorComp = Math.round(company.sectorBeta * 30 * stressFactor * sensitivity);
-    const residual = Math.round(company.residual);
-    
-    // Dual Layer Logic
-    const seniorityMult = SENIORITY_MULTIPLIERS[selectedSeniority];
+    const seniorityMult = isSubordinated ? 1.0 : SENIORITY_MULTIPLIERS[selectedSeniority]; 
     const tenureFactor = (selectedTenure - 10) * 0.03;
     
-    const normalizedTotal = company.baseSpread + marketComp + sectorComp + residual;
-    
-    // Attribution Bars
+    const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock;
     const baseEnd = company.baseSpread;
-    const marketEnd = baseEnd + marketComp;
-    const sectorEnd = marketEnd + sectorComp;
-    const residualEnd = sectorEnd + residual;
-    
-    // Layer 2 Additions
-    const seniorityImpact = Math.round(normalizedTotal * (seniorityMult - 1));
-    const seniorityEnd = residualEnd + seniorityImpact;
-    
-    const tenureImpact = Math.round(normalizedTotal * seniorityMult * tenureFactor);
-    const finalEnd = seniorityEnd + tenureImpact;
-
-    // EU Sovereign Delta
-    const sovSpread = SOVEREIGN_SPREADS[company.country] || 0;
 
     if (waterfallChart) waterfallChart.destroy();
 
-    const labels = ['Base', 'Market Beta', 'Sector Beta', 'Residual', 'Seniority Delta', 'Duration Beta', 'Final Spread'];
-    const dataPoints = [
-        [0, baseEnd],
-        [baseEnd, marketEnd],
-        [marketEnd, sectorEnd],
-        [sectorEnd, residualEnd],
-        [residualEnd, seniorityEnd],
-        [seniorityEnd, finalEnd],
-        [0, finalEnd]
-    ];
+    // Use labels consistent with CreditEngine math
+    let labels = ['Base'];
+    let dataPoints = [[0, baseEnd]];
+    let currentTotal = baseEnd;
 
-    // If EU and has sov spread, add it as a shadow/overlay or a separate bar?
-    // Let's add it as one more bar if company.country isn't US/DE
     if (sovSpread > 0) {
-        labels.splice(1, 0, 'Sovereign Delta');
-        const sovEnd = baseEnd + sovSpread;
-        // Shift everything else
-        dataPoints[0] = [0, baseEnd];
-        dataPoints.splice(1, 0, [baseEnd, sovEnd]);
-        // Re-calculate the stack starting from sovEnd
-        const mStart = sovEnd;
-        const mEnd = mStart + marketComp;
-        const sEnd = mEnd + sectorComp;
-        const rEnd = sEnd + residual;
-        const snEnd = rEnd + seniorityImpact;
-        const fEnd = snEnd + tenureImpact;
-
-        dataPoints[2] = [mStart, mEnd];
-        dataPoints[3] = [mEnd, sEnd];
-        dataPoints[4] = [sEnd, rEnd];
-        dataPoints[5] = [rEnd, snEnd];
-        dataPoints[6] = [snEnd, fEnd];
-        dataPoints[7] = [0, fEnd];
+        labels.push('Sovereign Delta');
+        dataPoints.push([currentTotal, currentTotal + sovSpread]);
+        currentTotal += sovSpread;
     }
+
+    labels.push('Market Beta', 'Sector Beta', 'Residual');
+    dataPoints.push([currentTotal, currentTotal + marketComp]);
+    currentTotal += marketComp;
+    dataPoints.push([currentTotal, currentTotal + sectorComp]);
+    currentTotal += sectorComp;
+    dataPoints.push([currentTotal, currentTotal + residual]);
+    currentTotal += residual;
+
+    const preInstrumentTotal = currentTotal;
+    const seniorityImpact = Math.round(preInstrumentTotal * (seniorityMult - 1));
+    labels.push('Seniority Delta');
+    dataPoints.push([currentTotal, currentTotal + seniorityImpact]);
+    currentTotal += seniorityImpact;
+
+    const tenureImpact = Math.round(preInstrumentTotal * seniorityMult * tenureFactor);
+    labels.push('Duration Beta');
+    dataPoints.push([currentTotal, currentTotal + tenureImpact]);
+    currentTotal += tenureImpact;
+
+    labels.push('Final Spread');
+    dataPoints.push([0, currentTotal]);
+
+    // Define colors relative to labels
+    const colorMap = {
+        'Base': 'rgba(255, 255, 255, 0.2)',
+        'Sovereign Delta': 'rgba(255, 255, 255, 0.4)',
+        'Market Beta': 'rgba(57, 255, 20, 0.6)',
+        'Sector Beta': 'rgba(57, 255, 20, 0.4)',
+        'Residual': 'rgba(255, 255, 255, 0.1)',
+        'Seniority Delta': 'rgba(255, 100, 0, 0.6)',
+        'Duration Beta': 'rgba(0, 150, 255, 0.6)',
+        'Final Spread': 'rgba(57, 255, 20, 1)'
+    };
+
+    const backgroundColors = labels.map(l => colorMap[l]);
 
     waterfallChart = new Chart(ctx, {
         type: 'bar',
@@ -459,16 +518,7 @@ function renderWaterfall(company) {
             datasets: [{
                 label: 'Basis Points',
                 data: dataPoints,
-                backgroundColor: [
-                    'rgba(255, 255, 255, 0.2)',
-                    'rgba(255, 255, 255, 0.4)', // Sovereign
-                    'rgba(57, 255, 20, 0.6)',
-                    'rgba(57, 255, 20, 0.4)',
-                    'rgba(255, 255, 255, 0.1)',
-                    'rgba(255, 100, 0, 0.6)', // Seniority
-                    'rgba(0, 150, 255, 0.6)', // Duration
-                    'rgba(57, 255, 20, 1)'     // Final
-                ],
+                backgroundColor: backgroundColors,
                 borderColor: '#39FF14',
                 borderWidth: 1
             }]
@@ -477,35 +527,27 @@ function renderWaterfall(company) {
             indexAxis: 'y',
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false }
-            },
+            plugins: { legend: { display: false } },
             scales: {
-                x: {
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                    ticks: { 
-                        color: 'rgba(255, 255, 255, 0.5)', 
-                        font: { 
-                            family: 'JetBrains Mono',
-                            size: window.innerWidth < 640 ? 8 : 10
-                        },
-                        maxTicksLimit: window.innerWidth < 640 ? 5 : 8
-                    }
-                },
-                y: {
-                    grid: { display: false },
-                    ticks: { 
-                        color: 'white', 
-                        font: { 
-                            family: 'JetBrains Mono', 
-                            weight: 'bold',
-                            size: window.innerWidth < 640 ? 9 : 11
-                        } 
-                    }
-                }
+                x: { grid: { color: 'rgba(255, 255, 255, 0.1)' }, ticks: { color: 'rgba(255, 255, 255, 0.5)', font: { family: 'JetBrains Mono', size: 10 } } },
+                y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'JetBrains Mono', weight: 'bold', size: 11 } } }
             }
         }
     });
+}
+
+function setSeniority(level) {
+    selectedSeniority = level;
+    document.querySelectorAll('.seniority-btn').forEach(btn => {
+        btn.classList.remove('border-neon-green/50', 'bg-neon-green/10', 'text-neon-green');
+        btn.classList.add('border-white/10');
+    });
+    const activeBtn = document.getElementById(`btn-${level}`);
+    if (activeBtn) {
+        activeBtn.classList.remove('border-white/10');
+        activeBtn.classList.add('border-neon-green/50', 'bg-neon-green/10', 'text-neon-green');
+    }
+    updateModal();
 }
 
 // Start
