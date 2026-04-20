@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SENTINEL | High-Scale Credit Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #39FF14;
+            --card-bg: #0A0A0A;
+        }
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .neon-border {
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .neon-border:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+            transform: translateY(-2px);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+        .bg-card-bg { background-color: var(--card-bg); }
+        .text-neon-green { color: var(--neon-green); }
+        
+        /* Contagion Alert Animation */
+        @keyframes glitch {
+            0% { transform: translate(0); text-shadow: none; }
+            20% { transform: translate(-2px, 2px); text-shadow: 2px 0 #ff0000, -2px 0 #00ff00; }
+            40% { transform: translate(-2px, -2px); text-shadow: -2px 0 #ff0000, 2px 0 #00ff00; }
+            60% { transform: translate(2px, 2px); text-shadow: 2px 0 #ff0000, -2px 0 #00ff00; }
+            80% { transform: translate(2px, -2px); text-shadow: -2px 0 #ff0000, 2px 0 #00ff00; }
+            100% { transform: translate(0); text-shadow: none; }
+        }
+        .systemic-glitch { animation: glitch 0.3s infinite; color: #ff3e3e !important; }
+        
+        .contagion-alert .neon-border { border-color: rgba(255, 62, 62, 0.4); }
+        .contagion-alert .text-neon-green { color: #ff3e3e; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
+
+        /* Scanning Animation */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-green), transparent);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            animation: scan 3s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scan {
+            from { top: 0; }
+            to { top: 100%; }
+        }
+
+        .critical-risk {
+            position: relative;
+            overflow: hidden;
+            border-color: rgba(239, 68, 68, 0.5) !important;
+            background: linear-gradient(45deg, #0A0A0A, #1a0505) !important;
+        }
+        .critical-risk::after {
+            content: 'CRITICAL';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 8px;
+            font-weight: bold;
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            padding: 2px 4px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-neon-green selection:text-black">
+    <!-- Header -->
+    <header class="border-b border-white/5 p-6 flex justify-between items-center sticky top-0 bg-black/80 backdrop-blur-xl z-50">
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="group">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-neon-green flex items-center justify-center rounded-lg group-hover:rotate-90 transition-transform duration-500 shadow-[0_0_20px_#39FF14]">
+                        <span class="text-black font-black text-2xl">S</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-black tracking-tighter uppercase leading-none">Sentinel</h1>
+                        <p class="text-[10px] text-neon-green font-mono tracking-widest uppercase opacity-70">Synthetic Credit Engine v2.0</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="flex gap-8 items-center">
+            <div class="text-right">
+                <div class="text-[10px] text-gray-500 font-mono uppercase tracking-[0.2em] mb-1">Engine Status</div>
+                <div id="fred-indicator" class="text-[11px] text-neon-green font-mono flex items-center gap-2">
+                    <span class="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-[0_0_8px_#39FF14]"></span>
+                    Sovereign Anchors: System Fallback
+                </div>
+            </div>
+            <div class="h-10 w-[1px] bg-white/10"></div>
+            <button id="black-swan-btn" class="px-6 py-2 bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all rounded shadow-lg shadow-red-500/5">
+                Swan Event
+            </button>
+        </div>
+    </header>
+
+    <main class="p-8 max-w-[1600px] mx-auto">
+        <div class="grid grid-cols-12 gap-8">
+            <!-- Left: Controls -->
+            <aside class="col-span-12 lg:col-span-3 space-y-8">
+                <section class="bg-card-bg/50 border border-white/5 rounded-xl p-6 backdrop-blur-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400">Yield Controls</h2>
+                        <span class="text-[8px] bg-white/5 px-2 py-1 rounded text-gray-500 font-mono">STRESS_MOD_01</span>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-mono uppercase tracking-widest text-gray-500">Credit Beta Scaling</label>
+                                <span id="beta-value" class="text-neon-green font-mono text-[10px]">1.0x</span>
+                            </div>
+                            <input type="range" id="beta-slider" min="0.5" max="3.0" step="0.1" value="1.0" class="w-full accent-neon-green bg-white/5 h-1 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-mono uppercase tracking-widest text-gray-500">Global Rate Shock</label>
+                                <span id="rate-value" class="text-neon-green font-mono text-[10px]">+0 bps</span>
+                            </div>
+                            <input type="range" id="rate-slider" min="0" max="500" step="10" value="0" class="w-full accent-neon-green bg-white/5 h-1 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+                </section>
+
+                <div class="relative group h-64 bg-card-bg/50 border border-white/5 rounded-xl flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                    <img src="sentinel_prime_mesh_asset_1776583258739.png" alt="Sentinel Core" class="w-48 h-48 object-contain z-10 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center z-10">
+                        <p class="text-[10px] font-mono text-neon-green/50 tracking-[0.3em] uppercase">Core Intelligence</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right: Fleet Grid -->
+            <div class="col-span-12 lg:col-span-9 space-y-8">
+                <!-- Search & Filters -->
+                <div class="flex justify-between items-center bg-card-bg/50 border border-white/5 rounded-xl p-4 backdrop-blur-sm">
+                    <div class="relative w-96">
+                        <input type="text" id="company-search" placeholder="SEARCH TICKER OR ENTITY..." class="w-full bg-transparent border-none focus:ring-0 text-neon-green text-xs font-mono placeholder:text-gray-700 placeholder:tracking-widest px-4">
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] text-gray-700 font-mono">SHIFT + F</div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-[9px] font-mono text-gray-500">FLEET SIZE: 19</span>
+                        <span class="text-[9px] font-mono text-gray-500 px-2 border-l border-white/10 uppercase tracking-widest">LIVE MAPPING ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- Sector Alpha: Energy & Utilities -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-neon-green/80 flex items-center gap-2">
+                             Sector Alpha <span class="text-[8px] text-gray-600 font-mono tracking-normal">(Energy & Utilities)</span>
+                        </h2>
+                        <div class="w-48 h-[1px] bg-gradient-to-r from-neon-green/20 to-transparent"></div>
+                        <div class="w-32 h-[2px] bg-white/5 rounded-full overflow-hidden">
+                            <div id="alpha-progress" class="h-full bg-neon-green" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div id="sector-alpha-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <!-- JS Render -->
+                    </div>
+                </div>
+
+                <!-- Sector Beta: Industrials -->
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-[#50fa7b]/80 flex items-center gap-2">
+                             Sector Beta <span class="text-[8px] text-gray-600 font-mono tracking-normal">(Industrials)</span>
+                        </h2>
+                        <div class="w-48 h-[1px] bg-gradient-to-r from-neon-green/20 to-transparent"></div>
+                        <div class="w-32 h-[2px] bg-white/5 rounded-full overflow-hidden">
+                            <div id="beta-progress" class="h-full bg-neon-green" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div id="sector-beta-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <!-- JS Render -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Focus Modal -->
+    <div id="focus-modal" class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-[100] hidden items-center justify-center p-4">
+        <div class="w-full max-w-6xl h-[90vh] bg-[#050505] border border-white/10 rounded-2xl overflow-hidden flex flex-col relative">
+            <div class="scanline"></div>
+            
+            <!-- Modal Header -->
+            <div class="p-8 border-b border-white/5 flex justify-between items-start">
+                <div>
+                    <h2 id="modal-title" class="text-4xl font-black tracking-tighter uppercase mb-2">TICKER | ENTITY NAME</h2>
+                    <div class="flex gap-4 items-center">
+                        <span id="modal-sector" class="text-[10px] text-neon-green font-mono uppercase tracking-[0.3em]">SECTOR | CLASSIFICATION</span>
+                        <div class="w-1.5 h-1.5 bg-neon-green rounded-full"></div>
+                        <span id="modal-dominant-beta" class="text-[10px] text-gray-500 font-mono uppercase tracking-[0.3em]">REAL-TIME INDEX ANCHOR (FRED)</span>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="w-12 h-12 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/5 transition-all group">
+                    <span class="text-xl group-hover:rotate-90 transition-transform duration-300">✕</span>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-8 custom-scroll">
+                <div class="grid grid-cols-12 gap-12">
+                    <!-- Stats Panel -->
+                    <div class="col-span-12 lg:col-span-4 space-y-8">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                                <span class="text-[8px] text-gray-500 uppercase tracking-widest block mb-1">Implied Total Yield</span>
+                                <span id="modal-yield" class="text-2xl font-mono text-neon-green glow-text flex items-center">--%</span>
+                            </div>
+                            <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                                <span class="text-[8px] text-gray-500 uppercase tracking-widest block mb-1">Current G-Spread</span>
+                                <span id="modal-spread" class="text-2xl font-mono text-neon-green glow-text">-- bps</span>
+                            </div>
+                        </div>
+
+                        <!-- Instrument Editor -->
+                        <div class="space-y-6 bg-white/5 rounded-2xl p-6 border border-white/5">
+                            <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 border-b border-white/5 pb-4">Instrument Calibration</h3>
+                            
+                            <div class="space-y-4">
+                                <label class="text-[10px] font-mono text-gray-500 uppercase tracking-widest block">Seniority Profile</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button id="btn-Secured" onclick="setSeniority('Secured')" class="seniority-btn py-3 px-1 text-[8px] border border-white/10 rounded uppercase font-bold hover:bg-white/5 transition-all">Secured</button>
+                                    <button id="btn-Unsecured" onclick="setSeniority('Unsecured')" class="seniority-btn py-3 px-1 text-[8px] border-neon-green/50 bg-neon-green/10 text-neon-green rounded uppercase font-bold transition-all">Unsecured</button>
+                                    <button id="btn-Subordinated" onclick="setSeniority('Subordinated')" class="seniority-btn py-3 px-1 text-[8px] border border-white/10 rounded uppercase font-bold hover:bg-white/5 transition-all">Sub</button>
+                                </div>
+                            </div>
+
+                            <div class="pt-4">
+                                <div class="flex justify-between mb-4">
+                                    <label class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Modified Duration (Tenure)</label>
+                                    <span id="tenure-val" class="text-neon-green font-mono text-[10px]">10Y</span>
+                                </div>
+                                <input type="range" id="tenure-slider" min="1" max="30" value="10" class="w-full accent-neon-green bg-white/10 h-1 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-neon-green/5 border border-neon-green/10 rounded-2xl">
+                            <h3 class="text-[10px] font-black uppercase text-neon-green mb-4 flex justify-between">
+                                Analytic Perspective
+                                <span id="modal-norm-diff" class="text-[8px] opacity-60">NORM: 0 bps</span>
+                            </h3>
+                            <p id="modal-perspective" class="text-[11px] text-gray-400 leading-relaxed font-mono">
+                                Establishing baseline credit profile through synthetic regression...
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Chart Panel -->
+                    <div class="col-span-12 lg:col-span-8 flex flex-col gap-6">
+                        <div class="flex justify-between items-center px-4">
+                            <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Regression Attribution Waterfall</h3>
+                            <div class="flex gap-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-neon-green/40 rounded-sm"></div>
+                                    <span id="modal-benchmark-label" class="text-[9px] text-gray-500 uppercase font-mono">Base UST</span>
+                                    <span id="modal-benchmark-val" class="text-[9px] text-neon-green font-mono">--%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-white/[0.02] rounded-2xl border border-white/5 p-8 flex items-center justify-center">
+                            <canvas id="waterfall-chart"></canvas>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-t border-white/5 text-[9px] font-mono text-gray-600 uppercase tracking-widest">
+                            <span>Attribution Basis: BPV Modified (Synthetic)</span>
+                            <span class="animate-pulse">Real-time Regression Polling Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="sentinel.v2.js"></script>
+</body>
+</html>
