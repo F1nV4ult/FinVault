@@ -1181,3 +1181,64 @@ body {
     .promo-hdr { font-size: 3.5rem; letter-spacing: 8px; }
     .mesh-robot-container { width: 350px; height: 350px; }
 }
+
+/* Sentinel Dual-Layer Upgrades */
+.contagion-alert #dashboard-grid {
+    animation: contagion-pulse 2s shadow-pulse infinite alternate;
+}
+
+@keyframes contagion-pulse {
+    from { box-shadow: inset 0 0 50px rgba(255, 100, 0, 0); }
+    to { box-shadow: inset 0 0 100px rgba(255, 100, 0, 0.2); }
+}
+
+.contagion-alert .neon-border {
+    border-color: rgba(255, 120, 0, 0.5) !important;
+    box-shadow: 0 0 15px rgba(255, 100, 0, 0.3) !important;
+}
+
+.seniority-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.seniority-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-green);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.seniority-btn.bg-neon-green\/10::after {
+    transform: scaleX(1);
+}
+
+#tenure-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-green);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-green);
+}
+
+body.contagion-alert::before {
+    content: 'CONTAGION RISK ACTIVE';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 15vw;
+    font-weight: 900;
+    color: rgba(255, 100, 0, 0.05);
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
