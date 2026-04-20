@@ -16,7 +16,13 @@ const COMPANIES = [
     { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 165, marketBeta: 0.8, sectorBeta: 0.6, residual: 0, lastUpdated: 0 },
     { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 140, marketBeta: 0.5, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
     { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 175, marketBeta: 0.9, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
-    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 380, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 }
+    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 380, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
+    { ticker: 'BA', name: 'Boeing Co', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 210, marketBeta: 1.2, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'AIR.PA', name: 'Airbus SE', sector: 'Industrials', type: 'IG', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 150, marketBeta: 0.9, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
+    { ticker: 'NGE.PA', name: 'Engie', sector: 'Utilities', type: 'IG', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 120, marketBeta: 0.6, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'ENEL.MI', name: 'Enel SpA', sector: 'Utilities', type: 'IG', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 135, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
+    { ticker: 'NEE', name: 'NextEra Energy', sector: 'Utilities', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 115, marketBeta: 0.4, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
+    { ticker: 'DUK', name: 'Duke Energy', sector: 'Utilities', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 125, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 }
 ];
 
 // Configuration
@@ -112,13 +118,15 @@ async function fetchSovereignAnchors() {
     console.log('Initiating FRED Live Sync...');
     
     let synchronizedCount = 0;
-    let latestDate = null;
+    let lastErr = null;
 
     for (const [type, seriesId] of Object.entries(FRED_SERIES)) {
         try {
-            // Using the new Vercel serverless proxy
             const response = await fetch(`/api/fred-proxy?series_id=${seriesId}`);
-            if (!response.ok) throw new Error(`Proxy error: ${response.status}`);
+            if (!response.ok) {
+                lastErr = response.status;
+                throw new Error(`Proxy error: ${response.status}`);
+            }
             
             const data = await response.json();
             if (data.value && !isNaN(data.value)) {
@@ -129,12 +137,11 @@ async function fetchSovereignAnchors() {
                 console.log(`Synced ${type}: ${data.value}% (v. ${data.date})`);
             }
         } catch (error) {
-            console.warn(`FRED Sync failed for ${type}. Retaining fallback ${SovereignRegistry[type].value}%`, error);
+            console.warn(`FRED Sync failed for ${type}.`, error);
         }
     }
 
     if (synchronizedCount > 0) {
-        // Reset cumulative residuals per requirement to prevent drift
         COMPANIES.forEach(c => c.residual = 0);
         if (indicator) {
             indicator.innerText = `Sovereign Anchors: FRED Live (v. ${latestDate})`;
@@ -142,8 +149,9 @@ async function fetchSovereignAnchors() {
             indicator.classList.add('text-neon-green');
         }
     } else {
-        if (indicator) indicator.innerText = 'Sovereign Anchors: System Fallback (Offline)';
+        if (indicator) indicator.innerText = `Sovereign Anchors: System Fallback (Offline${lastErr ? ':' + lastErr : ''})`;
     }
+}
 }
 
 /**
@@ -295,11 +303,20 @@ async function updateCardData(ticker) {
     const yieldVal = CreditEngine.calculateYield(company, spread);
     const delta = spread - company.baseSpread;
 
-    card.querySelector('.spread-val').innerText = `${spread} bps`;
-    card.querySelector('.yield-val').innerText = `${yieldVal}% Yield`;
-    card.querySelector('.risk-val').innerText = getRiskLevel(spread);
-    card.querySelector('.risk-val').className = `text-sm font-bold ${getRiskColor(spread)}`;
-    card.querySelector('.update-time').innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+    const spreadVal = card.querySelector('.spread-val');
+    const yieldEl = card.querySelector('.yield-val');
+    const riskVal = card.querySelector('.risk-val');
+    const updateTime = card.querySelector('.update-time');
+
+    if (spreadVal) spreadVal.innerText = `${spread} bps`;
+    if (yieldEl) yieldEl.innerText = `${yieldVal}% Yield`;
+    if (riskVal) {
+        riskVal.innerText = getRiskLevel(spread);
+        riskVal.className = `text-sm font-bold risk-val ${getRiskColor(spread)}`;
+    }
+    if (updateTime) {
+        updateTime.innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+    }
 
     // Benchmark Badge
     const benchmarkBadge = card.querySelector('.benchmark-badge');
