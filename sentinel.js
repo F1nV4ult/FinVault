@@ -4,19 +4,19 @@
  */
 
 const COMPANIES = [
-    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', region: 'US', country: 'US', baseSpread: 125, yield: 3.2, marketBeta: 0.8, sectorBeta: 1.1, residual: 0, lastUpdated: 0 },
-    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', region: 'EU', country: 'UK', baseSpread: 140, yield: 3.5, marketBeta: 0.9, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
-    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', region: 'US', country: 'US', baseSpread: 130, yield: 3.8, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
-    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', region: 'EU', country: 'ES', baseSpread: 110, yield: 2.9, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
-    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', region: 'EU', country: 'NO', baseSpread: 155, yield: 4.1, marketBeta: 1.1, sectorBeta: 1.4, residual: 0, lastUpdated: 0 },
-    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', region: 'US', country: 'US', baseSpread: 360, yield: 5.2, marketBeta: 1.3, sectorBeta: 1.6, residual: 0, lastUpdated: 0 },
-    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 145, yield: 2.4, marketBeta: 0.6, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
-    { ticker: 'LDO.MI', name: 'Leonardo SpA', sector: 'Industrials', type: 'IG', region: 'EU', country: 'IT', baseSpread: 185, yield: 3.4, marketBeta: 0.8, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
-    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 135, yield: 2.2, marketBeta: 0.6, sectorBeta: 0.5, residual: 0, lastUpdated: 0 },
-    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 165, yield: 2.8, marketBeta: 0.8, sectorBeta: 0.6, residual: 0, lastUpdated: 0 },
-    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 140, yield: 2.1, marketBeta: 0.5, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
-    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', baseSpread: 175, yield: 3.1, marketBeta: 0.9, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
-    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', baseSpread: 380, yield: 4.5, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 }
+    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 125, marketBeta: 0.8, sectorBeta: 1.1, residual: 0, lastUpdated: 0 },
+    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', region: 'EU', country: 'UK', base_rate_type: 'GILT', baseSpread: 140, marketBeta: 0.9, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
+    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 130, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
+    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', region: 'EU', country: 'ES', base_rate_type: 'BUND', baseSpread: 110, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
+    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', region: 'EU', country: 'NO', base_rate_type: 'BUND', baseSpread: 155, marketBeta: 1.1, sectorBeta: 1.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 360, marketBeta: 1.3, sectorBeta: 1.6, residual: 0, lastUpdated: 0 },
+    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 145, marketBeta: 0.6, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'LDO.MI', name: 'Leonardo SpA', sector: 'Industrials', type: 'IG', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 185, marketBeta: 0.8, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 135, marketBeta: 0.6, sectorBeta: 0.5, residual: 0, lastUpdated: 0 },
+    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 165, marketBeta: 0.8, sectorBeta: 0.6, residual: 0, lastUpdated: 0 },
+    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 140, marketBeta: 0.5, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 175, marketBeta: 0.9, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
+    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 380, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 }
 ];
 
 // Configuration
@@ -29,6 +29,19 @@ const FAST_REFRESH_MS = 5000;
 
 const SOVEREIGN_SPREADS = { 'US': 0, 'DE': 0, 'NO': 45, 'ES': 80, 'IT': 145, 'UK': 0 };
 const SENIORITY_MULTIPLIERS = { 'Secured': 0.85, 'Unsecured': 1.0, 'Subordinated': 1.5 };
+
+// FRED Configuration & Sovereign Registry
+const FRED_SERIES = {
+    UST: 'DGS10',
+    BUND: 'IRLTLT01DEM156N',
+    GILT: 'IRLTLT01GBM156N'
+};
+
+const SovereignRegistry = {
+    UST: { value: 4.25, label: 'US Treasury (10Y)', date: 'FALLBACK' },
+    BUND: { value: 2.45, label: 'German Bund (10Y)', date: 'FALLBACK' },
+    GILT: { value: 4.15, label: 'UK Gilt (10Y)', date: 'FALLBACK' }
+};
 
 // Global State
 let currentBetaScaling = 1.0;
@@ -44,8 +57,8 @@ let currentSectorActive = 'Alpha';
  * Helper: Identify Benchmark
  */
 function getBenchmark(company) {
-    if (company.country === 'UK') return 'Gilt';
-    return company.region === 'EU' ? 'Bund' : 'UST';
+    if (company.base_rate_type === 'GILT') return 'Gilt';
+    return company.base_rate_type === 'BUND' ? 'Bund' : 'UST';
 }
 
 /**
@@ -80,8 +93,8 @@ const CreditEngine = {
     },
 
     getBaseRate(company) {
-        let base = company.country === 'UK' ? GILT_10Y : (company.region === 'EU' ? BUND_10Y : TREASURY_10Y);
-        return base + (currentRateShock / 100);
+        const anchor = SovereignRegistry[company.base_rate_type] || SovereignRegistry['UST'];
+        return anchor.value + (currentRateShock / 100);
     },
 
     calculateYield(company, spreadBps) {
@@ -92,12 +105,58 @@ const CreditEngine = {
 };
 
 /**
+ * FRED API Live Sync
+ */
+async function fetchSovereignAnchors() {
+    const indicator = document.getElementById('fred-indicator');
+    console.log('Initiating FRED Live Sync...');
+    
+    let synchronizedCount = 0;
+    let latestDate = null;
+
+    for (const [type, seriesId] of Object.entries(FRED_SERIES)) {
+        try {
+            // Using the new Vercel serverless proxy
+            const response = await fetch(`/api/fred-proxy?series_id=${seriesId}`);
+            if (!response.ok) throw new Error(`Proxy error: ${response.status}`);
+            
+            const data = await response.json();
+            if (data.value && !isNaN(data.value)) {
+                SovereignRegistry[type].value = data.value;
+                SovereignRegistry[type].date = data.date;
+                latestDate = data.date;
+                synchronizedCount++;
+                console.log(`Synced ${type}: ${data.value}% (v. ${data.date})`);
+            }
+        } catch (error) {
+            console.warn(`FRED Sync failed for ${type}. Retaining fallback ${SovereignRegistry[type].value}%`, error);
+        }
+    }
+
+    if (synchronizedCount > 0) {
+        // Reset cumulative residuals per requirement to prevent drift
+        COMPANIES.forEach(c => c.residual = 0);
+        if (indicator) {
+            indicator.innerText = `Sovereign Anchors: FRED Live (v. ${latestDate})`;
+            indicator.classList.remove('text-gray-500');
+            indicator.classList.add('text-neon-green');
+        }
+    } else {
+        if (indicator) indicator.innerText = 'Sovereign Anchors: System Fallback (Offline)';
+    }
+}
+
+/**
  * Initialization
  */
 function init() {
     renderGrid();
     setupEventListeners();
+    fetchSovereignAnchors(); // Poll on launch
     startHighScaleEngine();
+    
+    // Refresh every 24 hours
+    setInterval(fetchSovereignAnchors, 24 * 60 * 60 * 1000);
 }
 
 function setupEventListeners() {
