@@ -3,18 +3,18 @@
  */
 
 const COMPANIES = [
-    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', baseSpread: 125, yield: 3.2, marketBeta: 0.8, sectorBeta: 1.1, residual: 15 },
-    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', baseSpread: 140, yield: 3.5, marketBeta: 0.9, sectorBeta: 1.2, residual: 20 },
-    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', baseSpread: 130, yield: 3.8, marketBeta: 0.7, sectorBeta: 1.0, residual: 10 },
-    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', baseSpread: 110, yield: 2.9, marketBeta: 0.5, sectorBeta: 0.8, residual: 12 },
-    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', baseSpread: 155, yield: 4.1, marketBeta: 1.1, sectorBeta: 1.4, residual: 25 },
-    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', baseSpread: 360, yield: 5.2, marketBeta: 1.3, sectorBeta: 1.6, residual: 45 },
-    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', baseSpread: 145, yield: 2.4, marketBeta: 0.6, sectorBeta: 0.4, residual: 18 },
-    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', baseSpread: 135, yield: 2.2, marketBeta: 0.6, sectorBeta: 0.5, residual: 15 },
-    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', baseSpread: 165, yield: 2.8, marketBeta: 0.8, sectorBeta: 0.6, residual: 22 },
-    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', baseSpread: 140, yield: 2.1, marketBeta: 0.5, sectorBeta: 0.4, residual: 14 },
-    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', baseSpread: 175, yield: 3.1, marketBeta: 0.9, sectorBeta: 0.7, residual: 35 },
-    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', baseSpread: 380, yield: 4.5, marketBeta: 1.4, sectorBeta: 1.2, residual: 60 }
+    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', baseSpread: 125, yield: 3.2, marketBeta: 0.8, sectorBeta: 1.1, residual: 0 },
+    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', baseSpread: 140, yield: 3.5, marketBeta: 0.9, sectorBeta: 1.2, residual: 0 },
+    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', baseSpread: 130, yield: 3.8, marketBeta: 0.7, sectorBeta: 1.0, residual: 0 },
+    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', baseSpread: 110, yield: 2.9, marketBeta: 0.5, sectorBeta: 0.8, residual: 0 },
+    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', baseSpread: 155, yield: 4.1, marketBeta: 1.1, sectorBeta: 1.4, residual: 0 },
+    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', baseSpread: 360, yield: 5.2, marketBeta: 1.3, sectorBeta: 1.6, residual: 0 },
+    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', baseSpread: 145, yield: 2.4, marketBeta: 0.6, sectorBeta: 0.4, residual: 0 },
+    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', baseSpread: 135, yield: 2.2, marketBeta: 0.6, sectorBeta: 0.5, residual: 0 },
+    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', baseSpread: 165, yield: 2.8, marketBeta: 0.8, sectorBeta: 0.6, residual: 0 },
+    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', baseSpread: 140, yield: 2.1, marketBeta: 0.5, sectorBeta: 0.4, residual: 0 },
+    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', baseSpread: 175, yield: 3.1, marketBeta: 0.9, sectorBeta: 0.7, residual: 0 },
+    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', baseSpread: 380, yield: 4.5, marketBeta: 1.4, sectorBeta: 1.2, residual: 0 }
 ];
 
 const TREASURY_10Y = 4.25;
@@ -62,14 +62,11 @@ function setupEventListeners() {
 }
 
 function calculateCurrentSpread(company) {
-    // Revised Logic:
-    // IG: Low sensitivity, Treasury-dominated.
-    // HY: High sensitivity, Credit-dominated.
-    
     const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
+    const stressFactor = currentBetaScaling - 1.0;
     
-    const marketComponent = company.marketBeta * 50 * currentBetaScaling * sensitivity; 
-    const sectorComponent = company.sectorBeta * 30 * currentBetaScaling * sensitivity;
+    const marketComponent = company.marketBeta * 50 * stressFactor * sensitivity; 
+    const sectorComponent = company.sectorBeta * 30 * stressFactor * sensitivity;
     
     return Math.round(company.baseSpread + marketComponent + sectorComponent + company.residual);
 }
@@ -132,7 +129,7 @@ function renderGrid(filterText = '') {
 
             <div class="mt-auto pt-4 border-t border-gray-900">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Beta Sensitivity</span>
+                    <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Sentinel G-Spread / Yield Stack</span>
                     <span class="text-[9px] text-gray-400 font-mono" id="yield-${company.ticker}">${calculateYield(currentSpread)}% Yield</span>
                 </div>
                 <div class="h-12 w-full">
@@ -165,19 +162,33 @@ function updateAllCards() {
 
 function initSparkline(ticker) {
     const ctx = document.getElementById(`sparkline-${ticker}`).getContext('2d');
+    
+    const yieldHistory = historyData[ticker].map(s => TREASURY_10Y + s / 100);
+    const treasuryHistory = Array(12).fill(TREASURY_10Y);
+
     new Chart(ctx, {
         type: 'line',
         data: {
             labels: Array(12).fill(''),
-            datasets: [{
-                data: historyData[ticker],
-                borderColor: '#39FF14',
-                borderWidth: 1.5,
-                pointRadius: 0,
-                fill: true,
-                backgroundColor: 'rgba(57, 255, 20, 0.05)',
-                tension: 0.4
-            }]
+            datasets: [
+                {
+                    data: yieldHistory,
+                    borderColor: '#39FF14',
+                    borderWidth: 1.5,
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0.4
+                },
+                {
+                    data: treasuryHistory,
+                    borderColor: 'rgba(255, 255, 255, 0.3)',
+                    borderWidth: 1,
+                    borderDash: [2, 4],
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0
+                }
+            ]
         },
         options: {
             plugins: { legend: { display: false }, tooltip: { enabled: false } },
@@ -275,10 +286,18 @@ function updateModal() {
 function renderWaterfall(company) {
     const ctx = document.getElementById('waterfall-chart').getContext('2d');
     
-    const marketComp = Math.round(company.marketBeta * 50 * currentBetaScaling);
-    const sectorComp = Math.round(company.sectorBeta * 30 * currentBetaScaling);
+    const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
+    const stressFactor = currentBetaScaling - 1.0;
+    
+    const marketComp = Math.round(company.marketBeta * 50 * stressFactor * sensitivity);
+    const sectorComp = Math.round(company.sectorBeta * 30 * stressFactor * sensitivity);
     const residual = Math.round(company.residual);
     const total = company.baseSpread + marketComp + sectorComp + residual;
+
+    const baseEnd = company.baseSpread;
+    const marketEnd = baseEnd + marketComp;
+    const sectorEnd = marketEnd + sectorComp;
+    const residualEnd = sectorEnd + residual;
 
     if (waterfallChart) waterfallChart.destroy();
 
@@ -289,11 +308,11 @@ function renderWaterfall(company) {
             datasets: [{
                 label: 'Basis Points',
                 data: [
-                    company.baseSpread,
-                    marketComp,
-                    sectorComp,
-                    residual,
-                    total
+                    [0, baseEnd],
+                    [baseEnd, marketEnd],
+                    [marketEnd, sectorEnd],
+                    [sectorEnd, residualEnd],
+                    [0, residualEnd]
                 ],
                 backgroundColor: [
                     'rgba(255, 255, 255, 0.2)',
