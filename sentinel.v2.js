@@ -123,13 +123,12 @@ async function fetchSovereignAnchors() {
 
     for (const [type, seriesId] of Object.entries(FRED_SERIES)) {
         try {
-            const response = await fetch(`/api/fred-proxy?series_id=${seriesId}`);
+            const data = await response.json();
             if (!response.ok) {
-                lastErr = response.status;
-                throw new Error(`Proxy error: ${response.status}`);
+                lastErr = data.error || response.status;
+                throw new Error(`Proxy error: ${lastErr}`);
             }
             
-            const data = await response.json();
             if (data.value && !isNaN(data.value)) {
                 SovereignRegistry[type].value = data.value;
                 SovereignRegistry[type].date = data.date;
