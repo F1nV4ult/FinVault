@@ -118,6 +118,7 @@ async function fetchSovereignAnchors() {
     console.log('Initiating FRED Live Sync...');
     
     let synchronizedCount = 0;
+    let latestDate = null;
     let lastErr = null;
 
     for (const [type, seriesId] of Object.entries(FRED_SERIES)) {
@@ -148,20 +149,22 @@ async function fetchSovereignAnchors() {
             indicator.classList.remove('text-gray-500');
             indicator.classList.add('text-neon-green');
         }
+        triggerGlobalRefresh();
     } else {
         if (indicator) indicator.innerText = `Sovereign Anchors: System Fallback (Offline${lastErr ? ':' + lastErr : ''})`;
     }
-}
 }
 
 /**
  * Initialization
  */
 function init() {
-    renderGrid();
     setupEventListeners();
-    fetchSovereignAnchors(); // Poll on launch
+    renderGrid(); // Render instantly with fallbacks
     startHighScaleEngine();
+    
+    // Poll FRED in background
+    fetchSovereignAnchors(); 
     
     // Refresh every 24 hours
     setInterval(fetchSovereignAnchors, 24 * 60 * 60 * 1000);
