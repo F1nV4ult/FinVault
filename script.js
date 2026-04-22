@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSearchFilter();
     initDollarBackground();
     initDropdowns();
+    initTerminalInteractivity();
 });
 
 function initDropdowns() {
@@ -270,5 +271,43 @@ function initDollarBackground() {
         bill.style.setProperty('--rot-y', rotYAmount);
         
         container.appendChild(bill);
+    });
+}
+
+function initTerminalInteractivity() {
+    const finvaultBtn = document.getElementById('tool-finvault-btn');
+    const finvaultLog = document.getElementById('finvault-log');
+    
+    if (!finvaultBtn || !finvaultLog) return;
+    
+    const logText = `FINVAULT DATA_LOG // SEC_01
+SOURCE: 10-K MANDATORY FILINGS/ CONSOLIDATED FINANCIAL STATEMENTS
+ANALYSIS_PARAM: RATIOS_MULTIPLES_SECTOR_KPIs.
+SECTOR_FOCUS: [ENERGY] [UTILITIES] [INDUSTRIALS].
+PURPOSE: DETERMINING ASSET POTENTIAL AND FIRM PERFORMANCE AND POSITION.`;
+
+    let isTyping = false;
+    
+    finvaultBtn.addEventListener('click', () => {
+        if (isTyping) return; // Prevent multiple clicks from restarting mid-type
+        
+        isTyping = true;
+        finvaultLog.style.display = 'block';
+        finvaultLog.textContent = '';
+        
+        let i = 0;
+        const speed = 25; // ms per character
+        
+        function typeWriter() {
+            if (i < logText.length) {
+                finvaultLog.textContent += logText.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                isTyping = false;
+            }
+        }
+        
+        typeWriter();
     });
 }
