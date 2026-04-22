@@ -278,36 +278,72 @@ function initTerminalInteractivity() {
     const finvaultBtn = document.getElementById('tool-finvault-btn');
     const finvaultLog = document.getElementById('finvault-log');
     
-    if (!finvaultBtn || !finvaultLog) return;
-    
-    const logText = `FINVAULT DATA_LOG // SEC_01
+    if (finvaultBtn && finvaultLog) {
+        const logText = `FINVAULT DATA_LOG // SEC_01
 SOURCE: 10-K MANDATORY FILINGS/ CONSOLIDATED FINANCIAL STATEMENTS
 ANALYSIS_PARAM: RATIOS_MULTIPLES_SECTOR_KPIs.
 SECTOR_FOCUS: [ENERGY] [UTILITIES] [INDUSTRIALS].
 PURPOSE: DETERMINING ASSET POTENTIAL AND FIRM PERFORMANCE/POSITION.`;
 
-    let isTyping = false;
-    
-    finvaultBtn.addEventListener('click', () => {
-        if (isTyping) return; // Prevent multiple clicks from restarting mid-type
+        let isTyping = false;
         
-        isTyping = true;
-        finvaultLog.style.display = 'block';
-        finvaultLog.textContent = '';
-        
-        let i = 0;
-        const speed = 25; // ms per character
-        
-        function typeWriter() {
-            if (i < logText.length) {
-                finvaultLog.textContent += logText.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                isTyping = false;
+        finvaultBtn.addEventListener('click', () => {
+            if (isTyping) return;
+            
+            isTyping = true;
+            finvaultLog.style.display = 'block';
+            finvaultLog.textContent = '';
+            
+            let i = 0;
+            const speed = 25;
+            
+            function typeWriter() {
+                if (i < logText.length) {
+                    finvaultLog.textContent += logText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    isTyping = false;
+                }
             }
-        }
+            
+            typeWriter();
+        });
+    }
+
+    const sentinelBtn = document.getElementById('tool-sentinel-btn');
+    const sentinelLog = document.getElementById('sentinel-log');
+
+    if (sentinelBtn && sentinelLog) {
+        const sentinelLogText = `SENTINEL_HEARTBEAT // NODE_02
+SOURCE: LIVE_FRED_SOVEREIGN_ANCHORS / EQUITY_VOLATILITY_SIGNALS
+ANALYSIS_PARAM: MERTON_CONVEXITY_LOGIC / G-SPREAD_WATERFALL / SECTOR_BETA_WEIGHTING.
+SECTOR_FOCUS: [ENERGY] [UTILITIES] [INDUSTRIALS].
+PURPOSE: REAL-TIME CREDIT SOLVENCY MONITORING / DYNAMIC STRESS-TESTING / FISCAL_FALLOUT_PROJECTION`;
+
+        let isSentinelTyping = false;
         
-        typeWriter();
-    });
+        sentinelBtn.addEventListener('click', () => {
+            if (isSentinelTyping) return;
+            
+            isSentinelTyping = true;
+            sentinelLog.style.display = 'block';
+            sentinelLog.textContent = '';
+            
+            let j = 0;
+            const speed = 25;
+            
+            function typeWriterSentinel() {
+                if (j < sentinelLogText.length) {
+                    sentinelLog.textContent += sentinelLogText.charAt(j);
+                    j++;
+                    setTimeout(typeWriterSentinel, speed);
+                } else {
+                    isSentinelTyping = false;
+                }
+            }
+            
+            typeWriterSentinel();
+        });
+    }
 }
