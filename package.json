@@ -4,5 +4,9 @@
   "private": true,
   "engines": {
     "node": ">=20.x"
+  },
+  "scripts": {
+    "sitemap": "node generate-sitemap.js",
+    "build": "npm run sitemap"
   }
 }
