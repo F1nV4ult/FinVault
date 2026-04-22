@@ -299,8 +299,9 @@ PURPOSE: DETERMINING ASSET POTENTIAL AND FIRM PERFORMANCE/POSITION.`;
             
             function typeWriter() {
                 if (i < logText.length) {
-                    finvaultLog.textContent += logText.charAt(i);
                     i++;
+                    let currentText = logText.substring(0, i);
+                    finvaultLog.innerHTML = currentText.replace(/(SOURCE|ANALYSIS_PARAM|SECTOR_FOCUS|PURPOSE)/g, '<span class="term-highlight">$1</span>');
                     setTimeout(typeWriter, speed);
                 } else {
                     isTyping = false;
@@ -328,15 +329,16 @@ PURPOSE: REAL-TIME CREDIT SOLVENCY MONITORING / DYNAMIC STRESS-TESTING / FISCAL_
             
             isSentinelTyping = true;
             sentinelLog.style.display = 'block';
-            sentinelLog.textContent = '';
+            sentinelLog.innerHTML = '';
             
             let j = 0;
             const speed = 25;
             
             function typeWriterSentinel() {
                 if (j < sentinelLogText.length) {
-                    sentinelLog.textContent += sentinelLogText.charAt(j);
                     j++;
+                    let currentText = sentinelLogText.substring(0, j);
+                    sentinelLog.innerHTML = currentText.replace(/(SOURCE|ANALYSIS_PARAM|SECTOR_FOCUS|PURPOSE)/g, '<span class="term-highlight">$1</span>');
                     setTimeout(typeWriterSentinel, speed);
                 } else {
                     isSentinelTyping = false;
