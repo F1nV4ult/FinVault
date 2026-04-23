@@ -290,8 +290,8 @@ function createCard(company) {
         </div>
 
         <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-            <span class="text-[9px] text-gray-600 uppercase font-mono tracking-widest">Yield Stack</span>
-            <span class="text-[9px] text-gray-400 font-mono yield-val">--% Yield</span>
+            <span class="text-xs text-neon-green uppercase font-mono tracking-widest font-bold glow-text">Yield Stack</span>
+            <span class="text-lg text-white font-mono font-bold yield-val glow-text">--% Yield</span>
         </div>
     `;
     return card;
