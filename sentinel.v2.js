@@ -74,7 +74,7 @@ const CreditEngine = {
     async calculateCurrentSpread(company, isInstrumentMod = false) {
         return new Promise(resolve => {
             const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
-            const stressMultiplier = currentBetaScaling - 1.0;
+            const stressMultiplier = currentBetaScaling;
             
             // Per requirement: Scale sum of market + sector beta
             const systematicBeta = (company.marketBeta + company.sectorBeta);
@@ -531,7 +531,7 @@ async function updateModal() {
 function renderWaterfall(company) {
     const ctx = document.getElementById('waterfall-chart').getContext('2d');
     const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
-    const stressFactor = currentBetaScaling - 1.0;
+    const stressFactor = currentBetaScaling;
     const isSubordinated = selectedSeniority === 'Subordinated';
     const subMultiplier = isSubordinated ? 2.0 : 1.0;
 
