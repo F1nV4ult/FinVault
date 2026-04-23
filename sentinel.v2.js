@@ -291,7 +291,7 @@ function createCard(company) {
 
         <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
             <span class="text-xs text-neon-green uppercase font-mono tracking-widest font-bold glow-text">Yield Stack</span>
-            <span class="text-lg text-white font-mono font-bold yield-val glow-text">--% Yield</span>
+            <span class="text-lg text-white font-mono font-bold yield-val glow-text">--%</span>
         </div>
     `;
     return card;
@@ -312,7 +312,7 @@ async function updateCardData(ticker) {
     const updateTime = card.querySelector('.update-time');
 
     if (spreadVal) spreadVal.innerText = `${spread} bps`;
-    if (yieldEl) yieldEl.innerText = `${yieldVal}% Yield`;
+    if (yieldEl) yieldEl.innerText = `${yieldVal}%`;
     if (riskVal) {
         riskVal.innerText = getRiskLevel(spread);
         riskVal.className = `text-sm font-bold risk-val ${getRiskColor(spread)}`;
