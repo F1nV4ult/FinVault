@@ -200,7 +200,7 @@ async function fetchSectorVolatility() {
 
     for (const [sector, symbol] of Object.entries(ALPHA_SERIES)) {
         try {
-            const response = await fetch(`/api/alpha-proxy?symbol=${symbol}`);
+            const response = await fetch(`/api/yahoo-proxy?symbol=${symbol}`);
             const data = await response.json();
             
             if (response.ok && data.volatility) {
