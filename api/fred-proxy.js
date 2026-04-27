@@ -32,6 +32,7 @@ export default async function handler(req, res) {
 
         if (data.observations && data.observations.length > 0) {
             const latest = data.observations[0];
+            res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
             return res.status(200).json({
                 value: parseFloat(latest.value),
                 date: latest.date,

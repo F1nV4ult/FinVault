@@ -4,25 +4,25 @@
  */
 
 const COMPANIES = [
-    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 125, marketBeta: 0.8, sectorBeta: 1.1, residual: 0, lastUpdated: 0 },
-    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', region: 'EU', country: 'UK', base_rate_type: 'GILT', baseSpread: 140, marketBeta: 0.9, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
-    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 130, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
-    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', region: 'EU', country: 'ES', base_rate_type: 'BUND', baseSpread: 110, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
-    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', region: 'EU', country: 'NO', base_rate_type: 'BUND', baseSpread: 155, marketBeta: 1.1, sectorBeta: 1.4, residual: 0, lastUpdated: 0 },
-    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 360, marketBeta: 1.3, sectorBeta: 1.6, residual: 0, lastUpdated: 0 },
-    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 145, marketBeta: 0.6, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
-    { ticker: 'LDO.MI', name: 'Leonardo SpA', sector: 'Industrials', type: 'IG', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 185, marketBeta: 0.8, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
-    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 135, marketBeta: 0.6, sectorBeta: 0.5, residual: 0, lastUpdated: 0 },
-    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 165, marketBeta: 0.8, sectorBeta: 0.6, residual: 0, lastUpdated: 0 },
-    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 140, marketBeta: 0.5, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
-    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 175, marketBeta: 0.9, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
-    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 380, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
-    { ticker: 'BA', name: 'Boeing Co', sector: 'Industrials', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 210, marketBeta: 1.2, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
-    { ticker: 'AIR.PA', name: 'Airbus SE', sector: 'Industrials', type: 'IG', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 150, marketBeta: 0.9, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
-    { ticker: 'NGE.PA', name: 'Engie', sector: 'Utilities', type: 'IG', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 120, marketBeta: 0.6, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
-    { ticker: 'ENEL.MI', name: 'Enel SpA', sector: 'Utilities', type: 'IG', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 135, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
-    { ticker: 'NEE', name: 'NextEra Energy', sector: 'Utilities', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 115, marketBeta: 0.4, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
-    { ticker: 'DUK', name: 'Duke Energy', sector: 'Utilities', type: 'IG', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 125, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 }
+    { ticker: 'XOM', name: 'Exxon Mobil', sector: 'Energy', type: 'IG', rating: 'AA', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 125, marketBeta: 0.8, sectorBeta: 1.1, residual: 0, lastUpdated: 0 },
+    { ticker: 'SHEL', name: 'Shell PLC', sector: 'Energy', type: 'IG', rating: 'A', region: 'EU', country: 'UK', base_rate_type: 'GILT', baseSpread: 140, marketBeta: 0.9, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
+    { ticker: 'CVX', name: 'Chevron Corp', sector: 'Energy', type: 'IG', rating: 'AA', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 130, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
+    { ticker: 'IBE.MC', name: 'Iberdrola', sector: 'Utilities', type: 'IG', rating: 'BBB', region: 'EU', country: 'ES', base_rate_type: 'BUND', baseSpread: 110, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
+    { ticker: 'EQNR', name: 'Equinor', sector: 'Energy', type: 'IG', rating: 'AA', region: 'EU', country: 'NO', base_rate_type: 'BUND', baseSpread: 155, marketBeta: 1.1, sectorBeta: 1.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'MPC', name: 'Marathon Petroleum', sector: 'Energy', type: 'HY', rating: 'HY', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 360, marketBeta: 1.3, sectorBeta: 1.6, residual: 0, lastUpdated: 0 },
+    { ticker: 'LMT', name: 'Lockheed Martin', sector: 'Industrials', type: 'IG', rating: 'A', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 145, marketBeta: 0.6, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'LDO.MI', name: 'Leonardo SpA', sector: 'Industrials', type: 'IG', rating: 'BBB', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 185, marketBeta: 0.8, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'GD', name: 'General Dynamics', sector: 'Industrials', type: 'IG', rating: 'A', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 135, marketBeta: 0.6, sectorBeta: 0.5, residual: 0, lastUpdated: 0 },
+    { ticker: 'LHX', name: 'L3Harris Tech', sector: 'Industrials', type: 'IG', rating: 'BBB', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 165, marketBeta: 0.8, sectorBeta: 0.6, residual: 0, lastUpdated: 0 },
+    { ticker: 'NOC', name: 'Northrop Grumman', sector: 'Industrials', type: 'IG', rating: 'BBB', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 140, marketBeta: 0.5, sectorBeta: 0.4, residual: 0, lastUpdated: 0 },
+    { ticker: 'RTX', name: 'RTX Corp', sector: 'Industrials', type: 'IG', rating: 'A', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 175, marketBeta: 0.9, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
+    { ticker: 'RHM.DE', name: 'Rheinmetall AG', sector: 'Industrials', type: 'HY', rating: 'HY', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 380, marketBeta: 1.4, sectorBeta: 1.2, residual: 0, lastUpdated: 0 },
+    { ticker: 'BA', name: 'Boeing Co', sector: 'Industrials', type: 'IG', rating: 'BBB', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 210, marketBeta: 1.2, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'AIR.PA', name: 'Airbus SE', sector: 'Industrials', type: 'IG', rating: 'A', region: 'EU', country: 'DE', base_rate_type: 'BUND', baseSpread: 150, marketBeta: 0.9, sectorBeta: 0.8, residual: 0, lastUpdated: 0 },
+    { ticker: 'NGE.PA', name: 'Engie', sector: 'Utilities', type: 'IG', rating: 'BBB', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 120, marketBeta: 0.6, sectorBeta: 0.9, residual: 0, lastUpdated: 0 },
+    { ticker: 'ENEL.MI', name: 'Enel SpA', sector: 'Utilities', type: 'IG', rating: 'BBB', region: 'EU', country: 'IT', base_rate_type: 'BUND', baseSpread: 135, marketBeta: 0.7, sectorBeta: 1.0, residual: 0, lastUpdated: 0 },
+    { ticker: 'NEE', name: 'NextEra Energy', sector: 'Utilities', type: 'IG', rating: 'A', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 115, marketBeta: 0.4, sectorBeta: 0.7, residual: 0, lastUpdated: 0 },
+    { ticker: 'DUK', name: 'Duke Energy', sector: 'Utilities', type: 'IG', rating: 'BBB', region: 'US', country: 'US', base_rate_type: 'UST', baseSpread: 125, marketBeta: 0.5, sectorBeta: 0.8, residual: 0, lastUpdated: 0 }
 ];
 
 // Configuration
@@ -40,13 +40,36 @@ const SENIORITY_MULTIPLIERS = { 'Secured': 0.85, 'Unsecured': 1.0, 'Subordinated
 const FRED_SERIES = {
     UST: 'DGS10',
     BUND: 'IRLTLT01DEM156N',
-    GILT: 'IRLTLT01GBM156N'
+    GILT: 'IRLTLT01GBM156N',
+    AAA: 'BAMLC0A1CAAA',
+    AA: 'BAMLC0A2CAA',
+    A: 'BAMLC0A3CA',
+    BBB: 'BAMLC0A4CBBB',
+    HY: 'BAMLH0A0HYM2'
 };
 
 const SovereignRegistry = {
     UST: { value: 4.25, label: 'US Treasury (10Y)', date: 'FALLBACK' },
     BUND: { value: 2.45, label: 'German Bund (10Y)', date: 'FALLBACK' },
-    GILT: { value: 4.15, label: 'UK Gilt (10Y)', date: 'FALLBACK' }
+    GILT: { value: 4.15, label: 'UK Gilt (10Y)', date: 'FALLBACK' },
+    AAA: { value: 0.50, label: 'ICE BofA AAA US Corporate Index', date: 'FALLBACK' },
+    AA: { value: 0.65, label: 'ICE BofA AA US Corporate Index', date: 'FALLBACK' },
+    A: { value: 0.85, label: 'ICE BofA A US Corporate Index', date: 'FALLBACK' },
+    BBB: { value: 1.25, label: 'ICE BofA BBB US Corporate Index', date: 'FALLBACK' },
+    HY: { value: 3.50, label: 'ICE BofA US High Yield Index', date: 'FALLBACK' }
+};
+
+// Alpha Vantage Configuration & Sector Volatility Registry
+const ALPHA_SERIES = {
+    Energy: 'XLE',
+    Utilities: 'XLU',
+    Industrials: 'XLI'
+};
+
+const SectorRegistry = {
+    Energy: { volatility: 25.0, label: 'Energy Sector ETF (XLE)', date: 'FALLBACK' },
+    Utilities: { volatility: 18.0, label: 'Utilities Sector ETF (XLU)', date: 'FALLBACK' },
+    Industrials: { volatility: 22.0, label: 'Industrials Sector ETF (XLI)', date: 'FALLBACK' }
 };
 
 // Global State
@@ -79,7 +102,14 @@ const CreditEngine = {
             // Per requirement: Scale sum of market + sector beta
             const systematicBeta = (company.marketBeta + company.sectorBeta);
             const marketComp = company.marketBeta * 50 * stressMultiplier * sensitivity; 
-            const sectorComp = company.sectorBeta * 30 * stressMultiplier * sensitivity;
+            
+            // Volatility Premium (Derived from Hub-and-Spoke Sector ETF)
+            const sectorVol = SectorRegistry[company.sector] && SectorRegistry[company.sector].volatility !== 'FALLBACK' 
+                ? SectorRegistry[company.sector].volatility 
+                : 20.0; // Fallback 20% vol
+            const companyVol = sectorVol * company.sectorBeta;
+            // 1% Volatility = ~1.5 bps spread premium (simplified structural model proxy)
+            const volatilityPremium = companyVol * 1.5 * stressMultiplier * sensitivity;
             
             // Per requirement: Residual scales proportionally with systematic
             const residualComp = company.residual * stressMultiplier;
@@ -88,8 +118,14 @@ const CreditEngine = {
             const isSubordinated = (isInstrumentMod && selectedSeniority === 'Subordinated');
             const subMultiplier = isSubordinated ? 2.0 : 1.0;
 
-            const aggregatedDelta = Math.round((marketComp + sectorComp + residualComp) * subMultiplier);
-            const totalSpread = Math.round(company.baseSpread + aggregatedDelta);
+            const aggregatedDelta = Math.round((marketComp + volatilityPremium + residualComp) * subMultiplier);
+            
+            // FETCH LIVE MACRO CORPORATE SPREAD INSTEAD OF HARDCODED baseSpread
+            const liveMacroSpread = (SovereignRegistry[company.rating] && SovereignRegistry[company.rating].value !== 'FALLBACK')
+                ? Math.round(SovereignRegistry[company.rating].value * 100) 
+                : company.baseSpread;
+
+            const totalSpread = Math.round(liveMacroSpread + aggregatedDelta);
             
             const tenureMult = isInstrumentMod ? (1 + (selectedTenure - 10) * 0.03) : 1.0;
             const seniorityMult = (isInstrumentMod && !isSubordinated) ? SENIORITY_MULTIPLIERS[selectedSeniority] : 1.0;
@@ -156,6 +192,79 @@ async function fetchSovereignAnchors() {
 }
 
 /**
+ * Alpha Vantage Live Sync (Sector Volatility Hub)
+ */
+async function fetchSectorVolatility() {
+    console.log('Initiating Alpha Vantage Sector Volatility Sync...');
+    let synchronizedCount = 0;
+
+    for (const [sector, symbol] of Object.entries(ALPHA_SERIES)) {
+        try {
+            const response = await fetch(`/api/alpha-proxy?symbol=${symbol}`);
+            const data = await response.json();
+            
+            if (response.ok && data.volatility) {
+                SectorRegistry[sector].volatility = data.volatility;
+                SectorRegistry[sector].date = data.latestDate;
+                synchronizedCount++;
+                console.log(`Synced ${sector} (${symbol}) Volatility: ${data.volatility}% (v. ${data.latestDate})`);
+            } else {
+                console.warn(`Alpha Vantage Sync failed for ${sector}:`, data.error || 'Unknown Error');
+            }
+        } catch (error) {
+            console.warn(`Alpha Proxy network error for ${sector}.`, error);
+        }
+    }
+
+    if (synchronizedCount > 0) {
+        triggerGlobalRefresh();
+    }
+}
+
+/**
+ * Auto-Calibration Engine (Spot Checks)
+ * Queries individual tickers to find true volatility, compares against the Proxy (Hub-and-Spoke),
+ * and calibrates the residual parameter.
+ */
+async function runAutoCalibration() {
+    console.log('Initiating Auto-Calibration Engine...');
+    // Select 3 random companies for spot check to preserve API limits
+    const sampleSize = 3;
+    const shuffled = [...COMPANIES].sort(() => 0.5 - Math.random());
+    const targetCompanies = shuffled.slice(0, sampleSize);
+
+    for (const company of targetCompanies) {
+        try {
+            const response = await fetch(`/api/yahoo-proxy?symbol=${company.ticker}`);
+            const data = await response.json();
+            
+            if (response.ok && data.volatility) {
+                const actualVol = data.volatility;
+                
+                // Calculate proxy volatility
+                const sectorVol = SectorRegistry[company.sector] && SectorRegistry[company.sector].volatility !== 'FALLBACK' 
+                    ? SectorRegistry[company.sector].volatility 
+                    : 20.0;
+                const proxyVol = sectorVol * company.sectorBeta;
+                
+                // Error Margin (Volatility %)
+                const volError = actualVol - proxyVol;
+                
+                // Convert Volatility Error to Basis Points (1% vol = ~1.5 bps)
+                const bpsError = volError * 1.5;
+                
+                // Auto-correct the company's calibrationError (this offsets the proxy error)
+                company.calibrationError = Math.round(bpsError);
+                
+                console.log(`[Auto-Calibrate] ${company.ticker}: Actual Vol=${actualVol}%, Proxy Vol=${proxyVol.toFixed(2)}%. Error injected: ${company.calibrationError} bps`);
+            }
+        } catch (error) {
+            console.warn(`Auto-Calibration failed for ${company.ticker}.`, error);
+        }
+    }
+}
+
+/**
  * Initialization
  */
 function init() {
@@ -163,11 +272,21 @@ function init() {
     renderGrid(); // Render instantly with fallbacks
     startHighScaleEngine();
     
-    // Poll FRED in background
-    fetchSovereignAnchors(); 
+    // Poll FRED & Alpha Vantage in background
+    fetchSovereignAnchors();
+    fetchSectorVolatility(); 
     
-    // Refresh every 24 hours
-    setInterval(fetchSovereignAnchors, 24 * 60 * 60 * 1000);
+    // Auto-Calibrate on a delay to avoid rate-limiting spike on load
+    setTimeout(runAutoCalibration, 10000);
+    
+    // Refresh macro data every 24 hours
+    setInterval(() => {
+        fetchSovereignAnchors();
+        fetchSectorVolatility();
+    }, 24 * 60 * 60 * 1000);
+    
+    // Auto-Calibrate every 2 hours
+    setInterval(runAutoCalibration, 2 * 60 * 60 * 1000);
 }
 
 function setupEventListeners() {
@@ -394,7 +513,7 @@ async function cycleSectorBatch() {
     // Apply Update
     for (const c of batch) {
         if (!c) continue;
-        c.residual += (Math.random() * 4 - 2);
+        c.residual = (c.calibrationError || 0) + (Math.random() * 3 - 1.5);
         await updateCardData(c.ticker);
         c.lastUpdated = Date.now();
         
@@ -417,7 +536,7 @@ async function cycleSectorBatch() {
 
 async function refreshFocus() {
     if (activeModalCompany) {
-        activeModalCompany.residual += (Math.random() * 2 - 1);
+        activeModalCompany.residual = (activeModalCompany.calibrationError || 0) + (Math.random() * 3 - 1.5);
         await updateCardData(activeModalCompany.ticker);
         updateModal();
         activeModalCompany.lastUpdated = Date.now();
@@ -537,14 +656,21 @@ function renderWaterfall(company) {
 
     // Decompositions with 2x aggregated sensitivity for Subordinated
     const marketComp = Math.round(company.marketBeta * 50 * stressFactor * sensitivity * subMultiplier);
-    const sectorComp = Math.round(company.sectorBeta * 30 * stressFactor * sensitivity * subMultiplier);
+    
+    const sectorVol = SectorRegistry[company.sector] && SectorRegistry[company.sector].volatility !== 'FALLBACK' 
+        ? SectorRegistry[company.sector].volatility 
+        : 20.0;
+    const volatilityPremium = Math.round((sectorVol * company.sectorBeta * 1.5) * stressFactor * sensitivity * subMultiplier);
+    
     const residual = Math.round(company.residual * stressFactor * subMultiplier);
     
     const seniorityMult = isSubordinated ? 1.0 : SENIORITY_MULTIPLIERS[selectedSeniority]; 
     const tenureFactor = (selectedTenure - 10) * 0.03;
     
     const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock;
-    const baseEnd = company.baseSpread;
+    const baseEnd = (SovereignRegistry[company.rating] && SovereignRegistry[company.rating].value !== 'FALLBACK')
+        ? Math.round(SovereignRegistry[company.rating].value * 100) 
+        : company.baseSpread;
 
     if (waterfallChart) waterfallChart.destroy();
 
@@ -559,11 +685,11 @@ function renderWaterfall(company) {
         currentTotal += sovSpread;
     }
 
-    labels.push('Market Beta', 'Sector Beta', 'Residual');
+    labels.push('Market Beta', 'Volatility Premium', 'Calibrated Residual');
     dataPoints.push([currentTotal, currentTotal + marketComp]);
     currentTotal += marketComp;
-    dataPoints.push([currentTotal, currentTotal + sectorComp]);
-    currentTotal += sectorComp;
+    dataPoints.push([currentTotal, currentTotal + volatilityPremium]);
+    currentTotal += volatilityPremium;
     dataPoints.push([currentTotal, currentTotal + residual]);
     currentTotal += residual;
 
