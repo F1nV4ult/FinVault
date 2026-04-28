@@ -56,6 +56,17 @@
             cursor: pointer;
             box-shadow: 0 0 10px #39FF14;
         }
+        @keyframes crt-flicker {
+            0% { opacity: 0.95; text-shadow: 0 0 2px rgba(57, 255, 20, 0.4); }
+            5% { opacity: 0.85; text-shadow: 0 0 4px rgba(57, 255, 20, 0.6); }
+            10% { opacity: 0.95; text-shadow: 0 0 2px rgba(57, 255, 20, 0.4); }
+            15% { opacity: 1; text-shadow: 0 0 8px rgba(57, 255, 20, 0.8); }
+            50% { opacity: 0.95; text-shadow: 0 0 2px rgba(57, 255, 20, 0.4); }
+            100% { opacity: 0.9; text-shadow: 0 0 3px rgba(57, 255, 20, 0.5); }
+        }
+        .crt-text {
+            animation: crt-flicker 0.15s infinite;
+        }
         .modal-blur {
             backdrop-filter: blur(10px);
         }
@@ -230,6 +241,12 @@
                         <div class="flex justify-between items-end border-b border-gray-800 pb-2">
                             <span class="text-gray-400 text-xs uppercase tracking-widest font-bold">Synthetic Normalization Differential</span>
                             <span id="modal-norm-diff" class="text-xl font-mono text-neon-green">-- bps</span>
+                        </div>
+                        
+                        <!-- Sentinel Brief -->
+                        <div class="mt-8 border-t border-white/10 pt-6">
+                            <h4 class="text-xs text-neon-green font-mono uppercase tracking-widest mb-3 glow-text">> Sentinel Brief</h4>
+                            <p id="sentinel-brief" class="text-[11px] font-mono text-neon-green leading-relaxed crt-text text-justify tracking-tight"></p>
                         </div>
                     </div>
                 </div>

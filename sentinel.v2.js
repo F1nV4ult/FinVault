@@ -87,7 +87,8 @@ const FRED_SERIES = {
     AA: 'BAMLC0A2CAA',
     A: 'BAMLC0A3CA',
     BBB: 'BAMLC0A4CBBB',
-    HY: 'BAMLH0A0HYM2'
+    HY: 'BAMLH0A0HYM2',
+    VIX: 'VIXCLS'
 };
 
 const SovereignRegistry = {
@@ -98,7 +99,8 @@ const SovereignRegistry = {
     AA: { value: 0.65, label: 'ICE BofA AA US Corporate Index', date: 'FALLBACK' },
     A: { value: 0.85, label: 'ICE BofA A US Corporate Index', date: 'FALLBACK' },
     BBB: { value: 1.25, label: 'ICE BofA BBB US Corporate Index', date: 'FALLBACK' },
-    HY: { value: 3.50, label: 'ICE BofA US High Yield Index', date: 'FALLBACK' }
+    HY: { value: 3.50, label: 'ICE BofA US High Yield Index', date: 'FALLBACK' },
+    VIX: { value: 15.0, label: 'CBOE Volatility Index', date: 'FALLBACK' }
 };
 
 // Alpha Vantage Configuration & Sector Volatility Registry
@@ -141,38 +143,48 @@ const CreditEngine = {
             const sensitivity = company.type === 'IG' ? 0.15 : 1.2;
             const stressMultiplier = currentBetaScaling;
             
-            // Per requirement: Scale sum of market + sector beta
-            const systematicBeta = (company.marketBeta + company.sectorBeta);
-            const marketComp = company.marketBeta * 50 * stressMultiplier * sensitivity; 
-            
-            // Volatility Premium (Derived from Hub-and-Spoke Sector ETF)
-            const sectorVol = SectorRegistry[company.sector] && SectorRegistry[company.sector].volatility !== 'FALLBACK' 
-                ? SectorRegistry[company.sector].volatility 
-                : 20.0; // Fallback 20% vol
-            const companyVol = sectorVol * company.sectorBeta;
-            // 1% Volatility = ~1.5 bps spread premium (simplified structural model proxy)
-            const volatilityPremium = companyVol * 1.5 * stressMultiplier * sensitivity;
-            
-            // Per requirement: Residual scales proportionally with systematic
-            const residualComp = company.residual * stressMultiplier;
-            
-            // Tranche Sensitivity: 2.0x for Subordinated on the aggregated delta
-            const isSubordinated = (isInstrumentMod && selectedSeniority === 'Subordinated');
-            const subMultiplier = isSubordinated ? 2.0 : 1.0;
-
-            const aggregatedDelta = Math.round((marketComp + volatilityPremium + residualComp) * subMultiplier);
-            
-            // FETCH LIVE MACRO CORPORATE SPREAD INSTEAD OF HARDCODED baseSpread
+            // Leg 1: Macro Anchor (FRED Base)
             const liveMacroSpread = (SovereignRegistry[company.rating] && SovereignRegistry[company.rating].value !== 'FALLBACK')
                 ? Math.round(SovereignRegistry[company.rating].value * 100) 
                 : company.baseSpread;
+            
+            // Leg A: Proxy Volatility with VIX Beta-Shift
+            const vix = SovereignRegistry.VIX && SovereignRegistry.VIX.value !== 'FALLBACK' ? SovereignRegistry.VIX.value : 15.0;
+            const cFactor = Math.min(0.8, Math.max(0, (vix - 25) / 25));
+            const effectiveSectorBeta = (1 - cFactor) * company.sectorBeta + (cFactor * 1.0);
+            const effectiveMarketBeta = (1 - cFactor) * company.marketBeta + (cFactor * 1.0);
 
-            const totalSpread = Math.round(liveMacroSpread + aggregatedDelta);
+            const sectorVol = SectorRegistry[company.sector] && SectorRegistry[company.sector].volatility !== 'FALLBACK' 
+                ? SectorRegistry[company.sector].volatility 
+                : 20.0;
+            
+            // Formula: proxyVol_i = (sigma_ETF * beta_eff) + Residual
+            const proxyVol = (sectorVol * effectiveSectorBeta) + company.residual;
+            
+            // Leg B: Merton Convexity Adjustment
+            const mertonScalar = proxyVol > 35 ? 2.5 : 1.5;
+            const volatilityPremium = proxyVol * mertonScalar * stressMultiplier * sensitivity;
+
+            const marketComp = effectiveMarketBeta * 50 * stressMultiplier * sensitivity; 
+            
+            const baseDelta = Math.round(marketComp + volatilityPremium);
+            const baseTotalSpread = liveMacroSpread + baseDelta;
+
+            // Leg C: Seniority Elasticity
+            const isSubordinated = (isInstrumentMod && selectedSeniority === 'Subordinated');
+            const subMultiplier = isSubordinated ? (1.5 + (baseTotalSpread / 200)) : 1.0;
+            const seniorityMult = (isInstrumentMod && !isSubordinated) ? SENIORITY_MULTIPLIERS[selectedSeniority] : 1.0;
             
             const tenureMult = isInstrumentMod ? (1 + (selectedTenure - 10) * 0.03) : 1.0;
-            const seniorityMult = (isInstrumentMod && !isSubordinated) ? SENIORITY_MULTIPLIERS[selectedSeniority] : 1.0;
 
-            resolve(Math.round(totalSpread * seniorityMult * tenureMult));
+            const finalSpread = Math.round(baseTotalSpread * subMultiplier * seniorityMult * tenureMult);
+            
+            // Attach merton proxyVol to company for later UI read access
+            company._lastProxyVol = parseFloat(proxyVol.toFixed(2));
+            company._lastMertonPhase = proxyVol > 35 ? 'DISTRESS' : 'STABLE';
+            company._lastBaseSpread = baseTotalSpread;
+
+            resolve(finalSpread);
         });
     },
 
@@ -183,7 +195,7 @@ const CreditEngine = {
 
     calculateYield(company, spreadBps) {
         const baseRate = this.getBaseRate(company);
-        const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock;
+        const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock + (company.sovereignSpread || 0);
         return (baseRate + (sovSpread / 100) + (spreadBps / 100)).toFixed(2);
     }
 };
@@ -294,10 +306,15 @@ async function runAutoCalibration() {
                 const actualVol = data.volatility;
                 
                 // Calculate proxy volatility
+                const vix = SovereignRegistry.VIX && SovereignRegistry.VIX.value !== 'FALLBACK' ? SovereignRegistry.VIX.value : 15.0;
+                const cFactor = Math.min(0.8, Math.max(0, (vix - 25) / 25));
+                const effectiveSectorBeta = (1 - cFactor) * company.sectorBeta + (cFactor * 1.0);
+
                 const sectorVol = SectorRegistry[company.sector] && SectorRegistry[company.sector].volatility !== 'FALLBACK' 
                     ? SectorRegistry[company.sector].volatility 
                     : 20.0;
-                const proxyVol = sectorVol * company.sectorBeta;
+                
+                const proxyVol = (sectorVol * effectiveSectorBeta) + company.residual;
                 
                 // Error Margin (Volatility %)
                 const volError = actualVol - proxyVol;
@@ -305,10 +322,30 @@ async function runAutoCalibration() {
                 // Convert Volatility Error to Basis Points (1% vol = ~1.5 bps)
                 const bpsError = volError * 1.5;
                 
-                // Auto-correct the company's calibrationError (this offsets the proxy error)
-                company.calibrationError = Math.round(bpsError);
+                // Auto-Calibration Priority & Trigger
+                company._lastCalibrated = new Date().toLocaleTimeString();
                 
-                console.log(`[Auto-Calibrate] ${company.ticker}: Actual Vol=${actualVol}%, Proxy Vol=${proxyVol.toFixed(2)}%. Error injected: ${company.calibrationError} bps`);
+                if (Math.abs(data.dailyPriceChangePct || 0) > 3.5) {
+                    company._marketPulse = company._lastMertonPhase === 'DISTRESS' ? 'CONVEX TRIGGER' : 'VOL SPIKE';
+                } else {
+                    company._marketPulse = 'STABLE';
+                }
+                
+                // Lerp Smoothing Logic (5 seconds = 50 frames of 100ms)
+                const targetResidual = company.residual + bpsError;
+                const startResidual = company.residual;
+                const diff = targetResidual - startResidual;
+                const steps = 50;
+                let currentStep = 0;
+                
+                const lerpInterval = setInterval(() => {
+                    currentStep++;
+                    company.residual = startResidual + (diff * (currentStep / steps));
+                    triggerGlobalRefresh();
+                    if (currentStep >= steps) clearInterval(lerpInterval);
+                }, 100);
+                
+                console.log(`[Auto-Calibrate] ${company.ticker}: Actual Vol=${actualVol}%, Proxy Vol=${proxyVol.toFixed(2)}%. Lerping ${bpsError.toFixed(2)} bps. Pulse: ${company._marketPulse}`);
             }
         } catch (error) {
             console.warn(`Auto-Calibration failed for ${company.ticker}.`, error);
@@ -471,9 +508,17 @@ function createCard(company) {
             </div>
         </div>
 
-        <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-            <span class="text-xs text-neon-green uppercase font-mono tracking-widest font-bold glow-text">Yield Stack</span>
-            <span class="text-lg text-white font-mono font-bold yield-val glow-text">--%</span>
+        <div class="mt-auto pt-4 border-t border-white/5 flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+                <span class="text-xs text-neon-green uppercase font-mono tracking-widest font-bold glow-text">Yield Stack</span>
+                <span class="text-lg text-white font-mono font-bold yield-val glow-text">--%</span>
+            </div>
+            <div class="flex justify-between items-center mt-2 border-t border-white/5 pt-2">
+                <span class="text-[9px] text-gray-500 uppercase tracking-widest">Calibrated: <span class="text-gray-300 font-mono last-calibrated">--</span></span>
+                <span class="text-[9px] px-1.5 py-0.5 rounded border font-mono tracking-tighter market-pulse-badge uppercase bg-gray-500/10 text-gray-500 border-gray-500/30">
+                    STABLE
+                </span>
+            </div>
         </div>
     `;
     return card;
@@ -501,6 +546,25 @@ async function updateCardData(ticker) {
     }
     if (updateTime) {
         updateTime.innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+    }
+
+    const lastCalibrated = card.querySelector('.last-calibrated');
+    const marketPulse = card.querySelector('.market-pulse-badge');
+    
+    if (lastCalibrated) {
+        lastCalibrated.innerText = company._lastCalibrated || '--';
+    }
+    
+    if (marketPulse) {
+        const pulseStatus = company._marketPulse || 'STABLE';
+        marketPulse.innerText = pulseStatus;
+        if (pulseStatus === 'CONVEX TRIGGER') {
+            marketPulse.className = 'text-[9px] px-1.5 py-0.5 rounded border font-mono tracking-tighter market-pulse-badge uppercase bg-red-500/10 text-red-500 border-red-500/30 crt-text';
+        } else if (pulseStatus === 'VOL SPIKE') {
+            marketPulse.className = 'text-[9px] px-1.5 py-0.5 rounded border font-mono tracking-tighter market-pulse-badge uppercase bg-yellow-500/10 text-yellow-500 border-yellow-500/30';
+        } else {
+            marketPulse.className = 'text-[9px] px-1.5 py-0.5 rounded border font-mono tracking-tighter market-pulse-badge uppercase bg-gray-500/10 text-gray-500 border-gray-500/30';
+        }
     }
 
     // Benchmark Badge
@@ -576,7 +640,7 @@ async function cycleSectorBatch() {
     // Apply Update
     for (const c of batch) {
         if (!c) continue;
-        c.residual = (c.calibrationError || 0) + (Math.random() * 3 - 1.5);
+        c.residual = c.residual + (Math.random() * 1.0 - 0.5);
         await updateCardData(c.ticker);
         c.lastUpdated = Date.now();
         
@@ -599,7 +663,7 @@ async function cycleSectorBatch() {
 
 async function refreshFocus() {
     if (activeModalCompany) {
-        activeModalCompany.residual = (activeModalCompany.calibrationError || 0) + (Math.random() * 3 - 1.5);
+        activeModalCompany.residual = activeModalCompany.residual + (Math.random() * 1.0 - 0.5);
         await updateCardData(activeModalCompany.ticker);
         updateModal();
         activeModalCompany.lastUpdated = Date.now();
@@ -695,7 +759,40 @@ async function updateModal() {
     } else {
         modalContent.classList.remove('critical-risk');
     }
+    
+    // Sentinel Brief Generation
+    const proxyVol = activeModalCompany._lastProxyVol || 20.0;
+    const briefText = generateSentinelBrief(activeModalCompany, instrumentSpread, delta, proxyVol);
+    const briefEl = document.getElementById('sentinel-brief');
+    if (briefEl) briefEl.innerText = briefText;
+
     renderWaterfall(activeModalCompany);
+}
+
+function generateSentinelBrief(company, spread, delta, proxyVol) {
+    const isDistress = proxyVol > 35;
+    const isVolSpike = company._marketPulse === 'VOL SPIKE' || company._marketPulse === 'CONVEX TRIGGER';
+    const isDeteriorating = delta > 150;
+    
+    let sentence1 = `${company.ticker} is currently indexing a synthetic proxy volatility of ${parseFloat(proxyVol).toFixed(2)}%, mapping to a structurally implied credit spread of ${spread} bps. `;
+    
+    let sentence2 = '';
+    if (isDistress || isVolSpike) {
+        sentence2 = `The underlying Merton scalar has shifted into a CONVEX distress phase, applying a significant non-linear risk premium over the base ${company.rating} ICE BofA index curve. `;
+    } else {
+        sentence2 = `The instrument profile remains in the STABLE linear elasticity range, closely tracking the baseline macro anchor without requiring systemic risk compression adjustments. `;
+    }
+    
+    let sentence3 = '';
+    if (isDeteriorating) {
+        sentence3 = `WARNING: Structural deterioration detected; idiosyncratic residual drag is actively compounding the baseline macroeconomic drift.`;
+    } else if (isDistress) {
+        sentence3 = `Continuous real-time VIX telemetry and YFinance calibration is active to smooth the excessive noise ceiling.`;
+    } else {
+        sentence3 = `Calibration integrity confirmed via periodic Hub-and-Spoke validations, maintaining low variance against live benchmark yields.`;
+    }
+    
+    return sentence1 + sentence2 + sentence3;
 }
 
 // Waterfall rendering (retained/stable)

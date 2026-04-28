@@ -57,6 +57,11 @@ export default async function handler(req, res) {
         // Convert to percentage
         const volatilityPercentage = parseFloat((annualizedVol * 100).toFixed(2));
         
+        // Daily Price Change %
+        const lastClose = validCloses[validCloses.length - 1];
+        const prevClose = validCloses[validCloses.length - 2];
+        const dailyPriceChangePct = parseFloat((((lastClose - prevClose) / prevClose) * 100).toFixed(2));
+
         // Latest Date
         const latestDate = new Date(timestamps[timestamps.length - 1] * 1000).toISOString().split('T')[0];
 
@@ -64,6 +69,7 @@ export default async function handler(req, res) {
         return res.status(200).json({
             symbol: symbol,
             volatility: volatilityPercentage,
+            dailyPriceChangePct: dailyPriceChangePct,
             latestDate: latestDate,
             source: 'Yahoo Finance Live'
         });
