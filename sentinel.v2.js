@@ -125,6 +125,8 @@ let waterfallChart = null;
 let selectedSeniority = 'Unsecured';
 let selectedTenure = 10;
 let currentSectorActive = 'Alpha'; 
+let activeFilters = { sector: 'all', risk: 'all' };
+let activeSort = 'default';
 
 /**
  * Helper: Identify Benchmark
@@ -451,11 +453,29 @@ function setupEventListeners() {
 function renderGrid(filterText = '') {
     const alphaGrid = document.getElementById('sector-alpha-grid');
     const betaGrid = document.getElementById('sector-beta-grid');
+    const alphaSection = alphaGrid.parentElement;
+    const betaSection = betaGrid.parentElement;
+    
     alphaGrid.innerHTML = '';
     betaGrid.innerHTML = '';
 
     const searchTerm = filterText.toLowerCase().trim();
-    const filtered = COMPANIES.filter(c => c.name.toLowerCase().includes(searchTerm) || c.ticker.toLowerCase().includes(searchTerm));
+    
+    // Filtering logic
+    let filtered = COMPANIES.filter(c => {
+        const matchesSearch = c.name.toLowerCase().includes(searchTerm) || c.ticker.toLowerCase().includes(searchTerm);
+        const matchesSector = activeFilters.sector === 'all' || c.sector === activeFilters.sector;
+        const currentRisk = c._lastRisk || getRiskLevel(c.baseSpread);
+        const matchesRisk = activeFilters.risk === 'all' || currentRisk === activeFilters.risk;
+        return matchesSearch && matchesSector && matchesRisk;
+    });
+
+    // Sorting logic
+    if (activeSort === 'yield-asc') {
+        filtered.sort((a, b) => (a._lastYield || 0) - (b._lastYield || 0));
+    } else if (activeSort === 'yield-desc') {
+        filtered.sort((a, b) => (b._lastYield || 0) - (a._lastYield || 0));
+    }
 
     filtered.forEach(company => {
         const isAlpha = (company.sector === 'Energy' || company.sector === 'Utilities');
@@ -465,6 +485,10 @@ function renderGrid(filterText = '') {
         container.appendChild(card);
         updateCardData(company.ticker);
     });
+
+    // Toggle visibility of empty sections
+    if (alphaSection) alphaSection.style.display = alphaGrid.children.length > 0 ? 'block' : 'none';
+    if (betaSection) betaSection.style.display = betaGrid.children.length > 0 ? 'block' : 'none';
 }
 
 function createCard(company) {
@@ -547,6 +571,9 @@ async function updateCardData(ticker) {
     if (updateTime) {
         updateTime.innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
     }
+
+    company._lastYield = parseFloat(yieldVal);
+    company._lastRisk = getRiskLevel(spread);
 
     const lastCalibrated = card.querySelector('.last-calibrated');
     const marketPulse = card.querySelector('.market-pulse-badge');
@@ -911,3 +938,58 @@ function setSeniority(level) {
 
 // Start
 init();
+
+/**
+ * Filter & Sort Logic
+ */
+window.setFilter = function(type, value) {
+    activeFilters[type] = value;
+    
+    // Update UI state
+    document.querySelectorAll('.filter-option').forEach(btn => {
+        if (btn.getAttribute('data-filter-type') === type) {
+            if (btn.getAttribute('data-filter-val') === value) {
+                btn.classList.add('active', 'border-neon-green/50', 'text-neon-green');
+                btn.classList.remove('text-gray-400', 'border-white/5');
+            } else {
+                btn.classList.remove('active', 'border-neon-green/50', 'text-neon-green');
+                btn.classList.add('text-gray-400', 'border-white/5');
+            }
+        }
+    });
+
+    renderGrid(document.getElementById('company-search').value);
+    updateFilterDisplay();
+};
+
+window.setSort = function(type) {
+    activeSort = type;
+    
+    // Update UI state
+    document.querySelectorAll('.sort-option').forEach(btn => {
+        if (btn.id === `sort-${type}`) {
+            btn.classList.add('active', 'text-neon-green');
+            btn.classList.remove('text-gray-400');
+        } else {
+            btn.classList.remove('active', 'text-neon-green');
+            btn.classList.add('text-gray-400');
+        }
+    });
+
+    renderGrid(document.getElementById('company-search').value);
+    updateFilterDisplay();
+};
+
+function updateFilterDisplay() {
+    const display = document.getElementById('current-filter-display');
+    if (!display) return;
+    
+    let parts = [];
+    if (activeFilters.sector !== 'all') parts.push(activeFilters.sector);
+    if (activeFilters.risk !== 'all') parts.push(activeFilters.risk);
+    if (activeSort !== 'default') {
+        parts.push(activeSort === 'yield-asc' ? 'Yield ↑' : 'Yield ↓');
+    }
+    
+    display.innerText = parts.length > 0 ? parts.join(' | ') : 'Filter / Sort';
+}

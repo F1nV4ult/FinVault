@@ -109,6 +109,54 @@
                     <span id="yahoo-indicator" class="text-[9px] text-gray-500 font-mono border-l border-white/10 pl-4">Calibration: Checking YFinance...</span>
                 </p>
             </div>
+
+            <!-- Filter & Sort Controls -->
+            <div class="flex items-center gap-3 self-end md:mb-0 mb-4 h-fit">
+                <div class="relative group">
+                    <button class="flex items-center gap-2 px-4 py-2.5 bg-terminal-bg neon-border rounded text-[10px] font-mono text-neon-green uppercase tracking-widest hover:bg-neon-green/10 transition-all shadow-lg shadow-neon-green/5">
+                        <span id="current-filter-display">Filter / Sort</span>
+                        <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-64 bg-black neon-border rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-[100] p-2 border-neon-green/20 backdrop-blur-xl">
+                        <div class="px-3 py-2 border-b border-white/5 mb-1">
+                            <span class="text-[8px] text-gray-500 uppercase font-black tracking-[0.2em]">Sorting</span>
+                        </div>
+                        <button onclick="setSort('yield-desc')" class="sort-option w-full text-left px-3 py-2 text-[10px] font-mono text-gray-400 hover:text-neon-green hover:bg-neon-green/5 rounded transition-all uppercase flex justify-between items-center group/opt" id="sort-yield-desc">
+                            <span>Yield: High to Low</span>
+                            <span class="indicator hidden group-[.active]/opt:inline">●</span>
+                        </button>
+                        <button onclick="setSort('yield-asc')" class="sort-option w-full text-left px-3 py-2 text-[10px] font-mono text-gray-400 hover:text-neon-green hover:bg-neon-green/5 rounded transition-all uppercase flex justify-between items-center group/opt" id="sort-yield-asc">
+                            <span>Yield: Low to High</span>
+                            <span class="indicator hidden group-[.active]/opt:inline">●</span>
+                        </button>
+                        <button onclick="setSort('default')" class="sort-option w-full text-left px-3 py-2 text-[10px] font-mono text-gray-400 hover:text-neon-green hover:bg-neon-green/5 rounded transition-all uppercase flex justify-between items-center group/opt active" id="sort-default">
+                            <span>Default Ranking</span>
+                            <span class="indicator hidden group-[.active]/opt:inline">●</span>
+                        </button>
+
+                        <div class="px-3 py-2 border-b border-white/5 my-1 mt-2">
+                            <span class="text-[8px] text-gray-500 uppercase font-black tracking-[0.2em]">Sector Filter</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-1 px-1">
+                            <button onclick="setFilter('sector', 'all')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all active" data-filter-type="sector" data-filter-val="all">All</button>
+                            <button onclick="setFilter('sector', 'Energy')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="sector" data-filter-val="Energy">Energy</button>
+                            <button onclick="setFilter('sector', 'Utilities')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="sector" data-filter-val="Utilities">Utilities</button>
+                            <button onclick="setFilter('sector', 'Industrials')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="sector" data-filter-val="Industrials">Industrials</button>
+                        </div>
+
+                        <div class="px-3 py-2 border-b border-white/5 my-1 mt-2">
+                            <span class="text-[8px] text-gray-500 uppercase font-black tracking-[0.2em]">Risk Filter</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-1 px-1 pb-1">
+                            <button onclick="setFilter('risk', 'all')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all active" data-filter-type="risk" data-filter-val="all">All</button>
+                            <button onclick="setFilter('risk', 'NOMINAL')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="risk" data-filter-val="NOMINAL">Nominal</button>
+                            <button onclick="setFilter('risk', 'CAUTION')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="risk" data-filter-val="CAUTION">Caution</button>
+                            <button onclick="setFilter('risk', 'ELEVATED')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="risk" data-filter-val="ELEVATED">Elevated</button>
+                            <button onclick="setFilter('risk', 'CRITICAL')" class="filter-option text-center py-1.5 text-[9px] font-mono text-gray-400 border border-white/5 hover:border-neon-green/30 rounded uppercase transition-all" data-filter-type="risk" data-filter-val="CRITICAL">Critical</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Global Stress Test (Hierarchical) -->
             <div class="w-full md:w-80 p-4 bg-terminal-bg neon-border rounded-lg">
