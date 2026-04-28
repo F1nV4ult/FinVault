@@ -4,7 +4,7 @@
  */
 export default async function handler(req, res) {
     const { symbol } = req.query;
-    const apiKey = process.env.ALPHA_VANTAGE_API_KEY || 'demo'; // fallback for demo purposes if env not set
+    const apiKey = process.env.ALPHA_VANTAGE_API_KEY || 'HUDHHNQD7RIB97FS';
 
     if (!symbol) {
         return res.status(400).json({ error: 'E400: Missing symbol' });
@@ -24,8 +24,8 @@ export default async function handler(req, res) {
              return res.status(429).json({ error: 'E429: API_RATE_LIMIT_EXCEEDED' });
         }
 
-        if (data['Information'] && apiKey === 'demo') {
-            console.warn('Alpha Vantage demo API key restriction encountered. Using fallback mock data.');
+        if (data['Information']) {
+            console.warn('Alpha Vantage API key restriction/rate-limit encountered. Using fallback mock data.');
             const mockVol = { 'XLE': 25.5, 'XLU': 18.2, 'XLI': 22.1 };
             return res.status(200).json({
                 symbol: symbol,
