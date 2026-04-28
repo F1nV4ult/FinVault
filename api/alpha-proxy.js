@@ -24,8 +24,19 @@ export default async function handler(req, res) {
              return res.status(429).json({ error: 'E429: API_RATE_LIMIT_EXCEEDED' });
         }
 
+        if (data['Information'] && apiKey === 'demo') {
+            console.warn('Alpha Vantage demo API key restriction encountered. Using fallback mock data.');
+            const mockVol = { 'XLE': 25.5, 'XLU': 18.2, 'XLI': 22.1 };
+            return res.status(200).json({
+                symbol: symbol,
+                volatility: mockVol[symbol] || 20.0,
+                latestDate: new Date().toISOString().split('T')[0],
+                source: 'Alpha Vantage (Demo Mock)'
+            });
+        }
+
         if (!data['Time Series (Daily)']) {
-            return res.status(404).json({ error: 'E404: NO_DATA_FOUND' });
+            return res.status(404).json({ error: 'E404: NO_DATA_FOUND', raw: data });
         }
 
         const timeSeries = data['Time Series (Daily)'];
