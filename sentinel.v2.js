@@ -242,7 +242,7 @@ async function fetchSectorVolatility() {
 
     for (const [sector, symbol] of Object.entries(ALPHA_SERIES)) {
         try {
-            const response = await fetch(`/api/yahoo-proxy?symbol=${symbol}`);
+            const response = await fetch(`/api/alpha-proxy?symbol=${symbol}`);
             const data = await response.json();
             
             if (response.ok && data.volatility) {
@@ -258,8 +258,16 @@ async function fetchSectorVolatility() {
         }
     }
 
+    const indicator = document.getElementById('alpha-indicator');
     if (synchronizedCount > 0) {
+        if (indicator) {
+            indicator.innerText = `Sector Alpha: AlphaVantage Live (v. ${SectorRegistry['Energy'].date || 'Sync'})`;
+            indicator.classList.remove('text-gray-500');
+            indicator.classList.add('text-neon-green');
+        }
         triggerGlobalRefresh();
+    } else {
+        if (indicator) indicator.innerText = `Sector Alpha: AlphaVantage Fallback (Offline)`;
     }
 }
 
@@ -275,12 +283,14 @@ async function runAutoCalibration() {
     const shuffled = [...COMPANIES].sort(() => 0.5 - Math.random());
     const targetCompanies = shuffled.slice(0, sampleSize);
 
+    let calibSuccess = false;
     for (const company of targetCompanies) {
         try {
             const response = await fetch(`/api/yahoo-proxy?symbol=${company.ticker}`);
             const data = await response.json();
             
             if (response.ok && data.volatility) {
+                calibSuccess = true;
                 const actualVol = data.volatility;
                 
                 // Calculate proxy volatility
@@ -303,6 +313,17 @@ async function runAutoCalibration() {
         } catch (error) {
             console.warn(`Auto-Calibration failed for ${company.ticker}.`, error);
         }
+    }
+
+    const indicator = document.getElementById('yahoo-indicator');
+    if (calibSuccess) {
+        if (indicator) {
+            indicator.innerText = `Calibration: YFinance Live (v. ${new Date().toISOString().split('T')[0]})`;
+            indicator.classList.remove('text-gray-500');
+            indicator.classList.add('text-neon-green');
+        }
+    } else {
+        if (indicator) indicator.innerText = `Calibration: YFinance Fallback (Offline)`;
     }
 }
 
