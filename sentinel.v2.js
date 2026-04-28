@@ -624,7 +624,6 @@ async function updateModal() {
     // Requirement: Simulated [Benchmark] Spread Delta
     const deltaLabel = document.getElementById('modal-norm-diff');
     deltaLabel.innerText = (delta > 0 ? "+" : "") + delta + " bps";
-    document.getElementById('modal-dominant-beta').innerText = `SIMULATED ${benchmark.toUpperCase()} SPREAD DELTA`;
 
     // Critical Risk Validation on Modal
     const modalContent = document.querySelector('#focus-modal > div');
@@ -633,16 +632,6 @@ async function updateModal() {
     } else {
         modalContent.classList.remove('critical-risk');
     }
-
-    // Perspective logic
-    let perspective = activeModalCompany.type === 'IG' 
-        ? `Regression analysis for ${activeModalCompany.ticker} confirms yield volatility is primarily ${benchmark}-driven.`
-        : `Credit-intensive profiling identifies ${activeModalCompany.ticker} as highly sensitive to Spread Widening.`;
-
-    if (selectedSeniority === 'Subordinated') perspective += ` <br><span class="text-orange-400 font-bold">SUBORDINATION ALERT:</span> tranche risk increased per recovery expectations.`;
-    if (selectedTenure > 15) perspective += ` <br><span class="text-neon-green font-bold">DURATION SENSITIVITY:</span>convexity risk significantly elevated at ${selectedTenure}Y.`;
-    
-    document.getElementById('modal-perspective').innerHTML = perspective;
     renderWaterfall(activeModalCompany);
 }
 
