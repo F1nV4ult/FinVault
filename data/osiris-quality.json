@@ -1,0 +1,2240 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "osiris-o2-quality-v1",
+  "backtest": {
+    "runDate": "2026-05-26",
+    "historyRange": "2y",
+    "warmupDays": 63,
+    "paths": 2000,
+    "tickerCount": 82,
+    "skippedTickers": [
+      {
+        "ticker": "ERJ",
+        "reason": "symbol not found on Yahoo (404)"
+      }
+    ]
+  },
+  "overall": {
+    "sampleSize": 35847,
+    "directionalAccuracy": 0.5310613327314788,
+    "coverage90": 0.896560381621893,
+    "coverage50": 0.5635060116606689,
+    "confidence": "moderate"
+  },
+  "byTicker": {
+    "2222.SR": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5091383812010444,
+      "coverage90": 0.8784403669724771,
+      "coverage50": 0.6032110091743119,
+      "meanInterval90WidthPct": 2.8615607660550455,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4424,
+          "n": 165
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4502,
+          "n": 271
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4472,
+          "n": 436
+        }
+      ]
+    },
+    "9501.T": {
+      "sampleSize": 422,
+      "directionalAccuracy": 0.4845605700712589,
+      "coverage90": 0.8791469194312796,
+      "coverage50": 0.54739336492891,
+      "meanInterval90WidthPct": 10.121518552132702,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4929,
+          "n": 140
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4787,
+          "n": 282
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4834,
+          "n": 422
+        }
+      ]
+    },
+    "AEP": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5334872979214781,
+      "coverage90": 0.8967889908256881,
+      "coverage50": 0.5068807339449541,
+      "meanInterval90WidthPct": 3.815514949541287,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5328,
+          "n": 381
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5091,
+          "n": 55
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5298,
+          "n": 436
+        }
+      ]
+    },
+    "AWK": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5022935779816514,
+      "coverage90": 0.8876146788990825,
+      "coverage50": 0.5344036697247706,
+      "meanInterval90WidthPct": 4.649078899082571,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4889,
+          "n": 180
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5117,
+          "n": 256
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5023,
+          "n": 436
+        }
+      ]
+    },
+    "BKR": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5481651376146789,
+      "coverage90": 0.8944954128440367,
+      "coverage50": 0.573394495412844,
+      "meanInterval90WidthPct": 6.826153871559631,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.539,
+          "n": 308
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5703,
+          "n": 128
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5482,
+          "n": 436
+        }
+      ]
+    },
+    "BP": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5547785547785548,
+      "coverage90": 0.8990825688073395,
+      "coverage50": 0.5642201834862385,
+      "meanInterval90WidthPct": 5.673779029816515,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5359,
+          "n": 237
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5578,
+          "n": 199
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5459,
+          "n": 436
+        }
+      ]
+    },
+    "COP": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.518348623853211,
+      "coverage90": 0.8899082568807339,
+      "coverage50": 0.5229357798165137,
+      "meanInterval90WidthPct": 6.3697188715596225,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5472,
+          "n": 106
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5091,
+          "n": 330
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5183,
+          "n": 436
+        }
+      ]
+    },
+    "CVX": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5596330275229358,
+      "coverage90": 0.8899082568807339,
+      "coverage50": 0.5527522935779816,
+      "meanInterval90WidthPct": 4.714911236238532,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5373,
+          "n": 255
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5912,
+          "n": 181
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5596,
+          "n": 436
+        }
+      ]
+    },
+    "D": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.535632183908046,
+      "coverage90": 0.8899082568807339,
+      "coverage50": 0.5619266055045872,
+      "meanInterval90WidthPct": 4.348129282110089,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5015,
+          "n": 339
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6495,
+          "n": 97
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5344,
+          "n": 436
+        }
+      ]
+    },
+    "DUK": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5298165137614679,
+      "coverage90": 0.8922018348623854,
+      "coverage50": 0.5114678899082569,
+      "meanInterval90WidthPct": 3.3750395000000024,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.507,
+          "n": 355
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6296,
+          "n": 81
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5298,
+          "n": 436
+        }
+      ]
+    },
+    "DVN": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5230414746543779,
+      "coverage90": 0.8807339449541285,
+      "coverage50": 0.5412844036697247,
+      "meanInterval90WidthPct": 7.367442399082567,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.512,
+          "n": 125
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5241,
+          "n": 311
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5206,
+          "n": 436
+        }
+      ]
+    },
+    "ENEL.MI": {
+      "sampleSize": 440,
+      "directionalAccuracy": 0.5876993166287016,
+      "coverage90": 0.8681818181818182,
+      "coverage50": 0.5272727272727272,
+      "meanInterval90WidthPct": 3.6099270999999984,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5831,
+          "n": 403
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6216,
+          "n": 37
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5864,
+          "n": 440
+        }
+      ]
+    },
+    "ENGI.PA": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5645161290322581,
+      "coverage90": 0.8878923766816144,
+      "coverage50": 0.5538116591928252,
+      "meanInterval90WidthPct": 3.9319043565022413,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5505,
+          "n": 416
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5333,
+          "n": 30
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5493,
+          "n": 446
+        }
+      ]
+    },
+    "ENI.MI": {
+      "sampleSize": 440,
+      "directionalAccuracy": 0.5968109339407744,
+      "coverage90": 0.8909090909090909,
+      "coverage50": 0.5840909090909091,
+      "meanInterval90WidthPct": 4.55266018409091,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.6203,
+          "n": 266
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5575,
+          "n": 174
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5955,
+          "n": 440
+        }
+      ]
+    },
+    "EOAN.DE": {
+      "sampleSize": 442,
+      "directionalAccuracy": 0.5417661097852029,
+      "coverage90": 0.8823529411764706,
+      "coverage50": 0.5339366515837104,
+      "meanInterval90WidthPct": 4.228644298642535,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5292,
+          "n": 342
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.46,
+          "n": 100
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5136,
+          "n": 442
+        }
+      ]
+    },
+    "EOG": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5333333333333333,
+      "coverage90": 0.8876146788990825,
+      "coverage50": 0.6100917431192661,
+      "meanInterval90WidthPct": 6.1283863233944915,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5536,
+          "n": 112
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5247,
+          "n": 324
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5321,
+          "n": 436
+        }
+      ]
+    },
+    "EQNR": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5509259259259259,
+      "coverage90": 0.8990825688073395,
+      "coverage50": 0.5756880733944955,
+      "meanInterval90WidthPct": 7.487146451834866,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5536,
+          "n": 168
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.541,
+          "n": 268
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5459,
+          "n": 436
+        }
+      ]
+    },
+    "ETR": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5529953917050692,
+      "coverage90": 0.8876146788990825,
+      "coverage50": 0.5596330275229358,
+      "meanInterval90WidthPct": 4.606464009174308,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5494,
+          "n": 435
+        },
+        {
+          "predicted": 0.55,
+          "observed": 1,
+          "n": 1
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5505,
+          "n": 436
+        }
+      ]
+    },
+    "EXC": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5368663594470046,
+      "coverage90": 0.9036697247706422,
+      "coverage50": 0.5045871559633027,
+      "meanInterval90WidthPct": 3.804968821100916,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5225,
+          "n": 377
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6102,
+          "n": 59
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5344,
+          "n": 436
+        }
+      ]
+    },
+    "FANG": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5344036697247706,
+      "coverage90": 0.9036697247706422,
+      "coverage50": 0.5344036697247706,
+      "meanInterval90WidthPct": 7.149947917431191,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5481,
+          "n": 104
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5301,
+          "n": 332
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5344,
+          "n": 436
+        }
+      ]
+    },
+    "HAL": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5220417633410673,
+      "coverage90": 0.8922018348623854,
+      "coverage50": 0.5389908256880734,
+      "meanInterval90WidthPct": 7.713310027522938,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5845,
+          "n": 142
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.483,
+          "n": 294
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5161,
+          "n": 436
+        }
+      ]
+    },
+    "IBE.MC": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5839080459770115,
+      "coverage90": 0.9013452914798207,
+      "coverage50": 0.5448430493273543,
+      "meanInterval90WidthPct": 3.2696018340807185,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5721,
+          "n": 437
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4444,
+          "n": 9
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5695,
+          "n": 446
+        }
+      ]
+    },
+    "KMI": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.550351288056206,
+      "coverage90": 0.8967889908256881,
+      "coverage50": 0.5963302752293578,
+      "meanInterval90WidthPct": 4.699536940366975,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5256,
+          "n": 371
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6154,
+          "n": 65
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.539,
+          "n": 436
+        }
+      ]
+    },
+    "MPC": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5494252873563218,
+      "coverage90": 0.8853211009174312,
+      "coverage50": 0.5596330275229358,
+      "meanInterval90WidthPct": 6.864862580275228,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5426,
+          "n": 223
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.554,
+          "n": 213
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5482,
+          "n": 436
+        }
+      ]
+    },
+    "NEE": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5276497695852534,
+      "coverage90": 0.8990825688073395,
+      "coverage50": 0.5848623853211009,
+      "meanInterval90WidthPct": 5.246233887614678,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5354,
+          "n": 226
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5143,
+          "n": 210
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5252,
+          "n": 436
+        }
+      ]
+    },
+    "NG.L": {
+      "sampleSize": 441,
+      "directionalAccuracy": 0.5448275862068965,
+      "coverage90": 0.891156462585034,
+      "coverage50": 0.5011337868480725,
+      "meanInterval90WidthPct": 3.8059756394557813,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5143,
+          "n": 350
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6264,
+          "n": 91
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5374,
+          "n": 441
+        }
+      ]
+    },
+    "NTGY.MC": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5930232558139535,
+      "coverage90": 0.9170403587443946,
+      "coverage50": 0.6143497757847534,
+      "meanInterval90WidthPct": 3.803720022421528,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5564,
+          "n": 390
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6786,
+          "n": 56
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5717,
+          "n": 446
+        }
+      ]
+    },
+    "NTPC.NS": {
+      "sampleSize": 433,
+      "directionalAccuracy": 0.4976303317535545,
+      "coverage90": 0.8868360277136259,
+      "coverage50": 0.535796766743649,
+      "meanInterval90WidthPct": 4.454105011547345,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4526,
+          "n": 137
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5,
+          "n": 296
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.485,
+          "n": 433
+        }
+      ]
+    },
+    "ORG.AX": {
+      "sampleSize": 443,
+      "directionalAccuracy": 0.5534883720930233,
+      "coverage90": 0.9119638826185101,
+      "coverage50": 0.6162528216704289,
+      "meanInterval90WidthPct": 4.903675338600454,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5397,
+          "n": 302
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5319,
+          "n": 141
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5372,
+          "n": 443
+        }
+      ]
+    },
+    "OXY": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5057471264367817,
+      "coverage90": 0.908256880733945,
+      "coverage50": 0.6055045871559633,
+      "meanInterval90WidthPct": 7.578870261467885,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5068,
+          "n": 73
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5041,
+          "n": 363
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5046,
+          "n": 436
+        }
+      ]
+    },
+    "PBR": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5327102803738317,
+      "coverage90": 0.8853211009174312,
+      "coverage50": 0.5894495412844036,
+      "meanInterval90WidthPct": 6.355784704128432,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5061,
+          "n": 164
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5331,
+          "n": 272
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5229,
+          "n": 436
+        }
+      ]
+    },
+    "PCG": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5210280373831776,
+      "coverage90": 0.8899082568807339,
+      "coverage50": 0.591743119266055,
+      "meanInterval90WidthPct": 5.578569311926603,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5333,
+          "n": 135
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5017,
+          "n": 301
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5115,
+          "n": 436
+        }
+      ]
+    },
+    "PEG": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5333333333333333,
+      "coverage90": 0.8853211009174312,
+      "coverage50": 0.5458715596330275,
+      "meanInterval90WidthPct": 4.326692254587157,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5026,
+          "n": 189
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5547,
+          "n": 247
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5321,
+          "n": 436
+        }
+      ]
+    },
+    "PSX": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5321100917431193,
+      "coverage90": 0.8807339449541285,
+      "coverage50": 0.573394495412844,
+      "meanInterval90WidthPct": 6.682258389908256,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5102,
+          "n": 196
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.55,
+          "n": 240
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5321,
+          "n": 436
+        }
+      ]
+    },
+    "RELIANCE.NS": {
+      "sampleSize": 433,
+      "directionalAccuracy": 0.4965034965034965,
+      "coverage90": 0.8845265588914549,
+      "coverage50": 0.5450346420323325,
+      "meanInterval90WidthPct": 4.2190969076212514,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5,
+          "n": 160
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4872,
+          "n": 273
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4919,
+          "n": 433
+        }
+      ]
+    },
+    "REP.MC": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5859728506787331,
+      "coverage90": 0.905829596412556,
+      "coverage50": 0.5515695067264574,
+      "meanInterval90WidthPct": 5.594483854260093,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.596,
+          "n": 250
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5612,
+          "n": 196
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5807,
+          "n": 446
+        }
+      ]
+    },
+    "RWE.DE": {
+      "sampleSize": 442,
+      "directionalAccuracy": 0.5542168674698795,
+      "coverage90": 0.9072398190045249,
+      "coverage50": 0.5542986425339367,
+      "meanInterval90WidthPct": 5.008199368778283,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5382,
+          "n": 288
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.487,
+          "n": 154
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5204,
+          "n": 442
+        }
+      ]
+    },
+    "SHEL": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5506912442396313,
+      "coverage90": 0.8784403669724771,
+      "coverage50": 0.5458715596330275,
+      "meanInterval90WidthPct": 4.430085376146788,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5336,
+          "n": 253
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5683,
+          "n": 183
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5482,
+          "n": 436
+        }
+      ]
+    },
+    "SLB": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5023148148148148,
+      "coverage90": 0.8990825688073395,
+      "coverage50": 0.591743119266055,
+      "meanInterval90WidthPct": 7.041972082568805,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5294,
+          "n": 102
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.488,
+          "n": 334
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4977,
+          "n": 436
+        }
+      ]
+    },
+    "SO": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5299539170506913,
+      "coverage90": 0.8807339449541285,
+      "coverage50": 0.518348623853211,
+      "meanInterval90WidthPct": 3.5431194426605517,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5032,
+          "n": 314
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5902,
+          "n": 122
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5275,
+          "n": 436
+        }
+      ]
+    },
+    "SRE": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5334872979214781,
+      "coverage90": 0.9013761467889908,
+      "coverage50": 0.5596330275229358,
+      "meanInterval90WidthPct": 5.074059853211014,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.526,
+          "n": 308
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5391,
+          "n": 128
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5298,
+          "n": 436
+        }
+      ]
+    },
+    "SSE.L": {
+      "sampleSize": 441,
+      "directionalAccuracy": 0.5091743119266054,
+      "coverage90": 0.9070294784580499,
+      "coverage50": 0.5759637188208617,
+      "meanInterval90WidthPct": 5.270164555555552,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5081,
+          "n": 248
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4974,
+          "n": 193
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5034,
+          "n": 441
+        }
+      ]
+    },
+    "TTE": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5402298850574713,
+      "coverage90": 0.8784403669724771,
+      "coverage50": 0.5458715596330275,
+      "meanInterval90WidthPct": 4.645834997706424,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5681,
+          "n": 213
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5112,
+          "n": 223
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.539,
+          "n": 436
+        }
+      ]
+    },
+    "VLO": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5412844036697247,
+      "coverage90": 0.8830275229357798,
+      "coverage50": 0.5756880733944955,
+      "meanInterval90WidthPct": 7.409751942660544,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5581,
+          "n": 215
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5249,
+          "n": 221
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5413,
+          "n": 436
+        }
+      ]
+    },
+    "WDS.AX": {
+      "sampleSize": 443,
+      "directionalAccuracy": 0.542528735632184,
+      "coverage90": 0.8848758465011287,
+      "coverage50": 0.5553047404063205,
+      "meanInterval90WidthPct": 5.797161442437922,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5497,
+          "n": 171
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5221,
+          "n": 272
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5327,
+          "n": 443
+        }
+      ]
+    },
+    "WEC": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5229357798165137,
+      "coverage90": 0.9036697247706422,
+      "coverage50": 0.481651376146789,
+      "meanInterval90WidthPct": 3.288374646788993,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.516,
+          "n": 405
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.6129,
+          "n": 31
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5229,
+          "n": 436
+        }
+      ]
+    },
+    "WMB": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5393518518518519,
+      "coverage90": 0.9013761467889908,
+      "coverage50": 0.5091743119266054,
+      "meanInterval90WidthPct": 5.051788461009176,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5254,
+          "n": 394
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.619,
+          "n": 42
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5344,
+          "n": 436
+        }
+      ]
+    },
+    "XEL": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5494252873563218,
+      "coverage90": 0.9128440366972477,
+      "coverage50": 0.5412844036697247,
+      "meanInterval90WidthPct": 3.959657240825688,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5446,
+          "n": 426
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.7,
+          "n": 10
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5482,
+          "n": 436
+        }
+      ]
+    },
+    "XOM": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.542528735632184,
+      "coverage90": 0.9036697247706422,
+      "coverage50": 0.555045871559633,
+      "meanInterval90WidthPct": 5.260849318807341,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.545,
+          "n": 222
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5374,
+          "n": 214
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5413,
+          "n": 436
+        }
+      ]
+    },
+    "6301.T": {
+      "sampleSize": 422,
+      "directionalAccuracy": 0.5333333333333333,
+      "coverage90": 0.8957345971563981,
+      "coverage50": 0.5853080568720379,
+      "meanInterval90WidthPct": 7.225077175355448,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5305,
+          "n": 328
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5319,
+          "n": 94
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5308,
+          "n": 422
+        }
+      ]
+    },
+    "7011.T": {
+      "sampleSize": 422,
+      "directionalAccuracy": 0.48687350835322196,
+      "coverage90": 0.9075829383886256,
+      "coverage50": 0.5734597156398105,
+      "meanInterval90WidthPct": 10.261494241706165,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.483,
+          "n": 383
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4872,
+          "n": 39
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4834,
+          "n": 422
+        }
+      ]
+    },
+    "AIR.PA": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5022522522522522,
+      "coverage90": 0.9080717488789237,
+      "coverage50": 0.5291479820627802,
+      "meanInterval90WidthPct": 5.735236883408072,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5103,
+          "n": 194
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4921,
+          "n": 252
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5,
+          "n": 446
+        }
+      ]
+    },
+    "ATCO-A.ST": {
+      "sampleSize": 434,
+      "directionalAccuracy": 0.5069767441860465,
+      "coverage90": 0.8963133640552995,
+      "coverage50": 0.5921658986175116,
+      "meanInterval90WidthPct": 5.8695951451612896,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5054,
+          "n": 184
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5,
+          "n": 250
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5023,
+          "n": 434
+        }
+      ]
+    },
+    "BA": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5206422018348624,
+      "coverage90": 0.9013761467889908,
+      "coverage50": 0.573394495412844,
+      "meanInterval90WidthPct": 7.276749591743127,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5549,
+          "n": 164
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5,
+          "n": 272
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5206,
+          "n": 436
+        }
+      ]
+    },
+    "BA.L": {
+      "sampleSize": 441,
+      "directionalAccuracy": 0.5412844036697247,
+      "coverage90": 0.9024943310657596,
+      "coverage50": 0.5714285714285714,
+      "meanInterval90WidthPct": 6.441695891156465,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5496,
+          "n": 242
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5176,
+          "n": 199
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5351,
+          "n": 441
+        }
+      ]
+    },
+    "CAT": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5412844036697247,
+      "coverage90": 0.8944954128440367,
+      "coverage50": 0.5665137614678899,
+      "meanInterval90WidthPct": 6.7760842224770625,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5261,
+          "n": 249
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5615,
+          "n": 187
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5413,
+          "n": 436
+        }
+      ]
+    },
+    "DAL": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.48842592592592593,
+      "coverage90": 0.9059633027522935,
+      "coverage50": 0.555045871559633,
+      "meanInterval90WidthPct": 9.194103811926611,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4868,
+          "n": 341
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4737,
+          "n": 95
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4839,
+          "n": 436
+        }
+      ]
+    },
+    "DE": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.49885057471264366,
+      "coverage90": 0.9059633027522935,
+      "coverage50": 0.5894495412844036,
+      "meanInterval90WidthPct": 6.071999527522935,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4658,
+          "n": 219
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.53,
+          "n": 217
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4977,
+          "n": 436
+        }
+      ]
+    },
+    "DHL.DE": {
+      "sampleSize": 441,
+      "directionalAccuracy": 0.5272727272727272,
+      "coverage90": 0.9160997732426304,
+      "coverage50": 0.5827664399092971,
+      "meanInterval90WidthPct": 5.687221832199546,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5556,
+          "n": 252
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4868,
+          "n": 189
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5261,
+          "n": 441
+        }
+      ]
+    },
+    "EMR": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5471264367816092,
+      "coverage90": 0.8990825688073395,
+      "coverage50": 0.5779816513761468,
+      "meanInterval90WidthPct": 6.3970541628440385,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5556,
+          "n": 198
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5378,
+          "n": 238
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5459,
+          "n": 436
+        }
+      ]
+    },
+    "ETN": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5252293577981652,
+      "coverage90": 0.9059633027522935,
+      "coverage50": 0.573394495412844,
+      "meanInterval90WidthPct": 7.185706623853217,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5385,
+          "n": 221
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5116,
+          "n": 215
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5252,
+          "n": 436
+        }
+      ]
+    },
+    "GD": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5229357798165137,
+      "coverage90": 0.9220183486238532,
+      "coverage50": 0.573394495412844,
+      "meanInterval90WidthPct": 4.535756084862388,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5957,
+          "n": 141
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4881,
+          "n": 295
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5229,
+          "n": 436
+        }
+      ]
+    },
+    "GE": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5573394495412844,
+      "coverage90": 0.8944954128440367,
+      "coverage50": 0.5802752293577982,
+      "meanInterval90WidthPct": 6.708694277522932,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.552,
+          "n": 250
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5645,
+          "n": 186
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5573,
+          "n": 436
+        }
+      ]
+    },
+    "HO.PA": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5417607223476298,
+      "coverage90": 0.9013452914798207,
+      "coverage50": 0.5448430493273543,
+      "meanInterval90WidthPct": 6.5384249058296,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5101,
+          "n": 247
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5729,
+          "n": 199
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5381,
+          "n": 446
+        }
+      ]
+    },
+    "HON": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.48853211009174313,
+      "coverage90": 0.9036697247706422,
+      "coverage50": 0.5986238532110092,
+      "meanInterval90WidthPct": 4.892930931192658,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5086,
+          "n": 116
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4813,
+          "n": 320
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4885,
+          "n": 436
+        }
+      ]
+    },
+    "HWM": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5435779816513762,
+      "coverage90": 0.8967889908256881,
+      "coverage50": 0.5688073394495413,
+      "meanInterval90WidthPct": 6.977720830275224,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.519,
+          "n": 237
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5729,
+          "n": 199
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5436,
+          "n": 436
+        }
+      ]
+    },
+    "LDO.MI": {
+      "sampleSize": 440,
+      "directionalAccuracy": 0.541095890410959,
+      "coverage90": 0.8977272727272727,
+      "coverage50": 0.5363636363636364,
+      "meanInterval90WidthPct": 8.516527022727278,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5475,
+          "n": 400
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.45,
+          "n": 40
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5386,
+          "n": 440
+        }
+      ]
+    },
+    "LHX": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5080459770114942,
+      "coverage90": 0.8853211009174312,
+      "coverage50": 0.5573394495412844,
+      "meanInterval90WidthPct": 4.856517458715595,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4245,
+          "n": 139
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5455,
+          "n": 297
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5069,
+          "n": 436
+        }
+      ]
+    },
+    "LMT": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5160550458715596,
+      "coverage90": 0.8944954128440367,
+      "coverage50": 0.6055045871559633,
+      "meanInterval90WidthPct": 5.3087862224770594,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4915,
+          "n": 236
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.545,
+          "n": 200
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5161,
+          "n": 436
+        }
+      ]
+    },
+    "LT.NS": {
+      "sampleSize": 433,
+      "directionalAccuracy": 0.4813953488372093,
+      "coverage90": 0.9006928406466512,
+      "coverage50": 0.5889145496535797,
+      "meanInterval90WidthPct": 5.09853615935335,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4775,
+          "n": 178
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4784,
+          "n": 255
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4781,
+          "n": 433
+        }
+      ]
+    },
+    "LUV": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.532258064516129,
+      "coverage90": 0.9197247706422018,
+      "coverage50": 0.5802752293577982,
+      "meanInterval90WidthPct": 8.534980848623855,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5213,
+          "n": 305
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5496,
+          "n": 131
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5298,
+          "n": 436
+        }
+      ]
+    },
+    "MMM": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5161290322580645,
+      "coverage90": 0.9174311926605505,
+      "coverage50": 0.5688073394495413,
+      "meanInterval90WidthPct": 5.90604838761468,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5449,
+          "n": 178
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4922,
+          "n": 258
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5138,
+          "n": 436
+        }
+      ]
+    },
+    "NOC": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5172413793103449,
+      "coverage90": 0.8922018348623854,
+      "coverage50": 0.5940366972477065,
+      "meanInterval90WidthPct": 5.2950249266055005,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5533,
+          "n": 150
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4965,
+          "n": 286
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5161,
+          "n": 436
+        }
+      ]
+    },
+    "RHM.DE": {
+      "sampleSize": 442,
+      "directionalAccuracy": 0.5205811138014528,
+      "coverage90": 0.8914027149321267,
+      "coverage50": 0.6040723981900452,
+      "meanInterval90WidthPct": 9.644107687782808,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4836,
+          "n": 428
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5714,
+          "n": 14
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4864,
+          "n": 442
+        }
+      ]
+    },
+    "RR.L": {
+      "sampleSize": 440,
+      "directionalAccuracy": 0.5389908256880734,
+      "coverage90": 0.9022727272727272,
+      "coverage50": 0.55,
+      "meanInterval90WidthPct": 7.2032219227272725,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5109,
+          "n": 276
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5732,
+          "n": 164
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5341,
+          "n": 440
+        }
+      ]
+    },
+    "RTX": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5483870967741935,
+      "coverage90": 0.8922018348623854,
+      "coverage50": 0.6123853211009175,
+      "meanInterval90WidthPct": 5.141796144495413,
+      "confidence": "high",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5138,
+          "n": 109
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5566,
+          "n": 327
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5459,
+          "n": 436
+        }
+      ]
+    },
+    "SAF.PA": {
+      "sampleSize": 446,
+      "directionalAccuracy": 0.5319634703196348,
+      "coverage90": 0.8789237668161435,
+      "coverage50": 0.5672645739910314,
+      "meanInterval90WidthPct": 5.7639844170403585,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5498,
+          "n": 331
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4435,
+          "n": 115
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5224,
+          "n": 446
+        }
+      ]
+    },
+    "SIE.DE": {
+      "sampleSize": 442,
+      "directionalAccuracy": 0.5261904761904762,
+      "coverage90": 0.9027149321266968,
+      "coverage50": 0.5633484162895928,
+      "meanInterval90WidthPct": 6.639282192307693,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4856,
+          "n": 243
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5176,
+          "n": 199
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5,
+          "n": 442
+        }
+      ]
+    },
+    "UNP": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5275229357798165,
+      "coverage90": 0.9197247706422018,
+      "coverage50": 0.5825688073394495,
+      "meanInterval90WidthPct": 4.683260963302751,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4624,
+          "n": 93
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.5452,
+          "n": 343
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5275,
+          "n": 436
+        }
+      ]
+    },
+    "UPS": {
+      "sampleSize": 436,
+      "directionalAccuracy": 0.5127020785219399,
+      "coverage90": 0.9197247706422018,
+      "coverage50": 0.5986238532110092,
+      "meanInterval90WidthPct": 6.182905318807344,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.5163,
+          "n": 337
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4848,
+          "n": 99
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.5092,
+          "n": 436
+        }
+      ]
+    },
+    "VOLV-B.ST": {
+      "sampleSize": 434,
+      "directionalAccuracy": 0.48604651162790696,
+      "coverage90": 0.9055299539170507,
+      "coverage50": 0.6082949308755761,
+      "meanInterval90WidthPct": 5.6856072834101425,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.4913,
+          "n": 287
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.4626,
+          "n": 147
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4816,
+          "n": 434
+        }
+      ]
+    },
+    "VOW3.DE": {
+      "sampleSize": 442,
+      "directionalAccuracy": 0.47268408551068886,
+      "coverage90": 0.8868778280542986,
+      "coverage50": 0.5475113122171946,
+      "meanInterval90WidthPct": 5.72348566968326,
+      "confidence": "moderate",
+      "empiricalProbabilityBins": [
+        {
+          "predicted": 0.45,
+          "observed": 0.455,
+          "n": 433
+        },
+        {
+          "predicted": 0.55,
+          "observed": 0.2222,
+          "n": 9
+        }
+      ],
+      "calibratedProbabilityBins": [
+        {
+          "predicted": 0.55,
+          "observed": 0.4502,
+          "n": 442
+        }
+      ]
+    }
+  }
+}

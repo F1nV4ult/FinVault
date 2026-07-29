@@ -14,7 +14,22 @@ price. Terminal `pAboveSpot` remains an empirical count across all paths.
 
 ## Planned layers
 
-1. O2: rolling backtests and published calibration artifacts.
+## O2 — forecast-quality artifact
+
+`scripts/build-osiris-quality.mjs` compiles the detailed backtest output into
+`data/osiris-quality.json`. The compact artifact records per-ticker sample
+size, directional accuracy, interval coverage, confidence tier, calibration
+bins, and skipped symbols. It is deliberately descriptive in this first O2
+increment: calibration is not applied to a live forecast until a rolling,
+horizon-specific fit satisfies its promotion gate.
+
+The Osiris interface fetches this compact artifact for its historical-backtest
+badge, including an explicit quality tier. It no longer needs to load the full
+raw backtest summary during interactive use.
+
+## Remaining layers
+
+1. O2: rolling backtests and promoted calibration artifacts.
 2. O3: per-ticker model selection and parameter fitting.
 3. O4: regime, factor, and event-risk overlays.
 4. O5: model governance, monitoring, and user-facing provenance.

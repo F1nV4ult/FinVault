@@ -164,6 +164,13 @@ cross-sectionally across all simulated paths at every time step; it is not a
 single path selected from terminal outcomes. See
 `docs/OSIRIS-FORECAST-ARCHITECTURE.md` for the staged modernization roadmap.
 
+**Forecast quality contract:** `data/osiris-quality.json` is a compact,
+versioned derivative of the detailed backtest output. It gives each ticker a
+sample size, interval-coverage diagnostics, directional-accuracy diagnostic,
+confidence tier, calibration bins, and explicit skipped-symbol status. It does
+not yet alter a live probability: only a rolling, horizon-specific calibration
+fit may do that after validation.
+
 **Physics by sector cohort** (`physics-config.json`, schema `v1.8-consumer-staples`):
 
 | Cohort | Model | Why |

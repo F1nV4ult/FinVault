@@ -44,6 +44,7 @@ class OsirisOrchestrator {
         this.oracle = null;
         this.deviceClass = detectDeviceClass();
         this._backtestSummary = null;
+        this._forecastQuality = null;
         // HI-FI session state — resets every page load. Not persisted.
         this.hifi = { enabled: false, paths: 50000 };
 
@@ -532,28 +533,33 @@ class OsirisOrchestrator {
     async updateBacktestBadge(ticker) {
         const badge = document.getElementById('osiris-backtest-badge');
         if (!badge) return;
-        if (!this._backtestSummary) {
+        if (!this._forecastQuality) {
             try {
-                const res = await fetch('/data/backtest-summary.json');
-                this._backtestSummary = res.ok ? await res.json() : null;
-            } catch (_) { this._backtestSummary = null; }
+                const res = await fetch('/data/osiris-quality.json');
+                this._forecastQuality = res.ok ? await res.json() : null;
+            } catch (_) { this._forecastQuality = null; }
         }
-        const data = this._backtestSummary?.by_ticker?.[ticker];
+        const data = this._forecastQuality?.byTicker?.[ticker];
         if (!data) { badge.style.display = 'none'; return; }
         const dirEl  = document.getElementById('bt-dir');
         const ci90El = document.getElementById('bt-ci90');
         const nEl    = document.getElementById('bt-n');
+        const qualityEl = document.getElementById('bt-quality');
         if (dirEl)  {
-            const pct = data.directional_accuracy * 100;
+            const pct = data.directionalAccuracy * 100;
             dirEl.textContent = pct.toFixed(1) + '%';
             dirEl.className = 'osiris-backtest-val' + (pct < 48 ? ' warn' : '');
         }
         if (ci90El) {
-            const pct = data.ci90_coverage * 100;
+            const pct = data.coverage90 * 100;
             ci90El.textContent = pct.toFixed(1) + '%';
             ci90El.className = 'osiris-backtest-val' + (pct < 85 ? ' warn' : '');
         }
-        if (nEl) nEl.textContent = data.n + ' days';
+        if (nEl) nEl.textContent = data.sampleSize + ' days';
+        if (qualityEl) {
+            qualityEl.textContent = String(data.confidence || 'limited').toUpperCase();
+            qualityEl.className = 'osiris-backtest-val' + (data.confidence === 'limited' ? ' warn' : '');
+        }
         badge.style.display = '';
     }
 
