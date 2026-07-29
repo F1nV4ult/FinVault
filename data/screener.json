@@ -1,9 +1,10 @@
 {
- "generated": "2026-07-27",
- "source": "SEC EDGAR XBRL",
+ "generated": "2026-07-16",
+ "source": "SEC EDGAR XBRL + Yahoo Finance",
  "count": 83,
  "ok": 45,
- "foreign": 37,
+ "yahoo": 36,
+ "foreign": 1,
  "fail": 1,
  "rows": [
   {
@@ -25,7 +26,20 @@
    "slug": "shel",
    "reportUrl": "report.html?company=shel",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 266886000000,
+   "revGrowth": -0.1121,
+   "netMargin": 0.0668,
+   "operatingMargin": 0.1033,
+   "roe": 0.1023,
+   "roa": 0.0482,
+   "roic": 0.1236,
+   "debtToEquity": 0.4338,
+   "netLeverage": 0.812,
+   "interestCoverage": 7.28,
+   "fcfMargin": 0.0896,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "CVX",
@@ -48,7 +62,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "IBE.MC",
@@ -59,7 +74,20 @@
    "slug": "iberdrola",
    "reportUrl": "report.html?company=iberdrola",
    "pdfReady": true,
-   "foreign": true
+   "revenue": 44076000000,
+   "revGrowth": -0.0652,
+   "netMargin": 0.1426,
+   "operatingMargin": 0.2422,
+   "roe": 0.1255,
+   "roa": 0.0391,
+   "roic": 0.0783,
+   "debtToEquity": 1.1431,
+   "netLeverage": 3.1952,
+   "interestCoverage": 4.73,
+   "fcfMargin": 0.0753,
+   "impliedCredit": "BB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "EQNR",
@@ -70,7 +98,20 @@
    "slug": "eqnr",
    "reportUrl": "report.html?company=eqnr",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 105828000000,
+   "revGrowth": -0.1078,
+   "netMargin": 0.0477,
+   "operatingMargin": 0.2337,
+   "roe": 0.1248,
+   "roa": 0.0383,
+   "roic": 0.3074,
+   "debtToEquity": 0.7723,
+   "netLeverage": 0.682,
+   "interestCoverage": 31.15,
+   "fcfMargin": 0.0565,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "MPC",
@@ -93,7 +134,8 @@
    "interestCoverage": 9.05,
    "fcfMargin": 0.0359,
    "impliedCredit": "A",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "LMT",
@@ -116,7 +158,8 @@
    "interestCoverage": 10.85,
    "fcfMargin": null,
    "impliedCredit": "A",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "LDO.MI",
@@ -127,7 +170,20 @@
    "slug": "ldo-mi",
    "reportUrl": "report.html?company=ldo-mi",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 19503000000,
+   "revGrowth": 0.0985,
+   "netMargin": 0.0628,
+   "operatingMargin": 0.0877,
+   "roe": 0.128,
+   "roa": 0.0355,
+   "roic": 0.1275,
+   "debtToEquity": 0.4696,
+   "netLeverage": 0.5208,
+   "interestCoverage": 18.18,
+   "fcfMargin": 0.0376,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "GD",
@@ -150,7 +206,8 @@
    "interestCoverage": 12.8,
    "fcfMargin": 0.0753,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "LHX",
@@ -173,7 +230,8 @@
    "interestCoverage": 15.96,
    "fcfMargin": 0.1227,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2026"
+   "latestFY": "FY 2026",
+   "source": "sec"
   },
   {
    "ticker": "NOC",
@@ -196,7 +254,8 @@
    "interestCoverage": 9,
    "fcfMargin": 0.0788,
    "impliedCredit": "A",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "RTX",
@@ -219,7 +278,8 @@
    "interestCoverage": 5.85,
    "fcfMargin": 0.0896,
    "impliedCredit": "BBB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "RHM.DE",
@@ -230,7 +290,20 @@
    "slug": "rheinmetall",
    "reportUrl": "report.html?company=rheinmetall",
    "pdfReady": true,
-   "foreign": true
+   "revenue": 9935000000,
+   "revGrowth": 0.1573,
+   "netMargin": 0.0701,
+   "operatingMargin": 0.1713,
+   "roe": 0.1389,
+   "roa": 0.0415,
+   "roic": 0.2872,
+   "debtToEquity": 0.2558,
+   "netLeverage": -0.1681,
+   "interestCoverage": 14.55,
+   "fcfMargin": 0.1424,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "BA",
@@ -253,7 +326,8 @@
    "interestCoverage": 2.25,
    "fcfMargin": -0.021,
    "impliedCredit": "B",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "AIR.PA",
@@ -264,7 +338,20 @@
    "slug": "air-pa",
    "reportUrl": "report.html?company=air-pa",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 73420000000,
+   "revGrowth": 0.0771,
+   "netMargin": 0.0711,
+   "operatingMargin": 0.0713,
+   "roe": 0.2,
+   "roa": 0.0387,
+   "roic": 0.2446,
+   "debtToEquity": 0.4223,
+   "netLeverage": -0.3028,
+   "interestCoverage": 9.25,
+   "fcfMargin": 0.0549,
+   "impliedCredit": "A",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "ENGI.PA",
@@ -275,7 +362,20 @@
    "slug": "engi-pa",
    "reportUrl": "report.html?company=engi-pa",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 71944000000,
+   "revGrowth": -0.0848,
+   "netMargin": 0.0532,
+   "operatingMargin": 0.1259,
+   "roe": 0.1161,
+   "roa": 0.0226,
+   "roic": 0.0962,
+   "debtToEquity": 1.6561,
+   "netLeverage": 2.7803,
+   "interestCoverage": 3.45,
+   "fcfMargin": -0.1215,
+   "impliedCredit": "BB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "ENEL.MI",
@@ -286,7 +386,20 @@
    "slug": "enel-mi",
    "reportUrl": "report.html?company=enel-mi",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 67452000000,
+   "revGrowth": -0.1307,
+   "netMargin": 0.0626,
+   "operatingMargin": 0.0529,
+   "roe": 0.1318,
+   "roa": 0.0236,
+   "roic": 0.093,
+   "debtToEquity": 2.1352,
+   "netLeverage": 3.0611,
+   "interestCoverage": 3.95,
+   "fcfMargin": 0.0637,
+   "impliedCredit": "BB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "NEE",
@@ -309,7 +422,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "DUK",
@@ -332,7 +446,8 @@
    "interestCoverage": 4.49,
    "fcfMargin": -0.0534,
    "impliedCredit": "BB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "BP",
@@ -343,7 +458,20 @@
    "slug": "bp",
    "reportUrl": "report.html?company=bp",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 189335000000,
+   "revGrowth": -0.0778,
+   "netMargin": 0.0003,
+   "operatingMargin": 0.0835,
+   "roe": 0.001,
+   "roa": 0.0002,
+   "roic": 0.1142,
+   "debtToEquity": 1.3671,
+   "netLeverage": 1.1719,
+   "interestCoverage": 2.51,
+   "fcfMargin": 0.0595,
+   "impliedCredit": "BB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "TTE",
@@ -354,7 +482,20 @@
    "slug": "tte",
    "reportUrl": "report.html?company=tte",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 182344000000,
+   "revGrowth": -0.1153,
+   "netMargin": 0.072,
+   "operatingMargin": 0.1093,
+   "roe": 0.1143,
+   "roa": 0.0451,
+   "roic": 0.131,
+   "debtToEquity": 0.5229,
+   "netLeverage": 0.9245,
+   "interestCoverage": 9.78,
+   "fcfMargin": 0.057,
+   "impliedCredit": "A",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "COP",
@@ -377,7 +518,8 @@
    "interestCoverage": 29.25,
    "fcfMargin": null,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "EOG",
@@ -400,7 +542,8 @@
    "interestCoverage": 46.15,
    "fcfMargin": null,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "SLB",
@@ -423,7 +566,8 @@
    "interestCoverage": 13.43,
    "fcfMargin": 0.1343,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "HAL",
@@ -446,7 +590,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "BKR",
@@ -469,7 +614,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "VLO",
@@ -492,7 +638,8 @@
    "interestCoverage": 5.83,
    "fcfMargin": null,
    "impliedCredit": "BBB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "PSX",
@@ -515,7 +662,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "OXY",
@@ -538,7 +686,8 @@
    "interestCoverage": 10.88,
    "fcfMargin": 0.1901,
    "impliedCredit": "A",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "WMB",
@@ -561,7 +710,8 @@
    "interestCoverage": 5.16,
    "fcfMargin": 0.0841,
    "impliedCredit": "BBB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "KMI",
@@ -584,7 +734,8 @@
    "interestCoverage": null,
    "fcfMargin": 0.1707,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "SO",
@@ -607,7 +758,8 @@
    "interestCoverage": null,
    "fcfMargin": -0.0993,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "D",
@@ -630,7 +782,8 @@
    "interestCoverage": 3.36,
    "fcfMargin": null,
    "impliedCredit": "BB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "AEP",
@@ -653,7 +806,8 @@
    "interestCoverage": 3.59,
    "fcfMargin": null,
    "impliedCredit": "BB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "EXC",
@@ -676,7 +830,8 @@
    "interestCoverage": null,
    "fcfMargin": -0.0938,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "SRE",
@@ -699,7 +854,8 @@
    "interestCoverage": 5.19,
    "fcfMargin": null,
    "impliedCredit": "BBB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "XEL",
@@ -722,7 +878,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "PCG",
@@ -745,7 +902,8 @@
    "interestCoverage": null,
    "fcfMargin": -0.1232,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "PEG",
@@ -768,7 +926,8 @@
    "interestCoverage": null,
    "fcfMargin": 0.0021,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "WEC",
@@ -791,7 +950,8 @@
    "interestCoverage": 4.36,
    "fcfMargin": -0.0649,
    "impliedCredit": "BB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "AWK",
@@ -814,7 +974,8 @@
    "interestCoverage": null,
    "fcfMargin": -0.2084,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "ENI.MI",
@@ -825,7 +986,20 @@
    "slug": "eni-mi",
    "reportUrl": "report.html?company=eni-mi",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 82151000000,
+   "revGrowth": -0.1473,
+   "netMargin": 0.0317,
+   "operatingMargin": 0.0549,
+   "roe": 0.0544,
+   "roa": 0.019,
+   "roic": 0.1488,
+   "debtToEquity": 0.7134,
+   "netLeverage": 1.2257,
+   "interestCoverage": 1.71,
+   "fcfMargin": 0.0499,
+   "impliedCredit": "B",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "NTGY.MC",
@@ -836,7 +1010,20 @@
    "slug": "ntgy-mc",
    "reportUrl": "report.html?company=ntgy-mc",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 19455000000,
+   "revGrowth": -0.1695,
+   "netMargin": 0.104,
+   "operatingMargin": 0.1955,
+   "roe": 0.2165,
+   "roa": 0.0517,
+   "roic": 0.1433,
+   "debtToEquity": 1.7927,
+   "netLeverage": 2.2353,
+   "interestCoverage": 5.44,
+   "fcfMargin": 0.1221,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "SSE.L",
@@ -847,7 +1034,20 @@
    "slug": "sse-l",
    "reportUrl": "report.html?company=sse-l",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 10186500000,
+   "revGrowth": -0.0657,
+   "netMargin": 0.1187,
+   "operatingMargin": 0.1956,
+   "roe": 0.0772,
+   "roa": 0.0342,
+   "roic": 0.0699,
+   "debtToEquity": 0.6467,
+   "netLeverage": 2.7474,
+   "interestCoverage": 7,
+   "fcfMargin": -0.099,
+   "impliedCredit": "BBB",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "NG.L",
@@ -858,7 +1058,20 @@
    "slug": "ng-l",
    "reportUrl": "report.html?company=ng-l",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 17687000000,
+   "revGrowth": -0.0653,
+   "netMargin": 0.1832,
+   "operatingMargin": 0.3217,
+   "roe": 0.0825,
+   "roa": 0.0299,
+   "roic": 0.0538,
+   "debtToEquity": 1.1897,
+   "netLeverage": 5.7415,
+   "interestCoverage": 3.54,
+   "fcfMargin": -0.1553,
+   "impliedCredit": "BB",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "GE",
@@ -881,7 +1094,8 @@
    "interestCoverage": null,
    "fcfMargin": 0.0991,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "HON",
@@ -904,7 +1118,8 @@
    "interestCoverage": 7.08,
    "fcfMargin": 0.1448,
    "impliedCredit": "BBB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "UPS",
@@ -927,7 +1142,8 @@
    "interestCoverage": 15.21,
    "fcfMargin": 0.0537,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "UNP",
@@ -950,7 +1166,8 @@
    "interestCoverage": 8.51,
    "fcfMargin": 0.2244,
    "impliedCredit": "A",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "CAT",
@@ -973,7 +1190,8 @@
    "interestCoverage": null,
    "fcfMargin": 0.1319,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "DE",
@@ -996,7 +1214,8 @@
    "interestCoverage": 3.68,
    "fcfMargin": 0.1335,
    "impliedCredit": "BB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "LUV",
@@ -1019,7 +1238,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "DAL",
@@ -1042,7 +1262,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "MMM",
@@ -1065,7 +1286,8 @@
    "interestCoverage": -7.58,
    "fcfMargin": 0.056,
    "impliedCredit": "CCC",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "EMR",
@@ -1088,7 +1310,8 @@
    "interestCoverage": 27.4,
    "fcfMargin": 0.148,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "ETN",
@@ -1111,7 +1334,8 @@
    "interestCoverage": 27.51,
    "fcfMargin": 0.1294,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "SAF.PA",
@@ -1122,7 +1346,20 @@
    "slug": "saf-pa",
    "reportUrl": "report.html?company=saf-pa",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 31189000000,
+   "revGrowth": 0.169,
+   "netMargin": 0.2301,
+   "operatingMargin": 0.1472,
+   "roe": 0.4837,
+   "roa": 0.1161,
+   "roic": 0.6145,
+   "debtToEquity": 0.3589,
+   "netLeverage": -0.1232,
+   "interestCoverage": 77.07,
+   "fcfMargin": 0.1257,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "RR.L",
@@ -1133,7 +1370,20 @@
    "slug": "rr-l",
    "reportUrl": "report.html?company=rr-l",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 21207000000,
+   "revGrowth": 0.1619,
+   "netMargin": 0.2754,
+   "operatingMargin": 0.208,
+   "roe": 2.1427,
+   "roa": 0.1532,
+   "roic": 5.9307,
+   "debtToEquity": 1.5671,
+   "netLeverage": -0.2165,
+   "interestCoverage": 23.96,
+   "fcfMargin": 0.1688,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "VOW3.DE",
@@ -1144,7 +1394,20 @@
    "slug": "vow3-de",
    "reportUrl": "report.html?company=vow3-de",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 321913000000,
+   "revGrowth": 0.0488,
+   "netMargin": 0.0227,
+   "operatingMargin": 0.0335,
+   "roe": 0.0389,
+   "roa": 0.0114,
+   "roic": 0.0287,
+   "debtToEquity": 1.0429,
+   "netLeverage": 3.1521,
+   "interestCoverage": 3.87,
+   "fcfMargin": -0.029,
+   "impliedCredit": "BB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "SIE.DE",
@@ -1155,7 +1418,20 @@
    "slug": "sie-de",
    "reportUrl": "report.html?company=sie-de",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 78914000000,
+   "revGrowth": 0.0311,
+   "netMargin": 0.1219,
+   "operatingMargin": 0.1152,
+   "roe": 0.1546,
+   "roa": 0.0579,
+   "roic": 0.0949,
+   "debtToEquity": 0.8999,
+   "netLeverage": 2.6181,
+   "interestCoverage": 7.6,
+   "fcfMargin": 0.137,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "DHL.DE",
@@ -1166,7 +1442,20 @@
    "slug": "dhl-de",
    "reportUrl": "report.html?company=dhl-de",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 82855000000,
+   "revGrowth": -0.0427,
+   "netMargin": 0.0423,
+   "operatingMargin": 0.0641,
+   "roe": 0.1575,
+   "roa": 0.0493,
+   "roic": 0.1096,
+   "debtToEquity": 1.1449,
+   "netLeverage": 2.1016,
+   "interestCoverage": 5.74,
+   "fcfMargin": 0.0763,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "PBR",
@@ -1177,7 +1466,20 @@
    "slug": "pbr",
    "reportUrl": "report.html?company=pbr",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 488717244000,
+   "revGrowth": -0.0945,
+   "netMargin": 0.2201,
+   "operatingMargin": 0.3112,
+   "roe": 0.2598,
+   "roa": 0.0883,
+   "roic": 0.1757,
+   "debtToEquity": 0.9236,
+   "netLeverage": 1.3754,
+   "interestCoverage": 7.54,
+   "fcfMargin": 0.1853,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "2222.SR",
@@ -1188,7 +1490,20 @@
    "slug": "2222-sr",
    "reportUrl": "report.html?company=2222-sr",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 1671204000000,
+   "revGrowth": -0.0966,
+   "netMargin": 0.2083,
+   "operatingMargin": 0.4423,
+   "roe": 0.2333,
+   "roa": 0.1364,
+   "roic": 0.3498,
+   "debtToEquity": 0.2437,
+   "netLeverage": 0.1493,
+   "interestCoverage": 64.37,
+   "fcfMargin": 0.1917,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "RELIANCE.NS",
@@ -1199,7 +1514,20 @@
    "slug": "reliance-ns",
    "reportUrl": "report.html?company=reliance-ns",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 10572190000000,
+   "revGrowth": 0.0639,
+   "netMargin": 0.0764,
+   "operatingMargin": 0.1148,
+   "roe": 0.0893,
+   "roa": 0.0371,
+   "roic": 0.0999,
+   "debtToEquity": 0.4403,
+   "netLeverage": 1.2722,
+   "interestCoverage": 6.12,
+   "fcfMargin": 0.0655,
+   "impliedCredit": "BBB",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "WDS.AX",
@@ -1210,7 +1538,20 @@
    "slug": "wds-ax",
    "reportUrl": "report.html?company=wds-ax",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 12984000000,
+   "revGrowth": -0.0826,
+   "netMargin": 0.2093,
+   "operatingMargin": 0.3494,
+   "roe": 0.0757,
+   "roa": 0.0409,
+   "roic": 0.0739,
+   "debtToEquity": 0.3821,
+   "netLeverage": 0.8563,
+   "interestCoverage": 15.8,
+   "fcfMargin": -0.0602,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "REP.MC",
@@ -1221,7 +1562,20 @@
    "slug": "rep-mc",
    "reportUrl": "report.html?company=rep-mc",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 54861000000,
+   "revGrowth": -0.0996,
+   "netMargin": 0.0346,
+   "operatingMargin": 0.047,
+   "roe": 0.0755,
+   "roa": 0.032,
+   "roic": 0.074,
+   "debtToEquity": 0.5266,
+   "netLeverage": 1.7418,
+   "interestCoverage": 6.97,
+   "fcfMargin": 0.0295,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "DVN",
@@ -1244,7 +1598,8 @@
    "interestCoverage": null,
    "fcfMargin": null,
    "impliedCredit": null,
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "FANG",
@@ -1267,7 +1622,8 @@
    "interestCoverage": 25.84,
    "fcfMargin": null,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "9501.T",
@@ -1278,7 +1634,20 @@
    "slug": "9501-t",
    "reportUrl": "report.html?company=9501-t",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 6328574000000,
+   "revGrowth": -0.0794,
+   "netMargin": -0.0718,
+   "operatingMargin": 0.0534,
+   "roe": -0.134,
+   "roa": -0.0292,
+   "roic": -0.0271,
+   "debtToEquity": 1.8726,
+   "netLeverage": 62.0113,
+   "interestCoverage": -3.26,
+   "fcfMargin": 0.0885,
+   "impliedCredit": "CCC",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "NTPC.NS",
@@ -1289,7 +1658,20 @@
    "slug": "ntpc-ns",
    "reportUrl": "report.html?company=ntpc-ns",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 1873846300000,
+   "revGrowth": 0.0249,
+   "netMargin": 0.1444,
+   "operatingMargin": 0.1903,
+   "roe": 0.1331,
+   "roa": 0.0484,
+   "roic": 0.0687,
+   "debtToEquity": 1.3338,
+   "netLeverage": 4.4182,
+   "interestCoverage": 2.97,
+   "fcfMargin": 0.0366,
+   "impliedCredit": "BB",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "ORG.AX",
@@ -1300,7 +1682,20 @@
    "slug": "org-ax",
    "reportUrl": "report.html?company=org-ax",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 17118000000,
+   "revGrowth": 0.0597,
+   "netMargin": 0.0865,
+   "operatingMargin": 0.0573,
+   "roe": 0.1492,
+   "roa": 0.0705,
+   "roic": 0.0947,
+   "debtToEquity": 0.4881,
+   "netLeverage": 2.022,
+   "interestCoverage": 11.36,
+   "fcfMargin": -0.0612,
+   "impliedCredit": "A",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "EOAN.DE",
@@ -1311,7 +1706,20 @@
    "slug": "eoan-de",
    "reportUrl": "report.html?company=eoan-de",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 78704000000,
+   "revGrowth": -0.1204,
+   "netMargin": 0.022,
+   "operatingMargin": 0.0812,
+   "roe": 0.09,
+   "roa": 0.0157,
+   "roic": 0.2537,
+   "debtToEquity": 0,
+   "netLeverage": -0.3279,
+   "interestCoverage": 2.37,
+   "fcfMargin": -0.0119,
+   "impliedCredit": "B",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "RWE.DE",
@@ -1322,7 +1730,20 @@
    "slug": "rwe-de",
    "reportUrl": "report.html?company=rwe-de",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 17628000000,
+   "revGrowth": -0.2287,
+   "netMargin": 0.1776,
+   "operatingMargin": 0.0754,
+   "roe": 0.0911,
+   "roa": 0.0308,
+   "roic": 0.0747,
+   "debtToEquity": 0.4947,
+   "netLeverage": 1.3462,
+   "interestCoverage": 6.99,
+   "fcfMargin": -0.287,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "ETR",
@@ -1345,7 +1766,8 @@
    "interestCoverage": 4.64,
    "fcfMargin": -0.1957,
    "impliedCredit": "BB",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   },
   {
    "ticker": "BA.L",
@@ -1356,7 +1778,20 @@
    "slug": "ba-l",
    "reportUrl": "report.html?company=ba-l",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 28336000000,
+   "revGrowth": 0.1005,
+   "netMargin": 0.0728,
+   "operatingMargin": 0.0946,
+   "roe": 0.175,
+   "roa": 0.0547,
+   "roic": 0.1397,
+   "debtToEquity": 0.7681,
+   "netLeverage": 1.3251,
+   "interestCoverage": 6.1,
+   "fcfMargin": 0.0822,
+   "impliedCredit": "BBB",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "HO.PA",
@@ -1367,7 +1802,20 @@
    "slug": "ho-pa",
    "reportUrl": "report.html?company=ho-pa",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 22136400000,
+   "revGrowth": 0.0801,
+   "netMargin": 0.0756,
+   "operatingMargin": 0.1002,
+   "roe": 0.2101,
+   "roa": 0.0428,
+   "roic": 0.1902,
+   "debtToEquity": 0.7692,
+   "netLeverage": 0.4933,
+   "interestCoverage": 8.07,
+   "fcfMargin": 0.1159,
+   "impliedCredit": "A",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "7011.T",
@@ -1378,7 +1826,20 @@
    "slug": "7011-t",
    "reportUrl": "report.html?company=7011-t",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 5027176000000,
+   "revGrowth": 0.092,
+   "netMargin": 0.0488,
+   "operatingMargin": 0.0768,
+   "roe": 0.1046,
+   "roa": 0.0369,
+   "roic": 0.1112,
+   "debtToEquity": 0.4821,
+   "netLeverage": 0.8493,
+   "interestCoverage": 17.79,
+   "fcfMargin": 0.0576,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "6301.T",
@@ -1389,7 +1850,20 @@
    "slug": "6301-t",
    "reportUrl": "report.html?company=6301-t",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 4132751000000,
+   "revGrowth": 0.0526,
+   "netMargin": 0.0911,
+   "operatingMargin": 0.1382,
+   "roe": 0.1072,
+   "roa": 0.0586,
+   "roic": 0.1039,
+   "debtToEquity": 0.4043,
+   "netLeverage": 1.3023,
+   "interestCoverage": 11.07,
+   "fcfMargin": 0.0573,
+   "impliedCredit": "A",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "LT.NS",
@@ -1400,7 +1874,20 @@
    "slug": "lt-ns",
    "reportUrl": "report.html?company=lt-ns",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 2842251900000,
+   "revGrowth": 0.1609,
+   "netMargin": 0.0566,
+   "operatingMargin": 0.0952,
+   "roe": 0.1472,
+   "roa": 0.0355,
+   "roic": 0.1038,
+   "debtToEquity": 1.1483,
+   "netLeverage": 3.3197,
+   "interestCoverage": 10.12,
+   "fcfMargin": 0.042,
+   "impliedCredit": "A",
+   "latestFY": 2026,
+   "source": "yahoo"
   },
   {
    "ticker": "EMBR3.SA",
@@ -1422,7 +1909,20 @@
    "slug": "atco-a-st",
    "reportUrl": "report.html?company=atco-a-st",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 168343000000,
+   "revGrowth": 0.06,
+   "netMargin": 0.1569,
+   "operatingMargin": 0.2068,
+   "roe": 0.2397,
+   "roa": 0.1305,
+   "roic": 0.2108,
+   "debtToEquity": 0.316,
+   "netLeverage": 0.438,
+   "interestCoverage": 39.18,
+   "fcfMargin": 0.1567,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "VOLV-B.ST",
@@ -1433,7 +1933,20 @@
    "slug": "volv-b-st",
    "reportUrl": "report.html?company=volv-b-st",
    "pdfReady": false,
-   "foreign": true
+   "revenue": 479183000000,
+   "revGrowth": 0.004,
+   "netMargin": 0.0719,
+   "operatingMargin": 0.1033,
+   "roe": 0.1931,
+   "roa": 0.0531,
+   "roic": 0.1078,
+   "debtToEquity": 1.3846,
+   "netLeverage": 2.5585,
+   "interestCoverage": 26.87,
+   "fcfMargin": 0.0406,
+   "impliedCredit": "AAA/AA",
+   "latestFY": 2025,
+   "source": "yahoo"
   },
   {
    "ticker": "HWM",
@@ -1456,7 +1969,8 @@
    "interestCoverage": 13.23,
    "fcfMargin": 0.1734,
    "impliedCredit": "AAA/AA",
-   "latestFY": "FY 2025"
+   "latestFY": "FY 2025",
+   "source": "sec"
   }
  ]
 }

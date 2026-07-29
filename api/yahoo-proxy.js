@@ -72,6 +72,59 @@ function unwrap(obj) {
     return (obj && typeof obj === 'object' && 'raw' in obj) ? obj.raw : null;
 }
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// Exponential backoff + jitter; retries on 429 / 5xx / network errors.
+async function fetchRetry(url, opts, tries = 4, baseDelay = 600) {
+    let lastErr;
+    for (let i = 0; i < tries; i++) {
+        try {
+            const r = await fetch(url, { ...opts, signal: AbortSignal.timeout(15000) });
+            if (r.status === 429 || r.status >= 500) throw new Error('HTTP ' + r.status);
+            return r;
+        } catch (err) {
+            lastErr = err;
+            if (i < tries - 1) await sleep(baseDelay * 2 ** i + Math.floor(Math.random() * 300));
+        }
+    }
+    throw lastErr;
+}
+
+// Crumb-free fundamentals-timeseries → the income/balance/cashflow statement
+// arrays historyFromYahoo() expects. This endpoint needs no cookie+crumb, so it
+// works from Vercel's datacenter IPs where the quoteSummary crumb flow is often
+// blocked (the reason foreign detail pages showed no fundamentals).
+const YF_STMT_MAP = {
+    income:   { totalRevenue: 'annualTotalRevenue', operatingIncome: 'annualOperatingIncome', netIncome: 'annualNetIncome', interestExpense: 'annualInterestExpense' },
+    balance:  { totalStockholderEquity: 'annualStockholdersEquity', totalAssets: 'annualTotalAssets', totalLiab: 'annualTotalLiabilitiesNetMinorityInterest', totalCurrentAssets: 'annualCurrentAssets', totalCurrentLiabilities: 'annualCurrentLiabilities', cash: 'annualCashAndCashEquivalents', longTermDebt: 'annualLongTermDebt', shortLongTermDebt: 'annualCurrentDebt', inventory: 'annualInventory' },
+    cashflow: { totalCashFromOperatingActivities: 'annualOperatingCashFlow', capitalExpenditures: 'annualCapitalExpenditure', dividendsPaid: 'annualCashDividendsPaid' },
+};
+
+async function yahooTimeseriesStatements(symbol) {
+    const all = [...new Set(Object.values(YF_STMT_MAP).flatMap(o => Object.values(o)))];
+    const url = `https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/${encodeURIComponent(symbol)}` +
+        `?type=${all.join(',')}&period1=1500000000&period2=1900000000`;
+    const r = await fetchRetry(url, { headers: { 'User-Agent': UA } });
+    if (!r.ok) throw new Error('timeseries ' + r.status);
+    const res = (await r.json())?.timeseries?.result || [];
+    const valMap = type => {
+        const e = res.find(x => x.meta?.type?.[0] === type);
+        const m = new Map();
+        for (const d of (e && e[type] ? e[type] : [])) if (d?.reportedValue && d.asOfDate) m.set(d.asOfDate, d.reportedValue.raw);
+        return m;
+    };
+    const build = group => {
+        const maps = {}, dates = new Set();
+        for (const [f, t] of Object.entries(group)) { maps[f] = valMap(t); for (const dt of maps[f].keys()) dates.add(dt); }
+        return [...dates].sort().map(dt => {
+            const s = { endDate: { fmt: dt } };
+            for (const f of Object.keys(group)) { const v = maps[f].get(dt); if (v != null) s[f] = { raw: v }; }
+            return s;
+        });
+    };
+    return { income: build(YF_STMT_MAP.income), balance: build(YF_STMT_MAP.balance), cashflow: build(YF_STMT_MAP.cashflow) };
+}
+
 // Yahoo's chart endpoint accepts these interval values. Intraday bars
 // don't include adjusted close (Yahoo only computes adjclose for daily),
 // so when interval !== '1d' we serialize a different shape (ts + close)
@@ -199,18 +252,25 @@ export default async function handler(req, res) {
     // horizontal-analysis payload. Fallback for non-US filers with no SEC XBRL.
     if (mode === 'financials') {
         try {
-            const { cookie, crumb } = await getYahooAuth();
-            const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${symbol}` +
-                `?modules=incomeStatementHistory,balanceSheetHistory,cashflowStatementHistory&crumb=${encodeURIComponent(crumb)}`;
-            const response = await fetch(url, { headers: { 'User-Agent': UA, 'Cookie': cookie } });
-            if (!response.ok) {
-                return res.status(response.status).json({ error: `E${response.status}: YAHOO_API_REJECTED` });
+            let income = [], balance = [], cashflow = [];
+            // Primary: crumb-free fundamentals-timeseries (robust from datacenter IPs).
+            try {
+                ({ income, balance, cashflow } = await yahooTimeseriesStatements(symbol));
+            } catch (tsErr) {
+                console.warn('timeseries failed, trying crumb quoteSummary:', tsErr.message);
             }
-            const data = await response.json();
-            const r = data.quoteSummary?.result?.[0];
-            const income   = r?.incomeStatementHistory?.incomeStatementHistory || [];
-            const balance  = r?.balanceSheetHistory?.balanceSheetStatements   || [];
-            const cashflow = r?.cashflowStatementHistory?.cashflowStatements   || [];
+            // Fallback: the cookie+crumb quoteSummary flow (works from residential IPs).
+            if (!income.length && !balance.length) {
+                const { cookie, crumb } = await getYahooAuth();
+                const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${symbol}` +
+                    `?modules=incomeStatementHistory,balanceSheetHistory,cashflowStatementHistory&crumb=${encodeURIComponent(crumb)}`;
+                const response = await fetch(url, { headers: { 'User-Agent': UA, 'Cookie': cookie } });
+                if (!response.ok) return res.status(response.status).json({ error: `E${response.status}: YAHOO_API_REJECTED` });
+                const r = (await response.json()).quoteSummary?.result?.[0];
+                income   = r?.incomeStatementHistory?.incomeStatementHistory || [];
+                balance  = r?.balanceSheetHistory?.balanceSheetStatements   || [];
+                cashflow = r?.cashflowStatementHistory?.cashflowStatements   || [];
+            }
             const history = historyFromYahoo(income, balance, cashflow);
             if (!history) return res.status(404).json({ error: 'E404: NO_DATA_FOUND' });
             res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=43200');

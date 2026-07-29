@@ -26,7 +26,7 @@ function detectDeviceClass() {
 const FINVAULT_SLUG_OVERRIDES = {
     'XOM': 'exxonmobil', 'CVX': 'chevron', 'IBE.MC': 'iberdrola',
     'LMT': 'lockheedmartin', 'NOC': 'northropgrumman', 'GD': 'generaldynamics',
-    'LHX': 'l3harris', 'RHM.DE': 'rheinmetall', 'EMBR3.SA': 'embj3-sa'
+    'LHX': 'l3harris', 'RHM.DE': 'rheinmetall', 'ERJ': 'erj'
 };
 function tickerToFinvaultSlug(ticker) {
     return FINVAULT_SLUG_OVERRIDES[ticker] || ticker.toLowerCase().replace(/\./g, '-');
@@ -36,6 +36,7 @@ class OsirisOrchestrator {
     constructor() {
         this.activeWorker = null;
         this.physicsConfig = null;
+        this.universe = null;
         this.canvas = null;
         this.oracle = null;
         this.deviceClass = detectDeviceClass();
@@ -84,6 +85,7 @@ class OsirisOrchestrator {
 
             const tickerSelect = document.getElementById('osiris-ticker-select');
             if (tickerSelect) {
+                await this.populateTickerSelectFromUniverse(tickerSelect);
                 this.syncUIState(tickerSelect.value);
             }
         } catch (e) {
@@ -179,6 +181,59 @@ class OsirisOrchestrator {
 
         // Wrap the (now hidden) <select> in a searchable combobox.
         this.initCombobox();
+    }
+
+    /**
+     * The canonical universe owns the cross-tool ticker list. Keep the static
+     * select only as a no-network fallback; it is replaced before the visible
+     * combobox is initialised whenever the registry is available.
+     */
+    async populateTickerSelectFromUniverse(select) {
+        try {
+            const response = await fetch('/data/universe.json');
+            if (!response.ok) throw new Error('registry ' + response.status);
+            const universe = await response.json();
+            const entries = Object.values(universe.tickers || {})
+                .filter(entry => entry && entry.capabilities && entry.capabilities.osiris && entry.osiris)
+                .sort((a, b) => a.name.localeCompare(b.name));
+            if (!entries.length) throw new Error('registry has no Osiris issuers');
+
+            const groups = {
+                energy_and_utilities: {
+                    label: 'ENERGY & UTILITIES // OU MEAN-REVERSION',
+                    entries: []
+                },
+                industrials_and_defense: {
+                    label: 'INDUSTRIALS & DEFENSE // GBM + POISSON JUMPS',
+                    entries: []
+                }
+            };
+            for (const entry of entries) {
+                const group = groups[entry.osiris.cohort];
+                if (group) group.entries.push(entry);
+            }
+
+            const selected = select.value;
+            select.replaceChildren();
+            for (const group of Object.values(groups)) {
+                if (!group.entries.length) continue;
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = group.label;
+                for (const entry of group.entries) {
+                    const option = document.createElement('option');
+                    option.value = entry.ticker;
+                    option.textContent = `${entry.ticker} - ${entry.name}`;
+                    optgroup.appendChild(option);
+                }
+                select.appendChild(optgroup);
+            }
+            if (Array.from(select.options).some(option => option.value === selected)) {
+                select.value = selected;
+            }
+            this.universe = universe;
+        } catch (error) {
+            console.warn('[OSIRIS] Canonical universe unavailable; using static ticker fallback.', error);
+        }
     }
 
     /**

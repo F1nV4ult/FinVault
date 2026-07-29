@@ -18,8 +18,10 @@
 const fs = require('fs');
 const path = require('path');
 const { parseLiteral } = require('./lib/safe-literal');
+const { validateUniverse } = require('./lib/universe-schema');
 
 const ROOT = path.join(__dirname, '..');
+const CHECK = process.argv.includes('--check');
 
 // ─── Hand-mapped slugs for the 9 fully-built reports ───────────────────
 // These use descriptive slugs (chevron, exxonmobil, …) not ticker-derived
@@ -143,6 +145,20 @@ for (const c of COMPANIES) {
                 ? companyDataLookup[finvault.slug].fundamentals
                 : null
         } : null,
+        // Public contract for every cross-tool surface. UI code must consume
+        // these flags rather than infer availability from optional fields.
+        capabilities: {
+            finvault: {
+                report: Boolean(finvault && finvault.pdfReady),
+                overview: Boolean(finvault)
+            },
+            sentinel: true,
+            osiris: Boolean(osiris),
+            downloads: {
+                sentinel: true,
+                osiris: Boolean(osiris)
+            }
+        },
         sentinel: {
             type: c.type,
             rating: c.rating,
@@ -156,6 +172,19 @@ for (const c of COMPANIES) {
     };
 }
 
+const sentinelTickers = new Set(COMPANIES.map(c => c.ticker));
+const extraOsiris = Object.keys(osirisByTicker).filter(ticker => !sentinelTickers.has(ticker));
+if (extraOsiris.length) {
+    throw new Error('Osiris tickers absent from Sentinel canonical registry: ' + extraOsiris.join(', '));
+}
+if (missing.finvault.length || missing.osiris.length) {
+    throw new Error(
+        'Incomplete canonical registry:' +
+        (missing.finvault.length ? ' FinVault missing ' + missing.finvault.join(', ') : '') +
+        (missing.osiris.length ? ' Osiris missing ' + missing.osiris.join(', ') : '')
+    );
+}
+
 // ─── Write output ──────────────────────────────────────────────────────
 const outDir = path.join(ROOT, 'data');
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
@@ -163,6 +192,7 @@ const outPath = path.join(outDir, 'universe.json');
 
 const header = {
     _meta: {
+        schemaVersion: 1,
         generated: new Date().toISOString().slice(0, 10),
         generator: 'scripts/build-universe.js',
         count: Object.keys(universe).length,
@@ -170,7 +200,19 @@ const header = {
     }
 };
 
-fs.writeFileSync(outPath, JSON.stringify({ ...header, tickers: universe }, null, 2) + '\n');
+const output = { ...header, tickers: universe };
+const errors = validateUniverse(output);
+if (errors.length) throw new Error('Universe schema validation failed:\n- ' + errors.join('\n- '));
+
+const serialized = JSON.stringify(output, null, 2) + '\n';
+if (CHECK) {
+    const committed = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8').replace(/\r\n/g, '\n') : null;
+    if (committed !== serialized) {
+        throw new Error('data/universe.json is stale. Run `node scripts/build-universe.js` and commit the output.');
+    }
+} else {
+    fs.writeFileSync(outPath, serialized);
+}
 
 console.log('✓ Wrote ' + path.relative(ROOT, outPath));
 console.log('  Tickers: ' + Object.keys(universe).length);

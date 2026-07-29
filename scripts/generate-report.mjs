@@ -150,6 +150,11 @@ const REGISTRY = {
   'EMBR3.SA':{ name: 'Embraer S.A.',       exchange: 'B3',   sector: 'industrials', industry: 'Aerospace Manufacturing', filingType: 'PDF', reportCurrency: 'BRL',
     pdfUrl: null, // IR: https://ri.embraer.com.br/en/reports-and-presentations
     peers: ['BA', 'RTX', 'GE', 'AIR.PA', 'LMT'] },
+
+  'BA.L':    { name: 'BAE Systems plc',    exchange: 'LSE',  sector: 'defence',     industry: 'Aerospace & Defence',     filingType: 'PDF', reportCurrency: 'GBP',
+    pdfUrl: 'https://annualreport.baesystems.com/dam/jcr:f57706a5-0a28-441a-8829-0e0c213436c1/BAE-Systems-Annual-Report-2024.2025-04-29-16-28-37.pdf',
+    // IR: https://investors.baesystems.com/reports-and-presentations/annual-reports/2024
+    peers: ['LMT', 'RTX', 'NOC', 'RHM.DE', 'LDO.MI'] },
 };
 
 // ─── XBRL Concept Lists ───────────────────────────────────────────────────────

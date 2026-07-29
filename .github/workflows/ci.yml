@@ -28,5 +28,7 @@ jobs:
         run: npm ci
       - name: Unit tests (forensic · xbrl · sentinel-spread · osiris)
         run: npm test
+      - name: Verify canonical issuer registry
+        run: npm run registry:check
       - name: Verify committed .min artifacts match source (no stale bundles)
         run: node scripts/build.js --check

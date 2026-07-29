@@ -186,7 +186,7 @@
                 <a href="report.html?company=rr-l&from=reports.html" class="company-card pending">Rolls-Royce</a>
                 <a href="report.html?company=ge&from=reports.html" class="company-card pending">GE Aerospace</a>
                 <a href="report.html?company=hwm&from=reports.html" class="company-card pending">Howmet Aerospace</a>
-                <a href="report.html?company=embj3-sa&from=reports.html" class="company-card pending">Embraer</a>
+                <a href="report.html?company=erj&from=reports.html" class="company-card pending">Embraer</a>
                 <a href="report.html?company=hon&from=reports.html" class="company-card pending">Honeywell</a>
                 <a href="report.html?company=mmm&from=reports.html" class="company-card pending">3M Company</a>
                 <a href="report.html?company=emr&from=reports.html" class="company-card pending">Emerson Electric</a>
@@ -269,7 +269,10 @@
                 const url = r.reportUrl ? (r.reportUrl + (r.reportUrl.includes('?') ? '&' : '?') + 'from=reports.html') : null;
                 const tds = COLS.map(c => {
                     if (c.k === 'ticker' || c.k === 'name') {
-                        const txt = esc(r[c.k]); return `<td class="tk">${url ? `<a href="${esc(url)}">${txt}</a>` : txt}</td>`;
+                        const txt = esc(r[c.k]);
+                        const mark = (c.k === 'ticker' && r.source === 'yahoo')
+                            ? `<sup title="Fundamentals from Yahoo Finance (foreign filer — SEC XBRL unavailable)" style="color:#7fa8c9;font-size:.7em;margin-left:2px">Y</sup>` : '';
+                        return `<td class="tk">${url ? `<a href="${esc(url)}">${txt}</a>` : txt}${mark}</td>`;
                     }
                     if (c.k === 'rating') return r.rating ? `<td><span class="rb" style="color:${ratingColor(r.rating)};border:1px solid ${ratingColor(r.rating)}">${esc(r.rating)}</span></td>` : '<td>–</td>';
                     if (c.k === 'sector') return `<td>${esc(r.sector)}</td>`;
@@ -302,7 +305,7 @@
                 const j = await r.json(); DATA = j.rows || [];
                 buildHead(); buildSectors(); render();
                 const note = document.getElementById('screener-note');
-                if (note) note.textContent = `${j.ok} companies with live SEC-XBRL fundamentals · ${j.foreign} foreign (rating only) · generated ${j.generated} · ${j.source}. Click a column to sort. Indicative — not investment advice.`;
+                if (note) note.textContent = `${j.ok} US via SEC-XBRL · ${j.yahoo || 0} foreign via Yahoo (marked ᵞ) · ${j.foreign} rating-only · generated ${j.generated} · ${j.source}. Click a column to sort. Indicative — not investment advice.`;
             } catch (e) {
                 const note = document.getElementById('screener-note'); if (note) note.textContent = 'Screener data unavailable.';
             }

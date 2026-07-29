@@ -1,6 +1,7 @@
 {
   "_meta": {
-    "generated": "2026-05-22",
+    "schemaVersion": 1,
+    "generated": "2026-07-29",
     "generator": "scripts/build-universe.js",
     "count": 83,
     "sources": [
@@ -55,6 +56,18 @@
           "fundamentalsLastVerified": "2026-05"
         }
       },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "AA",
@@ -93,14 +106,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 140,
+        "baseSpread": 120,
         "marketBeta": 0.9,
         "sectorBeta": 1.2,
         "baseRateType": "GILT",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -156,6 +181,18 @@
           "revenueTTM": 190000,
           "bookValuePerShare": 94,
           "fundamentalsLastVerified": "2026-05"
+        }
+      },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
         }
       },
       "sentinel": {
@@ -223,6 +260,18 @@
           "fundamentalsLastVerified": "2026-05"
         }
       },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
@@ -261,14 +310,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "AA",
-        "baseSpread": 155,
+        "baseSpread": 140,
         "marketBeta": 1.1,
         "sectorBeta": 1.4,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -299,14 +360,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 180,
+        "baseSpread": 170,
         "marketBeta": 1.3,
         "sectorBeta": 1.6,
         "baseRateType": "UST",
-        "lastVerified": "2026-05"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -364,6 +437,18 @@
           "fundamentalsLastVerified": "2026-05"
         }
       },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
@@ -402,14 +487,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 185,
+        "baseSpread": 175,
         "marketBeta": 0.8,
         "sectorBeta": 0.9,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -465,6 +562,18 @@
           "revenueTTM": 47000,
           "bookValuePerShare": 76,
           "fundamentalsLastVerified": "2026-05"
+        }
+      },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
         }
       },
       "sentinel": {
@@ -532,6 +641,18 @@
           "fundamentalsLastVerified": "2026-05"
         }
       },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
@@ -595,6 +716,18 @@
           "revenueTTM": 40000,
           "bookValuePerShare": 72,
           "fundamentalsLastVerified": "2026-05"
+        }
+      },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
         }
       },
       "sentinel": {
@@ -662,6 +795,18 @@
           "fundamentalsLastVerified": "2026-05"
         }
       },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
@@ -727,6 +872,18 @@
           "fundamentalsLastVerified": "2026-05"
         }
       },
+      "capabilities": {
+        "finvault": {
+          "report": true,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "HY",
         "rating": "HY",
@@ -765,14 +922,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 210,
+        "baseSpread": 260,
         "marketBeta": 1.2,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -803,14 +972,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 150,
+        "baseSpread": 135,
         "marketBeta": 0.9,
         "sectorBeta": 0.8,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -841,14 +1022,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 120,
+        "baseSpread": 115,
         "marketBeta": 0.6,
         "sectorBeta": 0.9,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -879,14 +1072,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 135,
+        "baseSpread": 130,
         "marketBeta": 0.7,
         "sectorBeta": 1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -917,14 +1122,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 115,
+        "baseSpread": 110,
         "marketBeta": 0.4,
         "sectorBeta": 0.7,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -955,14 +1172,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 125,
+        "baseSpread": 120,
         "marketBeta": 0.5,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -993,6 +1222,18 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
@@ -1000,7 +1241,7 @@
         "marketBeta": 0.9,
         "sectorBeta": 1.1,
         "baseRateType": "GILT",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1031,14 +1272,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 135,
+        "baseSpread": 115,
         "marketBeta": 0.8,
         "sectorBeta": 1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1069,14 +1322,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 130,
+        "baseSpread": 115,
         "marketBeta": 0.9,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1107,14 +1372,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 120,
+        "baseSpread": 105,
         "marketBeta": 1.1,
         "sectorBeta": 1.2,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1145,14 +1422,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 140,
+        "baseSpread": 130,
         "marketBeta": 1.2,
         "sectorBeta": 1.3,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1183,14 +1472,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 160,
+        "baseSpread": 155,
         "marketBeta": 1.3,
         "sectorBeta": 1.4,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1221,14 +1522,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 150,
+        "baseSpread": 140,
         "marketBeta": 1.1,
         "sectorBeta": 1.2,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1259,14 +1572,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 170,
+        "baseSpread": 160,
         "marketBeta": 1,
         "sectorBeta": 1.1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1297,14 +1622,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 165,
+        "baseSpread": 155,
         "marketBeta": 1,
         "sectorBeta": 1.1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1335,14 +1672,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 190,
+        "baseSpread": 200,
         "marketBeta": 1.4,
         "sectorBeta": 1.5,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1373,14 +1722,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 155,
+        "baseSpread": 145,
         "marketBeta": 0.8,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1411,14 +1772,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 145,
+        "baseSpread": 135,
         "marketBeta": 0.7,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1449,14 +1822,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 130,
+        "baseSpread": 125,
         "marketBeta": 0.5,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1487,14 +1872,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 140,
+        "baseSpread": 135,
         "marketBeta": 0.6,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1525,14 +1922,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 135,
+        "baseSpread": 130,
         "marketBeta": 0.5,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1563,14 +1972,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 125,
+        "baseSpread": 120,
         "marketBeta": 0.6,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1601,14 +2022,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 130,
+        "baseSpread": 125,
         "marketBeta": 0.6,
         "sectorBeta": 0.7,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1639,14 +2072,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 115,
+        "baseSpread": 110,
         "marketBeta": 0.5,
         "sectorBeta": 0.7,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1677,14 +2122,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "HY",
         "rating": "HY",
-        "baseSpread": 310,
+        "baseSpread": 280,
         "marketBeta": 0.9,
         "sectorBeta": 1.2,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1715,14 +2172,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 125,
+        "baseSpread": 120,
         "marketBeta": 0.5,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1753,14 +2222,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 110,
+        "baseSpread": 105,
         "marketBeta": 0.4,
         "sectorBeta": 0.6,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1791,14 +2272,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 105,
+        "baseSpread": 100,
         "marketBeta": 0.4,
         "sectorBeta": 0.5,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1829,14 +2322,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 160,
+        "baseSpread": 150,
         "marketBeta": 0.9,
         "sectorBeta": 1.1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1867,14 +2372,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 150,
+        "baseSpread": 145,
         "marketBeta": 0.7,
         "sectorBeta": 1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1905,14 +2422,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 140,
+        "baseSpread": 135,
         "marketBeta": 0.6,
         "sectorBeta": 0.9,
         "baseRateType": "GILT",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1943,14 +2472,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 130,
+        "baseSpread": 125,
         "marketBeta": 0.5,
         "sectorBeta": 0.8,
         "baseRateType": "GILT",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -1981,14 +2522,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 120,
+        "baseSpread": 110,
         "marketBeta": 1.1,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2019,14 +2572,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 110,
+        "baseSpread": 105,
         "marketBeta": 0.9,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2057,14 +2622,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 135,
+        "baseSpread": 125,
         "marketBeta": 0.8,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2095,14 +2672,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 125,
+        "baseSpread": 115,
         "marketBeta": 0.8,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2133,14 +2722,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 140,
+        "baseSpread": 125,
         "marketBeta": 1.1,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2171,14 +2772,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 130,
+        "baseSpread": 120,
         "marketBeta": 1,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2209,14 +2822,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 180,
+        "baseSpread": 175,
         "marketBeta": 1.2,
         "sectorBeta": 1.3,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2247,14 +2872,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "HY",
         "rating": "HY",
-        "baseSpread": 320,
+        "baseSpread": 290,
         "marketBeta": 1.4,
         "sectorBeta": 1.5,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2285,14 +2922,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 150,
+        "baseSpread": 145,
         "marketBeta": 0.9,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2323,14 +2972,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 115,
+        "baseSpread": 110,
         "marketBeta": 0.8,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2361,14 +3022,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 120,
+        "baseSpread": 110,
         "marketBeta": 0.9,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2399,14 +3072,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 140,
+        "baseSpread": 130,
         "marketBeta": 1,
         "sectorBeta": 0.9,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2437,14 +3122,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
-        "type": "HY",
-        "rating": "HY",
-        "baseSpread": 380,
+        "type": "IG",
+        "rating": "BBB",
+        "baseSpread": 190,
         "marketBeta": 1.5,
         "sectorBeta": 1.4,
         "baseRateType": "GILT",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2475,14 +3172,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 170,
+        "baseSpread": 165,
         "marketBeta": 1.2,
         "sectorBeta": 1.1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2513,14 +3222,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 115,
+        "baseSpread": 90,
         "marketBeta": 0.9,
         "sectorBeta": 0.8,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2551,14 +3272,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 125,
+        "baseSpread": 100,
         "marketBeta": 0.8,
         "sectorBeta": 0.9,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -2589,14 +3322,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "HY",
         "rating": "HY",
-        "baseSpread": 220,
+        "baseSpread": 215,
         "marketBeta": 1.4,
         "sectorBeta": 1.5,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2627,14 +3372,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 100,
+        "baseSpread": 95,
         "marketBeta": 0.6,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2665,14 +3422,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 150,
+        "baseSpread": 145,
         "marketBeta": 1.1,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2703,14 +3472,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 140,
+        "baseSpread": 135,
         "marketBeta": 1.1,
         "sectorBeta": 1.2,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2741,14 +3522,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 150,
+        "baseSpread": 145,
         "marketBeta": 1,
         "sectorBeta": 1.1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2779,14 +3572,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 175,
+        "baseSpread": 165,
         "marketBeta": 1.3,
         "sectorBeta": 1.4,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2817,14 +3622,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 185,
+        "baseSpread": 175,
         "marketBeta": 1.3,
         "sectorBeta": 1.4,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2855,14 +3672,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "HY",
         "rating": "HY",
-        "baseSpread": 280,
+        "baseSpread": 270,
         "marketBeta": 1,
         "sectorBeta": 1.3,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2893,14 +3722,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 120,
+        "baseSpread": 115,
         "marketBeta": 0.9,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2931,14 +3772,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 145,
+        "baseSpread": 140,
         "marketBeta": 0.8,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -2969,14 +3822,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 130,
+        "baseSpread": 125,
         "marketBeta": 0.6,
         "sectorBeta": 0.9,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -3007,14 +3872,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 140,
+        "baseSpread": 135,
         "marketBeta": 0.7,
         "sectorBeta": 1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -3045,14 +3922,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 135,
+        "baseSpread": 130,
         "marketBeta": 0.5,
         "sectorBeta": 0.8,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "energy_and_utilities",
@@ -3083,14 +3972,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 155,
+        "baseSpread": 145,
         "marketBeta": 0.7,
         "sectorBeta": 0.7,
         "baseRateType": "GILT",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3121,14 +4022,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 145,
+        "baseSpread": 120,
         "marketBeta": 0.8,
         "sectorBeta": 0.8,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3159,14 +4072,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 160,
+        "baseSpread": 150,
         "marketBeta": 0.9,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3197,14 +4122,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 130,
+        "baseSpread": 120,
         "marketBeta": 1,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3235,14 +4172,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 130,
+        "baseSpread": 125,
         "marketBeta": 1.1,
         "sectorBeta": 1,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3255,32 +4204,44 @@
         "ratingLastVerified": "2026-05"
       }
     },
-    "EMBR3.SA": {
-      "ticker": "EMBR3.SA",
+    "ERJ": {
+      "ticker": "ERJ",
       "name": "Embraer",
       "sector": "Industrials",
       "region": "EM",
       "country": "BR",
       "exchanges": {
-        "yahoo": "EMBR3.SA",
-        "tradingView": "BMFBOVESPA:EMBR3"
+        "yahoo": "ERJ",
+        "tradingView": "NYSE:ERJ"
       },
       "finvault": {
-        "slug": "embr3-sa",
+        "slug": "erj",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=embr3-sa",
+        "reportUrl": "report.html?company=erj",
         "stats": null,
         "fundamentals": null
+      },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
       },
       "sentinel": {
         "type": "HY",
         "rating": "HY",
-        "baseSpread": 250,
+        "baseSpread": 240,
         "marketBeta": 1.2,
         "sectorBeta": 1.3,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3311,14 +4272,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 110,
+        "baseSpread": 100,
         "marketBeta": 0.9,
         "sectorBeta": 0.9,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3349,14 +4322,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "A",
-        "baseSpread": 130,
+        "baseSpread": 115,
         "marketBeta": 1.1,
         "sectorBeta": 1,
         "baseRateType": "BUND",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
@@ -3387,14 +4372,26 @@
         "stats": null,
         "fundamentals": null
       },
+      "capabilities": {
+        "finvault": {
+          "report": false,
+          "overview": true
+        },
+        "sentinel": true,
+        "osiris": true,
+        "downloads": {
+          "sentinel": true,
+          "osiris": true
+        }
+      },
       "sentinel": {
         "type": "IG",
         "rating": "BBB",
-        "baseSpread": 150,
+        "baseSpread": 145,
         "marketBeta": 1,
         "sectorBeta": 0.9,
         "baseRateType": "UST",
-        "lastVerified": "2025-01-01"
+        "lastVerified": "2026-05-27"
       },
       "osiris": {
         "cohort": "industrials_and_defense",
