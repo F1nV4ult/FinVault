@@ -9,6 +9,7 @@
     "sitemap": "node generate-sitemap.js",
     "convert-images": "node scripts/convert-images.js",
     "build": "node scripts/build.js",
+    "preview": "node scripts/serve-preview.mjs",
     "fetch-10k": "node scripts/fetch-sec-10k.mjs",
     "generate-report": "node scripts/generate-report.mjs",
     "screenshot": "node scripts/screenshot-preview.js",
