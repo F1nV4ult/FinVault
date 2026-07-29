@@ -157,6 +157,13 @@ reports a **probability distribution** of outcomes (percentile bands + "probabil
 above today"), not a single point target. All simulation runs client-side in a Web Worker
 (`stochasticWorker.min.js`).
 
+**Forecast reproducibility:** the worker receives a stable seed derived from
+ticker, latest market-data date, scenario, horizon, and model version. The
+same inputs reproduce the same cone. Each displayed percentile is calculated
+cross-sectionally across all simulated paths at every time step; it is not a
+single path selected from terminal outcomes. See
+`docs/OSIRIS-FORECAST-ARCHITECTURE.md` for the staged modernization roadmap.
+
 **Physics by sector cohort** (`physics-config.json`, schema `v1.8-consumer-staples`):
 
 | Cohort | Model | Why |

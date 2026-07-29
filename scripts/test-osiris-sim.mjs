@@ -29,7 +29,10 @@ const ctx = vm.createContext(sandbox);
 vm.runInContext(trimmed, ctx, { timeout: 5000 });
 const simulateOU = sandbox.simulateOU;
 const simulateGBMJump = sandbox.simulateGBMJump;
+const extractPercentilePaths = sandbox.extractPercentilePaths;
+const createSeededRandom = sandbox.createSeededRandom;
 ok(typeof simulateOU === 'function' && typeof simulateGBMJump === 'function', 'worker exposes simulateOU / simulateGBMJump');
+ok(typeof extractPercentilePaths === 'function' && typeof createSeededRandom === 'function', 'worker exposes cone extraction and seeded RNG');
 
 // Worker signatures:
 //   simulateOU(S0, drift, sigma, steps, paths, theta, longTermMean, antithetic, intradaySteps, garchAlpha, garchBeta)
@@ -44,6 +47,26 @@ function monotonic(res) {
 }
 function allFinite(res) {
   return PCTS.every(p => { const a = res.percentiles[p]; return a.every(v => Number.isFinite(v)); });
+}
+
+// The cone must use the cross-sectional percentile at each time step, rather
+// than returning the path whose terminal value happens to be a percentile.
+{
+  const matrix = new Float32Array([
+    100,  10, 300,
+    100, 100, 200,
+    100, 200, 100
+  ]);
+  const cone = extractPercentilePaths(matrix, 3, 3, 100).percentiles;
+  ok(cone.p50[1] === 100 && cone.p50[2] === 200, 'cone median is cross-sectional at every horizon');
+}
+
+// Fixed seeds make model comparisons and backtests reproducible.
+{
+  const args = [100, 0.05, 0.20, 63, 512, 4, 0.01, true, 1, 0.10, 0.85];
+  const a = simulateGBMJump(...args, createSeededRandom(42));
+  const b = simulateGBMJump(...args, createSeededRandom(42));
+  ok(term(a, 'p50') === term(b, 'p50') && a.pAboveSpot === b.pAboveSpot, 'seeded GBM runs are reproducible');
 }
 
 // ── Percentile ordering & basic invariants (GBM+jump) ─────────────────────────

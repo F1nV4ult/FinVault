@@ -21,11 +21,25 @@
 // Progress chunk: emit ~10 ticks across the whole run regardless of N.
 const PROGRESS_TICKS = 10;
 
-// Box-Muller standard-normal sample
-function randomNormal() {
+// Deterministic PRNG for reproducible forecast runs. Mulberry32 is fast,
+// compact, and sufficient for a browser-side Monte Carlo visualisation. The
+// seed is supplied by the orchestrator from ticker/data/scenario inputs.
+function createSeededRandom(seed) {
+    let state = (Number(seed) >>> 0) || 0x6D2B79F5;
+    return function seededRandom() {
+        state |= 0;
+        state = (state + 0x6D2B79F5) | 0;
+        let t = Math.imul(state ^ (state >>> 15), 1 | state);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+// Box-Muller standard-normal sample.
+function randomNormal(random) {
     let u = 0, v = 0;
-    while (u === 0) u = Math.random();
-    while (v === 0) v = Math.random();
+    while (u === 0) u = random();
+    while (v === 0) v = random();
     return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
 }
 
@@ -36,38 +50,60 @@ function postProgress(p, paths, chunkSize) {
     }
 }
 
+// In-place order statistic. Repeated selection is substantially cheaper than
+// a full sort for each horizon because Osiris needs nine quantiles, not every
+// ranked path. It mutates `values`, which is intentional: callers refill the
+// scratch buffer for every time step.
+function quickSelect(values, target) {
+    let left = 0;
+    let right = values.length - 1;
+    while (left < right) {
+        const pivot = values[(left + right) >> 1];
+        let i = left;
+        let j = right;
+        while (i <= j) {
+            while (values[i] < pivot) i++;
+            while (values[j] > pivot) j--;
+            if (i <= j) {
+                const tmp = values[i];
+                values[i] = values[j];
+                values[j] = tmp;
+                i++;
+                j--;
+            }
+        }
+        if (target <= j) right = j;
+        else if (target >= i) left = i;
+        else return values[target];
+    }
+    return values[left];
+}
+
 function extractPercentilePaths(pathsMatrix, steps, paths, initialPrice) {
-    const terminalValues = new Array(paths);
+    const quantiles = [0.05, 0.10, 0.25, 0.45, 0.50, 0.55, 0.75, 0.90, 0.95];
+    const percentileNames = ['p05', 'p10', 'p25', 'p45', 'p50', 'p55', 'p75', 'p90', 'p95'];
+    const percentilePaths = Object.fromEntries(percentileNames.map(name => [name, new Float32Array(steps)]));
     let countAbove = 0;
+
+    // A percentile cone is a cross-sectional distribution at *each* horizon,
+    // not the path belonging to a terminal percentile. The previous approach
+    // selected nine complete paths after sorting their terminal prices, which
+    // could make intermediate bands cross or misrepresent uncertainty.
+    const valuesAtStep = new Float32Array(paths);
+    for (let t = 0; t < steps; t++) {
+        for (let p = 0; p < paths; p++) valuesAtStep[p] = pathsMatrix[p * steps + t];
+        for (let q = 0; q < quantiles.length; q++) {
+            percentilePaths[percentileNames[q]][t] = quickSelect(valuesAtStep, Math.floor((paths - 1) * quantiles[q]));
+        }
+    }
+
     for (let p = 0; p < paths; p++) {
         const terminal = pathsMatrix[p * steps + (steps - 1)];
-        terminalValues[p] = { index: p, value: terminal };
         if (terminal > initialPrice) countAbove++;
     }
 
-    terminalValues.sort((a, b) => a.value - b.value);
-
-    function getPath(percentile) {
-        const pathIndex = terminalValues[Math.floor(paths * percentile)].index;
-        const path = new Float32Array(steps);
-        for (let t = 0; t < steps; t++) {
-            path[t] = pathsMatrix[pathIndex * steps + t];
-        }
-        return path;
-    }
-
     return {
-        percentiles: {
-            p05: getPath(0.05),
-            p10: getPath(0.10),
-            p25: getPath(0.25),
-            p45: getPath(0.45),
-            p50: getPath(0.50),
-            p55: getPath(0.55),
-            p75: getPath(0.75),
-            p90: getPath(0.90),
-            p95: getPath(0.95)
-        },
+        percentiles: percentilePaths,
         pAboveSpot: countAbove / paths
     };
 }
@@ -80,7 +116,7 @@ function extractPercentilePaths(pathsMatrix, steps, paths, initialPrice) {
 //   Default parameters α=0.10, β=0.85 are typical for equity daily returns.
 //   For steps=2 (1-day backtest) GARCH has no effect since only the initial
 //   variance is consumed. The benefit appears for multi-day UI simulations.
-function simulateOU(initialPrice, drift, sigma, steps, paths, theta, longTermMean, antithetic, intradaySteps, garchAlpha, garchBeta) {
+function simulateOU(initialPrice, drift, sigma, steps, paths, theta, longTermMean, antithetic, intradaySteps, garchAlpha, garchBeta, random = Math.random) {
     const dt = 1 / (252 * (intradaySteps || 1));
     const reversionTarget = (typeof longTermMean === 'number' && longTermMean > 0)
         ? longTermMean
@@ -104,7 +140,7 @@ function simulateOU(initialPrice, drift, sigma, steps, paths, theta, longTermMea
             pathsMatrix[idx1] = S1;
             pathsMatrix[idx2] = S2;
             for (let i = 1; i < steps; i++) {
-                const z = randomNormal();
+                const z = randomNormal(random);
                 const sqrtVar = Math.sqrt(varT);
                 // Twins share varT because z² is sign-symmetric.
                 S1 += theta * (reversionTarget - S1) * dt + sqrtVar * S1 *  z;
@@ -120,7 +156,7 @@ function simulateOU(initialPrice, drift, sigma, steps, paths, theta, longTermMea
             let S = initialPrice, varT = varT0;
             pathsMatrix[lastIdx] = S;
             for (let i = 1; i < steps; i++) {
-                const z = randomNormal();
+                const z = randomNormal(random);
                 S += theta * (reversionTarget - S) * dt + Math.sqrt(varT) * S * z;
                 pathsMatrix[lastIdx + i] = Math.max(0, S);
                 varT = Math.max(omega + (ga * z * z + gb) * varT, 1e-10);
@@ -134,7 +170,7 @@ function simulateOU(initialPrice, drift, sigma, steps, paths, theta, longTermMea
                 if (isZeroVol) {
                     S += theta * (reversionTarget - S) * dt;
                 } else {
-                    const z = randomNormal();
+                    const z = randomNormal(random);
                     S += theta * (reversionTarget - S) * dt + Math.sqrt(varT) * S * z;
                     varT = Math.max(omega + (ga * z * z + gb) * varT, 1e-10);
                 }
@@ -152,7 +188,7 @@ function simulateOU(initialPrice, drift, sigma, steps, paths, theta, longTermMea
 // GARCH(1,1): varT_{t+1} = ω + α·z²_t·varT_t + β·varT_t
 //   Ito correction is time-varying (−½·varT) so expected price path is unchanged.
 //   With antithetic paths, both twins share varT because z² is sign-symmetric.
-function simulateGBMJump(initialPrice, mu, sigma, steps, paths, lambda, jumpMu, antithetic, intradaySteps, garchAlpha, garchBeta) {
+function simulateGBMJump(initialPrice, mu, sigma, steps, paths, lambda, jumpMu, antithetic, intradaySteps, garchAlpha, garchBeta, random = Math.random) {
     const dt = 1 / (252 * (intradaySteps || 1));
     const pathsMatrix = new Float32Array(paths * steps);
     const isZeroVol = (sigma <= 1e-8);
@@ -184,9 +220,9 @@ function simulateGBMJump(initialPrice, mu, sigma, steps, paths, lambda, jumpMu, 
             pathsMatrix[idx2] = S2;
             for (let i = 1; i < steps; i++) {
                 let jf1 = 1, jf2 = 1;
-                if (Math.random() < lambda * dt) jf1 = Math.exp(randomNormal() * jumpStd + jumpMean);
-                if (Math.random() < lambda * dt) jf2 = Math.exp(randomNormal() * jumpStd + jumpMean);
-                const z = randomNormal();
+                if (random() < lambda * dt) jf1 = Math.exp(randomNormal(random) * jumpStd + jumpMean);
+                if (random() < lambda * dt) jf2 = Math.exp(randomNormal(random) * jumpStd + jumpMean);
+                const z = randomNormal(random);
                 const halfVar = 0.5 * varT;
                 const sqrtVar = Math.sqrt(varT);
                 S1 = S1 * Math.exp(driftDt - halfVar + sqrtVar *  z) * jf1;
@@ -203,8 +239,8 @@ function simulateGBMJump(initialPrice, mu, sigma, steps, paths, lambda, jumpMu, 
             pathsMatrix[lastIdx] = S;
             for (let i = 1; i < steps; i++) {
                 let jf = 1;
-                if (Math.random() < lambda * dt) jf = Math.exp(randomNormal() * jumpStd + jumpMean);
-                const z = randomNormal();
+                if (random() < lambda * dt) jf = Math.exp(randomNormal(random) * jumpStd + jumpMean);
+                const z = randomNormal(random);
                 S = S * Math.exp(driftDt - 0.5 * varT + Math.sqrt(varT) * z) * jf;
                 pathsMatrix[lastIdx + i] = Math.max(0, S);
                 varT = Math.max(omega + (ga * z * z + gb) * varT, 1e-10);
@@ -219,8 +255,8 @@ function simulateGBMJump(initialPrice, mu, sigma, steps, paths, lambda, jumpMu, 
                     S = S * Math.exp(driftDt);
                 } else {
                     let jf = 1;
-                    if (Math.random() < lambda * dt) jf = Math.exp(randomNormal() * jumpStd + jumpMean);
-                    const z = randomNormal();
+                    if (random() < lambda * dt) jf = Math.exp(randomNormal(random) * jumpStd + jumpMean);
+                    const z = randomNormal(random);
                     S = S * Math.exp(driftDt - 0.5 * varT + Math.sqrt(varT) * z) * jf;
                     varT = Math.max(omega + (ga * z * z + gb) * varT, 1e-10);
                 }
@@ -233,7 +269,8 @@ function simulateGBMJump(initialPrice, mu, sigma, steps, paths, lambda, jumpMu, 
 }
 
 self.onmessage = function(e) {
-    const { initialPrice, drift, volatility, steps, paths, physicsType, physicsParams, antithetic, intradaySteps } = e.data;
+    const { initialPrice, drift, volatility, steps, paths, physicsType, physicsParams, antithetic, intradaySteps, seed } = e.data;
+    const random = Number.isFinite(seed) ? createSeededRandom(seed) : Math.random;
 
     let result;
     const intradayStepsResolved = Math.max(1, intradaySteps || 1);
@@ -249,11 +286,11 @@ self.onmessage = function(e) {
             const longTermMean = (typeof physicsParams?.longTermMean === 'number')
                 ? physicsParams.longTermMean
                 : null;
-            result = simulateOU(initialPrice, drift, volatility, steps, paths, theta, longTermMean, !!antithetic, intradayStepsResolved, garchAlpha, garchBeta);
+            result = simulateOU(initialPrice, drift, volatility, steps, paths, theta, longTermMean, !!antithetic, intradayStepsResolved, garchAlpha, garchBeta, random);
         } else if (physicsType === 'Geometric Brownian Motion + Jump Diffusion') {
             const lambda = physicsParams?.jumpFrequencyLambda || 4;
             const jumpMu = (typeof physicsParams?.jumpMu === 'number') ? physicsParams.jumpMu : 0;
-            result = simulateGBMJump(initialPrice, drift, volatility, steps, paths, lambda, jumpMu, !!antithetic, intradayStepsResolved, garchAlpha, garchBeta);
+            result = simulateGBMJump(initialPrice, drift, volatility, steps, paths, lambda, jumpMu, !!antithetic, intradayStepsResolved, garchAlpha, garchBeta, random);
         } else {
             self.postMessage({ error: 'Unknown physicsType: ' + physicsType });
             return;
@@ -261,7 +298,8 @@ self.onmessage = function(e) {
 
         self.postMessage({
             percentiles: result.percentiles,
-            pAboveSpot: result.pAboveSpot
+            pAboveSpot: result.pAboveSpot,
+            seed: Number.isFinite(seed) ? seed : null
         });
     } catch (err) {
         self.postMessage({ error: err.message });

@@ -11,6 +11,20 @@ import { OsirisOracle } from './osirisOracle.js';
 const DEVICE_DEFAULT_PATHS = { mobile: 10000, desktop_lo: 25000, desktop_hi: 25000 };
 const DEVICE_HIFI_CAP =      { mobile: 0,     desktop_lo: 100000, desktop_hi: 250000 };
 
+function forecastSeed(parts) {
+    // FNV-1a: stable across browsers and deliberately independent of object
+    // key order. A forecast with identical ticker/data/scenario inputs is
+    // therefore reproducible, while changed data or a changed scenario yields
+    // a fresh simulation stream.
+    let hash = 0x811C9DC5;
+    const text = parts.join('|');
+    for (let i = 0; i < text.length; i++) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 0x01000193);
+    }
+    return hash >>> 0;
+}
+
 function detectDeviceClass() {
     const coarse = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
     const narrow = typeof matchMedia === 'function' && matchMedia('(max-width: 768px)').matches;
@@ -748,6 +762,18 @@ class OsirisOrchestrator {
             const dyAdj = (typeof tickerMeta.dividendYield === 'number') ? tickerMeta.dividendYield : 0;
             const drift = baseDrift - dyAdj;
             const volatility = final_sigma;
+            const forecastRunSeed = forecastSeed([
+                tickerSymbol,
+                history[history.length - 1]?.date || 'unknown-date',
+                initialPrice.toFixed(6),
+                physicsType,
+                final_steps,
+                volatility.toFixed(6),
+                final_physics_param.toFixed(6),
+                final_jumpMu.toFixed(6),
+                drift.toFixed(6),
+                this.physicsConfig.version || 'unknown-model'
+            ]);
 
             // Instantiate New Worker (minified classic worker — see scripts/build.js)
             this.activeWorker = new Worker('/components/osiris/stochasticWorker.min.js');
@@ -856,6 +882,7 @@ class OsirisOrchestrator {
                 volatility: volatility,
                 steps: final_steps * intradaySteps,
                 paths: runPaths,
+                seed: forecastRunSeed,
                 physicsType: physicsType,
                 physicsParams: physicsParams,
                 antithetic: useAntithetic,
