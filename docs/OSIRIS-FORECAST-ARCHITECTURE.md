@@ -29,7 +29,20 @@ raw backtest summary during interactive use.
 
 ## Remaining layers
 
+## O3 — model registry contract
+
+`scripts/build-osiris-models.mjs` compiles the physics configuration and O2
+quality artifact into `data/osiris-models.json`. Every ticker exposes both
+`ou_garch` and `gbm_jump_garch` candidates with normalized weights, an active
+baseline selection, version provenance, and a confidence diagnostic. The O3
+registry currently preserves the validated incumbent model exactly; its status
+explicitly says `baseline_pending_rolling_validation` until candidate scores
+are available.
+
+## Remaining layers
+
 1. O2: rolling backtests and promoted calibration artifacts.
+2. O3: rolling candidate fitting and model-weight promotion.
 2. O3: per-ticker model selection and parameter fitting.
 3. O4: regime, factor, and event-risk overlays.
 4. O5: model governance, monitoring, and user-facing provenance.

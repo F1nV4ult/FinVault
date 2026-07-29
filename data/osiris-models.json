@@ -1,0 +1,2830 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "osiris-o3-registry-v1",
+  "sourceConfigVersion": "1.9-staples-removed",
+  "qualityRunDate": "2026-05-26",
+  "byTicker": {
+    "2222.SR": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.15,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "9501.T": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "AEP": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "AWK": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "BKR": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "BP": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "COP": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "CVX": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.12,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "D": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "DUK": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "DVN": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ENEL.MI": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ENGI.PA": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ENI.MI": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "EOAN.DE": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "EOG": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "EQNR": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ETR": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "EXC": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "FANG": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "HAL": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "IBE.MC": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "KMI": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.15,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "MPC": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.12,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "NEE": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "NG.L": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "NTGY.MC": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "NTPC.NS": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.15,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ORG.AX": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.16,
+            "baselineVolatility": 0.2,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.2,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "OXY": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "PBR": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "PCG": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "PEG": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "PSX": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.12,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "RELIANCE.NS": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.12,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "REP.MC": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "RWE.DE": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.16,
+            "baselineVolatility": 0.2,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.2,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SHEL": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SLB": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.1,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SO": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SRE": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SSE.L": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.18,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.18,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "TTE": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "VLO": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.12,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "WDS.AX": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "WEC": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "WMB": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.15,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "XEL": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.2,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.15,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "XOM": {
+      "cohort": "energy_and_utilities",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "ou_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "reversionSpeedTheta": 0.13,
+            "baselineVolatility": 0.23,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "jumpFrequencyLambda": null,
+            "jumpMu": 0,
+            "baselineVolatility": 0.23,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "6301.T": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "7011.T": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.014,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "AIR.PA": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.012,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ATCO-A.ST": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "BA": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.34,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.34,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "BA.L": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.015,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "CAT": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "DAL": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 7,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "DE": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.25,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.25,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "DHL.DE": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.28,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ERJ": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "limited"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.012,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "EMR": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "ETN": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "GD": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.015,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "GE": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.014,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "HO.PA": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.015,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "HON": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "HWM": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.012,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "LDO.MI": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.02,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "LHX": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.23,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.014,
+            "baselineVolatility": 0.23,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "LMT": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.21,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.015,
+            "baselineVolatility": 0.21,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "LT.NS": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.014,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "LUV": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.3,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "MMM": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "NOC": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.21,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.015,
+            "baselineVolatility": 0.21,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "RHM.DE": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.35,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.025,
+            "baselineVolatility": 0.35,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "RR.L": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.36,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.015,
+            "baselineVolatility": 0.36,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "RTX": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "high"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 4,
+            "jumpMu": 0.014,
+            "baselineVolatility": 0.22,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SAF.PA": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.018,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "SIE.DE": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.01,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "UNP": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "UPS": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 5,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.24,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "VOLV-B.ST": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 6,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.26,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    },
+    "VOW3.DE": {
+      "cohort": "industrials_and_defense",
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": "gbm_jump_garch",
+        "backtestRunDate": "2026-05-26",
+        "confidence": "moderate"
+      },
+      "candidates": [
+        {
+          "id": "ou_garch",
+          "weight": 0,
+          "selected": false,
+          "parameters": {
+            "reversionSpeedTheta": null,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        },
+        {
+          "id": "gbm_jump_garch",
+          "weight": 1,
+          "selected": true,
+          "parameters": {
+            "jumpFrequencyLambda": 7,
+            "jumpMu": 0.008,
+            "baselineVolatility": 0.32,
+            "garchAlpha": 0.1,
+            "garchBeta": 0.85
+          }
+        }
+      ]
+    }
+  }
+}

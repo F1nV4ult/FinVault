@@ -171,6 +171,12 @@ confidence tier, calibration bins, and explicit skipped-symbol status. It does
 not yet alter a live probability: only a rolling, horizon-specific calibration
 fit may do that after validation.
 
+**Model registry contract:** `data/osiris-models.json` contains the two
+candidate families (`ou_garch`, `gbm_jump_garch`), normalized weights, selected
+baseline, parameter slots, and quality provenance for every covered ticker.
+The initial registry intentionally reproduces the validated incumbent model;
+only rolling out-of-sample evidence may promote a new model or blend.
+
 **Physics by sector cohort** (`physics-config.json`, schema `v1.8-consumer-staples`):
 
 | Cohort | Model | Why |
