@@ -1166,6 +1166,7 @@
                 <div class="company-header">
                     <h1 id="company-name" class="company-title">Company Name</h1>
                     <p id="company-industry" class="company-industry">Industry Name</p>
+                    <span id="finvault-status-badge" style="display:none;"></span>
                     <span id="sentinel-header-badge" style="display:none;"></span>
                     <div class="cross-tool-links" id="cross-tool-links">
                         <a id="open-in-sentinel" class="cross-tool-btn" href="#" rel="noopener" data-umami-event="report-open-sentinel">▶ Open in Sentinel</a>
@@ -2872,13 +2873,17 @@
             // Canonical routing is ?ticker=; resolve it to the FinVault slug via
             // universe.json (legacy ?company= links remain supported).
             const tickerParam = urlParams.get('ticker');
-            if (!company && tickerParam) {
+            let registryEntry = null;
+            if (tickerParam) {
                 try {
                     const ur = await fetch('data/universe.json');
                     if (ur.ok) {
                         const u = await ur.json();
                         const e = u.tickers && (u.tickers[tickerParam] || u.tickers[String(tickerParam).toUpperCase()]);
-                        if (e && e.finvault && e.finvault.slug) company = e.finvault.slug;
+                        if (e && e.finvault && e.finvault.slug) {
+                            registryEntry = e;
+                            company = e.finvault.slug;
+                        }
                     }
                 } catch (err) { /* no resolution → falls through to empty state */ }
             }
@@ -3273,7 +3278,13 @@
                     }
                     companyDisplayName.textContent = data.name;
                     companyIndustry.textContent = data.industry;
-                    document.title = `${data.name} Report - NovaSect`;
+                    const hasFullReport = registryEntry?.capabilities?.finvault?.report ?? Boolean(data.pdf);
+                    const statusBadge = document.getElementById('finvault-status-badge');
+                    if (statusBadge) {
+                        statusBadge.style.cssText = 'display:inline-block; margin-top:0.5rem; margin-left:0.45rem; padding:0.2rem 0.7rem; font-family:"JetBrains Mono",monospace; font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; border:1px solid ' + (hasFullReport ? 'var(--accent-green)' : 'rgba(57,255,20,0.45)') + '; color:' + (hasFullReport ? 'var(--accent-green)' : 'rgba(57,255,20,0.7)') + '; border-radius:3px; background:rgba(0,0,0,0.5);';
+                        statusBadge.textContent = hasFullReport ? 'FULL RESEARCH REPORT' : 'LIVE FINVAULT OVERVIEW';
+                    }
+                    document.title = `${data.name} ${hasFullReport ? 'Report' : 'Overview'} - NovaSect`;
 
                     // Render company profile (synchronous, hand-curated content).
                     loadProfile(company.toLowerCase(), data.name);

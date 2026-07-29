@@ -252,6 +252,32 @@
 
         let DATA = [], sortKey = 'roe', sortAsc = false, sectorFilter = 'All', q = '';
 
+        // Cards remain in the HTML for fast, no-JS rendering, but their
+        // destination is normalised from the canonical registry at runtime.
+        // Legacy `?company=` URLs continue to work if the registry is offline.
+        async function normalizeCardRoutes() {
+            try {
+                const response = await fetch('data/universe.json');
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const universe = await response.json();
+                const bySlug = new Map(Object.values(universe.tickers || {})
+                    .filter(entry => entry?.finvault?.slug)
+                    .map(entry => [entry.finvault.slug, entry]));
+                document.querySelectorAll('#cards-view a.company-card[href*="report.html?company="]').forEach(card => {
+                    const url = new URL(card.href);
+                    const entry = bySlug.get(url.searchParams.get('company'));
+                    if (!entry?.capabilities?.finvault?.overview) return;
+                    card.href = 'report.html?ticker=' + encodeURIComponent(entry.ticker) + '&from=reports.html';
+                    const hasFullReport = entry.capabilities.finvault.report;
+                    card.classList.toggle('pending', !hasFullReport);
+                    card.title = hasFullReport ? 'Open full FinVault research report' : 'Open live FinVault overview';
+                    card.setAttribute('aria-label', card.textContent.trim() + (hasFullReport ? ' — full FinVault research report' : ' — live FinVault overview'));
+                });
+            } catch (error) {
+                console.warn('[FinVault] Canonical route registry unavailable; using legacy card links.', error);
+            }
+        }
+
         function render() {
             const body = document.getElementById('screener-body'); if (!body) return;
             const col = COLS.find(c => c.k === sortKey);
@@ -318,6 +344,7 @@
         }
         const search = document.getElementById('company-search');
         if (search) search.addEventListener('input', () => { q = search.value.trim().toLowerCase(); if (screener && screener.style.display !== 'none') render(); });
+        normalizeCardRoutes();
     })();
     </script>
 </body>

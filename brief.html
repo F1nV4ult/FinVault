@@ -818,6 +818,8 @@
             const fvBtn = document.getElementById('fv-btn');
             if (entry.finvault) {
                 fvBtn.href = 'report.html?ticker=' + encodeURIComponent(entry.ticker);
+                const hasFullReport = entry.capabilities?.finvault?.report;
+                fvBtn.textContent = hasFullReport ? 'Open full FinVault report →' : 'Open FinVault overview →';
             } else {
                 fvBtn.classList.add('disabled');
             }

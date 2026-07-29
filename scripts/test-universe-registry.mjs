@@ -20,6 +20,7 @@ ok(entries.length > 0, 'registry contains issuers');
 ok(entries.every(entry => entry.capabilities.sentinel && entry.capabilities.osiris), 'every issuer is enabled for Sentinel and Osiris');
 ok(entries.every(entry => entry.capabilities.finvault.overview), 'every issuer has a FinVault overview contract');
 ok(entries.every(entry => entry.capabilities.finvault.report === entry.finvault.pdfReady), 'report capability mirrors report readiness');
+ok(entries.every(entry => entry.finvault.reportUrl === 'report.html?ticker=' + encodeURIComponent(entry.ticker)), 'every FinVault route uses the canonical ticker');
 ok(entries.some(entry => entry.ticker === 'ERJ'), 'canonical Embraer symbol is ERJ');
 ok(!entries.some(entry => entry.ticker === 'EMBR3.SA'), 'legacy Embraer symbol is absent from the registry');
 

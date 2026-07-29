@@ -21,17 +21,6 @@ function detectDeviceClass() {
     return 'desktop_lo';
 }
 
-// Ticker → FinVault report slug. Default: lowercase + dots→dashes.
-// Overrides for companies whose report URLs use the full name instead.
-const FINVAULT_SLUG_OVERRIDES = {
-    'XOM': 'exxonmobil', 'CVX': 'chevron', 'IBE.MC': 'iberdrola',
-    'LMT': 'lockheedmartin', 'NOC': 'northropgrumman', 'GD': 'generaldynamics',
-    'LHX': 'l3harris', 'RHM.DE': 'rheinmetall', 'ERJ': 'erj'
-};
-function tickerToFinvaultSlug(ticker) {
-    return FINVAULT_SLUG_OVERRIDES[ticker] || ticker.toLowerCase().replace(/\./g, '-');
-}
-
 class OsirisOrchestrator {
     constructor() {
         this.activeWorker = null;
@@ -511,10 +500,14 @@ class OsirisOrchestrator {
         }
         valPhysics.innerText = sliderPhysics.value;
 
-        // Cross-link: update "View in FinVault" anchor whenever ticker changes.
+        // Cross-link: use the canonical ticker route. FinVault resolves the
+        // ticker through the shared universe and presents either a full report
+        // or its live overview, so this never depends on a hand-made slug.
         const finvaultLink = document.getElementById('osiris-finvault-link');
         if (finvaultLink) {
-            finvaultLink.href = 'report.html?company=' + tickerToFinvaultSlug(tickerSymbol) + '&from=osiris.html';
+            const hasFullReport = this.universe?.tickers?.[tickerSymbol]?.capabilities?.finvault?.report;
+            finvaultLink.href = 'report.html?ticker=' + encodeURIComponent(tickerSymbol) + '&from=osiris.html';
+            finvaultLink.textContent = hasFullReport ? '▶ VIEW FINVAULT REPORT' : '▶ VIEW FINVAULT OVERVIEW';
             finvaultLink.style.display = '';
         }
 

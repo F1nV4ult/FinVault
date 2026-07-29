@@ -25,7 +25,7 @@
         "slug": "exxonmobil",
         "industry": "Integrated Oil & Gas",
         "pdfReady": true,
-        "reportUrl": "report.html?company=exxonmobil",
+        "reportUrl": "report.html?ticker=XOM",
         "stats": [
           "1.15",
           "0.76",
@@ -102,7 +102,7 @@
         "slug": "shel",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=shel",
+        "reportUrl": "report.html?ticker=SHEL",
         "stats": null,
         "fundamentals": null
       },
@@ -152,7 +152,7 @@
         "slug": "chevron",
         "industry": "Integrated Oil & Gas",
         "pdfReady": true,
-        "reportUrl": "report.html?company=chevron",
+        "reportUrl": "report.html?ticker=CVX",
         "stats": [
           "1.15",
           "0.86",
@@ -229,7 +229,7 @@
         "slug": "iberdrola",
         "industry": "Integrated Utilities & Renewable Energy",
         "pdfReady": true,
-        "reportUrl": "report.html?company=iberdrola",
+        "reportUrl": "report.html?ticker=IBE.MC",
         "stats": [
           "0.87",
           "0.69",
@@ -306,7 +306,7 @@
         "slug": "eqnr",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=eqnr",
+        "reportUrl": "report.html?ticker=EQNR",
         "stats": null,
         "fundamentals": null
       },
@@ -356,7 +356,7 @@
         "slug": "mpc",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=mpc",
+        "reportUrl": "report.html?ticker=MPC",
         "stats": null,
         "fundamentals": null
       },
@@ -406,7 +406,7 @@
         "slug": "lockheedmartin",
         "industry": "Aerospace & Defense",
         "pdfReady": true,
-        "reportUrl": "report.html?company=lockheedmartin",
+        "reportUrl": "report.html?ticker=LMT",
         "stats": [
           "1.09",
           "0.76",
@@ -483,7 +483,7 @@
         "slug": "ldo-mi",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ldo-mi",
+        "reportUrl": "report.html?ticker=LDO.MI",
         "stats": null,
         "fundamentals": null
       },
@@ -533,7 +533,7 @@
         "slug": "generaldynamics",
         "industry": "Aerospace & Defense",
         "pdfReady": true,
-        "reportUrl": "report.html?company=generaldynamics",
+        "reportUrl": "report.html?ticker=GD",
         "stats": [
           "1.20",
           "0.68",
@@ -610,7 +610,7 @@
         "slug": "l3harris",
         "industry": "Aerospace & Defense",
         "pdfReady": true,
-        "reportUrl": "report.html?company=l3harris",
+        "reportUrl": "report.html?ticker=LHX",
         "stats": [
           "1.19",
           "1.02",
@@ -687,7 +687,7 @@
         "slug": "northropgrumman",
         "industry": "Aerospace & Defense",
         "pdfReady": true,
-        "reportUrl": "report.html?company=northropgrumman",
+        "reportUrl": "report.html?ticker=NOC",
         "stats": [
           "1.10",
           "1.01",
@@ -764,7 +764,7 @@
         "slug": "rtx",
         "industry": "Aerospace & Defense",
         "pdfReady": true,
-        "reportUrl": "report.html?company=rtx",
+        "reportUrl": "report.html?ticker=RTX",
         "stats": [
           "1.03",
           "0.80",
@@ -841,7 +841,7 @@
         "slug": "rheinmetall",
         "industry": "Aerospace & Defense",
         "pdfReady": true,
-        "reportUrl": "report.html?company=rheinmetall",
+        "reportUrl": "report.html?ticker=RHM.DE",
         "stats": [
           "1.44",
           "0.89",
@@ -918,7 +918,7 @@
         "slug": "ba",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ba",
+        "reportUrl": "report.html?ticker=BA",
         "stats": null,
         "fundamentals": null
       },
@@ -968,7 +968,7 @@
         "slug": "air-pa",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=air-pa",
+        "reportUrl": "report.html?ticker=AIR.PA",
         "stats": null,
         "fundamentals": null
       },
@@ -1018,7 +1018,7 @@
         "slug": "engi-pa",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=engi-pa",
+        "reportUrl": "report.html?ticker=ENGI.PA",
         "stats": null,
         "fundamentals": null
       },
@@ -1068,7 +1068,7 @@
         "slug": "enel-mi",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=enel-mi",
+        "reportUrl": "report.html?ticker=ENEL.MI",
         "stats": null,
         "fundamentals": null
       },
@@ -1118,7 +1118,7 @@
         "slug": "nee",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=nee",
+        "reportUrl": "report.html?ticker=NEE",
         "stats": null,
         "fundamentals": null
       },
@@ -1168,7 +1168,7 @@
         "slug": "duk",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=duk",
+        "reportUrl": "report.html?ticker=DUK",
         "stats": null,
         "fundamentals": null
       },
@@ -1218,7 +1218,7 @@
         "slug": "bp",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=bp",
+        "reportUrl": "report.html?ticker=BP",
         "stats": null,
         "fundamentals": null
       },
@@ -1268,7 +1268,7 @@
         "slug": "tte",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=tte",
+        "reportUrl": "report.html?ticker=TTE",
         "stats": null,
         "fundamentals": null
       },
@@ -1318,7 +1318,7 @@
         "slug": "cop",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=cop",
+        "reportUrl": "report.html?ticker=COP",
         "stats": null,
         "fundamentals": null
       },
@@ -1368,7 +1368,7 @@
         "slug": "eog",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=eog",
+        "reportUrl": "report.html?ticker=EOG",
         "stats": null,
         "fundamentals": null
       },
@@ -1418,7 +1418,7 @@
         "slug": "slb",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=slb",
+        "reportUrl": "report.html?ticker=SLB",
         "stats": null,
         "fundamentals": null
       },
@@ -1468,7 +1468,7 @@
         "slug": "hal",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=hal",
+        "reportUrl": "report.html?ticker=HAL",
         "stats": null,
         "fundamentals": null
       },
@@ -1518,7 +1518,7 @@
         "slug": "bkr",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=bkr",
+        "reportUrl": "report.html?ticker=BKR",
         "stats": null,
         "fundamentals": null
       },
@@ -1568,7 +1568,7 @@
         "slug": "vlo",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=vlo",
+        "reportUrl": "report.html?ticker=VLO",
         "stats": null,
         "fundamentals": null
       },
@@ -1618,7 +1618,7 @@
         "slug": "psx",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=psx",
+        "reportUrl": "report.html?ticker=PSX",
         "stats": null,
         "fundamentals": null
       },
@@ -1668,7 +1668,7 @@
         "slug": "oxy",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=oxy",
+        "reportUrl": "report.html?ticker=OXY",
         "stats": null,
         "fundamentals": null
       },
@@ -1718,7 +1718,7 @@
         "slug": "wmb",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=wmb",
+        "reportUrl": "report.html?ticker=WMB",
         "stats": null,
         "fundamentals": null
       },
@@ -1768,7 +1768,7 @@
         "slug": "kmi",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=kmi",
+        "reportUrl": "report.html?ticker=KMI",
         "stats": null,
         "fundamentals": null
       },
@@ -1818,7 +1818,7 @@
         "slug": "so",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=so",
+        "reportUrl": "report.html?ticker=SO",
         "stats": null,
         "fundamentals": null
       },
@@ -1868,7 +1868,7 @@
         "slug": "d",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=d",
+        "reportUrl": "report.html?ticker=D",
         "stats": null,
         "fundamentals": null
       },
@@ -1918,7 +1918,7 @@
         "slug": "aep",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=aep",
+        "reportUrl": "report.html?ticker=AEP",
         "stats": null,
         "fundamentals": null
       },
@@ -1968,7 +1968,7 @@
         "slug": "exc",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=exc",
+        "reportUrl": "report.html?ticker=EXC",
         "stats": null,
         "fundamentals": null
       },
@@ -2018,7 +2018,7 @@
         "slug": "sre",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=sre",
+        "reportUrl": "report.html?ticker=SRE",
         "stats": null,
         "fundamentals": null
       },
@@ -2068,7 +2068,7 @@
         "slug": "xel",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=xel",
+        "reportUrl": "report.html?ticker=XEL",
         "stats": null,
         "fundamentals": null
       },
@@ -2118,7 +2118,7 @@
         "slug": "pcg",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=pcg",
+        "reportUrl": "report.html?ticker=PCG",
         "stats": null,
         "fundamentals": null
       },
@@ -2168,7 +2168,7 @@
         "slug": "peg",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=peg",
+        "reportUrl": "report.html?ticker=PEG",
         "stats": null,
         "fundamentals": null
       },
@@ -2218,7 +2218,7 @@
         "slug": "wec",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=wec",
+        "reportUrl": "report.html?ticker=WEC",
         "stats": null,
         "fundamentals": null
       },
@@ -2268,7 +2268,7 @@
         "slug": "awk",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=awk",
+        "reportUrl": "report.html?ticker=AWK",
         "stats": null,
         "fundamentals": null
       },
@@ -2318,7 +2318,7 @@
         "slug": "eni-mi",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=eni-mi",
+        "reportUrl": "report.html?ticker=ENI.MI",
         "stats": null,
         "fundamentals": null
       },
@@ -2368,7 +2368,7 @@
         "slug": "ntgy-mc",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ntgy-mc",
+        "reportUrl": "report.html?ticker=NTGY.MC",
         "stats": null,
         "fundamentals": null
       },
@@ -2418,7 +2418,7 @@
         "slug": "sse-l",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=sse-l",
+        "reportUrl": "report.html?ticker=SSE.L",
         "stats": null,
         "fundamentals": null
       },
@@ -2468,7 +2468,7 @@
         "slug": "ng-l",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ng-l",
+        "reportUrl": "report.html?ticker=NG.L",
         "stats": null,
         "fundamentals": null
       },
@@ -2518,7 +2518,7 @@
         "slug": "ge",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ge",
+        "reportUrl": "report.html?ticker=GE",
         "stats": null,
         "fundamentals": null
       },
@@ -2568,7 +2568,7 @@
         "slug": "hon",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=hon",
+        "reportUrl": "report.html?ticker=HON",
         "stats": null,
         "fundamentals": null
       },
@@ -2618,7 +2618,7 @@
         "slug": "ups",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ups",
+        "reportUrl": "report.html?ticker=UPS",
         "stats": null,
         "fundamentals": null
       },
@@ -2668,7 +2668,7 @@
         "slug": "unp",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=unp",
+        "reportUrl": "report.html?ticker=UNP",
         "stats": null,
         "fundamentals": null
       },
@@ -2718,7 +2718,7 @@
         "slug": "cat",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=cat",
+        "reportUrl": "report.html?ticker=CAT",
         "stats": null,
         "fundamentals": null
       },
@@ -2768,7 +2768,7 @@
         "slug": "de",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=de",
+        "reportUrl": "report.html?ticker=DE",
         "stats": null,
         "fundamentals": null
       },
@@ -2818,7 +2818,7 @@
         "slug": "luv",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=luv",
+        "reportUrl": "report.html?ticker=LUV",
         "stats": null,
         "fundamentals": null
       },
@@ -2868,7 +2868,7 @@
         "slug": "dal",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=dal",
+        "reportUrl": "report.html?ticker=DAL",
         "stats": null,
         "fundamentals": null
       },
@@ -2918,7 +2918,7 @@
         "slug": "mmm",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=mmm",
+        "reportUrl": "report.html?ticker=MMM",
         "stats": null,
         "fundamentals": null
       },
@@ -2968,7 +2968,7 @@
         "slug": "emr",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=emr",
+        "reportUrl": "report.html?ticker=EMR",
         "stats": null,
         "fundamentals": null
       },
@@ -3018,7 +3018,7 @@
         "slug": "etn",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=etn",
+        "reportUrl": "report.html?ticker=ETN",
         "stats": null,
         "fundamentals": null
       },
@@ -3068,7 +3068,7 @@
         "slug": "saf-pa",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=saf-pa",
+        "reportUrl": "report.html?ticker=SAF.PA",
         "stats": null,
         "fundamentals": null
       },
@@ -3118,7 +3118,7 @@
         "slug": "rr-l",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=rr-l",
+        "reportUrl": "report.html?ticker=RR.L",
         "stats": null,
         "fundamentals": null
       },
@@ -3168,7 +3168,7 @@
         "slug": "vow3-de",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=vow3-de",
+        "reportUrl": "report.html?ticker=VOW3.DE",
         "stats": null,
         "fundamentals": null
       },
@@ -3218,7 +3218,7 @@
         "slug": "sie-de",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=sie-de",
+        "reportUrl": "report.html?ticker=SIE.DE",
         "stats": null,
         "fundamentals": null
       },
@@ -3268,7 +3268,7 @@
         "slug": "dhl-de",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=dhl-de",
+        "reportUrl": "report.html?ticker=DHL.DE",
         "stats": null,
         "fundamentals": null
       },
@@ -3318,7 +3318,7 @@
         "slug": "pbr",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=pbr",
+        "reportUrl": "report.html?ticker=PBR",
         "stats": null,
         "fundamentals": null
       },
@@ -3368,7 +3368,7 @@
         "slug": "2222-sr",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=2222-sr",
+        "reportUrl": "report.html?ticker=2222.SR",
         "stats": null,
         "fundamentals": null
       },
@@ -3418,7 +3418,7 @@
         "slug": "reliance-ns",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=reliance-ns",
+        "reportUrl": "report.html?ticker=RELIANCE.NS",
         "stats": null,
         "fundamentals": null
       },
@@ -3468,7 +3468,7 @@
         "slug": "wds-ax",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=wds-ax",
+        "reportUrl": "report.html?ticker=WDS.AX",
         "stats": null,
         "fundamentals": null
       },
@@ -3518,7 +3518,7 @@
         "slug": "rep-mc",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=rep-mc",
+        "reportUrl": "report.html?ticker=REP.MC",
         "stats": null,
         "fundamentals": null
       },
@@ -3568,7 +3568,7 @@
         "slug": "dvn",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=dvn",
+        "reportUrl": "report.html?ticker=DVN",
         "stats": null,
         "fundamentals": null
       },
@@ -3618,7 +3618,7 @@
         "slug": "fang",
         "industry": "Energy",
         "pdfReady": false,
-        "reportUrl": "report.html?company=fang",
+        "reportUrl": "report.html?ticker=FANG",
         "stats": null,
         "fundamentals": null
       },
@@ -3668,7 +3668,7 @@
         "slug": "9501-t",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=9501-t",
+        "reportUrl": "report.html?ticker=9501.T",
         "stats": null,
         "fundamentals": null
       },
@@ -3718,7 +3718,7 @@
         "slug": "ntpc-ns",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ntpc-ns",
+        "reportUrl": "report.html?ticker=NTPC.NS",
         "stats": null,
         "fundamentals": null
       },
@@ -3768,7 +3768,7 @@
         "slug": "org-ax",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=org-ax",
+        "reportUrl": "report.html?ticker=ORG.AX",
         "stats": null,
         "fundamentals": null
       },
@@ -3818,7 +3818,7 @@
         "slug": "eoan-de",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=eoan-de",
+        "reportUrl": "report.html?ticker=EOAN.DE",
         "stats": null,
         "fundamentals": null
       },
@@ -3868,7 +3868,7 @@
         "slug": "rwe-de",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=rwe-de",
+        "reportUrl": "report.html?ticker=RWE.DE",
         "stats": null,
         "fundamentals": null
       },
@@ -3918,7 +3918,7 @@
         "slug": "etr",
         "industry": "Utilities",
         "pdfReady": false,
-        "reportUrl": "report.html?company=etr",
+        "reportUrl": "report.html?ticker=ETR",
         "stats": null,
         "fundamentals": null
       },
@@ -3968,7 +3968,7 @@
         "slug": "ba-l",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ba-l",
+        "reportUrl": "report.html?ticker=BA.L",
         "stats": null,
         "fundamentals": null
       },
@@ -4018,7 +4018,7 @@
         "slug": "ho-pa",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=ho-pa",
+        "reportUrl": "report.html?ticker=HO.PA",
         "stats": null,
         "fundamentals": null
       },
@@ -4068,7 +4068,7 @@
         "slug": "7011-t",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=7011-t",
+        "reportUrl": "report.html?ticker=7011.T",
         "stats": null,
         "fundamentals": null
       },
@@ -4118,7 +4118,7 @@
         "slug": "6301-t",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=6301-t",
+        "reportUrl": "report.html?ticker=6301.T",
         "stats": null,
         "fundamentals": null
       },
@@ -4168,7 +4168,7 @@
         "slug": "lt-ns",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=lt-ns",
+        "reportUrl": "report.html?ticker=LT.NS",
         "stats": null,
         "fundamentals": null
       },
@@ -4218,7 +4218,7 @@
         "slug": "erj",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=erj",
+        "reportUrl": "report.html?ticker=ERJ",
         "stats": null,
         "fundamentals": null
       },
@@ -4268,7 +4268,7 @@
         "slug": "atco-a-st",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=atco-a-st",
+        "reportUrl": "report.html?ticker=ATCO-A.ST",
         "stats": null,
         "fundamentals": null
       },
@@ -4318,7 +4318,7 @@
         "slug": "volv-b-st",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=volv-b-st",
+        "reportUrl": "report.html?ticker=VOLV-B.ST",
         "stats": null,
         "fundamentals": null
       },
@@ -4368,7 +4368,7 @@
         "slug": "hwm",
         "industry": "Industrials",
         "pdfReady": false,
-        "reportUrl": "report.html?company=hwm",
+        "reportUrl": "report.html?ticker=HWM",
         "stats": null,
         "fundamentals": null
       },

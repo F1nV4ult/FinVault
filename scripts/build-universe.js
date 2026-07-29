@@ -133,7 +133,9 @@ for (const c of COMPANIES) {
             slug: finvault.slug,
             industry: finvault.industry,
             pdfReady: finvault.pdfReady,
-            reportUrl: 'report.html?company=' + finvault.slug,
+            // `ticker` is the only canonical cross-tool route. report.html
+            // still accepts `company` slugs so historic links remain valid.
+            reportUrl: 'report.html?ticker=' + encodeURIComponent(ticker),
             stats: (companyDataLookup[finvault.slug] && Array.isArray(companyDataLookup[finvault.slug].stats))
                 ? companyDataLookup[finvault.slug].stats
                 : null,
