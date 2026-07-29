@@ -1949,6 +1949,72 @@
             return _universePromise;
         }
 
+        // Annual, locally shipped fundamentals provide a resilient baseline for
+        // every issuer covered by the screener. These values are intentionally
+        // only a fallback: a successful live provider response always remains
+        // visible, while unavailable API fields no longer leave the overview
+        // entirely blank (including during a static local preview).
+        let _screenerPromise = null;
+        function loadScreener() {
+            if (!_screenerPromise) _screenerPromise = fetch('data/screener.json')
+                .then(r => r.ok ? r.json() : null)
+                .catch(() => null);
+            return _screenerPromise;
+        }
+
+        const isEmptyMetric = value => {
+            const text = String(value == null ? '' : value).trim();
+            return text === '' || text === '--' || text === '—';
+        };
+        const fmtCachedPercent = value => typeof value === 'number' && isFinite(value)
+            ? (value * 100).toFixed(1) + '%'
+            : null;
+        const fmtCachedMultiple = value => typeof value === 'number' && isFinite(value)
+            ? value.toFixed(2) + 'x'
+            : null;
+
+        async function loadScreenerFallback(ticker) {
+            const screener = await loadScreener();
+            const symbol = toYahooSymbol(ticker);
+            const entry = screener && Array.isArray(screener.rows)
+                ? screener.rows.find(row => row && row.ticker === symbol)
+                : null;
+            if (!entry) return;
+
+            const ratioFallbacks = {
+                'Debt to Equity': fmtCachedMultiple(entry.debtToEquity),
+                'Interest coverage': fmtCachedMultiple(entry.interestCoverage),
+                'Operating margin': fmtCachedPercent(entry.operatingMargin),
+                'Net profit margin': fmtCachedPercent(entry.netMargin),
+                'Return on assets': fmtCachedPercent(entry.roa),
+                'Return on equity': fmtCachedPercent(entry.roe),
+            };
+            const statsBody = document.getElementById('stats-body');
+            if (statsBody) {
+                statsBody.querySelectorAll('tr').forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if (cells.length < 2) return;
+                    const fallback = ratioFallbacks[cells[0].textContent.trim()];
+                    if (fallback && isEmptyMetric(cells[1].textContent)) cells[1].textContent = fallback;
+                });
+            }
+
+            const revenueGrowth = fmtCachedPercent(entry.revGrowth);
+            const revenueEl = document.getElementById('fh-revenue-growth');
+            if (revenueEl && revenueGrowth && isEmptyMetric(revenueEl.textContent)) {
+                revenueEl.textContent = revenueGrowth;
+                revenueEl.classList.toggle('positive', entry.revGrowth >= 0);
+                revenueEl.classList.toggle('negative', entry.revGrowth < 0);
+            }
+
+            const footer = document.getElementById('fh-footer');
+            if (footer && isEmptyMetric(footer.textContent)) {
+                const source = entry.source === 'sec' ? 'SEC EDGAR XBRL' : 'Yahoo Finance';
+                const fiscalYear = entry.latestFY ? 'FY ' + String(entry.latestFY).replace(/^FY\s*/, '') : 'latest FY';
+                footer.textContent = '> cached ' + fiscalYear + ' · ' + source + ' · local fallback';
+            }
+        }
+
         function tierFromSpread(spread) {
             if (typeof spread !== 'number') return null;
             if (spread < 200) return { tier: 'NOMINAL',  color: '#39FF14' };
@@ -3294,6 +3360,7 @@
                     // from cached / Finnhub data. Failures don't block the
                     // rest of the page render.
                     if (data.ticker) {
+                        loadScreenerFallback(registryEntry?.ticker || data.yahooSymbol || data.ticker);
                         loadMarketContext(data.ticker, data.fundamentals?.sharesOutstanding);
                         loadForwardEstimates(data.ticker);
                         loadNewsFeed(data.ticker);
