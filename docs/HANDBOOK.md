@@ -177,6 +177,13 @@ baseline, parameter slots, and quality provenance for every covered ticker.
 The initial registry intentionally reproduces the validated incumbent model;
 only rolling out-of-sample evidence may promote a new model or blend.
 
+**Auto regime:** when the Osiris volatility control is set to Auto-detected,
+the O4 classifier uses VIX, 21-day versus 126-day realized volatility, and
+63-day drawdown to select a transparent volatility multiplier. The interface
+shows the detected state, multiplier, and confidence; manual regime choices
+continue to override it. A fallback macro payload is not treated as a live VIX
+observation, so auto mode degrades conservatively when macro data is missing.
+
 **Physics by sector cohort** (`physics-config.json`, schema `v1.8-consumer-staples`):
 
 | Cohort | Model | Why |

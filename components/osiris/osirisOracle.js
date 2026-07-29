@@ -80,7 +80,7 @@ export class OsirisOracle {
     // ── Phase 1 & 3: Componentized DOM Injection ───────────────────────────
 
     _renderComponentizedReadout(params) {
-        const { ticker, currentPrice, p50, p05, p95, physicsType, volatility, physicsParams, tickerMeta, horizonDays } = params;
+        const { ticker, currentPrice, p50, p05, p95, physicsType, volatility, physicsParams, tickerMeta, regime, horizonDays } = params;
 
         const winProb = this._approximateWinProbability(params);
         const days = horizonDays || 252;
@@ -118,6 +118,10 @@ export class OsirisOracle {
             const dyStr = (typeof tickerMeta.dividendYield === 'number') ? (tickerMeta.dividendYield * 100).toFixed(2) + '%' : '—';
             tickerProfileBullet = `Ticker Profile: Credit Rating ${rating}${ratingDate} · Beta ${betaStr} · Dividend Yield ${dyStr}.`;
         }
+
+        const regimeBullet = regime
+            ? `Market Regime: ${regime.label} (${regime.confidence} confidence) · volatility multiplier ${regime.volatilityMultiplier.toFixed(2)}×.`
+            : '';
 
         const template = document.createElement('div');
         template.className = 'oracle-readout-grid';
@@ -192,6 +196,10 @@ export class OsirisOracle {
                 ${tickerProfileBullet ? `<li style="font-size:0.85em;color:rgba(0,255,0,0.7);line-height:1.5;">
                     <span style="color:var(--accent-green);margin-right:6px;">›</span>
                     ${tickerProfileBullet}
+                </li>` : ''}
+                ${regimeBullet ? `<li style="font-size:0.85em;color:rgba(0,255,0,0.7);line-height:1.5;">
+                    <span style="color:var(--accent-green);margin-right:6px;">›</span>
+                    ${regimeBullet}
                 </li>` : ''}
             </ul>
         `;

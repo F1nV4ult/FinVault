@@ -1,6 +1,7 @@
 import { osirisIngestion } from './osirisIngestion.js';
 import { OsirisCloudCanvas } from './osirisCloudCanvas.js';
 import { OsirisOracle } from './osirisOracle.js';
+import { classifyOsirisRegime } from './osirisRegime.mjs';
 
 // ── Device classification & path budgets ───────────────────────────────
 // Detected once at orchestrator init and held in `this.deviceClass`.
@@ -617,6 +618,8 @@ class OsirisOrchestrator {
         const isAdvancedOpen = advancedDetails && advancedDetails.open;
 
         let final_sigma, final_physics_param, final_steps, final_jumpMu;
+        let requestedVolatilityRegime = 'manual';
+        let volRegimeMult = 1.0;
 
         if (isAdvancedOpen) {
             // Use raw slider values directly if advanced section is open.
@@ -633,7 +636,9 @@ class OsirisOrchestrator {
             const opShock = document.getElementById('osiris-operational-shock');
             const customDays = document.getElementById('osiris-custom-days');
 
-            const volRegimeMult = volRegRegime ? parseFloat(volRegRegime.value) : 1.0;
+            requestedVolatilityRegime = volRegRegime ? volRegRegime.value : '1.0';
+            volRegimeMult = requestedVolatilityRegime === 'auto' ? 1.0 : parseFloat(requestedVolatilityRegime);
+            if (!Number.isFinite(volRegimeMult)) volRegimeMult = 1.0;
             const opShockMult = opShock ? parseFloat(opShock.value) : 1.0;
 
             final_sigma = baseline_sigma * volRegimeMult;
@@ -671,6 +676,18 @@ class OsirisOrchestrator {
         try {
             const history = await osirisIngestion.getHistoricalData(tickerSymbol);
             const macros = await osirisIngestion.getMacroHubs();
+            // A fallback macro payload is useful for keeping the simulation
+            // available, but its synthetic VIX must not masquerade as a live
+            // market-regime observation. Suppress it so the classifier remains
+            // neutral/low-confidence until a genuine macro read is available.
+            const regimeMacros = macros?._fallback ? { ...macros, VIX: null } : macros;
+            const detectedRegime = classifyOsirisRegime(history, regimeMacros);
+            if (!isAdvancedOpen && requestedVolatilityRegime === 'auto') {
+                volRegimeMult = detectedRegime.volatilityMultiplier;
+                final_sigma = baseline_sigma * volRegimeMult;
+                document.getElementById('slider-volatility').value = final_sigma;
+                document.getElementById('val-volatility').innerText = final_sigma.toFixed(2);
+            }
 
             // Pull live beta + dividend yield + long-term mean from the same
             // cached record that backed getHistoricalData (no extra network
@@ -710,8 +727,6 @@ class OsirisOrchestrator {
             if (!isAdvancedOpen && final_steps <= 7) {
                 const intradaySigma = await osirisIngestion.getIntradayVolatility(tickerSymbol);
                 if (typeof intradaySigma === 'number' && intradaySigma > 0) {
-                    const volRegRegime = document.getElementById('osiris-volatility-regime');
-                    const volRegimeMult = volRegRegime ? parseFloat(volRegRegime.value) : 1.0;
                     final_sigma = intradaySigma * volRegimeMult;
                     intradaySteps = final_steps === 1 ? 78 : 2; // 5-min for 1-Day, half-day for 1-Week
                     volSource = 'INTRADAY-RV';
@@ -756,7 +771,8 @@ class OsirisOrchestrator {
                 const histTag = (info.history.source || 'unknown').toUpperCase();
                 const macroTag = (info.macro.source || 'unknown').toUpperCase();
                 const catalystTag = catalystApplied ? ' · CATALYST: EARNINGS×' + EARNINGS_VOL_MULTIPLIER : '';
-                metadataReadout.innerText = `${baseText}  ·  DATA[HIST: ${histTag} ${info.history.date || '—'} · MACRO: ${macroTag} ${info.macro.date || '—'} · VOL: ${volSource}${catalystTag}]`;
+                const regimeTag = requestedVolatilityRegime === 'auto' ? ' · REGIME: ' + detectedRegime.label + ' σ×' + volRegimeMult.toFixed(2) : '';
+                metadataReadout.innerText = `${baseText}  ·  DATA[HIST: ${histTag} ${info.history.date || '—'} · MACRO: ${macroTag} ${info.macro.date || '—'} · VOL: ${volSource}${regimeTag}${catalystTag}]`;
             }
 
             const initialPrice = history.length > 0 ? history[history.length - 1].adjClose : 100.0;
@@ -858,6 +874,7 @@ class OsirisOrchestrator {
                     volatility: volatility,
                     physicsParams: physicsParams,
                     tickerMeta: tickerMeta,
+                    regime: requestedVolatilityRegime === 'auto' ? detectedRegime : null,
                     horizonDays: final_steps
                 });
 

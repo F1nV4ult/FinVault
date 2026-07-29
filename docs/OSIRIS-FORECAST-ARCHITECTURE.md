@@ -43,9 +43,13 @@ are available.
 
 1. O2: rolling backtests and promoted calibration artifacts.
 2. O3: rolling candidate fitting and model-weight promotion.
-2. O3: per-ticker model selection and parameter fitting.
-3. O4: regime, factor, and event-risk overlays.
+3. O4: transparent auto-regime classifier (implemented), followed by factor and empirical event-risk overlays.
 4. O5: model governance, monitoring, and user-facing provenance.
+
+Macro fallback values are never treated as live regime evidence. When VIX is
+unavailable, the classifier retains a neutral multiplier unless the ticker's
+own realized-volatility or drawdown evidence warrants a change, and it lowers
+the reported confidence.
 
 Each later layer must preserve O1's seed, model-version, and data-as-of
 contract so forecasts remain auditable and reproducible.
