@@ -184,6 +184,13 @@ shows the detected state, multiplier, and confidence; manual regime choices
 continue to override it. A fallback macro payload is not treated as a live VIX
 observation, so auto mode degrades conservatively when macro data is missing.
 
+**Governance and provenance:** `data/osiris-governance.json` records the
+selected model, validation date, source versions, and O4 regime version for
+each issuer. Osiris marks validation for review after 90 days and stale after
+180 days at display time. Model promotion is blocked until rolling
+out-of-sample evidence meets the published sample, accuracy, coverage, and
+explicit-approval gate; baseline models remain labelled as pending until then.
+
 **Physics by sector cohort** (`physics-config.json`, schema `v1.8-consumer-staples`):
 
 | Cohort | Model | Why |

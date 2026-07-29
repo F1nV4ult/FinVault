@@ -1,0 +1,1848 @@
+{
+  "schemaVersion": 1,
+  "governanceVersion": "osiris-o5-governance-v1",
+  "policy": {
+    "promotion": {
+      "minimumOutOfSampleDays": 252,
+      "minimumDirectionalAccuracyImprovementPct": 5,
+      "coverage90Range": [
+        0.85,
+        0.95
+      ],
+      "requiredStatus": "rolling_validation_promoted"
+    },
+    "monitoring": {
+      "reviewAfterDays": 90,
+      "staleAfterDays": 180
+    }
+  },
+  "sources": {
+    "qualityModelVersion": "osiris-o2-quality-v1",
+    "registryModelVersion": "osiris-o3-registry-v1",
+    "validationAsOf": "2026-05-26"
+  },
+  "byTicker": {
+    "2222.SR": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5091383812010444,
+        "coverage90": 0.8784403669724771
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "9501.T": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 422,
+        "directionalAccuracy": 0.4845605700712589,
+        "coverage90": 0.8791469194312796
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "AEP": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5334872979214781,
+        "coverage90": 0.8967889908256881
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "AWK": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5022935779816514,
+        "coverage90": 0.8876146788990825
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "BKR": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5481651376146789,
+        "coverage90": 0.8944954128440367
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "BP": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5547785547785548,
+        "coverage90": 0.8990825688073395
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "COP": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.518348623853211,
+        "coverage90": 0.8899082568807339
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "CVX": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5596330275229358,
+        "coverage90": 0.8899082568807339
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "D": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.535632183908046,
+        "coverage90": 0.8899082568807339
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "DUK": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5298165137614679,
+        "coverage90": 0.8922018348623854
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "DVN": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5230414746543779,
+        "coverage90": 0.8807339449541285
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ENEL.MI": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.5876993166287016,
+        "coverage90": 0.8681818181818182
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ENGI.PA": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5645161290322581,
+        "coverage90": 0.8878923766816144
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ENI.MI": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.5968109339407744,
+        "coverage90": 0.8909090909090909
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "EOAN.DE": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5417661097852029,
+        "coverage90": 0.8823529411764706
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "EOG": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5333333333333333,
+        "coverage90": 0.8876146788990825
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "EQNR": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5509259259259259,
+        "coverage90": 0.8990825688073395
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ETR": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5529953917050692,
+        "coverage90": 0.8876146788990825
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "EXC": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5368663594470046,
+        "coverage90": 0.9036697247706422
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "FANG": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5344036697247706,
+        "coverage90": 0.9036697247706422
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "HAL": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5220417633410673,
+        "coverage90": 0.8922018348623854
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "IBE.MC": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5839080459770115,
+        "coverage90": 0.9013452914798207
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "KMI": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.550351288056206,
+        "coverage90": 0.8967889908256881
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "MPC": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5494252873563218,
+        "coverage90": 0.8853211009174312
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "NEE": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5276497695852534,
+        "coverage90": 0.8990825688073395
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "NG.L": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5448275862068965,
+        "coverage90": 0.891156462585034
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "NTGY.MC": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5930232558139535,
+        "coverage90": 0.9170403587443946
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "NTPC.NS": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 433,
+        "directionalAccuracy": 0.4976303317535545,
+        "coverage90": 0.8868360277136259
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ORG.AX": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 443,
+        "directionalAccuracy": 0.5534883720930233,
+        "coverage90": 0.9119638826185101
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "OXY": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5057471264367817,
+        "coverage90": 0.908256880733945
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "PBR": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5327102803738317,
+        "coverage90": 0.8853211009174312
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "PCG": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5210280373831776,
+        "coverage90": 0.8899082568807339
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "PEG": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5333333333333333,
+        "coverage90": 0.8853211009174312
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "PSX": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5321100917431193,
+        "coverage90": 0.8807339449541285
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "RELIANCE.NS": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 433,
+        "directionalAccuracy": 0.4965034965034965,
+        "coverage90": 0.8845265588914549
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "REP.MC": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5859728506787331,
+        "coverage90": 0.905829596412556
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "RWE.DE": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5542168674698795,
+        "coverage90": 0.9072398190045249
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SHEL": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5506912442396313,
+        "coverage90": 0.8784403669724771
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SLB": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5023148148148148,
+        "coverage90": 0.8990825688073395
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SO": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5299539170506913,
+        "coverage90": 0.8807339449541285
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SRE": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5334872979214781,
+        "coverage90": 0.9013761467889908
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SSE.L": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5091743119266054,
+        "coverage90": 0.9070294784580499
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "TTE": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5402298850574713,
+        "coverage90": 0.8784403669724771
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "VLO": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5412844036697247,
+        "coverage90": 0.8830275229357798
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "WDS.AX": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 443,
+        "directionalAccuracy": 0.542528735632184,
+        "coverage90": 0.8848758465011287
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "WEC": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5229357798165137,
+        "coverage90": 0.9036697247706422
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "WMB": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5393518518518519,
+        "coverage90": 0.9013761467889908
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "XEL": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5494252873563218,
+        "coverage90": 0.9128440366972477
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "XOM": {
+      "selection": {
+        "selectedModel": "ou_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.542528735632184,
+        "coverage90": 0.9036697247706422
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "6301.T": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 422,
+        "directionalAccuracy": 0.5333333333333333,
+        "coverage90": 0.8957345971563981
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "7011.T": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 422,
+        "directionalAccuracy": 0.48687350835322196,
+        "coverage90": 0.9075829383886256
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "AIR.PA": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5022522522522522,
+        "coverage90": 0.9080717488789237
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ATCO-A.ST": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 434,
+        "directionalAccuracy": 0.5069767441860465,
+        "coverage90": 0.8963133640552995
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "BA": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5206422018348624,
+        "coverage90": 0.9013761467889908
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "BA.L": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5412844036697247,
+        "coverage90": 0.9024943310657596
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "CAT": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5412844036697247,
+        "coverage90": 0.8944954128440367
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "DAL": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.48842592592592593,
+        "coverage90": 0.9059633027522935
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "DE": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.49885057471264366,
+        "coverage90": 0.9059633027522935
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "DHL.DE": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5272727272727272,
+        "coverage90": 0.9160997732426304
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ERJ": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "limited"
+      },
+      "validation": null,
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "EMR": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5471264367816092,
+        "coverage90": 0.8990825688073395
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "ETN": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5252293577981652,
+        "coverage90": 0.9059633027522935
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "GD": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5229357798165137,
+        "coverage90": 0.9220183486238532
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "GE": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5573394495412844,
+        "coverage90": 0.8944954128440367
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "HO.PA": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5417607223476298,
+        "coverage90": 0.9013452914798207
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "HON": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.48853211009174313,
+        "coverage90": 0.9036697247706422
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "HWM": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5435779816513762,
+        "coverage90": 0.8967889908256881
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "LDO.MI": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.541095890410959,
+        "coverage90": 0.8977272727272727
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "LHX": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5080459770114942,
+        "coverage90": 0.8853211009174312
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "LMT": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5160550458715596,
+        "coverage90": 0.8944954128440367
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "LT.NS": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 433,
+        "directionalAccuracy": 0.4813953488372093,
+        "coverage90": 0.9006928406466512
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "LUV": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.532258064516129,
+        "coverage90": 0.9197247706422018
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "MMM": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5161290322580645,
+        "coverage90": 0.9174311926605505
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "NOC": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5172413793103449,
+        "coverage90": 0.8922018348623854
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "RHM.DE": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5205811138014528,
+        "coverage90": 0.8914027149321267
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "RR.L": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.5389908256880734,
+        "coverage90": 0.9022727272727272
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "RTX": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "high"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5483870967741935,
+        "coverage90": 0.8922018348623854
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SAF.PA": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5319634703196348,
+        "coverage90": 0.8789237668161435
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "SIE.DE": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5261904761904762,
+        "coverage90": 0.9027149321266968
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "UNP": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5275229357798165,
+        "coverage90": 0.9197247706422018
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "UPS": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5127020785219399,
+        "coverage90": 0.9197247706422018
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "VOLV-B.ST": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 434,
+        "directionalAccuracy": 0.48604651162790696,
+        "coverage90": 0.9055299539170507
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    },
+    "VOW3.DE": {
+      "selection": {
+        "selectedModel": "gbm_jump_garch",
+        "status": "baseline_pending_rolling_validation",
+        "confidence": "moderate"
+      },
+      "validation": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.47268408551068886,
+        "coverage90": 0.8868778280542986
+      },
+      "provenance": {
+        "validationAsOf": "2026-05-26",
+        "qualityModelVersion": "osiris-o2-quality-v1",
+        "registryModelVersion": "osiris-o3-registry-v1",
+        "regimeVersion": "osiris-o4-regime-v1"
+      },
+      "monitoring": {
+        "reviewAfterDays": 90,
+        "staleAfterDays": 180
+      }
+    }
+  }
+}

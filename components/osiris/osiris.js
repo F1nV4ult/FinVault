@@ -2,6 +2,7 @@ import { osirisIngestion } from './osirisIngestion.js';
 import { OsirisCloudCanvas } from './osirisCloudCanvas.js';
 import { OsirisOracle } from './osirisOracle.js';
 import { classifyOsirisRegime } from './osirisRegime.mjs';
+import { assessGovernance } from './osirisGovernance.mjs';
 
 // ── Device classification & path budgets ───────────────────────────────
 // Detected once at orchestrator init and held in `this.deviceClass`.
@@ -46,6 +47,7 @@ class OsirisOrchestrator {
         this.deviceClass = detectDeviceClass();
         this._backtestSummary = null;
         this._forecastQuality = null;
+        this._governance = null;
         // HI-FI session state — resets every page load. Not persisted.
         this.hifi = { enabled: false, paths: 50000 };
 
@@ -561,6 +563,34 @@ class OsirisOrchestrator {
             qualityEl.textContent = String(data.confidence || 'limited').toUpperCase();
             qualityEl.className = 'osiris-backtest-val' + (data.confidence === 'limited' ? ' warn' : '');
         }
+        badge.style.display = '';
+        this.updateGovernanceBadge(ticker);
+    }
+
+    async updateGovernanceBadge(ticker) {
+        const badge = document.getElementById('osiris-governance-badge');
+        if (!badge) return;
+        if (!this._governance) {
+            try {
+                const res = await fetch('/data/osiris-governance.json');
+                this._governance = res.ok ? await res.json() : null;
+            } catch (_) { this._governance = null; }
+        }
+        const record = this._governance?.byTicker?.[ticker];
+        const assessment = assessGovernance(record);
+        if (assessment.state === 'unavailable') { badge.style.display = 'none'; return; }
+
+        const stateEl = document.getElementById('gov-state');
+        const modelEl = document.getElementById('gov-model');
+        const asOfEl = document.getElementById('gov-asof');
+        const sourceEl = document.getElementById('gov-source');
+        if (stateEl) {
+            stateEl.textContent = assessment.label;
+            stateEl.className = 'osiris-backtest-val' + (assessment.state === 'current' ? '' : ' warn');
+        }
+        if (modelEl) modelEl.textContent = assessment.message;
+        if (asOfEl) asOfEl.textContent = record.provenance.validationAsOf || '—';
+        if (sourceEl) sourceEl.textContent = record.provenance.registryModelVersion || '—';
         badge.style.display = '';
     }
 

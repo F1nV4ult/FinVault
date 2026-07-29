@@ -44,7 +44,7 @@ are available.
 1. O2: rolling backtests and promoted calibration artifacts.
 2. O3: rolling candidate fitting and model-weight promotion.
 3. O4: transparent auto-regime classifier (implemented), followed by factor and empirical event-risk overlays.
-4. O5: model governance, monitoring, and user-facing provenance.
+4. O5: model governance, monitoring, and user-facing provenance (implemented).
 
 Macro fallback values are never treated as live regime evidence. When VIX is
 unavailable, the classifier retains a neutral multiplier unless the ticker's
@@ -53,3 +53,18 @@ the reported confidence.
 
 Each later layer must preserve O1's seed, model-version, and data-as-of
 contract so forecasts remain auditable and reproducible.
+
+## O5 — governance, monitoring, and provenance
+
+`scripts/build-osiris-governance.mjs` compiles the O2 validation results and
+O3 registry into `data/osiris-governance.json`. Each ticker records its active
+model, validation as-of date, quality and registry versions, O4 regime version,
+and explicit review (90-day) and stale (180-day) thresholds. The browser
+assesses freshness at render time, so a historic validation can never continue
+to appear current merely because its artifact was once valid.
+
+The artifact also codifies the promotion gate: at least 252 out-of-sample
+days, a 5% directional-accuracy improvement, 90% interval coverage within
+85–95%, and an explicit `rolling_validation_promoted` status. Until those
+requirements are met, the baseline remains visibly marked as pending
+validation; no candidate is silently promoted.
