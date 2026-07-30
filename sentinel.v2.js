@@ -187,6 +187,7 @@ let currentRateShock = 0; // in bps
 let currentSovereignShock = 0; // in bps
 let activeModalCompany = null;
 let waterfallChart = null;
+let waterfallSignature = null;
 let selectedSeniority = 'Unsecured';
 let selectedTenure = 10;
 let currentSectorActive = 'Alpha';
@@ -1134,11 +1135,12 @@ function startHighScaleEngine() {
     // 1. Alternating Sector Batches (Every 5s)
     setInterval(cycleSectorBatch, FAST_REFRESH_MS);
 
-    // 2. Focus Priority (Every 5s)
-    setInterval(refreshFocus, FAST_REFRESH_MS);
+    // A focused issuer is refreshed only when its scenario/data changes. A
+    // five-second synthetic update made the quote and waterfall visibly jump.
 
-    // 3. Background Throttling (Continuous background check)
-    setInterval(throttleBackground, 1000); 
+    // 2. Background sweep. Do not scan the fleet sixty times between eligible
+    // one-minute refreshes.
+    setInterval(throttleBackground, SLOW_REFRESH_MS);
 }
 
 let sectorAlphaPointer = 0;
@@ -1173,10 +1175,9 @@ async function cycleSectorBatch() {
     // Apply Update
     for (const c of batch) {
         if (!c) continue;
-        // Bounded OU jitter: mean-reverts toward 0 each tick (theta=0.05) so
-        // accumulated random walk stays near the calibrated value rather than
-        // drifting unboundedly over hours.
-        c.residual = c.residual * 0.95 + (Math.random() * 1.0 - 0.5);
+        // Do not invent price movement between data refreshes. Calibration and
+        // macro synchronisation own residual changes; this cadence only keeps
+        // the bounded DOM work evenly distributed across the card grid.
         await updateCardData(c.ticker);
         c.lastUpdated = Date.now();
         
@@ -1242,12 +1243,11 @@ function triggerGlobalRefresh() {
 /**
  * Risks & Modals (Standard logic retained/optimized)
  */
-async function scanForContagion() {
-    let active = false;
-    for (const c of COMPANIES) {
-        const actualBaseSpread = await CreditEngine.calculateCurrentSpread(c, false);
-        if (actualBaseSpread * SENIORITY_MULTIPLIERS['Subordinated'] > 1000) active = true;
-    }
+function scanForContagion() {
+    const active = COMPANIES.some(c => {
+        const spread = window.SentinelSpread.computeSpread(getSpreadInput(c, false)).finalSpread;
+        return spread * SENIORITY_MULTIPLIERS.Subordinated > 1000;
+    });
 
     if (active) document.body.classList.add('contagion-alert');
     else document.body.classList.remove('contagion-alert');
@@ -1283,6 +1283,7 @@ function closeModal() {
     document.getElementById('focus-modal').classList.add('hidden');
     document.getElementById('focus-modal').classList.remove('flex');
     activeModalCompany = null;
+    waterfallSignature = null;
 }
 
 async function updateModal() {
@@ -1520,7 +1521,9 @@ function renderSentinelBrief(d) {
 
 // Waterfall rendering (retained/stable)
 function renderWaterfall(company) {
-    const ctx = document.getElementById('waterfall-chart').getContext('2d');
+    const canvas = document.getElementById('waterfall-chart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
     const shared = window.SentinelSpread.computeSpread(getSpreadInput(company, true));
     const sharedMarket = Math.round(shared.marketComponent);
     const sharedVolatility = shared.baseDelta - sharedMarket;
@@ -1543,17 +1546,39 @@ function renderWaterfall(company) {
     // Use the exact quoted result for the final bar so the explanation never
     // implies a different spread through intermediate rounding.
     sharedPoints.push([0, shared.finalSpread]);
-    if (waterfallChart) waterfallChart.destroy();
+    // Keep the expensive Chart.js canvas stable unless a visible scenario or
+    // market driver changes. Residuals only change through calibration, not the
+    // five-second card cadence, so a calibrated issuer remains accurately shown.
+    const signature = JSON.stringify({
+        ticker: company.ticker,
+        betaScaling: currentBetaScaling,
+        seniority: selectedSeniority,
+        tenure: selectedTenure,
+        ratingAnchor: SovereignRegistry[company.rating]?.value,
+        sectorVolatility: SectorRegistry[company.sector]?.volatility,
+        vix: SovereignRegistry.VIX?.value,
+        residual: company.residual
+    });
+    if (waterfallChart && waterfallSignature === signature) return;
+
+    const chartData = {
+        labels: sharedLabels,
+        datasets: [{
+            label: 'Basis Points', data: sharedPoints,
+            backgroundColor: ['rgba(255,255,255,0.2)', 'rgba(57,255,20,0.6)', 'rgba(57,255,20,0.4)', 'rgba(255,100,0,0.6)', 'rgba(0,150,255,0.6)', 'rgba(57,255,20,1)'],
+            borderColor: '#39FF14', borderWidth: 1
+        }]
+    };
+    if (waterfallChart) {
+        waterfallChart.data = chartData;
+        waterfallChart.update('none');
+        waterfallSignature = signature;
+        return;
+    }
+
     waterfallChart = new Chart(ctx, {
         type: 'bar',
-        data: {
-            labels: sharedLabels,
-            datasets: [{
-                label: 'Basis Points', data: sharedPoints,
-                backgroundColor: ['rgba(255,255,255,0.2)', 'rgba(57,255,20,0.6)', 'rgba(57,255,20,0.4)', 'rgba(255,100,0,0.6)', 'rgba(0,150,255,0.6)', 'rgba(57,255,20,1)'],
-                borderColor: '#39FF14', borderWidth: 1
-            }]
-        },
+        data: chartData,
         options: {
             indexAxis: 'y', responsive: true, maintainAspectRatio: false,
             plugins: { legend: { display: false } },
@@ -1563,6 +1588,7 @@ function renderWaterfall(company) {
             }
         }
     });
+    waterfallSignature = signature;
     return;
 
     // Keep in sync with CreditEngine.calculateCurrentSpread.

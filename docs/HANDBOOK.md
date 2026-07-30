@@ -23,7 +23,7 @@ only thing hidden server-side is **API keys**, behind thin Vercel serverless pro
 |---|---|---|---|
 | Question | What credit spread / default risk does this issuer carry *right now*? | What's the probability distribution of this stock's price over the next N days? | How financially healthy is this company, over 1 and 5 years? |
 | Method | Synthetic credit-spread engine (macro + volatility + market legs) | Monte-Carlo stochastic simulation (OU / GBM-jump physics) | SEC-XBRL + 10-K analysis → pre-generated deep-dive report + live panels |
-| Compute | Client-side, live, refreshes every ~5 s | Client-side, in a Web Worker, on demand | Offline pipeline (Claude-assisted) + live client panels |
+| Compute | Client-side, scenario-driven; cards refresh in small batches | Client-side, in a Web Worker, on demand | Offline pipeline (Claude-assisted) + live client panels |
 | Freshness | FRED + Alpha Vantage via proxy | Yahoo + FRED via proxy | SEC EDGAR (pre-built) + Finnhub/Yahoo (live) |
 
 **Shared infrastructure:** a Vercel static site + a handful of serverless API proxies that hide

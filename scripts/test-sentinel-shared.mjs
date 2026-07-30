@@ -8,6 +8,7 @@ const ok = (condition, message) => {
     else { fail++; console.log('  ✕ ' + message); }
 };
 const source = readFileSync(new URL('../components/sentinel/sentinelSpread.js', import.meta.url), 'utf8');
+const sentinelPageSource = readFileSync(new URL('../sentinel.v2.js', import.meta.url), 'utf8');
 const context = { window: {} };
 vm.runInNewContext(source, context);
 const shared = context.window.SentinelSpread;
@@ -20,6 +21,8 @@ ok(actual.finalSpread === expected.finalSpread && actual.baseTotalSpread === exp
 ok(actual.proxyVol === expected.proxyVol && actual.regime === expected.regime, 'browser shared diagnostics match executable specification');
 ok(shared.nextResidual(2, 30, 25) === nextResidual(2, 30, 25), 'browser calibration keeps residual in volatility points');
 ok(Math.abs(shared.defaultStressProxy(396) - 0.3270) < 0.001, 'browser risk proxy has the documented full-loss calculation');
+ok(sentinelPageSource.includes('waterfallSignature') && sentinelPageSource.includes("waterfallChart.update('none')"), 'waterfall retains its Chart.js instance and updates scenario changes without animation');
+ok(!sentinelPageSource.includes('setInterval(refreshFocus') && sentinelPageSource.includes('setInterval(throttleBackground, SLOW_REFRESH_MS)'), 'background engine avoids focused-modal jitter and redundant one-second fleet scans');
 
 console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);
