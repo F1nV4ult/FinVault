@@ -195,7 +195,10 @@ const outPath = path.join(outDir, 'universe.json');
 const header = {
     _meta: {
         schemaVersion: 1,
-        generated: new Date().toISOString().slice(0, 10),
+        // This artifact is verified in CI. A wall-clock date makes an unchanged
+        // registry fail `--check` after midnight, so provenance must describe
+        // the source-derived build rather than the machine's current date.
+        generated: 'source-derived',
         generator: 'scripts/build-universe.js',
         count: Object.keys(universe).length,
         sources: ['sentinel.v2.js', 'physics-config.json', 'report.html']
