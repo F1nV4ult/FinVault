@@ -12,7 +12,7 @@ export class OsirisOracle {
 
     /**
      * Primary synthesis entry point. Generates deterministic componentized readout.
-     * @param {Object} params - { ticker, currentPrice, p50, p05, p95, physicsType, volatility, physicsParams, horizonDays }
+     * @param {Object} params - { ticker, currentPrice, p05, p25, p50, p75, p95, physicsType, volatility, physicsParams, horizonDays }
      */
     async requestSynthesis(params) {
         this._clearContainer();
@@ -80,7 +80,7 @@ export class OsirisOracle {
     // ── Phase 1 & 3: Componentized DOM Injection ───────────────────────────
 
     _renderComponentizedReadout(params) {
-        const { ticker, currentPrice, p50, p05, p95, physicsType, volatility, physicsParams, tickerMeta, regime, horizonDays } = params;
+        const { ticker, currentPrice, p05, p25, p50, p75, p95, physicsType, volatility, physicsParams, tickerMeta, regime, horizonDays } = params;
 
         const winProb = this._approximateWinProbability(params);
         const days = horizonDays || 252;
@@ -178,6 +178,40 @@ export class OsirisOracle {
         });
         template.appendChild(badgeRow);
 
+        // The cone is a distribution at each horizon, so expose its terminal
+        // quantiles as a table rather than forcing the reader to infer subtle
+        // band separation from a dense canvas.
+        const terminalDistribution = document.createElement('div');
+        terminalDistribution.className = 'oracle-terminal-distribution';
+        terminalDistribution.style.cssText = 'border-top:1px solid rgba(0,255,0,0.15);padding-top:14px;opacity:0;transition:opacity 0.4s ease;transition-delay:0.48s;overflow-x:auto;';
+        const levels = [
+            { label: 'P95', value: p95, meaning: 'Upside tail', color: '#0096ff' },
+            { label: 'P75', value: p75, meaning: 'Upper quartile', color: '#62d7ff' },
+            { label: 'P50', value: p50, meaning: 'Median case', color: '#00ff00' },
+            { label: 'P25', value: p25, meaning: 'Lower quartile', color: '#ffad66' },
+            { label: 'P05', value: p05, meaning: 'Stress tail', color: '#ff4444' }
+        ].filter(level => Number.isFinite(level.value));
+        const rows = levels.map(level => {
+            const change = ((level.value / currentPrice) - 1) * 100;
+            const direction = change >= 0 ? '+' : '';
+            const changeColor = change >= 0 ? '#00ff88' : '#ff6666';
+            return `<tr>
+                <td style="padding:8px 10px;color:${level.color};font-weight:bold;">${level.label}</td>
+                <td style="padding:8px 10px;color:#fff;text-align:right;">${this._fmtPrice(level.value)}</td>
+                <td style="padding:8px 10px;color:${changeColor};text-align:right;">${direction}${change.toFixed(1)}%</td>
+                <td style="padding:8px 10px;color:rgba(255,255,255,0.55);">${level.meaning}</td>
+            </tr>`;
+        }).join('');
+        terminalDistribution.innerHTML = `
+            <div style="font-size:0.75em;color:var(--accent-green);letter-spacing:2px;margin-bottom:10px;text-transform:uppercase;">Terminal Distribution · Day ${days}</div>
+            <table aria-label="Terminal forecast percentile distribution" style="width:100%;min-width:360px;border-collapse:collapse;font-size:0.78em;">
+                <thead style="color:rgba(255,255,255,0.4);text-transform:uppercase;font-size:0.85em;letter-spacing:1px;">
+                    <tr><th style="padding:0 10px 6px;text-align:left;">Percentile</th><th style="padding:0 10px 6px;text-align:right;">Price</th><th style="padding:0 10px 6px;text-align:right;">vs Spot</th><th style="padding:0 10px 6px;text-align:left;">Scenario</th></tr>
+                </thead>
+                <tbody style="border-top:1px solid rgba(0,255,0,0.12);">${rows}</tbody>
+            </table>`;
+        template.appendChild(terminalDistribution);
+
         // ── ROW 3: MODEL ASSUMPTIONS ───────────────────────────────────
         const assumptions = document.createElement('div');
         assumptions.className = 'oracle-assumptions';
@@ -212,6 +246,7 @@ export class OsirisOracle {
         requestAnimationFrame(() => {
             headline.style.opacity = '1';
             badgeRow.querySelectorAll('.oracle-badge').forEach(b => b.style.opacity = '1');
+            terminalDistribution.style.opacity = '1';
             assumptions.style.opacity = '1';
         });
     }

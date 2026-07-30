@@ -172,6 +172,12 @@ cross-sectionally across all simulated paths at every time step; it is not a
 single path selected from terminal outcomes. See
 `docs/OSIRIS-FORECAST-ARCHITECTURE.md` for the staged modernization roadmap.
 
+**Inference readout:** the terminal panel shows P05, P25, P50, P75, and P95
+as a compact table with terminal price and change versus spot. This complements
+the cone: random jump events are distributed across paths and dates, so a
+cross-sectional percentile curve should not be interpreted as one jumpy sample
+trajectory.
+
 **Forecast quality contract:** `data/osiris-quality.json` is a compact,
 versioned derivative of the detailed backtest output. It gives each ticker a
 sample size, interval-coverage diagnostics, directional-accuracy diagnostic,

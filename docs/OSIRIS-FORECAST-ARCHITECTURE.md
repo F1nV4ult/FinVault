@@ -12,6 +12,12 @@ displayed percentile across all paths at each time step. The P05/P50/P95 lines
 are consequently a probability cone, not selected paths sorted by terminal
 price. Terminal `pAboveSpot` remains an empirical count across all paths.
 
+The inference panel also reports terminal P05, P25, P50, P75, and P95 in a
+table with price and change versus spot. It makes the distribution inspectable
+when a statistically correct percentile cone looks visually smooth: jumps are
+idiosyncratic path events, not movements expected to occur on the same day in
+every simulated path.
+
 ## Planned layers
 
 ## O2 — forecast-quality artifact

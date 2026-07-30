@@ -898,6 +898,8 @@ class OsirisOrchestrator {
                     currentPrice: initialPrice,
                     p50: percentiles.p50[lastIdx],
                     p05: percentiles.p05[lastIdx],
+                    p25: percentiles.p25[lastIdx],
+                    p75: percentiles.p75[lastIdx],
                     p95: percentiles.p95[lastIdx],
                     pAboveSpot: e.data.pAboveSpot,
                     physicsType: physicsType,

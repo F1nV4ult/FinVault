@@ -18,7 +18,7 @@
     "generate-report": "node scripts/generate-report.mjs",
     "screenshot": "node scripts/screenshot-preview.js",
     "screenshot-osiris": "node scripts/screenshot-osiris.js",
-    "test": "node scripts/test-forensic-scores.mjs && node scripts/test-xbrl-history.mjs && node scripts/test-sentinel-spread.mjs && node scripts/test-sentinel-shared.mjs && node scripts/test-osiris-sim.mjs && node scripts/test-osiris-quality.mjs && node scripts/test-osiris-models.mjs && node scripts/test-osiris-regime.mjs && node scripts/test-osiris-governance.mjs && node scripts/test-ns-state.mjs && node scripts/test-universe-registry.mjs && node scripts/test-finvault-routing.mjs",
+    "test": "node scripts/test-forensic-scores.mjs && node scripts/test-xbrl-history.mjs && node scripts/test-sentinel-spread.mjs && node scripts/test-sentinel-shared.mjs && node scripts/test-osiris-sim.mjs && node scripts/test-osiris-quality.mjs && node scripts/test-osiris-models.mjs && node scripts/test-osiris-regime.mjs && node scripts/test-osiris-governance.mjs && node scripts/test-osiris-inference.mjs && node scripts/test-ns-state.mjs && node scripts/test-universe-registry.mjs && node scripts/test-finvault-routing.mjs",
     "registry:check": "node scripts/build-universe.js --check && node scripts/test-universe-registry.mjs"
   },
   "dependencies": {
