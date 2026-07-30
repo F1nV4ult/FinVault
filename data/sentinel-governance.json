@@ -1,0 +1,1262 @@
+{
+  "schemaVersion": 1,
+  "governanceVersion": "sentinel-p1-governance-v1",
+  "policy": {
+    "monitoring": {
+      "reviewAfterDays": 60,
+      "staleAfterDays": 90
+    },
+    "anchorReview": "rating and base spread must be refreshed atomically"
+  },
+  "sources": {
+    "companyRegistry": "sentinel.v2.js",
+    "spreadEngineVersion": "sentinel-p0-shared-v1"
+  },
+  "byTicker": {
+    "XOM": {
+      "anchor": {
+        "rating": "AA",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SHEL": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "CVX": {
+      "anchor": {
+        "rating": "AA",
+        "baseSpreadBps": 130,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "IBE.MC": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 110,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "EQNR": {
+      "anchor": {
+        "rating": "AA",
+        "baseSpreadBps": 140,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "MPC": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 170,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "LMT": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "LDO.MI": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 175,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "GD": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "LHX": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 165,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "NOC": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 140,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "RTX": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 175,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "RHM.DE": {
+      "anchor": {
+        "rating": "HY",
+        "baseSpreadBps": 380,
+        "lastVerified": "2026-05-17"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "BA": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 260,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "AIR.PA": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ENGI.PA": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 115,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ENEL.MI": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 130,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "NEE": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 110,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "DUK": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "BP": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "TTE": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 115,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "COP": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 115,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "EOG": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 105,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SLB": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 130,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "HAL": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 155,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "BKR": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 140,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "VLO": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 160,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "PSX": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 155,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "OXY": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 200,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "WMB": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "KMI": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SO": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "D": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "AEP": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 130,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "EXC": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SRE": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "XEL": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 110,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "PCG": {
+      "anchor": {
+        "rating": "HY",
+        "baseSpreadBps": 280,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "PEG": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "WEC": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 105,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "AWK": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 100,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ENI.MI": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 150,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "NTGY.MC": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SSE.L": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "NG.L": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "GE": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 110,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "HON": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 105,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "UPS": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "UNP": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 115,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "CAT": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "DE": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "LUV": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 175,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "DAL": {
+      "anchor": {
+        "rating": "HY",
+        "baseSpreadBps": 290,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "MMM": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "EMR": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 110,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ETN": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 110,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SAF.PA": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 130,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "RR.L": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 190,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "VOW3.DE": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 165,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "SIE.DE": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 90,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "DHL.DE": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 100,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "PBR": {
+      "anchor": {
+        "rating": "HY",
+        "baseSpreadBps": 215,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "2222.SR": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 95,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "RELIANCE.NS": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "WDS.AX": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "REP.MC": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "DVN": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 165,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "FANG": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 175,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "9501.T": {
+      "anchor": {
+        "rating": "HY",
+        "baseSpreadBps": 270,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "NTPC.NS": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 115,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ORG.AX": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 140,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "EOAN.DE": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "RWE.DE": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 135,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ETR": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 130,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "BA.L": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "HO.PA": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "7011.T": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 150,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "6301.T": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 120,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "LT.NS": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 125,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ERJ": {
+      "anchor": {
+        "rating": "HY",
+        "baseSpreadBps": 240,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "ATCO-A.ST": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 100,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "VOLV-B.ST": {
+      "anchor": {
+        "rating": "A",
+        "baseSpreadBps": 115,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    },
+    "HWM": {
+      "anchor": {
+        "rating": "BBB",
+        "baseSpreadBps": 145,
+        "lastVerified": "2026-05-27"
+      },
+      "monitoring": {
+        "reviewAfterDays": 60,
+        "staleAfterDays": 90
+      },
+      "provenance": {
+        "anchorSource": "manual_primary_source_review",
+        "spreadEngineVersion": "sentinel-p0-shared-v1"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+import { readFileSync } from 'node:fs';
+let pass = 0, fail = 0;
+const ok = (condition, message) => { if (condition) pass++; else { fail++; console.log('  ✕ ' + message); } };
+const artifact = JSON.parse(readFileSync(new URL('../data/sentinel-governance.json', import.meta.url), 'utf8'));
+const rows = Object.entries(artifact.byTicker || {});
+ok(artifact.schemaVersion === 1 && artifact.governanceVersion === 'sentinel-p1-governance-v1', 'governance artifact has a versioned contract');
+ok(rows.length === 83, 'governance artifact covers the Sentinel universe');
+ok(rows.every(([, row]) => row.anchor?.rating && Number.isFinite(row.anchor?.baseSpreadBps) && row.anchor?.lastVerified), 'every issuer has auditable anchor evidence');
+ok(rows.every(([, row]) => row.monitoring?.reviewAfterDays === 60 && row.monitoring?.staleAfterDays === 90), 'review thresholds are explicit');
+console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
+process.exit(fail === 0 ? 0 : 1);

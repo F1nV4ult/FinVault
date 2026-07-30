@@ -192,6 +192,7 @@ let selectedTenure = 10;
 let currentSectorActive = 'Alpha';
 let activeFilters = { sector: 'all', risk: 'all' };
 let activeSort = 'default';
+let sentinelGovernance = null;
 
 // Staleness tracking — macro feeds refresh every 24h; expose age so the user
 // knows whether the values they're looking at are minutes old or nearly stale.
@@ -238,12 +239,66 @@ function getBenchmark(company) {
     return company.base_rate_type === 'BUND' ? 'Bund' : 'UST';
 }
 
+function governanceStatus(record) {
+    const verified = Date.parse(record?.anchor?.lastVerified || '');
+    if (!Number.isFinite(verified)) return { label: 'UNAVAILABLE', className: 'text-red-400' };
+    const days = Math.max(0, Math.floor((Date.now() - verified) / 86400000));
+    if (days > record.monitoring.staleAfterDays) return { label: `STALE · ${days}D`, className: 'text-red-400' };
+    if (days > record.monitoring.reviewAfterDays) return { label: `REVIEW DUE · ${days}D`, className: 'text-amber-400' };
+    return { label: `CURRENT · ${days}D`, className: 'text-neon-green' };
+}
+
+async function loadSentinelGovernance() {
+    try {
+        const response = await fetch('/data/sentinel-governance.json');
+        sentinelGovernance = response.ok ? await response.json() : null;
+    } catch (_) { sentinelGovernance = null; }
+    COMPANIES.forEach(company => updateAnchorGovernance(company.ticker));
+}
+
+function updateAnchorGovernance(ticker) {
+    const el = document.querySelector(`#card-${CSS.escape(ticker)} .anchor-governance`);
+    if (!el) return;
+    const record = sentinelGovernance?.byTicker?.[ticker];
+    const state = governanceStatus(record);
+    el.textContent = `ANCHOR ${state.label}`;
+    el.className = `anchor-governance text-[8px] font-mono uppercase tracking-widest ${state.className}`;
+}
+
+function getSpreadInput(company, isInstrumentMod = false) {
+    const rating = SovereignRegistry[company.rating];
+    const sector = SectorRegistry[company.sector];
+    return {
+        type: company.type,
+        baseSpread: company.baseSpread,
+        ratingIndexBps: rating?.date !== 'FALLBACK' ? Math.round(rating.value * 100) : null,
+        sectorBeta: company.sectorBeta,
+        marketBeta: company.marketBeta,
+        residual: Number.isFinite(company.residual) ? company.residual : 0,
+        sectorVol: sector?.date !== 'FALLBACK' ? sector.volatility : 20.0,
+        vix: SovereignRegistry.VIX?.date !== 'FALLBACK' ? SovereignRegistry.VIX.value : 15.0,
+        stress: currentBetaScaling,
+        seniority: selectedSeniority,
+        tenure: selectedTenure,
+        instrumentMod: isInstrumentMod
+    };
+}
+
 /**
  * simulated Web Worker Math Core
  */
 const CreditEngine = {
     async calculateCurrentSpread(company, isInstrumentMod = false) {
         return new Promise(resolve => {
+            // The quote, driver breakdown and waterfall now share the same
+            // executable specification. Do not recreate this arithmetic here.
+            const shared = window.SentinelSpread.computeSpread(getSpreadInput(company, isInstrumentMod));
+            company._lastProxyVol = parseFloat(shared.proxyVol.toFixed(2));
+            company._lastMertonPhase = shared.regime;
+            company._lastBaseSpread = shared.baseTotalSpread;
+            resolve(shared.finalSpread);
+            return;
+
             // Recalibrated: IG/HY differential ~2.86x (was 8x). More aligned
             // with empirical credit-beta dispersion between IG and HY.
             const sensitivity = company.type === 'IG' ? 0.35 : 1.0;
@@ -324,6 +379,29 @@ const CreditEngine = {
  * to the displayed spread.
  */
 function getSpreadDrivers(company, isInstrumentMod = true) {
+    const sharedInput = getSpreadInput(company, isInstrumentMod);
+    const shared = window.SentinelSpread.computeSpread(sharedInput);
+    const sharedSensitivity = company.type === 'IG' ? 0.35 : 1.0;
+    const sharedResidual = Math.round(company.residual * shared.mertonScalar * sharedInput.stress * sharedSensitivity);
+    const sharedMarket = Math.round(shared.marketComponent);
+    const sharedVolatility = shared.baseDelta - sharedMarket - sharedResidual;
+    const sharedSeniority = Math.round(shared.baseTotalSpread * (shared.subMultiplier * shared.seniorityMultiplier - 1));
+    const sharedAfterSeniority = shared.baseTotalSpread * shared.subMultiplier * shared.seniorityMultiplier;
+    const sharedTenure = Math.round(sharedAfterSeniority * (shared.tenureMultiplier - 1));
+    const sharedTotal = shared.finalSpread;
+    const sharedPct = (bps) => sharedTotal > 0 ? Math.round((bps / sharedTotal) * 100) : 0;
+    return {
+        anchor: shared.anchor, anchorPct: sharedPct(shared.anchor),
+        market: sharedMarket, marketPct: sharedPct(sharedMarket),
+        volPure: sharedVolatility, volPurePct: sharedPct(sharedVolatility),
+        residual: sharedResidual, residualPct: sharedPct(sharedResidual),
+        seniority: sharedSeniority, seniorityPct: sharedPct(sharedSeniority),
+        tenure: sharedTenure, tenurePct: sharedPct(sharedTenure),
+        total: sharedTotal, proxyVol: shared.proxyVol, mertonScalar: shared.mertonScalar,
+        ratingIndexBps: sharedInput.ratingIndexBps,
+        regime: shared.regime === 'DISTRESS' ? 'CONVEX' : 'LINEAR'
+    };
+
     const sensitivity = company.type === 'IG' ? 0.35 : 1.0;
     const stress = currentBetaScaling;
 
@@ -556,6 +634,8 @@ async function runAutoCalibration() {
             if (response.ok && data.volatility) {
                 calibSuccess = true;
                 const actualVol = data.volatility;
+                const canonicalCalibration = window.SentinelSpread.computeSpread(getSpreadInput(company));
+                const proxyVol = canonicalCalibration.proxyVol;
                 
                 // Calculate proxy volatility
                 const vix = SovereignRegistry.VIX && SovereignRegistry.VIX.value !== 'FALLBACK' ? SovereignRegistry.VIX.value : 15.0;
@@ -566,13 +646,14 @@ async function runAutoCalibration() {
                     ? SectorRegistry[company.sector].volatility 
                     : 20.0;
                 
-                const proxyVol = (sectorVol * effectiveSectorBeta) + company.residual;
+                const legacyProxyVol = (sectorVol * effectiveSectorBeta) + company.residual;
                 
                 // Error Margin (Volatility %)
                 const volError = actualVol - proxyVol;
                 
-                // Convert Volatility Error to Basis Points (1% vol = ~1.5 bps)
-                const bpsError = volError * 1.5;
+                // residual is consumed by proxyVol, so it remains in annualized
+                // volatility percentage points. Converting it to bps here would
+                // mix units and distort every later spread calculation.
                 
                 // Auto-Calibration Priority & Trigger
                 company._lastCalibrated = new Date().toLocaleTimeString();
@@ -584,7 +665,7 @@ async function runAutoCalibration() {
                 }
                 
                 // Lerp Smoothing Logic (5 seconds = 50 frames of 100ms)
-                const targetResidual = company.residual + bpsError;
+                const targetResidual = window.SentinelSpread.nextResidual(company.residual, actualVol, proxyVol);
                 const startResidual = company.residual;
                 const diff = targetResidual - startResidual;
                 const steps = 50;
@@ -597,7 +678,7 @@ async function runAutoCalibration() {
                     if (currentStep >= steps) clearInterval(lerpInterval);
                 }, 100);
                 
-                console.log(`[Auto-Calibrate] ${company.ticker}: Actual Vol=${actualVol}%, Proxy Vol=${proxyVol.toFixed(2)}%. Lerping ${bpsError.toFixed(2)} bps. Pulse: ${company._marketPulse}`);
+                console.log(`[Auto-Calibrate] ${company.ticker}: Actual Vol=${actualVol}%, Proxy Vol=${proxyVol.toFixed(2)}%. Target residual=${targetResidual.toFixed(2)} vol pts. Pulse: ${company._marketPulse}`);
             }
         } catch (error) {
             console.warn(`Auto-Calibration failed for ${company.ticker}.`, error);
@@ -707,6 +788,7 @@ function init() {
     validateAnchors();
     setupEventListeners();
     renderGrid(); // Render instantly with fallbacks
+    loadSentinelGovernance();
     startHighScaleEngine();
     
     // Poll FRED & Alpha Vantage in background
@@ -870,6 +952,7 @@ function createCard(company) {
                 <div class="mt-1">
                     <span class="text-[8px] bg-amber-500/10 text-amber-500 px-1 rounded border border-amber-500/20 font-mono hidden benchmark-badge">--</span>
                 </div>
+                <div class="anchor-governance text-[8px] font-mono uppercase tracking-widest text-gray-600 mt-1">ANCHOR CHECKING</div>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-4 mb-4">
@@ -894,7 +977,7 @@ function createCard(company) {
                 <span class="text-xs font-mono text-gray-400 int-coverage-val">—</span>
             </div>
             <div>
-                <span class="text-[8px] text-gray-600 uppercase tracking-widest block mb-0.5">PoD (10Y)</span>
+                <span class="text-[8px] text-gray-600 uppercase tracking-widest block mb-0.5" title="Spread-implied full-loss stress proxy; not a calibrated default probability">10Y Stress</span>
                 <span class="text-xs font-mono text-gray-400 pod-val">—</span>
             </div>
         </div>
@@ -1024,6 +1107,7 @@ async function updateCardData(ticker) {
         if (verif.tier === 'stale') staleDot.classList.remove('hidden');
         else staleDot.classList.add('hidden');
     }
+    updateAnchorGovernance(company.ticker);
 
     // Feature 1 — Static fundamentals
     const nlEl = card.querySelector('.net-leverage-val');
@@ -1032,7 +1116,7 @@ async function updateCardData(ticker) {
     if (icEl) icEl.textContent = company.interestCoverage !== null ? company.interestCoverage.toFixed(1) + 'x' : '—';
 
     // Feature 2 — Probability of Default (10Y, risk-neutral hazard rate)
-    const pod = (1 - Math.exp(-(spread / 10000) * 10)) * 100;
+    const pod = window.SentinelSpread.defaultStressProxy(spread) * 100;
     const podEl = card.querySelector('.pod-val');
     if (podEl) podEl.textContent = pod.toFixed(1) + '%';
 
@@ -1437,6 +1521,50 @@ function renderSentinelBrief(d) {
 // Waterfall rendering (retained/stable)
 function renderWaterfall(company) {
     const ctx = document.getElementById('waterfall-chart').getContext('2d');
+    const shared = window.SentinelSpread.computeSpread(getSpreadInput(company, true));
+    const sharedMarket = Math.round(shared.marketComponent);
+    const sharedVolatility = shared.baseDelta - sharedMarket;
+    const sharedSeniority = Math.round(shared.baseTotalSpread * (shared.subMultiplier * shared.seniorityMultiplier - 1));
+    const sharedAfterSeniority = shared.baseTotalSpread * shared.subMultiplier * shared.seniorityMultiplier;
+    const sharedTenure = Math.round(sharedAfterSeniority * (shared.tenureMultiplier - 1));
+    const sharedLabels = ['Anchor', 'Market Beta', 'Volatility Premium', 'Seniority Delta', 'Duration Delta', 'Final Spread'];
+    const sharedPoints = [];
+    let sharedRunning = 0;
+    for (const [label, value] of [
+        ['Anchor', shared.anchor],
+        ['Market Beta', sharedMarket],
+        ['Volatility Premium', sharedVolatility],
+        ['Seniority Delta', sharedSeniority],
+        ['Duration Delta', sharedTenure]
+    ]) {
+        sharedPoints.push([sharedRunning, sharedRunning + value]);
+        sharedRunning += value;
+    }
+    // Use the exact quoted result for the final bar so the explanation never
+    // implies a different spread through intermediate rounding.
+    sharedPoints.push([0, shared.finalSpread]);
+    if (waterfallChart) waterfallChart.destroy();
+    waterfallChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: sharedLabels,
+            datasets: [{
+                label: 'Basis Points', data: sharedPoints,
+                backgroundColor: ['rgba(255,255,255,0.2)', 'rgba(57,255,20,0.6)', 'rgba(57,255,20,0.4)', 'rgba(255,100,0,0.6)', 'rgba(0,150,255,0.6)', 'rgba(57,255,20,1)'],
+                borderColor: '#39FF14', borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'rgba(255,255,255,0.5)', font: { family: 'JetBrains Mono', size: 10 } } },
+                y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'JetBrains Mono', weight: 'bold', size: 11 } } }
+            }
+        }
+    });
+    return;
+
     // Keep in sync with CreditEngine.calculateCurrentSpread.
     const sensitivity = company.type === 'IG' ? 0.35 : 1.0;
     const stressFactor = currentBetaScaling;

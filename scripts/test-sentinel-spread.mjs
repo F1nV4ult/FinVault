@@ -12,7 +12,7 @@
 import { readFileSync } from 'node:fs';
 import {
   computeSpread, impliedYield, probabilityOfDefault,
-  vixCFactor, mertonScalar, sensitivityFor,
+  vixCFactor, mertonScalar, sensitivityFor, nextResidual,
 } from './lib/sentinel-spread.mjs';
 
 let pass = 0, fail = 0;
@@ -73,6 +73,8 @@ ok(mertonScalar(0) > 1.5 && mertonScalar(0) < 1.6 && mertonScalar(100) > 2.49, '
 ok(near(impliedYield(4.5, 396, 0), 8.46), 'impliedYield = baseRate + spread/100');
 ok(near(probabilityOfDefault(396), 0.3270, 0.001), 'PoD(396bps,10y) ≈ 0.327');
 ok(probabilityOfDefault(0) === 0, 'PoD(0) = 0');
+ok(near(nextResidual(2, 30, 25), 7), 'calibration residual remains in volatility points');
+ok(nextResidual(29, 80, 20) === 30 && nextResidual(-29, 0, 20) === -30, 'calibration residual is bounded');
 
 // ── Source-parity: the browser engine still encodes the same formula ──────────
 // Parse sentinel.v2.js in place (same technique as check-stale-anchors.js) and

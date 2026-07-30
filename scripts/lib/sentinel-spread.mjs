@@ -44,6 +44,12 @@ export function mertonScalar(proxyVol) {
   return 1.5 + 1.0 / (1 + Math.exp(-MERTON_SLOPE * (proxyVol - MERTON_CENTER)));
 }
 
+/** Residual is stored in annualized volatility percentage points. */
+export function nextResidual(previousResidual, actualVolatility, proxyVolatility) {
+  const previous = Number.isFinite(previousResidual) ? previousResidual : 0;
+  return Math.min(30, Math.max(-30, previous + actualVolatility - proxyVolatility));
+}
+
 /**
  * Full instrument spread (bps) plus its decomposition. Mirrors
  * CreditEngine.calculateCurrentSpread leg-for-leg.

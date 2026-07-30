@@ -131,9 +131,17 @@ PoD          = 1 − exp(−spread/10000 · 10)             // 10-yr horizon, im
 *PoD caveat:* overstates default probability for IG names (LGD=100% is conservative) — it's a
 **relative** signal, not an absolute valuation.
 
+The interface labels this metric **10Y Stress**, not PoD: it is a full-loss,
+spread-implied stress proxy and must not be interpreted as a calibrated market-default probability.
+
 **Spread-driver decomposition** (`getSpreadDrivers`) splits the live spread into six labelled
 components (Anchor, Market, Volatility-Pure, Residual, Seniority, Tenure) in bps and % of total —
 so every number is attributable.
+
+**P0 calculation integrity:** `components/sentinel/sentinelSpread.js` is the shared browser
+specification used by the displayed quote, driver breakdown, calibration loop, and waterfall.
+Residuals are annualized-volatility percentage points because they enter `proxyVol` directly;
+they are bounded to -30 through +30 points and are not converted to basis points.
 
 **Auto-calibration loop** (every ~2 h, 3 random issuers): fetch 30-day realized vol from Yahoo,
 compare to the model's proxy vol, convert the error to bps (`volError% × 1.5 bps`), and nudge
