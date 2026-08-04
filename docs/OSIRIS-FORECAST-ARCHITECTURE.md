@@ -60,6 +60,21 @@ the reported confidence.
 Each later layer must preserve O1's seed, model-version, and data-as-of
 contract so forecasts remain auditable and reproducible.
 
+## Shared Scenario Lab and snapshot contract
+
+Scenario Lab is session-scoped and follows users across the NovaSect tools.
+For Osiris, a VIX override and sector-volatility shock map into a bounded
+simulation-volatility multiplier; a rate shock adjusts annual drift; and the
+commodity/FX input shifts the OU reversion target for energy/utilities or the
+industrial jump-mean overlay. The normalized scenario is included in the seed,
+so a shocked forecast is reproducible and cannot be mistaken for the baseline.
+
+Static cross-tool artifacts now flow through `window.NSSnapshots`: the issuer
+registry, screener, governance, model-quality, and physics snapshots are
+deduplicated in memory and retained for six hours in session storage. Live
+market/API responses remain under their existing proxy-specific TTLs and are
+not absorbed by this client cache.
+
 ## O5 — governance, monitoring, and provenance
 
 `scripts/build-osiris-governance.mjs` compiles the O2 validation results and

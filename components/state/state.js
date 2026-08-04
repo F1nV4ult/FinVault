@@ -18,7 +18,7 @@
     const read = (k, d) => { try { const v = JSON.parse(LS.getItem(k)); return v == null ? d : v; } catch { return d; } };
     const write = (k, v) => { try { LS.setItem(k, JSON.stringify(v)); } catch { /* private mode / quota */ } };
 
-    const K = { wl: 'ns.watchlist', rc: 'ns.recents', seen: 'ns.seen' };
+    const K = { wl: 'ns.watchlist', rc: 'ns.recents', seen: 'ns.seen', sc: 'ns.scenario' };
     const RECENT_MAX = 6;
 
     const listeners = {};
@@ -29,6 +29,7 @@
     try {
         const p = new URLSearchParams(location.search).get('scenario');
         if (p) { const s = JSON.parse(atob(p)); if (s && Object.values(s).some(v => v)) scenario = s; }
+        else { const s = read(K.sc, null); if (s && typeof s === 'object' && Object.values(s).some(v => v)) scenario = s; }
     } catch { /* malformed scenario param → baseline */ }
 
     const NSState = {
@@ -56,6 +57,7 @@
         getScenario: () => scenario,
         setScenario(s) {
             scenario = (s && typeof s === 'object' && Object.values(s).some(v => v)) ? s : null;
+            if (scenario) write(K.sc, scenario); else { try { LS.removeItem(K.sc); } catch {} }
             emit('scenario', scenario);
         },
         encodeScenario(s) { try { return btoa(JSON.stringify(s)); } catch { return ''; } },

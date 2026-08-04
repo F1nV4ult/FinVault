@@ -327,6 +327,16 @@ No keys ever reach the browser; the proxies are same-origin so no CORS is needed
 | `sec-proxy` | SEC EDGAR | FinVault 5-yr (US) | 24 h |
 | `sentinel-history` | Vercel KV / Upstash | Sentinel sparklines | read-only public; **writes require `SNAPSHOT_WRITE_SECRET`** |
 
+### Shared scenarios and scalable static snapshots
+
+Scenario Lab persists its active macro shock for the current browser tab. It
+drives Sentinel spread/yield inputs and Osiris simulation inputs; a scenario is
+always marked by the site-wide banner. `components/snapshots/snapshots.min.js`
+is the common cache for static artifacts such as `universe.json` and governance
+outputs. It deduplicates concurrent reads and has a six-hour session TTL. It
+does not cache live quote or proxy data, whose independent freshness rules stay
+in force.
+
 **Shared `_ratelimit.js`:** distributed fixed-window limiter via Upstash Redis when configured,
 in-memory fallback otherwise; client IP from the platform-set `x-forwarded-for`.
 

@@ -27,6 +27,7 @@ components/osiris/osirisIngestion.js
 components/osiris/osirisCloudCanvas.js
 components/osiris/osirisOracle.js
 components/osiris/stochasticWorker.js
+components/snapshots/snapshots.js
 
 # Internal docs / templates.
 *.docx

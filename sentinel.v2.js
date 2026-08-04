@@ -251,8 +251,9 @@ function governanceStatus(record) {
 
 async function loadSentinelGovernance() {
     try {
-        const response = await fetch('/data/sentinel-governance.json');
-        sentinelGovernance = response.ok ? await response.json() : null;
+        sentinelGovernance = window.NSSnapshots
+            ? await window.NSSnapshots.get('sentinelGovernance')
+            : await fetch('/data/sentinel-governance.json').then(response => response.ok ? response.json() : null);
     } catch (_) { sentinelGovernance = null; }
     COMPANIES.forEach(company => updateAnchorGovernance(company.ticker));
 }
@@ -269,6 +270,9 @@ function updateAnchorGovernance(ticker) {
 function getSpreadInput(company, isInstrumentMod = false) {
     const rating = SovereignRegistry[company.rating];
     const sector = SectorRegistry[company.sector];
+    const scenario = (window.NSState && window.NSState.getScenario && window.NSState.getScenario()) || {};
+    const sectorVol = sector?.date !== 'FALLBACK' ? sector.volatility : 20.0;
+    const liveVix = SovereignRegistry.VIX?.date !== 'FALLBACK' ? SovereignRegistry.VIX.value : 15.0;
     return {
         type: company.type,
         baseSpread: company.baseSpread,
@@ -276,8 +280,8 @@ function getSpreadInput(company, isInstrumentMod = false) {
         sectorBeta: company.sectorBeta,
         marketBeta: company.marketBeta,
         residual: Number.isFinite(company.residual) ? company.residual : 0,
-        sectorVol: sector?.date !== 'FALLBACK' ? sector.volatility : 20.0,
-        vix: SovereignRegistry.VIX?.date !== 'FALLBACK' ? SovereignRegistry.VIX.value : 15.0,
+        sectorVol: sectorVol * (1 + (Number(scenario.sectorVolPct) || 0) / 100),
+        vix: Number(scenario.vix) > 0 ? Number(scenario.vix) : liveVix,
         stress: currentBetaScaling,
         seniority: selectedSeniority,
         tenure: selectedTenure,
@@ -362,12 +366,14 @@ const CreditEngine = {
 
     getBaseRate(company) {
         const anchor = SovereignRegistry[company.base_rate_type] || SovereignRegistry['UST'];
-        return anchor.value + (currentRateShock / 100);
+        const scenario = (window.NSState && window.NSState.getScenario && window.NSState.getScenario()) || {};
+        return anchor.value + (currentRateShock / 100) + ((Number(scenario.rateBps) || 0) / 100);
     },
 
     calculateYield(company, spreadBps) {
         const baseRate = this.getBaseRate(company);
-        const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock + (company.sovereignSpread || 0);
+        const scenario = (window.NSState && window.NSState.getScenario && window.NSState.getScenario()) || {};
+        const sovSpread = (SOVEREIGN_SPREADS[company.country] || 0) + currentSovereignShock + (company.sovereignSpread || 0) + (Number(scenario.sovereignBps) || 0);
         return (baseRate + (sovSpread / 100) + (spreadBps / 100)).toFixed(2);
     }
 };
@@ -817,6 +823,17 @@ function init() {
     // _lastBaseSpread on every card before we start sampling.
     setTimeout(snapshotSpreadHistory, 6000);
     setInterval(snapshotSpreadHistory, 60 * 1000);
+
+    // Scenario Lab is a separate, explicit stress layer. Refresh only after
+    // its controls settle, so slider input never recreates charts or floods
+    // the client with recalculation work.
+    if (window.NSState) {
+        let scenarioRefreshTimer = null;
+        window.NSState.on('scenario', () => {
+            clearTimeout(scenarioRefreshTimer);
+            scenarioRefreshTimer = setTimeout(triggerGlobalRefresh, 180);
+        });
+    }
 
     // Deep-link support: ?ticker=X opens that company's modal on load.
     // Used by FinVault report pages' "Open in Sentinel" button.

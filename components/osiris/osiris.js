@@ -37,6 +37,19 @@ function detectDeviceClass() {
     return 'desktop_lo';
 }
 
+function activeScenario() {
+    const raw = window.NSState && window.NSState.getScenario && window.NSState.getScenario();
+    if (!raw || typeof raw !== 'object') return null;
+    const scenario = {};
+    for (const key of ['rateBps', 'vix', 'sectorVolPct', 'sovereignBps', 'commodityPct']) {
+        const value = Number(raw[key]);
+        if (Number.isFinite(value) && value !== 0) scenario[key] = value;
+    }
+    return Object.keys(scenario).length ? scenario : null;
+}
+
+function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
+
 class OsirisOrchestrator {
     constructor() {
         this.activeWorker = null;
@@ -77,8 +90,9 @@ class OsirisOrchestrator {
 
         // Load configuration
         try {
-            const configRes = await fetch('/physics-config.json');
-            this.physicsConfig = await configRes.json();
+            this.physicsConfig = window.NSSnapshots
+                ? await window.NSSnapshots.get('physicsConfig')
+                : await fetch('/physics-config.json').then(r => r.json());
             // Override the baked-in defaultPaths with a device-class budget
             // so mobile users don't blow memory and high-end desktops can
             // use a sensible non-HI-FI default. HI-FI overrides this again
@@ -197,9 +211,12 @@ class OsirisOrchestrator {
      */
     async populateTickerSelectFromUniverse(select) {
         try {
-            const response = await fetch('/data/universe.json');
-            if (!response.ok) throw new Error('registry ' + response.status);
-            const universe = await response.json();
+            const universe = window.NSSnapshots
+                ? await window.NSSnapshots.get('universe')
+                : await fetch('/data/universe.json').then(async response => {
+                    if (!response.ok) throw new Error('registry ' + response.status);
+                    return response.json();
+                });
             const entries = Object.values(universe.tickers || {})
                 .filter(entry => entry && entry.capabilities && entry.capabilities.osiris && entry.osiris)
                 .sort((a, b) => a.name.localeCompare(b.name));
@@ -538,8 +555,9 @@ class OsirisOrchestrator {
         if (!badge) return;
         if (!this._forecastQuality) {
             try {
-                const res = await fetch('/data/osiris-quality.json');
-                this._forecastQuality = res.ok ? await res.json() : null;
+                this._forecastQuality = window.NSSnapshots
+                    ? await window.NSSnapshots.get('osirisQuality')
+                    : await fetch('/data/osiris-quality.json').then(res => res.ok ? res.json() : null);
             } catch (_) { this._forecastQuality = null; }
         }
         const data = this._forecastQuality?.byTicker?.[ticker];
@@ -572,8 +590,9 @@ class OsirisOrchestrator {
         if (!badge) return;
         if (!this._governance) {
             try {
-                const res = await fetch('/data/osiris-governance.json');
-                this._governance = res.ok ? await res.json() : null;
+                this._governance = window.NSSnapshots
+                    ? await window.NSSnapshots.get('osirisGovernance')
+                    : await fetch('/data/osiris-governance.json').then(res => res.ok ? res.json() : null);
             } catch (_) { this._governance = null; }
         }
         const record = this._governance?.byTicker?.[ticker];
@@ -596,6 +615,7 @@ class OsirisOrchestrator {
 
     async runSimulation(tickerSymbol) {
         if (!this.physicsConfig) return;
+        const scenario = activeScenario();
 
         // Directive 2: Singleton Worker Termination
         if (this.activeWorker) {
@@ -638,6 +658,7 @@ class OsirisOrchestrator {
                 tickerMeta = {
                     creditRating: tData.creditRating ?? null,
                     ratingLastVerified: tData.ratingLastVerified ?? null,
+                    sector: this.universe?.tickers?.[tickerSymbol]?.sector ?? null,
                     beta: null,
                     dividendYield: null
                 };
@@ -719,6 +740,20 @@ class OsirisOrchestrator {
                 document.getElementById('val-volatility').innerText = final_sigma.toFixed(2);
             }
 
+            // Shared Scenario Lab mapping. VIX and sector-vol shocks alter the
+            // simulated uncertainty, while bounded multipliers keep the cone
+            // numerically useful. Advanced mode preserves an explicit sigma.
+            let scenarioVolMult = 1;
+            if (!isAdvancedOpen && scenario) {
+                const liveVix = Number(macros?.VIX) || 15;
+                const vixMult = scenario.vix > 0 ? Math.sqrt(scenario.vix / Math.max(liveVix, 1)) : 1;
+                const sectorMult = 1 + (Number(scenario.sectorVolPct) || 0) / 100;
+                scenarioVolMult = clamp(vixMult * sectorMult, 0.35, 3);
+                final_sigma *= scenarioVolMult;
+                document.getElementById('slider-volatility').value = final_sigma;
+                document.getElementById('val-volatility').innerText = final_sigma.toFixed(2);
+            }
+
             // Pull live beta + dividend yield + long-term mean from the same
             // cached record that backed getHistoricalData (no extra network
             // call). Merges with the hand-filled creditRating on tickerMeta.
@@ -739,7 +774,9 @@ class OsirisOrchestrator {
             // Falls back to the old initialPrice*exp(drift) formula in the
             // worker if longTermMean is unavailable.
             if (physicsType === 'Ornstein-Uhlenbeck' && typeof liveLongTermMean === 'number') {
-                physicsParams.longTermMean = liveLongTermMean;
+                const factor = tickerMeta.sector === 'Utilities' ? -0.15 : 0.55;
+                const commodityMove = scenario ? (Number(scenario.commodityPct) || 0) * factor / 100 : 0;
+                physicsParams.longTermMean = liveLongTermMean * (1 + commodityMove);
             }
 
             // ── Phase C/D: short-horizon σ swap + sub-daily dt ───────────
@@ -812,7 +849,10 @@ class OsirisOrchestrator {
             // to the hardcoded 4.5% only if both macro fetch and metrics fail.
             const baseDrift = (typeof macros.US10Y === 'number') ? macros.US10Y : 0.045;
             const dyAdj = (typeof tickerMeta.dividendYield === 'number') ? tickerMeta.dividendYield : 0;
-            const drift = baseDrift - dyAdj;
+            const drift = baseDrift - dyAdj + (scenario ? (Number(scenario.rateBps) || 0) / 10000 : 0);
+            if (physicsType !== 'Ornstein-Uhlenbeck' && scenario && Number(scenario.commodityPct)) {
+                physicsParams.jumpMu += (Number(scenario.commodityPct) / 100) * 0.04;
+            }
             const volatility = final_sigma;
             const forecastRunSeed = forecastSeed([
                 tickerSymbol,
@@ -824,6 +864,7 @@ class OsirisOrchestrator {
                 final_physics_param.toFixed(6),
                 final_jumpMu.toFixed(6),
                 drift.toFixed(6),
+                JSON.stringify(scenario || {}),
                 this.physicsConfig.version || 'unknown-model'
             ]);
 

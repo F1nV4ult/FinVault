@@ -28,7 +28,8 @@ const JS_TARGETS = [
     'osiris-bg.js',
     'sentinel-promo.js',
     'sentinel.v2.js',
-    'enhance.js'
+    'enhance.js',
+    'components/snapshots/snapshots.js'
 ];
 
 const CSS_TARGETS = [

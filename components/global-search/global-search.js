@@ -128,9 +128,10 @@
     async function loadUniverse() {
         if (universeCache) return universeCache;
         try {
-            const res = await fetch('data/universe.json');
-            if (!res.ok) return [];
-            const data = await res.json();
+            const data = window.NSSnapshots
+                ? await window.NSSnapshots.get('universe')
+                : await fetch('data/universe.json').then(res => res.ok ? res.json() : null);
+            if (!data) return [];
             universeMap = data.tickers || {};
             universeCache = Object.values(universeMap).map(t => ({
                 ticker: t.ticker, name: t.name, sector: t.sector,

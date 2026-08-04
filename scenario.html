@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.min.css">
     <script src="components/state/state.js"></script>
+    <script src="components/snapshots/snapshots.min.js"></script>
     <script src="components/scenario/credit-spread.js"></script>
     <style>
         .sl-page { max-width: 1150px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
@@ -238,7 +239,12 @@
 
         (async () => {
             let universe = {};
-            try { const r = await fetch('data/universe.json'); if (r.ok) universe = (await r.json()).tickers || {}; } catch {}
+            try {
+                const data = window.NSSnapshots
+                    ? await window.NSSnapshots.get('universe')
+                    : await fetch('data/universe.json').then(r => r.ok ? r.json() : null);
+                universe = (data && data.tickers) || {};
+            } catch {}
             issuers = Object.values(universe).filter(e => e.sentinel && typeof e.sentinel.baseSpread === 'number');
             macros = await loadMacros();
             recompute();
