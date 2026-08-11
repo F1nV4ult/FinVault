@@ -235,13 +235,13 @@
                         <span style="color: var(--accent-green); font-family: monospace; font-size: 0.85em;">HIGH-FIDELITY MODE:
                             <span class="osiris-info-tip" aria-label="About HI-FI mode">ⓘ
                                 <div class="osiris-tip-box" role="tooltip">
-                                    <div style="color: var(--accent-green); font-weight: bold; letter-spacing: 1.5px; margin-bottom: 8px; font-size: 0.95em;">WHY OUTPUTS VARY BETWEEN RUNS</div>
-                                    Osiris draws fresh random numbers on every simulation. At the default path count, P50/P95/P05 lines can shift ±1–2% run-to-run — this is normal sampling variance, not a model error.<br><br>
-                                    HI-FI mode raises the path count to tighten that variance:<br>
+                                    <div style="color: var(--accent-green); font-weight: bold; letter-spacing: 1.5px; margin-bottom: 8px; font-size: 0.95em;">REPRODUCIBLE PROBABILITY CONE</div>
+                                    Osiris uses a stable seed from the ticker, data date, horizon, scenario and model version. Identical inputs reproduce the same P05/P50/P95 cone; changing an input intentionally produces a new simulation.<br><br>
+                                    HI-FI mode raises the path count to tighten percentile estimation:<br>
                                     <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 4px;">
-                                        <span><span style="color: var(--accent-green);">50K paths</span> — ±0.5% drift</span>
-                                        <span><span style="color: var(--accent-green);">100K paths</span> — ±0.1% drift</span>
-                                        <span><span style="color: var(--accent-green);">250K paths</span> — near-deterministic</span>
+                                        <span><span style="color: var(--accent-green);">50K paths</span> — finer percentile resolution</span>
+                                        <span><span style="color: var(--accent-green);">100K paths</span> — tighter tail estimates</span>
+                                        <span><span style="color: var(--accent-green);">250K paths</span> — highest available resolution</span>
                                     </div>
                                     <div style="margin-top: 8px; color: rgba(0,255,0,0.5); font-size: 0.9em;">Trade-off: compute time scales from milliseconds to seconds.</div>
                                 </div>

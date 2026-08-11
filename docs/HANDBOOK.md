@@ -329,9 +329,10 @@ No keys ever reach the browser; the proxies are same-origin so no CORS is needed
 
 ### Shared scenarios and scalable static snapshots
 
-Scenario Lab persists its active macro shock for the current browser tab. It
+Scenario Lab persists its active macro shock in browser-local storage. It
 drives Sentinel spread/yield inputs and Osiris simulation inputs; a scenario is
-always marked by the site-wide banner. `components/snapshots/snapshots.min.js`
+always marked by the site-wide banner. It is not sent to NovaSect or tied to an
+account. `components/snapshots/snapshots.min.js`
 is the common cache for static artifacts such as `universe.json` and governance
 outputs. It deduplicates concurrent reads and has a six-hour session TTL. It
 does not cache live quote or proxy data, whose independent freshness rules stay
@@ -365,9 +366,11 @@ in-memory fallback otherwise; client IP from the platform-set `x-forwarded-for`.
 
 ## 7. Assumptions, simplifications & known limitations
 
-**Sentinel** — synthetic, not market spreads; PoD overstates IG default risk (LGD=100%); anchors
-are hand-calibrated and decay (verification badge); `ratingIndexBps`/`sectorVol` depend on
-Alpha/FRED availability (fallbacks exist). Auto-calibration only spot-checks 3 names per cycle.
+**Sentinel** — synthetic, not market spreads; 10Y Stress/PoD overstates IG default risk (LGD=100%);
+anchors are hand-calibrated and decay (verification badge). Macro data can refresh automatically,
+but issuer ratings and anchor spreads remain governed manual inputs subject to the published
+60-day review / 90-day stale policy; `ratingIndexBps`/`sectorVol` depend on Alpha/FRED availability
+(fallbacks exist). Auto-calibration only spot-checks 3 names per cycle.
 
 **Osiris** — constant per-ticker physics params; OU mean is a 1-yr arithmetic average; jump params
 are static; foreign filers and thin-data names degrade; correlation across names is not modelled

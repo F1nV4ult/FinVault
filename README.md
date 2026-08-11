@@ -22,9 +22,9 @@ Discord `#updates-and-implementation` channel (`scripts/changelog.mjs` + the pus
 
 | Tool | What it does |
 |---|---|
-| **Sentinel** | Real-time synthetic **credit-spread** engine — macro anchor + volatility premium (Merton-sigmoid) + market/seniority/tenure legs → implied yield & probability of default, refreshed every ~5 s. |
-| **Osiris** | **Monte-Carlo** price-trajectory simulator — Ornstein-Uhlenbeck / GBM-jump physics in a Web Worker → probability-weighted price distributions. |
-| **FinVault** | **Equity research** — SEC-XBRL + 10-K deep-dive reports, live multiples/fundamentals, and 5-year horizontal analysis. |
+| **Sentinel** | Synthetic credit-spread engine — `max(baseSpread, rating-index OAS)` + a volatility/Merton-sigmoid premium + market, seniority and tenor legs → implied yield and a 10Y stress proxy. Live macro inputs refresh independently; issuer anchors are governed and manually reviewed. |
+| **Osiris** | Seeded, reproducible Monte Carlo — OU + GARCH (energy/utilities) or GBM/Merton-jump + GARCH (industrials/defense) → a percentile cone, terminal P05/P25/P50/P75/P95 table and empirical probability above spot. |
+| **FinVault** | **Equity research** — canonical issuer registry, SEC-XBRL/10-K deep-dives, source-aware browser fallbacks, live multiples/fundamentals, 5-year analysis and forensic health screens. |
 
 ## Stack
 

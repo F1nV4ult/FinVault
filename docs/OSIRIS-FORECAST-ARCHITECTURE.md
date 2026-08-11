@@ -62,7 +62,7 @@ contract so forecasts remain auditable and reproducible.
 
 ## Shared Scenario Lab and snapshot contract
 
-Scenario Lab is session-scoped and follows users across the NovaSect tools.
+Scenario Lab is browser-local (not account-backed) and follows users across the NovaSect tools.
 For Osiris, a VIX override and sector-volatility shock map into a bounded
 simulation-volatility multiplier; a rate shock adjusts annual drift; and the
 commodity/FX input shifts the OU reversion target for energy/utilities or the
