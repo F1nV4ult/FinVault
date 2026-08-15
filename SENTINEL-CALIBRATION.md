@@ -172,6 +172,11 @@ it offline, then validate it with `node scripts/add-sentinel-anchor-candidate.mj
 --file path/to/template.json --dry-run`. Downloading and validation do not
 upload information or modify an approved anchor.
 
+When a candidate is recorded, the review queue exposes it under **Candidate
+recorded**, including the proposed rating/spread delta and the two supplied
+source links. This remains an evidence-review state, not approval or a live
+model update.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:

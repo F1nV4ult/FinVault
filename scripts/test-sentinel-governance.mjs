@@ -22,5 +22,6 @@ ok(reviewClient.includes("NSSnapshots.get('sentinelGovernance')") && reviewClien
 ok(reviewPage.includes('id="ar-export"') && reviewClient.includes('exportReviewPacket') && reviewClient.includes('text/csv'), 'review queue exports a local, visible-filter evidence packet');
 ok(candidateCli.includes('--dry-run') && candidateCli.includes('--file') && candidateCli.includes('this did not change an approved anchor') && promotionPlanner.includes('Required before promotion'), 'candidate entry and promotion planning remain controlled and non-mutating');
 ok(reviewClient.includes('downloadCandidateTemplate') && reviewClient.includes('sentinel_anchor_candidate'), 'review queue can create an offline candidate-evidence template');
+ok(reviewPage.includes('data-filter="candidate"') && reviewClient.includes('hasCandidate') && reviewClient.includes('candidateDetail'), 'recorded candidates are filterable with proposed-anchor deltas and source links');
 console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

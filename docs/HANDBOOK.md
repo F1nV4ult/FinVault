@@ -187,6 +187,10 @@ The Sentinel queue can also download a per-issuer candidate-evidence JSON templa
 completes it offline and passes it to the candidate CLI in `--file` mode, first with `--dry-run`.
 This keeps collection, validation, and eventual Git review separate from the live website.
 
+Recorded candidates are separately filterable in the Sentinel queue. The row shows the proposed
+rating/spread delta and reviewer-supplied rating/spread source links for inspection; no queue action
+can promote the candidate.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

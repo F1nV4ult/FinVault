@@ -40,7 +40,7 @@
         <h1>Anchor Review Queue</h1>
         <p class="ar-intro">Prioritise issuer rating and base-spread reviews without changing production anchors. Notes and review acknowledgements remain in this browser only. A completed queue item is not a model update: rating, comparable-bond spread, source and verification date must still be approved together. Exporting creates a local review packet; it never sends data or changes an anchor.</p>
         <section class="ar-summary" id="ar-summary" aria-live="polite"></section>
-        <div class="ar-controls" id="ar-controls"><button class="ar-filter active" data-filter="all">All</button><button class="ar-filter" data-filter="stale">Overdue</button><button class="ar-filter" data-filter="due">Review due</button><button class="ar-filter" data-filter="material">Material change</button><button class="ar-filter" data-filter="done">Locally acknowledged</button><button class="ar-btn" id="ar-export" type="button">Export visible review packet</button></div>
+        <div class="ar-controls" id="ar-controls"><button class="ar-filter active" data-filter="all">All</button><button class="ar-filter" data-filter="stale">Overdue</button><button class="ar-filter" data-filter="due">Review due</button><button class="ar-filter" data-filter="candidate">Candidate recorded</button><button class="ar-filter" data-filter="material">Material change</button><button class="ar-filter" data-filter="done">Locally acknowledged</button><button class="ar-btn" id="ar-export" type="button">Export visible review packet</button></div>
         <section class="ar-list" id="ar-list" aria-live="polite"><div class="ar-empty">Loading governance queue…</div></section>
     </main>
     <script src="components/sentinel/anchorReview.min.js"></script>
