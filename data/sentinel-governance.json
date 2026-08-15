@@ -11,6 +11,7 @@
   "sources": {
     "companyRegistry": "sentinel.v2.js",
     "evidenceLedger": "data/sentinel-anchor-evidence.json",
+    "anchorHistory": "data/sentinel-anchor-history.json",
     "spreadEngineVersion": "sentinel-p0-shared-v1"
   },
   "byTicker": {
@@ -28,7 +29,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:XOM:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "SHEL": {
@@ -45,7 +51,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SHEL:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "CVX": {
@@ -62,7 +73,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:CVX:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "IBE.MC": {
@@ -79,7 +95,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:IBE.MC:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "EQNR": {
@@ -96,7 +117,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:EQNR:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "MPC": {
@@ -113,7 +139,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:MPC:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "LMT": {
@@ -130,7 +161,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:LMT:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "LDO.MI": {
@@ -147,7 +183,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:LDO.MI:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "GD": {
@@ -164,7 +205,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:GD:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "LHX": {
@@ -181,7 +227,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:LHX:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "NOC": {
@@ -198,7 +249,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:NOC:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "RTX": {
@@ -215,7 +271,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:RTX:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "RHM.DE": {
@@ -232,7 +293,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:RHM.DE:2026-05-17",
+          "effectiveDate": "2026-05-17",
+          "kind": "baseline"
+        }
       }
     },
     "BA": {
@@ -249,7 +315,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:BA:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "AIR.PA": {
@@ -266,7 +337,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:AIR.PA:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ENGI.PA": {
@@ -283,7 +359,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ENGI.PA:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ENEL.MI": {
@@ -300,7 +381,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ENEL.MI:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "NEE": {
@@ -317,7 +403,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:NEE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "DUK": {
@@ -334,7 +425,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:DUK:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "BP": {
@@ -351,7 +447,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:BP:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "TTE": {
@@ -368,7 +469,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:TTE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "COP": {
@@ -385,7 +491,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:COP:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "EOG": {
@@ -402,7 +513,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:EOG:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "SLB": {
@@ -419,7 +535,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SLB:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "HAL": {
@@ -436,7 +557,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:HAL:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "BKR": {
@@ -453,7 +579,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:BKR:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "VLO": {
@@ -470,7 +601,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:VLO:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "PSX": {
@@ -487,7 +623,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:PSX:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "OXY": {
@@ -504,7 +645,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:OXY:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "WMB": {
@@ -521,7 +667,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:WMB:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "KMI": {
@@ -538,7 +689,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:KMI:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "SO": {
@@ -555,7 +711,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SO:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "D": {
@@ -572,7 +733,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:D:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "AEP": {
@@ -589,7 +755,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:AEP:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "EXC": {
@@ -606,7 +777,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:EXC:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "SRE": {
@@ -623,7 +799,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SRE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "XEL": {
@@ -640,7 +821,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:XEL:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "PCG": {
@@ -657,7 +843,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:PCG:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "PEG": {
@@ -674,7 +865,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:PEG:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "WEC": {
@@ -691,7 +887,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:WEC:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "AWK": {
@@ -708,7 +909,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:AWK:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ENI.MI": {
@@ -725,7 +931,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ENI.MI:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "NTGY.MC": {
@@ -742,7 +953,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:NTGY.MC:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "SSE.L": {
@@ -759,7 +975,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SSE.L:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "NG.L": {
@@ -776,7 +997,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:NG.L:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "GE": {
@@ -793,7 +1019,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:GE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "HON": {
@@ -810,7 +1041,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:HON:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "UPS": {
@@ -827,7 +1063,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:UPS:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "UNP": {
@@ -844,7 +1085,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:UNP:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "CAT": {
@@ -861,7 +1107,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:CAT:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "DE": {
@@ -878,7 +1129,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:DE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "LUV": {
@@ -895,7 +1151,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:LUV:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "DAL": {
@@ -912,7 +1173,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:DAL:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "MMM": {
@@ -929,7 +1195,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:MMM:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "EMR": {
@@ -946,7 +1217,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:EMR:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ETN": {
@@ -963,7 +1239,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ETN:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "SAF.PA": {
@@ -980,7 +1261,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SAF.PA:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "RR.L": {
@@ -997,7 +1283,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:RR.L:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "VOW3.DE": {
@@ -1014,7 +1305,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:VOW3.DE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "SIE.DE": {
@@ -1031,7 +1327,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:SIE.DE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "DHL.DE": {
@@ -1048,7 +1349,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:DHL.DE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "PBR": {
@@ -1065,7 +1371,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:PBR:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "2222.SR": {
@@ -1082,7 +1393,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:2222.SR:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "RELIANCE.NS": {
@@ -1099,7 +1415,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:RELIANCE.NS:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "WDS.AX": {
@@ -1116,7 +1437,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:WDS.AX:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "REP.MC": {
@@ -1133,7 +1459,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:REP.MC:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "DVN": {
@@ -1150,7 +1481,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:DVN:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "FANG": {
@@ -1167,7 +1503,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:FANG:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "9501.T": {
@@ -1184,7 +1525,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:9501.T:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "NTPC.NS": {
@@ -1201,7 +1547,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:NTPC.NS:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ORG.AX": {
@@ -1218,7 +1569,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ORG.AX:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "EOAN.DE": {
@@ -1235,7 +1591,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:EOAN.DE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "RWE.DE": {
@@ -1252,7 +1613,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:RWE.DE:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ETR": {
@@ -1269,7 +1635,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ETR:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "BA.L": {
@@ -1286,7 +1657,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:BA.L:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "HO.PA": {
@@ -1303,7 +1679,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:HO.PA:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "7011.T": {
@@ -1320,7 +1701,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:7011.T:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "6301.T": {
@@ -1337,7 +1723,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:6301.T:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "LT.NS": {
@@ -1354,7 +1745,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:LT.NS:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ERJ": {
@@ -1371,7 +1767,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ERJ:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "ATCO-A.ST": {
@@ -1388,7 +1789,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:ATCO-A.ST:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "VOLV-B.ST": {
@@ -1405,7 +1811,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:VOLV-B.ST:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     },
     "HWM": {
@@ -1422,7 +1833,12 @@
         "anchorSource": "manual_primary_source_review",
         "spreadEngineVersion": "sentinel-p0-shared-v1",
         "evidenceStatus": "formal_evidence_pending",
-        "evidence": null
+        "evidence": null,
+        "history": {
+          "id": "baseline:HWM:2026-05-27",
+          "effectiveDate": "2026-05-27",
+          "kind": "baseline"
+        }
       }
     }
   }

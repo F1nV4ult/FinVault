@@ -137,7 +137,7 @@ export async function checkPublicAssets(siteUrl) {
         '/', '/index.html',
         '/sentinel.html', '/anchor-review.html', '/osiris.html', '/reports.html', '/report.html',
         '/brief.html', '/energy.html', '/industrials.html', '/about.html',
-        '/data/universe.json', '/data/sentinel-governance.json', '/data/sentinel-anchor-evidence.json', '/physics-config.json'
+        '/data/universe.json', '/data/sentinel-governance.json', '/data/sentinel-anchor-evidence.json', '/data/sentinel-anchor-history.json', '/physics-config.json'
     ];
     const failures = [];
     await Promise.all(assets.map(async (a) => {

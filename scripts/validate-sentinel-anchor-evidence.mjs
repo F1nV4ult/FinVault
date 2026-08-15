@@ -20,6 +20,7 @@ const isUrl = value => { try { return ['https:', 'http:'].includes(new URL(value
 if (ledger.schemaVersion !== 1 || ledger.ledgerVersion !== 'sentinel-anchor-evidence-v1') errors.push('Ledger contract is unsupported');
 for (const [ticker, record] of Object.entries(ledger.byTicker || {})) {
     if (!known.has(ticker)) errors.push(`${ticker}: issuer is not in the Sentinel universe`);
+    if (!/^candidate:[A-Z0-9.^-]+:\d{4}-\d{2}-\d{2}$/.test(record?.id || '')) errors.push(`${ticker}: id must be candidate:TICKER:YYYY-MM-DD`);
     if (record?.status !== 'candidate') errors.push(`${ticker}: status must be candidate`);
     if (!isDate(record?.sourceDate) || !isDate(record?.reviewedAt)) errors.push(`${ticker}: sourceDate and reviewedAt must be ISO dates`);
     if (!String(record?.reviewer || '').trim()) errors.push(`${ticker}: reviewer is required`);

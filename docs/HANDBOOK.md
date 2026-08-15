@@ -172,6 +172,11 @@ is pending or a candidate has been recorded.
 review hand-off. It contains approved anchors, verification age, evidence state/source links, and
 optional browser-local flags or notes. It never uploads the packet or promotes an anchor.
 
+**Approved-anchor history:** `data/sentinel-anchor-history.json` records the approved state of every
+issuer. Governance validation compares the latest history entry to `sentinel.v2.js`, so an anchor
+edit must be accompanied by a matching history entry. New refresh entries must reference the
+validated candidate-evidence ID; the initial entries are explicitly labelled legacy manual records.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

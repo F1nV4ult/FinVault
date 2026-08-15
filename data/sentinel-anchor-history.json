@@ -1,0 +1,757 @@
+{
+  "schemaVersion": 1,
+  "historyVersion": "sentinel-anchor-history-v1",
+  "policy": {
+    "appendOnly": true,
+    "productionChangeRequiresHistory": true
+  },
+  "entries": [
+    {
+      "id": "baseline:XOM:2026-05-17",
+      "ticker": "XOM",
+      "effectiveDate": "2026-05-17",
+      "rating": "AA",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SHEL:2026-05-27",
+      "ticker": "SHEL",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:CVX:2026-05-17",
+      "ticker": "CVX",
+      "effectiveDate": "2026-05-17",
+      "rating": "AA",
+      "baseSpreadBps": 130,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:IBE.MC:2026-05-17",
+      "ticker": "IBE.MC",
+      "effectiveDate": "2026-05-17",
+      "rating": "BBB",
+      "baseSpreadBps": 110,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:EQNR:2026-05-27",
+      "ticker": "EQNR",
+      "effectiveDate": "2026-05-27",
+      "rating": "AA",
+      "baseSpreadBps": 140,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:MPC:2026-05-27",
+      "ticker": "MPC",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 170,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:LMT:2026-05-17",
+      "ticker": "LMT",
+      "effectiveDate": "2026-05-17",
+      "rating": "A",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:LDO.MI:2026-05-27",
+      "ticker": "LDO.MI",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 175,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:GD:2026-05-17",
+      "ticker": "GD",
+      "effectiveDate": "2026-05-17",
+      "rating": "A",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:LHX:2026-05-17",
+      "ticker": "LHX",
+      "effectiveDate": "2026-05-17",
+      "rating": "BBB",
+      "baseSpreadBps": 165,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:NOC:2026-05-17",
+      "ticker": "NOC",
+      "effectiveDate": "2026-05-17",
+      "rating": "BBB",
+      "baseSpreadBps": 140,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:RTX:2026-05-17",
+      "ticker": "RTX",
+      "effectiveDate": "2026-05-17",
+      "rating": "A",
+      "baseSpreadBps": 175,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:RHM.DE:2026-05-17",
+      "ticker": "RHM.DE",
+      "effectiveDate": "2026-05-17",
+      "rating": "HY",
+      "baseSpreadBps": 380,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:BA:2026-05-27",
+      "ticker": "BA",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 260,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:AIR.PA:2026-05-27",
+      "ticker": "AIR.PA",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ENGI.PA:2026-05-27",
+      "ticker": "ENGI.PA",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 115,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ENEL.MI:2026-05-27",
+      "ticker": "ENEL.MI",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 130,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:NEE:2026-05-27",
+      "ticker": "NEE",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 110,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:DUK:2026-05-27",
+      "ticker": "DUK",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:BP:2026-05-27",
+      "ticker": "BP",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:TTE:2026-05-27",
+      "ticker": "TTE",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 115,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:COP:2026-05-27",
+      "ticker": "COP",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 115,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:EOG:2026-05-27",
+      "ticker": "EOG",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 105,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SLB:2026-05-27",
+      "ticker": "SLB",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 130,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:HAL:2026-05-27",
+      "ticker": "HAL",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 155,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:BKR:2026-05-27",
+      "ticker": "BKR",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 140,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:VLO:2026-05-27",
+      "ticker": "VLO",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 160,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:PSX:2026-05-27",
+      "ticker": "PSX",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 155,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:OXY:2026-05-27",
+      "ticker": "OXY",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 200,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:WMB:2026-05-27",
+      "ticker": "WMB",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:KMI:2026-05-27",
+      "ticker": "KMI",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SO:2026-05-27",
+      "ticker": "SO",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:D:2026-05-27",
+      "ticker": "D",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:AEP:2026-05-27",
+      "ticker": "AEP",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 130,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:EXC:2026-05-27",
+      "ticker": "EXC",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SRE:2026-05-27",
+      "ticker": "SRE",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:XEL:2026-05-27",
+      "ticker": "XEL",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 110,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:PCG:2026-05-27",
+      "ticker": "PCG",
+      "effectiveDate": "2026-05-27",
+      "rating": "HY",
+      "baseSpreadBps": 280,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:PEG:2026-05-27",
+      "ticker": "PEG",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:WEC:2026-05-27",
+      "ticker": "WEC",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 105,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:AWK:2026-05-27",
+      "ticker": "AWK",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 100,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ENI.MI:2026-05-27",
+      "ticker": "ENI.MI",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 150,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:NTGY.MC:2026-05-27",
+      "ticker": "NTGY.MC",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SSE.L:2026-05-27",
+      "ticker": "SSE.L",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:NG.L:2026-05-27",
+      "ticker": "NG.L",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:GE:2026-05-27",
+      "ticker": "GE",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 110,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:HON:2026-05-27",
+      "ticker": "HON",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 105,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:UPS:2026-05-27",
+      "ticker": "UPS",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:UNP:2026-05-27",
+      "ticker": "UNP",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 115,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:CAT:2026-05-27",
+      "ticker": "CAT",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:DE:2026-05-27",
+      "ticker": "DE",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:LUV:2026-05-27",
+      "ticker": "LUV",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 175,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:DAL:2026-05-27",
+      "ticker": "DAL",
+      "effectiveDate": "2026-05-27",
+      "rating": "HY",
+      "baseSpreadBps": 290,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:MMM:2026-05-27",
+      "ticker": "MMM",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:EMR:2026-05-27",
+      "ticker": "EMR",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 110,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ETN:2026-05-27",
+      "ticker": "ETN",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 110,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SAF.PA:2026-05-27",
+      "ticker": "SAF.PA",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 130,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:RR.L:2026-05-27",
+      "ticker": "RR.L",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 190,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:VOW3.DE:2026-05-27",
+      "ticker": "VOW3.DE",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 165,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:SIE.DE:2026-05-27",
+      "ticker": "SIE.DE",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 90,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:DHL.DE:2026-05-27",
+      "ticker": "DHL.DE",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 100,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:PBR:2026-05-27",
+      "ticker": "PBR",
+      "effectiveDate": "2026-05-27",
+      "rating": "HY",
+      "baseSpreadBps": 215,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:2222.SR:2026-05-27",
+      "ticker": "2222.SR",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 95,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:RELIANCE.NS:2026-05-27",
+      "ticker": "RELIANCE.NS",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:WDS.AX:2026-05-27",
+      "ticker": "WDS.AX",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:REP.MC:2026-05-27",
+      "ticker": "REP.MC",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:DVN:2026-05-27",
+      "ticker": "DVN",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 165,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:FANG:2026-05-27",
+      "ticker": "FANG",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 175,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:9501.T:2026-05-27",
+      "ticker": "9501.T",
+      "effectiveDate": "2026-05-27",
+      "rating": "HY",
+      "baseSpreadBps": 270,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:NTPC.NS:2026-05-27",
+      "ticker": "NTPC.NS",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 115,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ORG.AX:2026-05-27",
+      "ticker": "ORG.AX",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 140,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:EOAN.DE:2026-05-27",
+      "ticker": "EOAN.DE",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:RWE.DE:2026-05-27",
+      "ticker": "RWE.DE",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 135,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ETR:2026-05-27",
+      "ticker": "ETR",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 130,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:BA.L:2026-05-27",
+      "ticker": "BA.L",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:HO.PA:2026-05-27",
+      "ticker": "HO.PA",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:7011.T:2026-05-27",
+      "ticker": "7011.T",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 150,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:6301.T:2026-05-27",
+      "ticker": "6301.T",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 120,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:LT.NS:2026-05-27",
+      "ticker": "LT.NS",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 125,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ERJ:2026-05-27",
+      "ticker": "ERJ",
+      "effectiveDate": "2026-05-27",
+      "rating": "HY",
+      "baseSpreadBps": 240,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:ATCO-A.ST:2026-05-27",
+      "ticker": "ATCO-A.ST",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 100,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:VOLV-B.ST:2026-05-27",
+      "ticker": "VOLV-B.ST",
+      "effectiveDate": "2026-05-27",
+      "rating": "A",
+      "baseSpreadBps": 115,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    },
+    {
+      "id": "baseline:HWM:2026-05-27",
+      "ticker": "HWM",
+      "effectiveDate": "2026-05-27",
+      "rating": "BBB",
+      "baseSpreadBps": 145,
+      "kind": "baseline",
+      "evidenceRef": "legacy-manual-record"
+    }
+  ]
+}

@@ -13,7 +13,7 @@
     "osiris:rolling-validation": "node scripts/build-osiris-rolling-validation.mjs --check && node scripts/test-osiris-rolling-validation.mjs",
     "osiris:models": "node scripts/build-osiris-models.mjs --check && node scripts/test-osiris-models.mjs",
     "osiris:governance": "node scripts/build-osiris-governance.mjs --check && node scripts/test-osiris-governance.mjs",
-    "sentinel:governance": "node scripts/validate-sentinel-anchor-evidence.mjs && node scripts/build-sentinel-governance.mjs --check && node scripts/test-sentinel-governance.mjs",
+    "sentinel:governance": "node scripts/validate-sentinel-anchor-evidence.mjs && node scripts/validate-sentinel-anchor-history.mjs && node scripts/build-sentinel-governance.mjs --check && node scripts/test-sentinel-governance.mjs",
     "preview": "node scripts/serve-preview.mjs",
     "fetch-10k": "node scripts/fetch-sec-10k.mjs",
     "generate-report": "node scripts/generate-report.mjs",

@@ -137,6 +137,19 @@ the approved anchor, verification age, evidence-completeness state, candidate
 source URLs, and any browser-local note or flag. Export is a hand-off aid only:
 it neither uploads data nor constitutes approval.
 
+## Approved-anchor history and change gate
+
+`data/sentinel-anchor-history.json` is the append-only record of approved
+rating/spread anchors. `node scripts/validate-sentinel-anchor-history.mjs`
+compares its latest record for every issuer with `sentinel.v2.js`. A mismatch
+blocks the governance check. For a future refresh, add a `kind: "refresh"`
+history record whose `evidenceRef` is the matching candidate ID in the
+evidence ledger, then update the anchor and its `lastVerified` date together.
+
+The baseline rows are labelled `legacy-manual-record`; they document the
+approved state that existed before the evidence ledger. Do not regenerate the
+baseline script after it has created the file.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:
