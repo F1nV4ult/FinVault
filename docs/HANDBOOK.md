@@ -183,6 +183,10 @@ ledger. Its dry-run mode supports review without a file change; the promotion-pl
 read-only and explains the required history + atomic-anchor update. Neither script can update a
 production anchor.
 
+The Sentinel queue can also download a per-issuer candidate-evidence JSON template. The reviewer
+completes it offline and passes it to the candidate CLI in `--file` mode, first with `--dry-run`.
+This keeps collection, validation, and eventual Git review separate from the live website.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

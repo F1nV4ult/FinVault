@@ -20,6 +20,7 @@ ok(rows.every(([, row]) => row.provenance?.history?.effectiveDate === row.anchor
 ok(reviewPage.includes('components/sentinel/anchorReview.min.js') && reviewClient.includes("ns.sentinel.anchor-review.v1"), 'anchor queue is browser-local and ships a minified client');
 ok(reviewClient.includes("NSSnapshots.get('sentinelGovernance')") && reviewClient.includes('material'), 'anchor queue consumes governed anchors and supports local material flags');
 ok(reviewPage.includes('id="ar-export"') && reviewClient.includes('exportReviewPacket') && reviewClient.includes('text/csv'), 'review queue exports a local, visible-filter evidence packet');
-ok(candidateCli.includes('--dry-run') && candidateCli.includes('this did not change an approved anchor') && promotionPlanner.includes('Required before promotion'), 'candidate entry and promotion planning remain controlled and non-mutating');
+ok(candidateCli.includes('--dry-run') && candidateCli.includes('--file') && candidateCli.includes('this did not change an approved anchor') && promotionPlanner.includes('Required before promotion'), 'candidate entry and promotion planning remain controlled and non-mutating');
+ok(reviewClient.includes('downloadCandidateTemplate') && reviewClient.includes('sentinel_anchor_candidate'), 'review queue can create an offline candidate-evidence template');
 console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

@@ -29,6 +29,25 @@
         link.click();
         setTimeout(() => URL.revokeObjectURL(link.href), 0);
     }
+    function downloadCandidateTemplate(row) {
+        const template = {
+            schemaVersion: 1,
+            intent: 'sentinel_anchor_candidate',
+            ticker: row.ticker,
+            candidate: { rating: row.anchor.rating, baseSpreadBps: row.anchor.baseSpreadBps },
+            sourceDate: null,
+            reviewer: null,
+            ratingEvidence: { agency: null, url: null },
+            spreadEvidence: { instrument: null, url: null },
+            context: { approvedRating: row.anchor.rating, approvedBaseSpreadBps: row.anchor.baseSpreadBps, lastVerified: row.anchor.lastVerified }
+        };
+        const blob = new Blob([JSON.stringify(template, null, 2) + '\n'], { type: 'application/json;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `sentinel-anchor-candidate-${row.ticker}-${new Date().toISOString().slice(0, 10)}.json`;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(link.href), 0);
+    }
     function renderSummary() {
         const count = kind => state.rows.filter(row => kind === 'done' ? state.local[row.ticker]?.done : status(row) === kind).length;
         $('ar-summary').innerHTML = [['stale','OVERDUE'],['due','REVIEW DUE'],['fresh','CURRENT'],['done','LOCAL ACKS']].map(([kind,label]) => `<div class="ar-stat"><b>${count(kind)}</b><span>${label}</span></div>`).join('');
@@ -41,7 +60,7 @@
             const evidence = row.provenance?.evidence;
             const evidenceText = evidence ? `Candidate recorded · ${evidence.sourceDate || 'date pending'}` : 'Formal evidence pending';
             const historyText = row.provenance?.history ? `${row.provenance.history.kind} · ${row.provenance.history.effectiveDate}` : 'History missing';
-            return `<article class="ar-row"><div><div class="ar-ticker">${esc(row.ticker)}</div><div class="ar-name">${esc(row.name)}</div><div class="ar-meta">${esc(row.sector)} · ${esc(source)}</div></div><div class="ar-meta"><span class="ar-label">Anchor</span>${esc(row.anchor.rating)} · ${esc(row.anchor.baseSpreadBps)} bps</div><div class="ar-meta"><span class="ar-label">Verified</span>${esc(row.anchor.lastVerified || 'Unknown')} · ${age(row.anchor.lastVerified)}d<br><span class="ar-badge ${local.done ? 'done' : tier}">${checked}</span>${local.material ? '<br><span class="ar-badge stale">MATERIAL CANDIDATE</span>' : ''}<br><span class="ar-label">Evidence</span>${esc(evidenceText)}<br><span class="ar-label">History</span>${esc(historyText)}</div><div><textarea class="ar-note" data-note="${esc(row.ticker)}" placeholder="Local review note / source reference">${esc(local.note || '')}</textarea><div class="ar-actions"><button class="ar-btn" data-toggle="${esc(row.ticker)}">${local.done ? 'Reopen' : 'Acknowledge locally'}</button><button class="ar-btn" data-material="${esc(row.ticker)}">${local.material ? 'Clear material' : 'Flag material'}</button><a class="ar-link" href="brief.html?ticker=${encodeURIComponent(row.ticker)}">Open dossier →</a></div></div></article>`;
+            return `<article class="ar-row"><div><div class="ar-ticker">${esc(row.ticker)}</div><div class="ar-name">${esc(row.name)}</div><div class="ar-meta">${esc(row.sector)} · ${esc(source)}</div></div><div class="ar-meta"><span class="ar-label">Anchor</span>${esc(row.anchor.rating)} · ${esc(row.anchor.baseSpreadBps)} bps</div><div class="ar-meta"><span class="ar-label">Verified</span>${esc(row.anchor.lastVerified || 'Unknown')} · ${age(row.anchor.lastVerified)}d<br><span class="ar-badge ${local.done ? 'done' : tier}">${checked}</span>${local.material ? '<br><span class="ar-badge stale">MATERIAL CANDIDATE</span>' : ''}<br><span class="ar-label">Evidence</span>${esc(evidenceText)}<br><span class="ar-label">History</span>${esc(historyText)}</div><div><textarea class="ar-note" data-note="${esc(row.ticker)}" placeholder="Local review note / source reference">${esc(local.note || '')}</textarea><div class="ar-actions"><button class="ar-btn" data-toggle="${esc(row.ticker)}">${local.done ? 'Reopen' : 'Acknowledge locally'}</button><button class="ar-btn" data-material="${esc(row.ticker)}">${local.material ? 'Clear material' : 'Flag material'}</button><button class="ar-btn" data-template="${esc(row.ticker)}">Candidate template</button><a class="ar-link" href="brief.html?ticker=${encodeURIComponent(row.ticker)}">Open dossier →</a></div></div></article>`;
         }).join('') : '<div class="ar-empty">No issuers match this queue filter.</div>';
     }
     function bind() {
@@ -50,6 +69,7 @@
         $('ar-list').addEventListener('input', event => { const ticker = event.target.dataset.note; if (!ticker) return; state.local[ticker] = { ...(state.local[ticker] || {}), note: event.target.value }; saveLocal(); });
         $('ar-list').addEventListener('click', event => { const button = event.target.closest('[data-toggle]'); if (!button) return; const ticker = button.dataset.toggle; state.local[ticker] = { ...(state.local[ticker] || {}), done: !state.local[ticker]?.done, acknowledgedAt: new Date().toISOString() }; saveLocal(); render(); });
         $('ar-list').addEventListener('click', event => { const button = event.target.closest('[data-material]'); if (!button) return; const ticker = button.dataset.material; state.local[ticker] = { ...(state.local[ticker] || {}), material: !state.local[ticker]?.material }; saveLocal(); render(); });
+        $('ar-list').addEventListener('click', event => { const button = event.target.closest('[data-template]'); if (!button) return; const row = state.rows.find(item => item.ticker === button.dataset.template); if (row) downloadCandidateTemplate(row); });
     }
     async function init() {
         try { const [governance, universe] = await Promise.all([window.NSSnapshots ? window.NSSnapshots.get('sentinelGovernance') : fetch('data/sentinel-governance.json').then(r => r.json()), window.NSSnapshots ? window.NSSnapshots.get('universe') : fetch('data/universe.json').then(r => r.json())]); state.rows = enrich(governance, universe); render(); bind(); }

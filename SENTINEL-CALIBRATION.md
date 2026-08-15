@@ -166,6 +166,12 @@ and reviewer; it cannot alter `sentinel.v2.js`. Use
 `npm run sentinel:promotion-plan -- --ticker XOM` to compare a candidate to its
 approved anchor and print the required manual promotion steps.
 
+Each queue row also offers **Candidate template**. It downloads a local JSON
+template pre-filled with the approved anchor and empty evidence fields. Complete
+it offline, then validate it with `node scripts/add-sentinel-anchor-candidate.mjs
+--file path/to/template.json --dry-run`. Downloading and validation do not
+upload information or modify an approved anchor.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:

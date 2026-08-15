@@ -12,19 +12,26 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const value = name => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : null; };
 if (args.includes('--help')) {
-    console.log('Usage: node scripts/add-sentinel-anchor-candidate.mjs --ticker XOM --rating AA --spread 125 --agency "S&P Global" --rating-url https://… --instrument "XOM 2034 senior unsecured" --spread-url https://… --source-date YYYY-MM-DD --reviewer initials [--dry-run] [--replace]');
+    console.log('Usage: node scripts/add-sentinel-anchor-candidate.mjs (--ticker XOM --rating AA --spread 125 --agency "S&P Global" --rating-url https://… --instrument "XOM 2034 senior unsecured" --spread-url https://… --source-date YYYY-MM-DD --reviewer initials | --file candidate.json) [--dry-run] [--replace]');
     process.exit(0);
 }
-const ticker = String(value('--ticker') || '').toUpperCase();
-const rating = String(value('--rating') || '').toUpperCase();
-const baseSpreadBps = Number(value('--spread'));
-const sourceDate = value('--source-date');
+const inputFile = value('--file');
+let fileInput = {};
+if (inputFile) {
+    try { fileInput = JSON.parse(readFileSync(inputFile, 'utf8')); }
+    catch (error) { console.error(`Could not read candidate file: ${error.message}`); process.exit(1); }
+    if (fileInput.schemaVersion !== 1 || fileInput.intent !== 'sentinel_anchor_candidate') { console.error('Candidate file has an unsupported contract'); process.exit(1); }
+}
+const ticker = String(fileInput.ticker || value('--ticker') || '').toUpperCase();
+const rating = String(fileInput.candidate?.rating || value('--rating') || '').toUpperCase();
+const baseSpreadBps = Number(fileInput.candidate?.baseSpreadBps ?? value('--spread'));
+const sourceDate = fileInput.sourceDate || value('--source-date');
 const reviewedAt = new Date().toISOString().slice(0, 10);
-const reviewer = value('--reviewer');
-const ratingUrl = value('--rating-url');
-const spreadUrl = value('--spread-url');
-const agency = value('--agency');
-const instrument = value('--instrument');
+const reviewer = fileInput.reviewer || value('--reviewer');
+const ratingUrl = fileInput.ratingEvidence?.url || value('--rating-url');
+const spreadUrl = fileInput.spreadEvidence?.url || value('--spread-url');
+const agency = fileInput.ratingEvidence?.agency || value('--agency');
+const instrument = fileInput.spreadEvidence?.instrument || value('--instrument');
 const dryRun = args.includes('--dry-run');
 const replace = args.includes('--replace');
 const isDate = input => /^\d{4}-\d{2}-\d{2}$/.test(input || '') && !Number.isNaN(Date.parse(input));
