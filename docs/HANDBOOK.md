@@ -162,6 +162,12 @@ and a direct issuer-dossier link; review notes, acknowledgements and material-ca
 in local storage and cannot alter production anchors. A production change still requires atomic
 rating + comparable-bond spread + `lastVerified` approval under `SENTINEL-CALIBRATION.md`.
 
+**Evidence ledger:** `data/sentinel-anchor-evidence.json` is the candidate-only audit record for
+rating and bond/spread sources, their dates, reviewer, and proposed values. Validation rejects an
+unknown issuer, missing agency/instrument/URL, incomplete candidate, or unsupported contract. It
+does not modify the approved anchor; the governance artifact exposes only whether formal evidence
+is pending or a candidate has been recorded.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

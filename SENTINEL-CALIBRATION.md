@@ -113,6 +113,25 @@ Use the queue to organise evidence collection, then make a production update
 only after the atomic sign-off checklist below is complete. A local
 acknowledgement is deliberately not evidence that an anchor is current.
 
+## Machine-readable evidence ledger
+
+`data/sentinel-anchor-evidence.json` is a **candidate-only** audit ledger. It
+holds the rating agency and URL, the bond/spread instrument and URL, source
+date, reviewer, and proposed rating/spread before a governed anchor change is
+considered. The ledger is intentionally empty until evidence is collected; it
+never overwrites an approved value in `sentinel.v2.js`.
+
+Validate it with:
+
+```bash
+node scripts/validate-sentinel-anchor-evidence.mjs
+```
+
+The build exposes only an evidence-completeness state to the review queue. A
+recorded candidate remains a candidate until the atomic sign-off checklist is
+completed and the production anchor is deliberately changed in a separate
+reviewed commit.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:

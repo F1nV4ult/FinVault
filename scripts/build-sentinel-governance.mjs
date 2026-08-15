@@ -10,21 +10,32 @@ const require = createRequire(import.meta.url);
 const { parseLiteral } = require('./lib/safe-literal');
 const check = process.argv.includes('--check');
 const source = readFileSync(join(root, 'sentinel.v2.js'), 'utf8');
+const evidenceLedger = JSON.parse(readFileSync(join(root, 'data', 'sentinel-anchor-evidence.json'), 'utf8'));
+if (evidenceLedger.schemaVersion !== 1 || evidenceLedger.ledgerVersion !== 'sentinel-anchor-evidence-v1') throw new Error('Unsupported Sentinel anchor-evidence ledger contract');
 const match = source.match(/const COMPANIES = (\[[\s\S]*?\n\]);/);
 if (!match) throw new Error('Could not locate Sentinel COMPANIES literal');
 const companies = parseLiteral(match[1]);
 const outPath = join(root, 'data', 'sentinel-governance.json');
 const monitoring = { reviewAfterDays: 60, staleAfterDays: 90 };
-const byTicker = Object.fromEntries(companies.map(company => [company.ticker, {
-    anchor: { rating: company.rating, baseSpreadBps: company.baseSpread, lastVerified: company.lastVerified || null },
-    monitoring,
-    provenance: { anchorSource: 'manual_primary_source_review', spreadEngineVersion: 'sentinel-p0-shared-v1' }
-}]));
+const byTicker = Object.fromEntries(companies.map(company => {
+    const evidence = evidenceLedger.byTicker?.[company.ticker] || null;
+    if (evidence && evidence.status !== 'candidate') throw new Error(`Evidence for ${company.ticker} must be a candidate record`);
+    return [company.ticker, {
+        anchor: { rating: company.rating, baseSpreadBps: company.baseSpread, lastVerified: company.lastVerified || null },
+        monitoring,
+        provenance: {
+            anchorSource: 'manual_primary_source_review',
+            spreadEngineVersion: 'sentinel-p0-shared-v1',
+            evidenceStatus: evidence ? 'candidate_recorded' : 'formal_evidence_pending',
+            evidence: evidence ? { sourceDate: evidence.sourceDate, ratingSource: evidence.ratingEvidence?.url || null, spreadSource: evidence.spreadEvidence?.url || null, candidateRating: evidence.candidate?.rating || null, candidateBaseSpreadBps: evidence.candidate?.baseSpreadBps ?? null } : null
+        }
+    }];
+}));
 const output = {
-    schemaVersion: 1,
-    governanceVersion: 'sentinel-p1-governance-v1',
+    schemaVersion: 2,
+    governanceVersion: 'sentinel-p2-evidence-v1',
     policy: { monitoring, anchorReview: 'rating and base spread must be refreshed atomically' },
-    sources: { companyRegistry: 'sentinel.v2.js', spreadEngineVersion: 'sentinel-p0-shared-v1' },
+    sources: { companyRegistry: 'sentinel.v2.js', evidenceLedger: 'data/sentinel-anchor-evidence.json', spreadEngineVersion: 'sentinel-p0-shared-v1' },
     byTicker
 };
 const serialized = JSON.stringify(output, null, 2) + '\n';

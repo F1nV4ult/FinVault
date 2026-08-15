@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "ledgerVersion": "sentinel-anchor-evidence-v1",
+  "policy": {
+    "candidateOnly": true,
+    "productionChangeRequires": [
+      "ratingEvidence",
+      "spreadEvidence",
+      "reviewedAt",
+      "reviewer"
+    ]
+  },
+  "byTicker": {}
+}

@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "governanceVersion": "sentinel-p1-governance-v1",
+  "schemaVersion": 2,
+  "governanceVersion": "sentinel-p2-evidence-v1",
   "policy": {
     "monitoring": {
       "reviewAfterDays": 60,
@@ -10,6 +10,7 @@
   },
   "sources": {
     "companyRegistry": "sentinel.v2.js",
+    "evidenceLedger": "data/sentinel-anchor-evidence.json",
     "spreadEngineVersion": "sentinel-p0-shared-v1"
   },
   "byTicker": {
@@ -25,7 +26,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SHEL": {
@@ -40,7 +43,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "CVX": {
@@ -55,7 +60,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "IBE.MC": {
@@ -70,7 +77,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "EQNR": {
@@ -85,7 +94,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "MPC": {
@@ -100,7 +111,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "LMT": {
@@ -115,7 +128,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "LDO.MI": {
@@ -130,7 +145,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "GD": {
@@ -145,7 +162,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "LHX": {
@@ -160,7 +179,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "NOC": {
@@ -175,7 +196,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "RTX": {
@@ -190,7 +213,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "RHM.DE": {
@@ -205,7 +230,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "BA": {
@@ -220,7 +247,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "AIR.PA": {
@@ -235,7 +264,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ENGI.PA": {
@@ -250,7 +281,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ENEL.MI": {
@@ -265,7 +298,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "NEE": {
@@ -280,7 +315,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "DUK": {
@@ -295,7 +332,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "BP": {
@@ -310,7 +349,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "TTE": {
@@ -325,7 +366,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "COP": {
@@ -340,7 +383,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "EOG": {
@@ -355,7 +400,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SLB": {
@@ -370,7 +417,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "HAL": {
@@ -385,7 +434,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "BKR": {
@@ -400,7 +451,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "VLO": {
@@ -415,7 +468,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "PSX": {
@@ -430,7 +485,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "OXY": {
@@ -445,7 +502,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "WMB": {
@@ -460,7 +519,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "KMI": {
@@ -475,7 +536,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SO": {
@@ -490,7 +553,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "D": {
@@ -505,7 +570,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "AEP": {
@@ -520,7 +587,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "EXC": {
@@ -535,7 +604,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SRE": {
@@ -550,7 +621,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "XEL": {
@@ -565,7 +638,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "PCG": {
@@ -580,7 +655,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "PEG": {
@@ -595,7 +672,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "WEC": {
@@ -610,7 +689,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "AWK": {
@@ -625,7 +706,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ENI.MI": {
@@ -640,7 +723,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "NTGY.MC": {
@@ -655,7 +740,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SSE.L": {
@@ -670,7 +757,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "NG.L": {
@@ -685,7 +774,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "GE": {
@@ -700,7 +791,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "HON": {
@@ -715,7 +808,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "UPS": {
@@ -730,7 +825,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "UNP": {
@@ -745,7 +842,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "CAT": {
@@ -760,7 +859,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "DE": {
@@ -775,7 +876,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "LUV": {
@@ -790,7 +893,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "DAL": {
@@ -805,7 +910,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "MMM": {
@@ -820,7 +927,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "EMR": {
@@ -835,7 +944,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ETN": {
@@ -850,7 +961,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SAF.PA": {
@@ -865,7 +978,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "RR.L": {
@@ -880,7 +995,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "VOW3.DE": {
@@ -895,7 +1012,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "SIE.DE": {
@@ -910,7 +1029,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "DHL.DE": {
@@ -925,7 +1046,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "PBR": {
@@ -940,7 +1063,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "2222.SR": {
@@ -955,7 +1080,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "RELIANCE.NS": {
@@ -970,7 +1097,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "WDS.AX": {
@@ -985,7 +1114,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "REP.MC": {
@@ -1000,7 +1131,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "DVN": {
@@ -1015,7 +1148,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "FANG": {
@@ -1030,7 +1165,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "9501.T": {
@@ -1045,7 +1182,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "NTPC.NS": {
@@ -1060,7 +1199,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ORG.AX": {
@@ -1075,7 +1216,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "EOAN.DE": {
@@ -1090,7 +1233,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "RWE.DE": {
@@ -1105,7 +1250,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ETR": {
@@ -1120,7 +1267,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "BA.L": {
@@ -1135,7 +1284,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "HO.PA": {
@@ -1150,7 +1301,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "7011.T": {
@@ -1165,7 +1318,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "6301.T": {
@@ -1180,7 +1335,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "LT.NS": {
@@ -1195,7 +1352,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ERJ": {
@@ -1210,7 +1369,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "ATCO-A.ST": {
@@ -1225,7 +1386,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "VOLV-B.ST": {
@@ -1240,7 +1403,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     },
     "HWM": {
@@ -1255,7 +1420,9 @@
       },
       "provenance": {
         "anchorSource": "manual_primary_source_review",
-        "spreadEngineVersion": "sentinel-p0-shared-v1"
+        "spreadEngineVersion": "sentinel-p0-shared-v1",
+        "evidenceStatus": "formal_evidence_pending",
+        "evidence": null
       }
     }
   }
