@@ -1,0 +1,11 @@
+import { readFileSync } from 'node:fs';
+import { assessPromotion } from './lib/osiris-promotion.mjs';
+let fail = 0, pass = 0; const ok = (c, m) => { if (c) pass++; else { fail++; console.log('x ' + m); } };
+const artifact = JSON.parse(readFileSync(new URL('../data/osiris-rolling-validation.json', import.meta.url), 'utf8'));
+const rows = Object.values(artifact.byTicker || {});
+ok(rows.length >= 80, 'validation covers backtested tickers');
+ok(rows.every(r => r.evidenceStatus === 'candidate_evidence_unavailable' && r.selection.status === 'baseline_pending_rolling_validation'), 'missing candidate evidence cannot promote a model');
+ok(assessPromotion({ baseline:{directionalAccuracy:.50}, candidate:{sampleSize:252,directionalAccuracy:.55,coverage90:.90,independentApproval:true} }).promoted, 'candidate clears every gate with independent approval');
+ok(!assessPromotion({ baseline:{directionalAccuracy:.50}, candidate:{sampleSize:251,directionalAccuracy:.60,coverage90:.90} }).promoted, 'sample gate is fail-closed');
+ok(!assessPromotion({ baseline:{directionalAccuracy:.50}, candidate:{sampleSize:252,directionalAccuracy:.55,coverage90:.90} }).promoted, 'candidate cannot promote without independent approval');
+console.log((fail ? 'x FAIL' : '✓ ALL PASS') + ` — ${pass} passed`); process.exit(fail ? 1 : 0);

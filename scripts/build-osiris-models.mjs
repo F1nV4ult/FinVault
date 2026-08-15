@@ -15,6 +15,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
 const config = JSON.parse(readFileSync(join(root, 'physics-config.json'), 'utf8'));
 const quality = JSON.parse(readFileSync(join(root, 'data', 'osiris-quality.json'), 'utf8'));
+const validation = JSON.parse(readFileSync(join(root, 'data', 'osiris-rolling-validation.json'), 'utf8'));
 const outPath = join(root, 'data', 'osiris-models.json');
 
 function candidate(id, selected, parameters) {
@@ -27,22 +28,26 @@ for (const [cohortName, cohort] of Object.entries(config.cohorts || {})) {
         const isOU = cohort.physics === 'Ornstein-Uhlenbeck';
         const primary = isOU ? 'ou_garch' : 'gbm_jump_garch';
         const qualityRow = quality.byTicker?.[ticker.symbol] || null;
+        const validationRow = validation.byTicker?.[ticker.symbol] || null;
+        const selectedModel = validationRow?.selection?.selectedModel || primary;
+        const selectionStatus = validationRow?.selection?.status || 'baseline_pending_rolling_validation';
         byTicker[ticker.symbol] = {
             cohort: cohortName,
             selection: {
-                status: 'baseline_pending_rolling_validation',
-                selectedModel: primary,
+                status: selectionStatus,
+                selectedModel,
                 backtestRunDate: quality.backtest?.runDate || null,
+                rollingValidationVersion: validation.validationVersion || null,
                 confidence: qualityRow?.confidence || 'limited'
             },
             candidates: [
-                candidate('ou_garch', isOU, {
+                candidate('ou_garch', selectedModel === 'ou_garch', {
                     reversionSpeedTheta: ticker.reversionSpeedTheta ?? null,
                     baselineVolatility: ticker.baselineVolatility ?? null,
                     garchAlpha: ticker.garchAlpha ?? 0.10,
                     garchBeta: ticker.garchBeta ?? 0.85
                 }),
-                candidate('gbm_jump_garch', !isOU, {
+                candidate('gbm_jump_garch', selectedModel === 'gbm_jump_garch', {
                     jumpFrequencyLambda: ticker.jumpFrequencyLambda ?? null,
                     jumpMu: ticker.jumpMu ?? 0,
                     baselineVolatility: ticker.baselineVolatility ?? null,

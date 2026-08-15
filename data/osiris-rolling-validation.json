@@ -1,0 +1,1167 @@
+{
+  "schemaVersion": 1,
+  "validationVersion": "osiris-o2-rolling-validation-v1",
+  "generatedFrom": {
+    "qualityRunDate": "2026-05-26",
+    "candidateBacktestRunDate": null
+  },
+  "policy": {
+    "minimumOutOfSampleDays": 252,
+    "minimumDirectionalAccuracyImprovementPp": 0.05,
+    "coverage90Range": [
+      0.85,
+      0.95
+    ],
+    "requireIndependentApproval": true
+  },
+  "byTicker": {
+    "2222.SR": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5091383812010444,
+        "coverage90": 0.8784403669724771
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "9501.T": {
+      "baseline": {
+        "sampleSize": 422,
+        "directionalAccuracy": 0.4845605700712589,
+        "coverage90": 0.8791469194312796
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "AEP": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5334872979214781,
+        "coverage90": 0.8967889908256881
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "AWK": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5022935779816514,
+        "coverage90": 0.8876146788990825
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "BKR": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5481651376146789,
+        "coverage90": 0.8944954128440367
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "BP": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5547785547785548,
+        "coverage90": 0.8990825688073395
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "COP": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.518348623853211,
+        "coverage90": 0.8899082568807339
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "CVX": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5596330275229358,
+        "coverage90": 0.8899082568807339
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "D": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.535632183908046,
+        "coverage90": 0.8899082568807339
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "DUK": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5298165137614679,
+        "coverage90": 0.8922018348623854
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "DVN": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5230414746543779,
+        "coverage90": 0.8807339449541285
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ENEL.MI": {
+      "baseline": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.5876993166287016,
+        "coverage90": 0.8681818181818182
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ENGI.PA": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5645161290322581,
+        "coverage90": 0.8878923766816144
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ENI.MI": {
+      "baseline": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.5968109339407744,
+        "coverage90": 0.8909090909090909
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "EOAN.DE": {
+      "baseline": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5417661097852029,
+        "coverage90": 0.8823529411764706
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "EOG": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5333333333333333,
+        "coverage90": 0.8876146788990825
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "EQNR": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5509259259259259,
+        "coverage90": 0.8990825688073395
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ETR": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5529953917050692,
+        "coverage90": 0.8876146788990825
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "EXC": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5368663594470046,
+        "coverage90": 0.9036697247706422
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "FANG": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5344036697247706,
+        "coverage90": 0.9036697247706422
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "HAL": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5220417633410673,
+        "coverage90": 0.8922018348623854
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "IBE.MC": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5839080459770115,
+        "coverage90": 0.9013452914798207
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "KMI": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.550351288056206,
+        "coverage90": 0.8967889908256881
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "MPC": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5494252873563218,
+        "coverage90": 0.8853211009174312
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "NEE": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5276497695852534,
+        "coverage90": 0.8990825688073395
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "NG.L": {
+      "baseline": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5448275862068965,
+        "coverage90": 0.891156462585034
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "NTGY.MC": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5930232558139535,
+        "coverage90": 0.9170403587443946
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "NTPC.NS": {
+      "baseline": {
+        "sampleSize": 433,
+        "directionalAccuracy": 0.4976303317535545,
+        "coverage90": 0.8868360277136259
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ORG.AX": {
+      "baseline": {
+        "sampleSize": 443,
+        "directionalAccuracy": 0.5534883720930233,
+        "coverage90": 0.9119638826185101
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "OXY": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5057471264367817,
+        "coverage90": 0.908256880733945
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "PBR": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5327102803738317,
+        "coverage90": 0.8853211009174312
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "PCG": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5210280373831776,
+        "coverage90": 0.8899082568807339
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "PEG": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5333333333333333,
+        "coverage90": 0.8853211009174312
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "PSX": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5321100917431193,
+        "coverage90": 0.8807339449541285
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "RELIANCE.NS": {
+      "baseline": {
+        "sampleSize": 433,
+        "directionalAccuracy": 0.4965034965034965,
+        "coverage90": 0.8845265588914549
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "REP.MC": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5859728506787331,
+        "coverage90": 0.905829596412556
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "RWE.DE": {
+      "baseline": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5542168674698795,
+        "coverage90": 0.9072398190045249
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SHEL": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5506912442396313,
+        "coverage90": 0.8784403669724771
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SLB": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5023148148148148,
+        "coverage90": 0.8990825688073395
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SO": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5299539170506913,
+        "coverage90": 0.8807339449541285
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SRE": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5334872979214781,
+        "coverage90": 0.9013761467889908
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SSE.L": {
+      "baseline": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5091743119266054,
+        "coverage90": 0.9070294784580499
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "TTE": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5402298850574713,
+        "coverage90": 0.8784403669724771
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "VLO": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5412844036697247,
+        "coverage90": 0.8830275229357798
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "WDS.AX": {
+      "baseline": {
+        "sampleSize": 443,
+        "directionalAccuracy": 0.542528735632184,
+        "coverage90": 0.8848758465011287
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "WEC": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5229357798165137,
+        "coverage90": 0.9036697247706422
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "WMB": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5393518518518519,
+        "coverage90": 0.9013761467889908
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "XEL": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5494252873563218,
+        "coverage90": 0.9128440366972477
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "XOM": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.542528735632184,
+        "coverage90": 0.9036697247706422
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "6301.T": {
+      "baseline": {
+        "sampleSize": 422,
+        "directionalAccuracy": 0.5333333333333333,
+        "coverage90": 0.8957345971563981
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "7011.T": {
+      "baseline": {
+        "sampleSize": 422,
+        "directionalAccuracy": 0.48687350835322196,
+        "coverage90": 0.9075829383886256
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "AIR.PA": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5022522522522522,
+        "coverage90": 0.9080717488789237
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ATCO-A.ST": {
+      "baseline": {
+        "sampleSize": 434,
+        "directionalAccuracy": 0.5069767441860465,
+        "coverage90": 0.8963133640552995
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "BA": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5206422018348624,
+        "coverage90": 0.9013761467889908
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "BA.L": {
+      "baseline": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5412844036697247,
+        "coverage90": 0.9024943310657596
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "CAT": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5412844036697247,
+        "coverage90": 0.8944954128440367
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "DAL": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.48842592592592593,
+        "coverage90": 0.9059633027522935
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "DE": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.49885057471264366,
+        "coverage90": 0.9059633027522935
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "DHL.DE": {
+      "baseline": {
+        "sampleSize": 441,
+        "directionalAccuracy": 0.5272727272727272,
+        "coverage90": 0.9160997732426304
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "EMR": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5471264367816092,
+        "coverage90": 0.8990825688073395
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "ETN": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5252293577981652,
+        "coverage90": 0.9059633027522935
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "GD": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5229357798165137,
+        "coverage90": 0.9220183486238532
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "GE": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5573394495412844,
+        "coverage90": 0.8944954128440367
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "HO.PA": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5417607223476298,
+        "coverage90": 0.9013452914798207
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "HON": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.48853211009174313,
+        "coverage90": 0.9036697247706422
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "HWM": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5435779816513762,
+        "coverage90": 0.8967889908256881
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "LDO.MI": {
+      "baseline": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.541095890410959,
+        "coverage90": 0.8977272727272727
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "LHX": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5080459770114942,
+        "coverage90": 0.8853211009174312
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "LMT": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5160550458715596,
+        "coverage90": 0.8944954128440367
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "LT.NS": {
+      "baseline": {
+        "sampleSize": 433,
+        "directionalAccuracy": 0.4813953488372093,
+        "coverage90": 0.9006928406466512
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "LUV": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.532258064516129,
+        "coverage90": 0.9197247706422018
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "MMM": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5161290322580645,
+        "coverage90": 0.9174311926605505
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "NOC": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5172413793103449,
+        "coverage90": 0.8922018348623854
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "RHM.DE": {
+      "baseline": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5205811138014528,
+        "coverage90": 0.8914027149321267
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "RR.L": {
+      "baseline": {
+        "sampleSize": 440,
+        "directionalAccuracy": 0.5389908256880734,
+        "coverage90": 0.9022727272727272
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "RTX": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5483870967741935,
+        "coverage90": 0.8922018348623854
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SAF.PA": {
+      "baseline": {
+        "sampleSize": 446,
+        "directionalAccuracy": 0.5319634703196348,
+        "coverage90": 0.8789237668161435
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "SIE.DE": {
+      "baseline": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.5261904761904762,
+        "coverage90": 0.9027149321266968
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "UNP": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5275229357798165,
+        "coverage90": 0.9197247706422018
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "UPS": {
+      "baseline": {
+        "sampleSize": 436,
+        "directionalAccuracy": 0.5127020785219399,
+        "coverage90": 0.9197247706422018
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "VOLV-B.ST": {
+      "baseline": {
+        "sampleSize": 434,
+        "directionalAccuracy": 0.48604651162790696,
+        "coverage90": 0.9055299539170507
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    },
+    "VOW3.DE": {
+      "baseline": {
+        "sampleSize": 442,
+        "directionalAccuracy": 0.47268408551068886,
+        "coverage90": 0.8868778280542986
+      },
+      "evidenceStatus": "candidate_evidence_unavailable",
+      "candidates": {},
+      "selection": {
+        "status": "baseline_pending_rolling_validation",
+        "selectedModel": null,
+        "reason": "candidate backtest artifact not yet published"
+      }
+    }
+  }
+}

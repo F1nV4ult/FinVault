@@ -86,6 +86,7 @@ to appear current merely because its artifact was once valid.
 
 The artifact also codifies the promotion gate: at least 252 out-of-sample
 days, a 5% directional-accuracy improvement, 90% interval coverage within
-85–95%, and an explicit `rolling_validation_promoted` status. Until those
+85–95%, independent approval recorded alongside the candidate evidence, and
+an explicit `rolling_validation_promoted` status. Until those
 requirements are met, the baseline remains visibly marked as pending
 validation; no candidate is silently promoted.

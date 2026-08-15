@@ -47,6 +47,34 @@ import { isRateLimited, getClientIp } from './_ratelimit.js';
 const SYMBOL_RE = /^[A-Za-z0-9.\-\^]{1,20}$/;
 // YYYY-MM-DD dates for from/to params.
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const UPSTREAM_TIMEOUT_MS = 8_000;
+const MAX_TRANSIENT_ATTEMPTS = 2;
+
+function isTransientStatus(status) {
+    return status === 408 || status === 425 || status === 502 || status === 503 || status === 504;
+}
+
+async function fetchFinnhub(url) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= MAX_TRANSIENT_ATTEMPTS; attempt++) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
+        try {
+            const response = await fetch(url, { signal: controller.signal });
+            if (!isTransientStatus(response.status) || attempt === MAX_TRANSIENT_ATTEMPTS) {
+                return { response, attempts: attempt };
+            }
+            lastError = new Error('upstream HTTP ' + response.status);
+        } catch (error) {
+            lastError = error;
+            if (attempt === MAX_TRANSIENT_ATTEMPTS) throw error;
+        } finally {
+            clearTimeout(timer);
+        }
+        await new Promise(resolve => setTimeout(resolve, 200 * attempt));
+    }
+    throw lastError || new Error('upstream request failed');
+}
 
 // Look up the Finnhub key from any of several common naming conventions.
 // Vercel env vars are case-sensitive on Linux, so we cover both casings
@@ -112,7 +140,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const response = await fetch(upstream.toString());
+        const { response, attempts } = await fetchFinnhub(upstream.toString());
 
         if (response.status === 401 || response.status === 403) {
             return res.status(401).json({ error: 'E401: API_KEY_INVALID_OR_RESTRICTED' });
@@ -128,9 +156,15 @@ export default async function handler(req, res) {
         const ttl = CACHE_TTL[endpoint] || 3600;
 
         res.setHeader('Cache-Control', `s-maxage=${ttl}, stale-while-revalidate=${ttl}`);
+        res.setHeader('X-NovaSect-Source', 'finnhub-live');
+        res.setHeader('X-NovaSect-Upstream-Attempts', String(attempts));
         return res.status(200).json(data);
     } catch (error) {
         console.error('Finnhub Proxy Error:', error);
-        return res.status(502).json({ error: 'E502: NETWORK_HANDSHAKE_FAILED' });
+        const timedOut = error?.name === 'AbortError';
+        return res.status(502).json({
+            error: timedOut ? 'E502: UPSTREAM_TIMEOUT' : 'E502: NETWORK_HANDSHAKE_FAILED',
+            retryable: true
+        });
     }
 }

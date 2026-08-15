@@ -29,6 +29,7 @@ for (const [ticker, model] of Object.entries(models.byTicker || {})) {
             validationAsOf: quality.backtest?.runDate || null,
             qualityModelVersion: quality.modelVersion || null,
             registryModelVersion: models.modelVersion || null,
+            rollingValidationVersion: model.selection?.rollingValidationVersion || null,
             regimeVersion: 'osiris-o4-regime-v1'
         },
         monitoring

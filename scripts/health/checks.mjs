@@ -61,13 +61,25 @@ export async function checkYahoo(siteUrl) {
 //   Asserts 200 + the TTM block we depend on for live multiples.
 export async function checkFinnhub(siteUrl) {
     const url = siteUrl + '/api/finnhub-proxy?endpoint=stock/metric&symbol=AAPL';
-    let t;
-    try { t = await timed(() => fetchWithTimeout(url)); }
-    catch (e) { return fail('Finnhub proxy unreachable', e.message); }
+    let t, firstFailure = null;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+            t = await timed(() => fetchWithTimeout(url));
+            if (t.res.ok) break;
+            const body = await t.res.clone().text().catch(() => '');
+            firstFailure ||= 'attempt ' + attempt + ': HTTP ' + t.res.status + ' in ' + t.ms + ' ms' + (body ? ' · ' + body.slice(0, 180) : '');
+        } catch (e) {
+            firstFailure ||= 'attempt ' + attempt + ': ' + e.message;
+        }
+        if (attempt < 2) await new Promise(resolve => setTimeout(resolve, 500));
+    }
+    if (!t) return fail('Finnhub proxy unreachable', firstFailure || 'two attempts failed');
     if (!t.res.ok) {
         const auth = (t.res.status === 401 || t.res.status === 403)
             ? ' — API key likely expired/invalid (rotate FINNHUB_API_KEY in Vercel env)' : '';
-        return fail('Finnhub proxy returned ' + t.res.status + auth, url + ' in ' + t.ms + ' ms');
+        const body = await t.res.text().catch(() => '');
+        return fail('Finnhub proxy returned ' + t.res.status + auth,
+            (firstFailure ? firstFailure + '\n' : '') + 'final: HTTP ' + t.res.status + ' in ' + t.ms + ' ms' + (body ? ' · ' + body.slice(0, 180) : ''));
     }
     let data;
     try { data = await t.res.json(); }
@@ -76,7 +88,7 @@ export async function checkFinnhub(siteUrl) {
         return fail('Finnhub proxy missing metric.peExclExtraTTM',
             JSON.stringify(data).slice(0, 200));
     }
-    return ok('Finnhub proxy healthy (' + t.ms + ' ms)');
+    return ok('Finnhub proxy healthy (' + t.ms + ' ms' + (firstFailure ? ' · recovered on retry' : '') + ')');
 }
 
 // ── 3. Universe coverage ───────────────────────────────────────────
@@ -531,13 +543,26 @@ export async function checkPdfRender(siteUrl) {
             return fail('PDF download has wrong signature: "' + sig + '"',
                 'Expected `%PDF` magic bytes. File: ' + filePath + ' (' + stat.size + ' B)');
         }
-        // Threshold dropped from 50 KB to 20 KB after empirically observing
-        // ~9 KB outputs even with hydration confirmed. A full brief PDF
-        // for XOM (cover + ~6 tables, jsPDF compress:true) is realistically
-        // 25-50 KB; 20 KB is a generous floor that still catches the
-        // genuinely-empty case (8-9 KB = body builder skipped most sections).
-        if (stat.size < 20_000) {
+        // Compression makes byte size depend on the amount of currently-live
+        // data. Validate the user-visible document contract instead: a
+        // readable multi-page PDF containing all three cross-tool sections.
+        let parsed;
+        try {
+            const pdfParse = (await import('pdf-parse/lib/pdf-parse.js')).default;
+            parsed = await pdfParse(head);
+        } catch (error) {
+            return fail('PDF semantic validation failed', 'Could not parse generated PDF: ' + error.message);
+        }
+        const pdfText = String(parsed?.text || '').replace(/\s+/g, ' ').toUpperCase();
+        const requiredSections = ['FINVAULT', 'SENTINEL', 'OSIRIS'];
+        const missingSections = requiredSections.filter(section => !pdfText.includes(section));
+        if (stat.size < 5_000 || Number(parsed?.numpages || 0) < 2 || missingSections.length) {
             const diag = [
+                'PDF semantic state:',
+                '  size:           ' + stat.size + ' B',
+                '  pages:          ' + (parsed?.numpages || 0),
+                '  missing:        ' + (missingSections.join(', ') || 'none'),
+                '',
                 'Pre-click DOM state:',
                 '  ratios rows:    ' + preClickState.ratiosRows,
                 '  ratios[0]:      ' + preClickState.ratiosFirstValue,
@@ -556,7 +581,7 @@ export async function checkPdfRender(siteUrl) {
                 'Failed network requests:',
                 failedRequests.length ? failedRequests.slice(0, 4).join('\n') : '  (none)'
             ].join('\n');
-            return fail('PDF download too small (' + stat.size + ' B < 20 KB)',
+            return fail('PDF download failed semantic validation',
                 '```\n' + diag + '\n```');
         }
         return ok('PDF render OK · ' + Math.round(stat.size / 1024) + ' KB · ' + ms + ' ms');

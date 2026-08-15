@@ -37,6 +37,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -59,6 +60,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -81,6 +83,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -103,6 +106,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -125,6 +129,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -147,6 +152,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -169,6 +175,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -191,6 +198,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -213,6 +221,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -235,6 +244,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -257,6 +267,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -279,6 +290,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -301,6 +313,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -323,6 +336,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -345,6 +359,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -367,6 +382,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -389,6 +405,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -411,6 +428,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -433,6 +451,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -455,6 +474,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -477,6 +497,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -499,6 +520,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -521,6 +543,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -543,6 +566,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -565,6 +589,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -587,6 +612,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -609,6 +635,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -631,6 +658,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -653,6 +681,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -675,6 +704,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -697,6 +727,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -719,6 +750,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -741,6 +773,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -763,6 +796,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -785,6 +819,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -807,6 +842,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -829,6 +865,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -851,6 +888,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -873,6 +911,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -895,6 +934,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -917,6 +957,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -939,6 +980,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -961,6 +1003,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -983,6 +1026,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1005,6 +1049,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1027,6 +1072,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1049,6 +1095,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1071,6 +1118,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1093,6 +1141,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1115,6 +1164,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1137,6 +1187,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1159,6 +1210,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1181,6 +1233,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1203,6 +1256,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1225,6 +1279,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1247,6 +1302,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1269,6 +1325,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1291,6 +1348,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1313,6 +1371,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1331,6 +1390,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1353,6 +1413,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1375,6 +1436,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1397,6 +1459,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1419,6 +1482,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1441,6 +1505,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1463,6 +1528,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1485,6 +1551,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1507,6 +1574,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1529,6 +1597,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1551,6 +1620,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1573,6 +1643,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1595,6 +1666,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1617,6 +1689,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1639,6 +1712,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1661,6 +1735,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1683,6 +1758,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1705,6 +1781,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1727,6 +1804,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1749,6 +1827,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1771,6 +1850,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1793,6 +1873,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1815,6 +1896,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
@@ -1837,6 +1919,7 @@
         "validationAsOf": "2026-05-26",
         "qualityModelVersion": "osiris-o2-quality-v1",
         "registryModelVersion": "osiris-o3-registry-v1",
+        "rollingValidationVersion": "osiris-o2-rolling-validation-v1",
         "regimeVersion": "osiris-o4-regime-v1"
       },
       "monitoring": {
