@@ -156,6 +156,12 @@ IT 145, BR/IN 250 …), risk levels (NOMINAL <200, CAUTION 200–400, ELEVATED 4
 Vercel KV (Upstash). **Writes are server-only** (require `SNAPSHOT_WRITE_SECRET`); the browser is
 read-only.
 
+**Anchor review queue:** `anchor-review.html` turns the same versioned governance artifact into a
+sorted, browser-local work queue. It surfaces verification age, approved rating/base-spread anchors,
+and a direct issuer-dossier link; review notes, acknowledgements and material-candidate flags remain
+in local storage and cannot alter production anchors. A production change still requires atomic
+rating + comparable-bond spread + `lastVerified` approval under `SENTINEL-CALIBRATION.md`.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

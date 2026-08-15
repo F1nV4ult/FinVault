@@ -135,7 +135,7 @@ export async function checkUniverse(siteUrl) {
 export async function checkPublicAssets(siteUrl) {
     const assets = [
         '/', '/index.html',
-        '/sentinel.html', '/osiris.html', '/reports.html', '/report.html',
+        '/sentinel.html', '/anchor-review.html', '/osiris.html', '/reports.html', '/report.html',
         '/brief.html', '/energy.html', '/industrials.html', '/about.html',
         '/data/universe.json', '/physics-config.json'
     ];

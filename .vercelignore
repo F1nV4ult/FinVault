@@ -28,6 +28,7 @@ components/osiris/osirisCloudCanvas.js
 components/osiris/osirisOracle.js
 components/osiris/stochasticWorker.js
 components/snapshots/snapshots.js
+components/sentinel/anchorReview.js
 
 # Internal docs / templates.
 *.docx

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Anchor Review Queue — NovaSect</title>
+    <meta name="description" content="Browser-local review queue for NovaSect Sentinel issuer anchor governance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.min.css">
+    <script src="components/snapshots/snapshots.min.js"></script>
+    <style>
+        body { background:#030703; color:#eef7ee; font-family:Montserrat,sans-serif; margin:0; }
+        .ar-main { max-width:1180px; margin:0 auto; padding:116px 20px 60px; }
+        .ar-kicker,.ar-meta,.ar-note,.ar-btn,.ar-filter { font-family:'JetBrains Mono',monospace; }
+        .ar-kicker { color:#39FF14; letter-spacing:.18em; font-size:.72rem; }
+        h1 { margin:10px 0 12px; font-size:clamp(2rem,5vw,3.5rem); text-transform:uppercase; }
+        .ar-intro { color:#a7b2a7; max-width:850px; line-height:1.6; font-size:.92rem; }
+        .ar-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:26px 0 18px; }
+        .ar-stat,.ar-row { border:1px solid rgba(57,255,20,.2); background:rgba(0,16,0,.72); border-radius:8px; }
+        .ar-stat { padding:14px; } .ar-stat b { display:block; color:#39FF14; font-size:1.45rem; } .ar-stat span { color:#91a391; font: .65rem 'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.08em; }
+        .ar-controls { display:flex; gap:8px; flex-wrap:wrap; margin:18px 0; }
+        .ar-filter,.ar-btn { color:#b8c5b8; background:#061006; border:1px solid rgba(57,255,20,.24); border-radius:5px; padding:8px 10px; cursor:pointer; font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; }
+        .ar-filter.active,.ar-btn:hover { color:#061006; background:#39FF14; border-color:#39FF14; } .ar-btn { color:#39FF14; }
+        .ar-list { display:grid; gap:10px; } .ar-row { padding:14px; display:grid; grid-template-columns:minmax(180px,1.4fr) repeat(3,minmax(100px,.7fr)) minmax(180px,1.2fr); gap:12px; align-items:center; }
+        .ar-ticker { color:#39FF14; font:700 1rem 'JetBrains Mono',monospace; } .ar-name { color:#d2ddd2; font-size:.84rem; margin-top:4px; }
+        .ar-meta { color:#899589; font-size:.68rem; line-height:1.55; } .ar-label { color:#596659; display:block; text-transform:uppercase; letter-spacing:.08em; font-size:.58rem; }
+        .ar-badge { display:inline-block; border-radius:99px; padding:3px 7px; font: .62rem 'JetBrains Mono',monospace; } .fresh { color:#39FF14; background:rgba(57,255,20,.12); } .due { color:#facc15; background:rgba(250,204,21,.12); } .stale { color:#fb7185; background:rgba(251,113,133,.12); } .done { color:#60a5fa; background:rgba(96,165,250,.12); }
+        .ar-note { width:100%; box-sizing:border-box; color:#e7f3e7; background:#020702; border:1px solid rgba(255,255,255,.12); border-radius:4px; padding:7px; font-size:.68rem; resize:vertical; min-height:38px; }
+        .ar-actions { display:flex; gap:6px; margin-top:7px; align-items:center; } .ar-link { color:#39FF14; font: .65rem 'JetBrains Mono',monospace; text-decoration:none; }
+        .ar-empty { color:#899589; padding:30px; text-align:center; border:1px dashed rgba(57,255,20,.24); border-radius:8px; }
+        @media(max-width:760px) { .ar-main{padding-top:94px}.ar-summary{grid-template-columns:repeat(2,1fr)}.ar-row{grid-template-columns:1fr 1fr}.ar-row>div:last-child{grid-column:1/-1} }
+    </style>
+</head>
+<body>
+    <header class="header"><a href="index.html" class="logo" style="color:white;text-decoration:none">NovaSect</a><nav class="nav-links"><a href="sentinel.html" class="nav-link">Sentinel</a><a href="scenario.html" class="nav-link">Scenario Lab</a></nav></header>
+    <main class="ar-main">
+        <div class="ar-kicker">Sentinel / governed manual inputs</div>
+        <h1>Anchor Review Queue</h1>
+        <p class="ar-intro">Prioritise issuer rating and base-spread reviews without changing production anchors. Notes and review acknowledgements remain in this browser only. A completed queue item is not a model update: rating, comparable-bond spread, source and verification date must still be approved together.</p>
+        <section class="ar-summary" id="ar-summary" aria-live="polite"></section>
+        <div class="ar-controls" id="ar-controls"><button class="ar-filter active" data-filter="all">All</button><button class="ar-filter" data-filter="stale">Overdue</button><button class="ar-filter" data-filter="due">Review due</button><button class="ar-filter" data-filter="material">Material change</button><button class="ar-filter" data-filter="done">Locally acknowledged</button></div>
+        <section class="ar-list" id="ar-list" aria-live="polite"><div class="ar-empty">Loading governance queue…</div></section>
+    </main>
+    <script src="components/sentinel/anchorReview.min.js"></script>
+</body>
+</html>

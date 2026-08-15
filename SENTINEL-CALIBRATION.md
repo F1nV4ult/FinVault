@@ -101,6 +101,18 @@ node scripts/check-stale-anchors.js --out-of-band # only out-of-band rows
 
 Run at the start of each quarter to get a triaged refresh list.
 
+## Browser-local review queue
+
+`anchor-review.html` is the operational companion to the audit script. It
+sorts the same approved anchors by verification age and lets a reviewer keep a
+**browser-local** note, acknowledgement, or material-candidate flag while
+research is in progress. It does not write `sentinel.v2.js`, change a rating,
+change a spread, or send review activity to NovaSect.
+
+Use the queue to organise evidence collection, then make a production update
+only after the atomic sign-off checklist below is complete. A local
+acknowledgement is deliberately not evidence that an anchor is current.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:
