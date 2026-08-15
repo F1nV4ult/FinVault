@@ -150,6 +150,22 @@ The baseline rows are labelled `legacy-manual-record`; they document the
 approved state that existed before the evidence ledger. Do not regenerate the
 baseline script after it has created the file.
 
+## Candidate entry and promotion preview
+
+Create a candidate only after reviewing its primary sources. Start with
+`--dry-run`, which prints the validated record and leaves the repository
+unchanged:
+
+```bash
+node scripts/add-sentinel-anchor-candidate.mjs --ticker XOM --rating AA --spread 125 --agency "S&P Global" --rating-url https://example.com/rating --instrument "XOM senior unsecured 2034" --spread-url https://example.com/bond --source-date 2026-08-15 --reviewer initials --dry-run
+```
+
+The same command without `--dry-run` records a **candidate only** in the
+evidence ledger. It validates the issuer, rating band, spread band, date, URLs,
+and reviewer; it cannot alter `sentinel.v2.js`. Use
+`npm run sentinel:promotion-plan -- --ticker XOM` to compare a candidate to its
+approved anchor and print the required manual promotion steps.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:

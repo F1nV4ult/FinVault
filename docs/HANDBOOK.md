@@ -177,6 +177,12 @@ issuer. Governance validation compares the latest history entry to `sentinel.v2.
 edit must be accompanied by a matching history entry. New refresh entries must reference the
 validated candidate-evidence ID; the initial entries are explicitly labelled legacy manual records.
 
+**Controlled candidate workflow:** `add-sentinel-anchor-candidate.mjs` validates a proposed
+rating/spread, primary-source URLs, source date, and reviewer before it can enter the candidate-only
+ledger. Its dry-run mode supports review without a file change; the promotion-plan command is
+read-only and explains the required history + atomic-anchor update. Neither script can update a
+production anchor.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

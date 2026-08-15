@@ -7,6 +7,8 @@ const history = JSON.parse(readFileSync(new URL('../data/sentinel-anchor-history
 const rows = Object.entries(artifact.byTicker || {});
 const reviewPage = readFileSync(new URL('../anchor-review.html', import.meta.url), 'utf8');
 const reviewClient = readFileSync(new URL('../components/sentinel/anchorReview.js', import.meta.url), 'utf8');
+const candidateCli = readFileSync(new URL('./add-sentinel-anchor-candidate.mjs', import.meta.url), 'utf8');
+const promotionPlanner = readFileSync(new URL('./plan-sentinel-anchor-promotion.mjs', import.meta.url), 'utf8');
 ok(artifact.schemaVersion === 2 && artifact.governanceVersion === 'sentinel-p2-evidence-v1', 'governance artifact has a versioned contract');
 ok(rows.length === 83, 'governance artifact covers the Sentinel universe');
 ok(rows.every(([, row]) => row.anchor?.rating && Number.isFinite(row.anchor?.baseSpreadBps) && row.anchor?.lastVerified), 'every issuer has auditable anchor evidence');
@@ -18,5 +20,6 @@ ok(rows.every(([, row]) => row.provenance?.history?.effectiveDate === row.anchor
 ok(reviewPage.includes('components/sentinel/anchorReview.min.js') && reviewClient.includes("ns.sentinel.anchor-review.v1"), 'anchor queue is browser-local and ships a minified client');
 ok(reviewClient.includes("NSSnapshots.get('sentinelGovernance')") && reviewClient.includes('material'), 'anchor queue consumes governed anchors and supports local material flags');
 ok(reviewPage.includes('id="ar-export"') && reviewClient.includes('exportReviewPacket') && reviewClient.includes('text/csv'), 'review queue exports a local, visible-filter evidence packet');
+ok(candidateCli.includes('--dry-run') && candidateCli.includes('this did not change an approved anchor') && promotionPlanner.includes('Required before promotion'), 'candidate entry and promotion planning remain controlled and non-mutating');
 console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);
