@@ -191,6 +191,11 @@ Recorded candidates are separately filterable in the Sentinel queue. The row sho
 rating/spread delta and reviewer-supplied rating/spread source links for inspection; no queue action
 can promote the candidate.
 
+Candidate sources expire after 30 days and require a review date on or after the source date. The
+promotion-plan script can emit a machine-readable, read-only preview for review tooling. The normal
+test command and scheduled freshness health check now include the full Sentinel evidence/history
+governance gate, so a broken link between those artifacts is caught before release or in production.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

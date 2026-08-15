@@ -177,6 +177,14 @@ recorded**, including the proposed rating/spread delta and the two supplied
 source links. This remains an evidence-review state, not approval or a live
 model update.
 
+Candidate evidence expires after **30 days**. The validator rejects an expired
+source, a future review date, or a review date before its source date. Refresh
+the source and create a new candidate instead of promoting stale evidence.
+
+`npm run sentinel:promotion-plan -- --format json` produces a machine-readable,
+read-only promotion preview for any recorded candidates. It is designed for
+review tooling and contains no command that changes a production anchor.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:

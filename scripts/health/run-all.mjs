@@ -17,7 +17,7 @@
 import { postDigest } from './notify.mjs';
 import {
     checkYahoo, checkFinnhub, checkUniverse, checkPublicAssets,
-    checkFred, checkStaleAnchors, checkUniverseDrift, checkFinnhubAuthz,
+    checkFred, checkStaleAnchors, checkSentinelGovernanceArtifacts, checkUniverseDrift, checkFinnhubAuthz,
     checkOsirisEngine, checkOsirisCompensator, checkPdfRender
 } from './checks.mjs';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -83,6 +83,7 @@ const ALL_CHECKS = [
     { name: 'universe-coverage', group: 'liveness',  fn: () => checkUniverse(SITE_URL) },
     { name: 'public-assets',     group: 'liveness',  fn: () => checkPublicAssets(SITE_URL) },
     { name: 'finnhub-authz',     group: 'liveness',  fn: () => checkFinnhubAuthz(SITE_URL) },
+    { name: 'sentinel-governance', group: 'freshness', fn: () => checkSentinelGovernanceArtifacts(SITE_URL) },
     { name: 'stale-anchors',     group: 'freshness', fn: () => checkStaleAnchors() },
     { name: 'universe-drift',    group: 'freshness', fn: () => checkUniverseDrift() },
     { name: 'osiris-engine',     group: 'liveness',  fn: () => checkOsirisEngine() },

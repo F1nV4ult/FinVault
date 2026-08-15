@@ -19,6 +19,9 @@ if (!match) throw new Error('Could not locate Sentinel COMPANIES literal');
 const companies = parseLiteral(match[1]);
 const outPath = join(root, 'data', 'sentinel-governance.json');
 const monitoring = { reviewAfterDays: 60, staleAfterDays: 90 };
+const candidateMaxAgeDays = Number(evidenceLedger.policy?.candidateMaxAgeDays) || 30;
+const today = new Date().toISOString().slice(0, 10);
+const evidenceAgeDays = sourceDate => sourceDate ? Math.max(0, Math.floor((Date.parse(today) - Date.parse(sourceDate)) / 86400000)) : null;
 const byTicker = Object.fromEntries(companies.map(company => {
     const evidence = evidenceLedger.byTicker?.[company.ticker] || null;
     const latestHistory = (history.entries || []).filter(entry => entry.ticker === company.ticker).sort((a, b) => a.effectiveDate.localeCompare(b.effectiveDate) || a.id.localeCompare(b.id)).at(-1) || null;
@@ -30,7 +33,7 @@ const byTicker = Object.fromEntries(companies.map(company => {
             anchorSource: 'manual_primary_source_review',
             spreadEngineVersion: 'sentinel-p0-shared-v1',
             evidenceStatus: evidence ? 'candidate_recorded' : 'formal_evidence_pending',
-            evidence: evidence ? { sourceDate: evidence.sourceDate, ratingSource: evidence.ratingEvidence?.url || null, spreadSource: evidence.spreadEvidence?.url || null, candidateRating: evidence.candidate?.rating || null, candidateBaseSpreadBps: evidence.candidate?.baseSpreadBps ?? null } : null,
+            evidence: evidence ? { sourceDate: evidence.sourceDate, ageDays: evidenceAgeDays(evidence.sourceDate), freshness: evidenceAgeDays(evidence.sourceDate) <= candidateMaxAgeDays ? 'current' : 'expired', ratingSource: evidence.ratingEvidence?.url || null, spreadSource: evidence.spreadEvidence?.url || null, candidateRating: evidence.candidate?.rating || null, candidateBaseSpreadBps: evidence.candidate?.baseSpreadBps ?? null } : null,
             history: latestHistory ? { id: latestHistory.id, effectiveDate: latestHistory.effectiveDate, kind: latestHistory.kind } : null
         }
     }];

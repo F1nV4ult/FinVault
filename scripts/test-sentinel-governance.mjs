@@ -9,6 +9,7 @@ const reviewPage = readFileSync(new URL('../anchor-review.html', import.meta.url
 const reviewClient = readFileSync(new URL('../components/sentinel/anchorReview.js', import.meta.url), 'utf8');
 const candidateCli = readFileSync(new URL('./add-sentinel-anchor-candidate.mjs', import.meta.url), 'utf8');
 const promotionPlanner = readFileSync(new URL('./plan-sentinel-anchor-promotion.mjs', import.meta.url), 'utf8');
+const healthChecks = readFileSync(new URL('./health/checks.mjs', import.meta.url), 'utf8');
 ok(artifact.schemaVersion === 2 && artifact.governanceVersion === 'sentinel-p2-evidence-v1', 'governance artifact has a versioned contract');
 ok(rows.length === 83, 'governance artifact covers the Sentinel universe');
 ok(rows.every(([, row]) => row.anchor?.rating && Number.isFinite(row.anchor?.baseSpreadBps) && row.anchor?.lastVerified), 'every issuer has auditable anchor evidence');
@@ -23,5 +24,6 @@ ok(reviewPage.includes('id="ar-export"') && reviewClient.includes('exportReviewP
 ok(candidateCli.includes('--dry-run') && candidateCli.includes('--file') && candidateCli.includes('this did not change an approved anchor') && promotionPlanner.includes('Required before promotion'), 'candidate entry and promotion planning remain controlled and non-mutating');
 ok(reviewClient.includes('downloadCandidateTemplate') && reviewClient.includes('sentinel_anchor_candidate'), 'review queue can create an offline candidate-evidence template');
 ok(reviewPage.includes('data-filter="candidate"') && reviewClient.includes('hasCandidate') && reviewClient.includes('candidateDetail'), 'recorded candidates are filterable with proposed-anchor deltas and source links');
+ok(evidenceLedger.policy?.candidateMaxAgeDays === 30 && promotionPlanner.includes('sentinel_anchor_promotion_preview') && healthChecks.includes('checkSentinelGovernanceArtifacts'), 'candidate expiry, machine-readable promotion previews, and deployed governance health are enforced');
 console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

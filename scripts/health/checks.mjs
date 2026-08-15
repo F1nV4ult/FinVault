@@ -188,6 +188,33 @@ export async function checkFred(siteUrl) {
 //   Spawns scripts/check-stale-anchors.js --overdue and parses the
 //   "Summary: N of M overdue." line. Alerts when any Sentinel anchor
 //   is past the 90-day refresh window. Procedure: SENTINEL-CALIBRATION.md.
+export async function checkSentinelGovernanceArtifacts(siteUrl) {
+    const paths = ['data/sentinel-governance.json', 'data/sentinel-anchor-evidence.json', 'data/sentinel-anchor-history.json'];
+    let payloads;
+    try {
+        payloads = await Promise.all(paths.map(async path => {
+            const res = await fetchWithTimeout(siteUrl + '/' + path);
+            if (!res.ok) throw new Error(path + ' returned ' + res.status);
+            return res.json();
+        }));
+    } catch (error) { return fail('Sentinel governance artifacts unreachable', error.message); }
+    const [governance, evidence, history] = payloads;
+    const rows = Object.values(governance?.byTicker || {});
+    const maxAge = Number(evidence?.policy?.candidateMaxAgeDays);
+    if (governance?.schemaVersion !== 2 || !rows.length || history?.schemaVersion !== 1 || !Number.isInteger(maxAge)) {
+        return fail('Sentinel governance artifacts have an unsupported contract', 'Expected governance v2, history v1, and a candidate max-age policy.');
+    }
+    const today = new Date().toISOString().slice(0, 10);
+    const age = date => Math.floor((Date.parse(today) - Date.parse(date)) / 86400000);
+    const candidates = Object.entries(evidence.byTicker || {});
+    const stale = candidates.filter(([, record]) => !record?.sourceDate || age(record.sourceDate) > maxAge);
+    const linkageGap = rows.filter(row => !row?.provenance?.history || !['formal_evidence_pending', 'candidate_recorded'].includes(row?.provenance?.evidenceStatus));
+    if (stale.length || linkageGap.length) {
+        return fail('Sentinel governance artifact integrity failed', `stale candidates: ${stale.map(([ticker]) => ticker).join(', ') || 'none'}; linkage gaps: ${linkageGap.length}`);
+    }
+    return ok(`Sentinel governance current: ${rows.length} anchors, ${candidates.length} candidate records`);
+}
+
 export async function checkStaleAnchors() {
     const { spawnSync } = await import('node:child_process');
     const r = spawnSync('node', ['scripts/check-stale-anchors.js', '--overdue'], {

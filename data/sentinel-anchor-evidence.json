@@ -3,6 +3,7 @@
   "ledgerVersion": "sentinel-anchor-evidence-v1",
   "policy": {
     "candidateOnly": true,
+    "candidateMaxAgeDays": 30,
     "productionChangeRequires": [
       "ratingEvidence",
       "spreadEvidence",
