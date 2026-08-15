@@ -168,6 +168,10 @@ unknown issuer, missing agency/instrument/URL, incomplete candidate, or unsuppor
 does not modify the approved anchor; the governance artifact exposes only whether formal evidence
 is pending or a candidate has been recorded.
 
+**Review-packet export:** the queue can download its currently visible rows as a local CSV for
+review hand-off. It contains approved anchors, verification age, evidence state/source links, and
+optional browser-local flags or notes. It never uploads the packet or promotes an anchor.
+
 ---
 
 ## 3. Osiris — the Monte-Carlo simulation engine

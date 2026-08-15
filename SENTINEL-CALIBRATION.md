@@ -132,6 +132,11 @@ recorded candidate remains a candidate until the atomic sign-off checklist is
 completed and the production anchor is deliberately changed in a separate
 reviewed commit.
 
+The review queue can export its visible rows as a local CSV packet, including
+the approved anchor, verification age, evidence-completeness state, candidate
+source URLs, and any browser-local note or flag. Export is a hand-off aid only:
+it neither uploads data nor constitutes approval.
+
 ## Sign-off checklist (per company)
 
 When updating an entry in `COMPANIES`:

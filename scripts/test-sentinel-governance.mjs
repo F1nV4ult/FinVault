@@ -14,5 +14,6 @@ ok(evidenceLedger.schemaVersion === 1 && evidenceLedger.ledgerVersion === 'senti
 ok(rows.every(([, row]) => ['formal_evidence_pending', 'candidate_recorded'].includes(row.provenance?.evidenceStatus)), 'every issuer exposes evidence completeness without changing its approved anchor');
 ok(reviewPage.includes('components/sentinel/anchorReview.min.js') && reviewClient.includes("ns.sentinel.anchor-review.v1"), 'anchor queue is browser-local and ships a minified client');
 ok(reviewClient.includes("NSSnapshots.get('sentinelGovernance')") && reviewClient.includes('material'), 'anchor queue consumes governed anchors and supports local material flags');
+ok(reviewPage.includes('id="ar-export"') && reviewClient.includes('exportReviewPacket') && reviewClient.includes('text/csv'), 'review queue exports a local, visible-filter evidence packet');
 console.log('\n' + (fail === 0 ? '✓ ALL PASS' : '✕ FAILURES') + ` — ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);
