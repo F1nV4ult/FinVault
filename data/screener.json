@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-10",
+ "generated": "2026-08-17",
  "source": "SEC EDGAR XBRL + Yahoo Finance",
  "count": 83,
  "ok": 44,
@@ -1452,8 +1452,8 @@
    "slug": "pbr",
    "reportUrl": "report.html?ticker=PBR",
    "pdfReady": false,
-   "revenue": 488717244000,
-   "revGrowth": -0.0945,
+   "revenue": 89195000000,
+   "revGrowth": -0.1051,
    "netMargin": 0.2201,
    "operatingMargin": 0.3112,
    "roe": 0.2598,
