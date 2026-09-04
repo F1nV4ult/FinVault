@@ -47,8 +47,14 @@ import { isRateLimited, getClientIp } from './_ratelimit.js';
 const SYMBOL_RE = /^[A-Za-z0-9.\-\^]{1,20}$/;
 // YYYY-MM-DD dates for from/to params.
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-const UPSTREAM_TIMEOUT_MS = 8_000;
+// Keep the complete retry budget below the caller-facing health timeout.
+// A long upstream stall used to consume two ~8s attempts; the health client
+// would then abort its own request and report a misleading auth regression.
+// Two bounded attempts still absorb a transient 5xx without holding a Vercel
+// function (or an interactive FinVault request) open for an excessive time.
+const UPSTREAM_TIMEOUT_MS = 6_000;
 const MAX_TRANSIENT_ATTEMPTS = 2;
+const TRANSIENT_RETRY_DELAY_MS = 350;
 
 function isTransientStatus(status) {
     return status === 408 || status === 425 || status === 502 || status === 503 || status === 504;
@@ -71,7 +77,7 @@ async function fetchFinnhub(url) {
         } finally {
             clearTimeout(timer);
         }
-        await new Promise(resolve => setTimeout(resolve, 200 * attempt));
+        await new Promise(resolve => setTimeout(resolve, TRANSIENT_RETRY_DELAY_MS * attempt));
     }
     throw lastError || new Error('upstream request failed');
 }

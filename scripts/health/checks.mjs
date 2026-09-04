@@ -10,7 +10,7 @@
  * what real users actually see. SITE_URL defaults to novasect.space.
  */
 
-const REQUEST_TIMEOUT_MS = 15_000;
+const REQUEST_TIMEOUT_MS = 20_000;
 
 async function fetchWithTimeout(url, init = {}) {
     const ctrl = new AbortController();
@@ -329,11 +329,27 @@ export async function checkFinnhubAuthz(siteUrl) {
             return { symbol, status: 0, ok: false, error: e.message };
         }
     }
-    const usResults = await Promise.all(FINNHUB_SAMPLE_US.map(probe));
-    const intlResults = await Promise.all(FINNHUB_SAMPLE_INTL.map(probe));
+    // Do not fan out six cache-miss requests at one provider at once. Besides
+    // being unnecessarily bursty, a transient Finnhub outage previously made
+    // this probe report "auth regression" after the availability canary had
+    // already identified the real problem. Sequential sampling keeps the
+    // check cheap and lets the CDN cache the immediately preceding canary.
+    const usResults = [];
+    for (const symbol of FINNHUB_SAMPLE_US) usResults.push(await probe(symbol));
+    const intlResults = [];
+    for (const symbol of FINNHUB_SAMPLE_INTL) intlResults.push(await probe(symbol));
 
     const usFails = usResults.filter(r => !r.ok);
     const intlPasses = intlResults.filter(r => r.ok);
+
+    // Availability failures cannot establish anything about authorization.
+    // The Finnhub canary owns that alert; treat this dependent probe as
+    // indeterminate so an outage is reported once, accurately.
+    const availabilityStatuses = new Set([0, 502, 503, 504]);
+    if (usFails.length === usResults.length && usFails.every(r => availabilityStatuses.has(r.status))) {
+        const states = usFails.map(r => r.symbol + ' → ' + (r.status || r.error)).join(', ');
+        return ok('Finnhub authz deferred — upstream unavailable; availability canary owns alert (' + states + ')');
+    }
 
     if (usFails.length > 0) {
         const lines = usFails.map(r => r.symbol + ' → ' + (r.status || r.error));
